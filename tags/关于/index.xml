@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>关于 on XP&#39;s Blog</title>
+    <link>https://xpingbug.github.io/tags/%E5%85%B3%E4%BA%8E/</link>
+    <description>Recent content in 关于 on XP&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 03 Dec 2018 19:40:38 +0100</lastBuildDate>
+    
+	<atom:link href="https://xpingbug.github.io/tags/%E5%85%B3%E4%BA%8E/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>关于</title>
+      <link>https://xpingbug.github.io/post/about/</link>
+      <pubDate>Mon, 03 Dec 2018 19:40:38 +0100</pubDate>
+      
+      <guid>https://xpingbug.github.io/post/about/</guid>
+      <description>会写一些学习记录、生活感悟之类的随笔。
+联系方式首页右下角。
+博主在德国某大学经济工程（信息技术方向）在读，留德华一名。</description>
+    </item>
+    
+  </channel>
+</rss>

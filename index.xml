@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>XP&#39;s Blog</title>
+    <link>https://xpingbug.github.io/</link>
+    <description>Recent content on XP&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 03 Dec 2018 19:58:50 +0100</lastBuildDate>
+    
+	<atom:link href="https://xpingbug.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>博客第一步</title>
+      <link>https://xpingbug.github.io/post/blog_building/</link>
+      <pubDate>Mon, 03 Dec 2018 19:58:50 +0100</pubDate>
+      
+      <guid>https://xpingbug.github.io/post/blog_building/</guid>
+      <description>Hugo是一个用Go编写的静态站点生成器，由于具有丰富的主题资源和惊人的生成速度而备受青睐。博文采用Markdown这一轻量的标记语言编写，速度快，美观。本博客即是基于Hugo搭建，下面讲述一下我的建站历程。
+安装Hugo 如果你是macOS用户，请使用Homebrew快速安装
+brew install hugo  如果你是Windows用户，请使用Chocolatey或者Scoop快速安装，取决于你使用什么包管理
+choco install hugo -confirm scoop install hugo  如果你是Debian或Ubuntu用户，请使用apt快速安装
+sudo apt-get install hugo  基本上使用单行命令都可以成功安装Hugo，具体请移步这里。
+生成第一篇文章 使用如下命令新建一个名为“mysite”的网站：
+hugo new site mysite  接下来，在这里找到一个漂亮的网站主题。主题极其之多，找到一个满意的并不难。本博客采用的是Mainroad主题。如果对主题的配色之类的不满意，可以通过修改style.css这一文件来达到想要的效果。
+以Mainroad为例，将主题clone到本地的themes文件夹内：
+cd themes git clone https://github.com/Vimux/Mainroad.git  mysite/content是用来存放文档的地方，我们在其下建立一个新的Markdown文件：
+hugo new post/first.md  在first.md中写入一些内容，使用如下命令进行本地预览：
+hugo server -t casper -D  打开网址 http://localhost:1313/ 即可查看本地生成的静态网站。
+适配主题 Hugo的每个主题都会有不同的参数配置，而这些配置被存放在根目录下的config.toml文件中，以Mainroad为例，官方的GitHub里已经做了说明：
+baseurl = &amp;quot;/&amp;quot; title = &amp;quot;Mainroad&amp;quot; languageCode = &amp;quot;en-us&amp;quot; paginate = &amp;quot;10&amp;quot; # Number of posts per page theme = &amp;quot;mainroad&amp;quot; disqusShortname = &amp;quot;&amp;quot; # Enable comments by entering your Disqus shortname googleAnalytics = &amp;quot;&amp;quot; # Enable Google Analytics by entering your tracking id [Author] # Used in authorbox name = &amp;quot;John Doe&amp;quot; bio = &amp;quot;John Doe&#39;s true identity is unknown.</description>
+    </item>
+    
+    <item>
+      <title>关于</title>
+      <link>https://xpingbug.github.io/post/about/</link>
+      <pubDate>Mon, 03 Dec 2018 19:40:38 +0100</pubDate>
+      
+      <guid>https://xpingbug.github.io/post/about/</guid>
+      <description>会写一些学习记录、生活感悟之类的随笔。
+联系方式首页右下角。
+博主在德国某大学经济工程（信息技术方向）在读，留德华一名。</description>
+    </item>
+    
+  </channel>
+</rss>
