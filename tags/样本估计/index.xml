@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>样本估计 on XP&#39;s Blog</title>
+    <link>https://xpingbug.github.io/tags/%E6%A0%B7%E6%9C%AC%E4%BC%B0%E8%AE%A1/</link>
+    <description>Recent content in 样本估计 on XP&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 04 Dec 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://xpingbug.github.io/tags/%E6%A0%B7%E6%9C%AC%E4%BC%B0%E8%AE%A1/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>为什么样本方差（sample variance）的分母是 n-1</title>
+      <link>https://xpingbug.github.io/post/sample_variance/</link>
+      <pubDate>Tue, 04 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://xpingbug.github.io/post/sample_variance/</guid>
+      <description>问题 如果一直随机变量X的期望为$\mu$，那么可以如下计算方差$\sigma ^2$ $$ \sigma^2 = E((x - \mu) ^2) $$ 上面的式子需要知道$X$的具体分布是什么，计算起来也比较复杂。而现实中往往连$X$的期望$\mu$也不知道，只知道样本的均值$\overline X$。那么可以这样计算$\sigma^2$的近似： $$ S^2=\frac{1}{n-1} \sum^n_{i=1}(X_i-\overline X)^2 $$ 问题出现了，为什么分母是$n-1$，而不是看起来更正常的$n$？
+解答 我们可以直接计算 $S^2$ 的期望： $$ E(S^2) = E\left[\frac{1}{n} \sum^n_{i=1}(Xi-\overline X)^2\right] \ = E\left[\frac{1}{n} \sum^n{i=1}((Xi - \mu)-(\overline X - \mu))^2\right] \ = E\left[\frac{1}{n} \sum^n{i=1}((Xi - \mu)^2-2(X-\mu)(\overline X-\mu) + (\overline X-\mu) ^2)\right] \ = E\left[\frac{1}{n} \sum^n{i=1}(Xi - \mu)^2-2\frac{1}{n}(\overline X-\mu)\sum^n{i=1}(X-\mu) + \frac{n}{n}(\overline X-\mu) ^2\right] \ = E\left[\frac{1}{n} \sum^n_{i=1}(Xi - \mu)^2-2\frac{1}{n}n(\overline X-\mu) ^2 + (\overline X-\mu) ^2\right] \ = E\left[\frac{1}{n} \sum^n{i=1}(Xi - \mu)^2-(\overline X-\mu) ^2\right] \ = E\left[\frac{1}{n} \sum^n{i=1}(Xi - \mu)^2\right] - E\left[(\overline X-\mu) ^2\right] \ = \sigma^2-\frac{\sigma^2}{n} = \frac{n-1}{n}\sigma^2 $$ 可见如果按正常方法计算得到的$S^2$的期望是和$\sigma^2$有偏差的，为了消除这一偏差，需要对$S^2$乘以$\frac{n}{n-1}$，即： $$ S^2=\frac{n}{n-1} \frac{1}{n} \sum^n{i=1}(Xi-\overline X)^2 \ = \frac{1}{n-1} \sum^n{i=1}(X_i-\overline X)^2 $$ 得到上述的结果。总结一句话，为了消除直接使用样本计算得到的偏差。</description>
+    </item>
+    
+  </channel>
+</rss>

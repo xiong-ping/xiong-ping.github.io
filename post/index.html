@@ -12,7 +12,7 @@
 <meta property="og:description" content="Ping Xiong&#39;s Personal blog about everything" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://xpingbug.github.io/post/" />
-<meta property="og:updated_time" content="2018-12-03T19:58:50&#43;01:00"/>
+<meta property="og:updated_time" content="2018-12-04T00:00:00&#43;00:00"/>
 
 	<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Posts"/>
@@ -57,6 +57,34 @@ if (!doNotTrack) {
 	<header class="main__header">
 		<h1 class="main__title">Posts</h1>
 	</header><article class="list__item post">
+	<figure class="list__thumbnail">
+		<a href="https://xpingbug.github.io/post/sample_variance/">
+			<img src="/img/placeholder.jpg" alt="为什么样本方差（sample variance）的分母是 n-1" />
+		</a>
+	</figure>
+	<header class="list__header">
+		<h3 class="list__title post__title ">
+			<a href="/post/sample_variance/" rel="bookmark">
+			为什么样本方差（sample variance）的分母是 n-1
+			</a>
+		</h3>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+	<time class="meta__text" datetime="2018-12-04T00:00:00">December 04, 2018</time>
+</div>
+
+<div class="meta__item-categories meta__item">
+	<svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
+	<span class="meta__text"><a class="meta__link" href="/categories/%e7%bb%9f%e8%ae%a1" rel="category">统计</a>, <a class="meta__link" href="/categories/%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b0" rel="category">学习笔记</a></span>
+</div>
+</div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		问题 如果一直随机变量X的期望为$\mu$，那么可以如下计算方差$\sigma ^2$ $$ \sigma^2 = E((x - \mu) ^2) $$ 上面的式子需要知道$X$的具体分布是什么，计算起来也比较复杂。而现实中往往连$X$的期望$\mu$也不知道，只知道样本的均值$\overline X$。那么可以这样计算$\sigma^2$的近似： $$ S^2=\frac{1}{n-1} \sum^n_{i=1}(X_i-\overline X)^2 $$ 问题出现了，为什么分母是$n-1$，而不是看起来更正常的$n$？
+解答 我们可以直接计算 $S^2$ 的期望： $$ E(S^2) = E\left[\frac{1}{n} \sum^n_{i=1}(Xi-\overline X)^2\right] \ = E\left[\frac{1}{n} \sum^n{i=1}((Xi - \mu)-(\overline X - \mu))^2\right] \ = E\left[\frac{1}{n} \sum^n{i=1}((Xi - \mu)^2-2(X-\mu)(\overline X-\mu) + (\overline X-\mu) ^2)\right] \ = E\left[\frac{1}{n} \sum^n{i=1}(Xi - \mu)^2-2\frac{1}{n}(\overline X-\mu)\sum^n{i=1}(X-\mu) + \frac{n}{n}(\overline X-\mu) ^2\right] \ = E\left[\frac{1}{n} \sum^n_{i=1}(Xi - \mu)^2-2\frac{1}{n}n(\overline X-\mu) ^2 + (\overline X-\mu) ^2\right] \ = E\left[\frac{1}{n} \sum^n{i=1}(Xi - \mu)^2-(\overline X-\mu) ^2\right] \ = E\left[\frac{1}{n} \sum^n{i=1}(Xi - \mu)^2\right] - E\left[(\overline X-\mu) ^2\right] \ = \sigma^2-\frac{\sigma^2}{n} = \frac{n-1}{n}\sigma^2 $$ 可见如果按正常方法计算得到的$S^2$的期望是和$\sigma^2$有偏差的，为了消除这一偏差，需要对$S^2$乘以$\frac{n}{n-1}$，即： $$ S^2=\frac{n}{n-1} \frac{1}{n} \sum^n{i=1}(Xi-\overline X)^2 \ = \frac{1}{n-1} \sum^n{i=1}(X_i-\overline X)^2 $$ 得到上述的结果。总结一句话，为了消除直接使用样本计算得到的偏差。
+	</div>
+</article><article class="list__item post">
 	<header class="list__header">
 		<h3 class="list__title post__title ">
 			<a href="/post/blog_building/" rel="bookmark">
@@ -132,6 +160,7 @@ baseurl = &quot;/&quot; title = &quot;Mainroad&quot; languageCode = &quot;en-us&
 	<h4 class="widget__title">Recent Posts</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/post/sample_variance/">为什么样本方差（sample variance）的分母是 n-1</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/blog_building/">博客第一步</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/about/">关于</a></li>
 		</ul>
@@ -141,7 +170,9 @@ baseurl = &quot;/&quot; title = &quot;Mainroad&quot; languageCode = &quot;en-us&
 	<h4 class="widget__title">Categories</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/categories/%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b0">学习笔记</a></li>
 			<li class="widget__item"><a class="widget__link" href="/categories/%e6%9d%82%e8%b0%88">杂谈</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e7%bb%9f%e8%ae%a1">统计</a></li>
 			<li class="widget__item"><a class="widget__link" href="/categories/%e7%bd%91%e7%bb%9c">网络</a></li>
 			<li class="widget__item"><a class="widget__link" href="/categories/%e8%ae%a1%e7%ae%97%e6%9c%ba">计算机</a></li>
 		</ul>
@@ -152,6 +183,8 @@ baseurl = &quot;/&quot; title = &quot;Mainroad&quot; languageCode = &quot;en-us&
 	<div class="widget__content">
 		<a class="widget-taglist__link widget__link btn" href="/tags/%e5%85%b3%e4%ba%8e" title="关于">关于</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%e5%8d%9a%e5%ae%a2" title="博客">博客</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e6%96%b9%e5%b7%ae" title="方差">方差</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e6%a0%b7%e6%9c%ac%e4%bc%b0%e8%ae%a1" title="样本估计">样本估计</a>
 	</div>
 </div>
 <div class="widget-social widget">

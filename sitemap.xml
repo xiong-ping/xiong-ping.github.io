@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://xpingbug.github.io/post/sample_variance/</loc>
+    <lastmod>2018-12-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://xpingbug.github.io/post/blog_building/</loc>
     <lastmod>2018-12-03T19:58:50+01:00</lastmod>
   </url>
@@ -19,7 +24,7 @@
   
   <url>
     <loc>https://xpingbug.github.io/post/</loc>
-    <lastmod>2018-12-03T19:58:50+01:00</lastmod>
+    <lastmod>2018-12-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -30,7 +35,7 @@
   
   <url>
     <loc>https://xpingbug.github.io/</loc>
-    <lastmod>2018-12-03T19:58:50+01:00</lastmod>
+    <lastmod>2018-12-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -47,8 +52,32 @@
   </url>
   
   <url>
+    <loc>https://xpingbug.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2018-12-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://xpingbug.github.io/tags/%E6%96%B9%E5%B7%AE/</loc>
+    <lastmod>2018-12-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://xpingbug.github.io/categories/%E6%9D%82%E8%B0%88/</loc>
     <lastmod>2018-12-03T19:58:50+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://xpingbug.github.io/tags/%E6%A0%B7%E6%9C%AC%E4%BC%B0%E8%AE%A1/</loc>
+    <lastmod>2018-12-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://xpingbug.github.io/categories/%E7%BB%9F%E8%AE%A1/</loc>
+    <lastmod>2018-12-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

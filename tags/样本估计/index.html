@@ -4,23 +4,23 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>杂谈</title>
+	<title>样本估计</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="">
 	<meta name="generator" content="Hugo 0.52" />
-	<meta property="og:title" content="杂谈" />
+	<meta property="og:title" content="样本估计" />
 <meta property="og:description" content="Ping Xiong&#39;s Personal blog about everything" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://xpingbug.github.io/categories/%E6%9D%82%E8%B0%88/" />
-<meta property="og:updated_time" content="2018-12-03T19:58:50&#43;01:00"/>
+<meta property="og:url" content="https://xpingbug.github.io/tags/%E6%A0%B7%E6%9C%AC%E4%BC%B0%E8%AE%A1/" />
+<meta property="og:updated_time" content="2018-12-04T00:00:00&#43;00:00"/>
 
 	<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="杂谈"/>
+<meta name="twitter:title" content="样本估计"/>
 <meta name="twitter:description" content="Ping Xiong&#39;s Personal blog about everything"/>
 
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
-	<link rel="alternate" type="application/rss+xml" href="/categories/%E6%9D%82%E8%B0%88/index.xml" title="XP's Blog">
+	<link rel="alternate" type="application/rss+xml" href="/tags/%E6%A0%B7%E6%9C%AC%E4%BC%B0%E8%AE%A1/index.xml" title="XP's Blog">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
 	<link rel="stylesheet" href="/css/style.css">
 	<link rel="shortcut icon" href="/favicon.ico">
@@ -55,44 +55,34 @@ if (!doNotTrack) {
 			
 <main class="main list" role="main">
 	<header class="main__header">
-		<h1 class="main__title">杂谈</h1>
+		<h1 class="main__title">样本估计</h1>
 	</header><article class="list__item post">
+	<figure class="list__thumbnail">
+		<a href="https://xpingbug.github.io/post/sample_variance/">
+			<img src="/img/placeholder.jpg" alt="为什么样本方差（sample variance）的分母是 n-1" />
+		</a>
+	</figure>
 	<header class="list__header">
 		<h3 class="list__title post__title ">
-			<a href="/post/blog_building/" rel="bookmark">
-			博客第一步
+			<a href="/post/sample_variance/" rel="bookmark">
+			为什么样本方差（sample variance）的分母是 n-1
 			</a>
 		</h3>
-		<p class="list__lead post__lead">基于Hugo的博客搭建小记</p>
 		<div class="list__meta meta">
 <div class="meta__item-datetime meta__item">
 	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
-	<time class="meta__text" datetime="2018-12-03T19:58:50">December 03, 2018</time>
+	<time class="meta__text" datetime="2018-12-04T00:00:00">December 04, 2018</time>
 </div>
 
 <div class="meta__item-categories meta__item">
 	<svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
-	<span class="meta__text"><a class="meta__link" href="/categories/%e6%9d%82%e8%b0%88" rel="category">杂谈</a>, <a class="meta__link" href="/categories/%e8%ae%a1%e7%ae%97%e6%9c%ba" rel="category">计算机</a>, <a class="meta__link" href="/categories/%e7%bd%91%e7%bb%9c" rel="category">网络</a></span>
+	<span class="meta__text"><a class="meta__link" href="/categories/%e7%bb%9f%e8%ae%a1" rel="category">统计</a>, <a class="meta__link" href="/categories/%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b0" rel="category">学习笔记</a></span>
 </div>
 </div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		Hugo是一个用Go编写的静态站点生成器，由于具有丰富的主题资源和惊人的生成速度而备受青睐。博文采用Markdown这一轻量的标记语言编写，速度快，美观。本博客即是基于Hugo搭建，下面讲述一下我的建站历程。
-安装Hugo 如果你是macOS用户，请使用Homebrew快速安装
-brew install hugo  如果你是Windows用户，请使用Chocolatey或者Scoop快速安装，取决于你使用什么包管理
-choco install hugo -confirm scoop install hugo  如果你是Debian或Ubuntu用户，请使用apt快速安装
-sudo apt-get install hugo  基本上使用单行命令都可以成功安装Hugo，具体请移步这里。
-生成第一篇文章 使用如下命令新建一个名为“mysite”的网站：
-hugo new site mysite  接下来，在这里找到一个漂亮的网站主题。主题极其之多，找到一个满意的并不难。本博客采用的是Mainroad主题。如果对主题的配色之类的不满意，可以通过修改style.css这一文件来达到想要的效果。
-以Mainroad为例，将主题clone到本地的themes文件夹内：
-cd themes git clone https://github.com/Vimux/Mainroad.git  mysite/content是用来存放文档的地方，我们在其下建立一个新的Markdown文件：
-hugo new post/first.md  在first.md中写入一些内容，使用如下命令进行本地预览：
-hugo server -t casper -D  打开网址 http://localhost:1313/ 即可查看本地生成的静态网站。
-适配主题 Hugo的每个主题都会有不同的参数配置，而这些配置被存放在根目录下的config.toml文件中，以Mainroad为例，官方的GitHub里已经做了说明：
-baseurl = &quot;/&quot; title = &quot;Mainroad&quot; languageCode = &quot;en-us&quot; paginate = &quot;10&quot; # Number of posts per page theme = &quot;mainroad&quot; disqusShortname = &quot;&quot; # Enable comments by entering your Disqus shortname googleAnalytics = &quot;&quot; # Enable Google Analytics by entering your tracking id [Author] # Used in authorbox name = &quot;John Doe&quot; bio = &quot;John Doe's true identity is unknown.
-	</div>
-	<div class="list__footer clearfix">
-		<a class="list__footer-readmore btn" href="/post/blog_building/">Read more…</a>
+		问题 如果一直随机变量X的期望为$\mu$，那么可以如下计算方差$\sigma ^2$ $$ \sigma^2 = E((x - \mu) ^2) $$ 上面的式子需要知道$X$的具体分布是什么，计算起来也比较复杂。而现实中往往连$X$的期望$\mu$也不知道，只知道样本的均值$\overline X$。那么可以这样计算$\sigma^2$的近似： $$ S^2=\frac{1}{n-1} \sum^n_{i=1}(X_i-\overline X)^2 $$ 问题出现了，为什么分母是$n-1$，而不是看起来更正常的$n$？
+解答 我们可以直接计算 $S^2$ 的期望： $$ E(S^2) = E\left[\frac{1}{n} \sum^n_{i=1}(Xi-\overline X)^2\right] \ = E\left[\frac{1}{n} \sum^n{i=1}((Xi - \mu)-(\overline X - \mu))^2\right] \ = E\left[\frac{1}{n} \sum^n{i=1}((Xi - \mu)^2-2(X-\mu)(\overline X-\mu) + (\overline X-\mu) ^2)\right] \ = E\left[\frac{1}{n} \sum^n{i=1}(Xi - \mu)^2-2\frac{1}{n}(\overline X-\mu)\sum^n{i=1}(X-\mu) + \frac{n}{n}(\overline X-\mu) ^2\right] \ = E\left[\frac{1}{n} \sum^n_{i=1}(Xi - \mu)^2-2\frac{1}{n}n(\overline X-\mu) ^2 + (\overline X-\mu) ^2\right] \ = E\left[\frac{1}{n} \sum^n{i=1}(Xi - \mu)^2-(\overline X-\mu) ^2\right] \ = E\left[\frac{1}{n} \sum^n{i=1}(Xi - \mu)^2\right] - E\left[(\overline X-\mu) ^2\right] \ = \sigma^2-\frac{\sigma^2}{n} = \frac{n-1}{n}\sigma^2 $$ 可见如果按正常方法计算得到的$S^2$的期望是和$\sigma^2$有偏差的，为了消除这一偏差，需要对$S^2$乘以$\frac{n}{n-1}$，即： $$ S^2=\frac{n}{n-1} \frac{1}{n} \sum^n{i=1}(Xi-\overline X)^2 \ = \frac{1}{n-1} \sum^n{i=1}(X_i-\overline X)^2 $$ 得到上述的结果。总结一句话，为了消除直接使用样本计算得到的偏差。
 	</div>
 </article>
 </main>
