@@ -4,15 +4,20 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Html</title>
+	<title>在Hugo博客中加入代码高亮</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="">
 	<meta name="generator" content="Hugo 0.52" />
-	<meta property="og:title" content="Html" />
-<meta property="og:description" content="Ping Xiong&#39;s Personal blog about everything" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://xpingbug.github.io/tags/html/" />
-<meta property="og:updated_time" content="2018-12-05T17:42:53&#43;01:00"/>
+	<meta property="og:title" content="在Hugo博客中加入代码高亮" />
+<meta property="og:description" content="相信自己搭建博客的人中有一大半都是玩代码的，所以代码高亮可以说是博客的必备功能。本文提供一个在基于Hugo的博客上使用highligh.js的代码高亮方案。
+实施步骤  在highligh.js的官方网站上复制HTML的link和script标签。例如：  &lt;link rel=&quot;stylesheet&quot; href=&quot;//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css&quot;&gt; &lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js&quot;&gt;&lt;/script&gt;   打开themes/yourtheme/layouts/_default目录，打开baseof.html，（可能对不同主题文件和路径会有不同，如果找不到可以试试查找head.html或header.html。这个html文件是网页的head部分的模板。在合适的地方粘贴第一步中的代码。
+ 大功告成。
+  使用 用&#96;&#96;&#96;包裹代码块，保险起见，在&#96;&#96;&#96;后加上语言名字。例如（不包括方括号内）：
+[START HERE] ```c int hash(char * str, int length) { // hash function int hash = 0; for (int i = 0; i &lt; length; i&#43;&#43;) { hash = ((hash &#43; str[i]) * 31) % MAX_ID; // maximum of ID? } return hash; } ```[END HERE]  显示效果如下：
+int hash(char * str, int length) { // hash function int hash = 0; for (int i = 0; i &lt; length; i&#43;&#43;) { hash = ((hash &#43; str[i]) * 31) % MAX_ID; // maximum of ID?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xpingbug.github.io/post/hugo_add_highlight/" /><meta property="article:published_time" content="2018-12-05T19:31:24&#43;01:00"/>
+<meta property="article:modified_time" content="2018-12-05T19:31:24&#43;01:00"/>
 
 	
 	<link rel="stylesheet" href="/css/highlight.css">
@@ -20,7 +25,6 @@
 	<script>hljs.initHighlightingOnLoad();</script>
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
-	<link rel="alternate" type="application/rss+xml" href="/tags/html/index.xml" title="XP's Blog">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
 	<link rel="stylesheet" href="/css/style.css">
 	<link rel="shortcut icon" href="/favicon.ico">
@@ -53,20 +57,14 @@ if (!doNotTrack) {
 		<div class="wrapper flex">
 			<div class="primary">
 			
-<main class="main list" role="main">
-	<header class="main__header">
-		<h1 class="main__title">Html</h1>
-	</header><article class="list__item post">
-	<header class="list__header">
-		<h3 class="list__title post__title ">
-			<a href="/post/md_display_img_parallel/" rel="bookmark">
-			Markdown里图片并列显示
-			</a>
-		</h3>
-		<div class="list__meta meta">
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">在Hugo博客中加入代码高亮</h1>
+			<div class="post__meta meta">
 <div class="meta__item-datetime meta__item">
 	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
-	<time class="meta__text" datetime="2018-12-05T17:42:53">December 05, 2018</time>
+	<time class="meta__text" datetime="2018-12-05T19:31:24">December 05, 2018</time>
 </div>
 
 <div class="meta__item-categories meta__item">
@@ -74,21 +72,89 @@ if (!doNotTrack) {
 	<span class="meta__text"><a class="meta__link" href="/categories/%e8%ae%a1%e7%ae%97%e6%9c%ba" rel="category">计算机</a></span>
 </div>
 </div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		 在编辑博文的时候，有时会想把两张图片并列在一起显示，参考了网上内容，分享一下。
-首先记住一点，在markdown里是可以直接写html代码的。这个前提下很自然的有下面的方法：
-调整图片宽度/高度： &lt;img src=&quot;http://xxx.jpg&quot; title=&quot;xxx&quot; width=&quot;100&quot; height=&quot;100&quot;/&gt;  宽度是 width，高度是 height，title 为图片描述。
-单张居中显示： &lt;center&gt; &lt;img src=&quot;http://example.com/xxx.png&quot;&gt; &lt;/center&gt;  或者：
-&lt;figure&gt; &lt;img src=&quot;http://xxx.jpg&quot;&gt; &lt;/figure&gt;  两张并排显示： &lt;figure class=&quot;half&quot;&gt; &lt;img src=&quot;http://xxx.jpg&quot;&gt; &lt;img src=&quot;http://xxx.jpg&quot;&gt; &lt;/figure&gt;  三张并排显示： &lt;figure class=&quot;third&quot;&gt; &lt;img src=&quot;http://xxx.jpg&quot;&gt; &lt;img src=&quot;http://xxx.jpg&quot;&gt; &lt;img src=&quot;http://xxx.jpg&quot;&gt; &lt;/figure&gt;  
-	</div>
-</article>
+		</header><div class="content post__content clearfix">
+			
+
+<p>相信自己搭建博客的人中有一大半都是玩代码的，所以代码高亮可以说是博客的必备功能。本文提供一个在基于Hugo的博客上使用<code>highligh.js</code>的代码高亮方案。</p>
+
+<h2 id="实施步骤">实施步骤</h2>
+
+<ol>
+<li>在<a href="https://highlightjs.org/download/">highligh.js的官方网站</a>上复制HTML的<code>link</code>和<code>script</code>标签。例如：</li>
+</ol>
+
+<pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css&quot;&gt;
+&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+
+<ol>
+<li><p>打开<code>themes/yourtheme/layouts/_default</code>目录，打开<code>baseof.html</code>，（可能对不同主题文件和路径会有不同，如果找不到可以试试查找<code>head.html</code>或<code>header.html</code>。这个html文件是网页的head部分的模板。在合适的地方粘贴第一步中的代码。</p></li>
+
+<li><p>大功告成。</p></li>
+</ol>
+
+<h2 id="使用">使用</h2>
+
+<p>用<code>&#96;&#96;&#96;</code>包裹代码块，保险起见，在<code>&#96;&#96;&#96;</code>后加上语言名字。例如（不包括方括号内）：</p>
+
+<pre><code class="language-plaintext">[START HERE]
+```c
+int hash(char * str, int length) { // hash function
+    int hash = 0;
+    for (int i = 0; i &lt; length; i++) {
+        hash = ((hash + str[i]) * 31) % MAX_ID; // maximum of ID?
+    }
+    return hash;
+}
+```[END HERE]
+</code></pre>
+
+<p>显示效果如下：</p>
+
+<pre><code class="language-c">int hash(char * str, int length) { // hash function
+    int hash = 0;
+    for (int i = 0; i &lt; length; i++) {
+        hash = ((hash + str[i]) * 31) % MAX_ID; // maximum of ID?
+    }
+    return hash;
+}
+</code></pre>
+
+<h2 id="注意事项">注意事项</h2>
+
+<ol>
+<li><p>如果要使用的语言很生僻，链接内的js和css可能无法满足需求，可以添加新的script，比如：<code>https://cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js</code>。或者在<a href="https://highlightjs.org/download/">highligh.js的官方网站</a>上自定义并下载下来，用本地引用。</p></li>
+
+<li><p>如果需要修改颜色、背景色等样式，可以把css下载下来，修改后本地引用。修改后的css放在<code>themes/yourtheme/static/css</code>里，用<code>href=&quot;/css/highlight.css&quot;</code>引用。<strong>强烈建议</strong>在css里把背景色去除。</p></li>
+</ol>
+
+		</div>
+		
+<div class="post__tags tags clearfix">
+	<svg class="icon icon-tag" width="16" height="16" viewBox="0 0 16 16"><path d="M16 9.5c0 .373-.24.74-.5 1l-5 5c-.275.26-.634.5-1 .5-.373 0-.74-.24-1-.5L1 8a2.853 2.853 0 0 1-.7-1C.113 6.55 0 5.973 0 5.6V1.4C0 1.034.134.669.401.401.67.134 1.034 0 1.4 0h4.2c.373 0 .95.113 1.4.3.45.187.732.432 1 .7l7.5 7.502c.26.274.5.632.5.998zM3.5 5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item"><a class="tags__link btn" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li>
+	</ul>
+</div>
+	</article>
 </main>
+
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="XIONG Ping avatar" src="/img/head.jpg" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		<span class="authorbox__name">About XIONG Ping</span>
+	</div>
+	<div class="authorbox__description">
+		Student, studing Wirtschaftsingenieurwesen/Industrial Engineering in Germany.
+	</div>
+</div>
+
 
 
 			</div>
-			
-<aside class="sidebar"><div class="widget-search widget">
+			<aside class="sidebar"><div class="widget-search widget">
 	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
 		<label>
 			<input class="widget-search__field" type="search" placeholder="SEARCH..." value="" name="q" aria-label="SEARCH...">

@@ -6,10 +6,24 @@
     <description>Recent content in 博客 on XP&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 05 Dec 2018 17:42:53 +0100</lastBuildDate>
+    <lastBuildDate>Wed, 05 Dec 2018 19:31:24 +0100</lastBuildDate>
     
 	<atom:link href="https://xpingbug.github.io/tags/%E5%8D%9A%E5%AE%A2/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>在Hugo博客中加入代码高亮</title>
+      <link>https://xpingbug.github.io/post/hugo_add_highlight/</link>
+      <pubDate>Wed, 05 Dec 2018 19:31:24 +0100</pubDate>
+      
+      <guid>https://xpingbug.github.io/post/hugo_add_highlight/</guid>
+      <description>相信自己搭建博客的人中有一大半都是玩代码的，所以代码高亮可以说是博客的必备功能。本文提供一个在基于Hugo的博客上使用highligh.js的代码高亮方案。
+实施步骤  在highligh.js的官方网站上复制HTML的link和script标签。例如：  &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css&amp;quot;&amp;gt; &amp;lt;script src=&amp;quot;//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;   打开themes/yourtheme/layouts/_default目录，打开baseof.html，（可能对不同主题文件和路径会有不同，如果找不到可以试试查找head.html或header.html。这个html文件是网页的head部分的模板。在合适的地方粘贴第一步中的代码。
+ 大功告成。
+  使用 用&amp;#96;&amp;#96;&amp;#96;包裹代码块，保险起见，在&amp;#96;&amp;#96;&amp;#96;后加上语言名字。例如（不包括方括号内）：
+[START HERE] ```c int hash(char * str, int length) { // hash function int hash = 0; for (int i = 0; i &amp;lt; length; i++) { hash = ((hash + str[i]) * 31) % MAX_ID; // maximum of ID? } return hash; } ```[END HERE]  显示效果如下：
+int hash(char * str, int length) { // hash function int hash = 0; for (int i = 0; i &amp;lt; length; i++) { hash = ((hash + str[i]) * 31) % MAX_ID; // maximum of ID?</description>
+    </item>
     
     <item>
       <title>Markdown里图片并列显示</title>

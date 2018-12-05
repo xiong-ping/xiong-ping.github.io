@@ -12,9 +12,12 @@
 <meta property="og:description" content="Ping Xiong&#39;s Personal blog about everything" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://xpingbug.github.io/tags/%E5%8D%9A%E5%AE%A2/" />
-<meta property="og:updated_time" content="2018-12-05T17:42:53&#43;01:00"/>
+<meta property="og:updated_time" content="2018-12-05T19:31:24&#43;01:00"/>
 
 	
+	<link rel="stylesheet" href="/css/highlight.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
 	<link rel="alternate" type="application/rss+xml" href="/tags/%E5%8D%9A%E5%AE%A2/index.xml" title="XP's Blog">
@@ -54,6 +57,36 @@ if (!doNotTrack) {
 	<header class="main__header">
 		<h1 class="main__title">博客</h1>
 	</header><article class="list__item post">
+	<header class="list__header">
+		<h3 class="list__title post__title ">
+			<a href="/post/hugo_add_highlight/" rel="bookmark">
+			在Hugo博客中加入代码高亮
+			</a>
+		</h3>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+	<time class="meta__text" datetime="2018-12-05T19:31:24">December 05, 2018</time>
+</div>
+
+<div class="meta__item-categories meta__item">
+	<svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
+	<span class="meta__text"><a class="meta__link" href="/categories/%e8%ae%a1%e7%ae%97%e6%9c%ba" rel="category">计算机</a></span>
+</div>
+</div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		相信自己搭建博客的人中有一大半都是玩代码的，所以代码高亮可以说是博客的必备功能。本文提供一个在基于Hugo的博客上使用highligh.js的代码高亮方案。
+实施步骤  在highligh.js的官方网站上复制HTML的link和script标签。例如：  &lt;link rel=&quot;stylesheet&quot; href=&quot;//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css&quot;&gt; &lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js&quot;&gt;&lt;/script&gt;   打开themes/yourtheme/layouts/_default目录，打开baseof.html，（可能对不同主题文件和路径会有不同，如果找不到可以试试查找head.html或header.html。这个html文件是网页的head部分的模板。在合适的地方粘贴第一步中的代码。
+ 大功告成。
+  使用 用&#96;&#96;&#96;包裹代码块，保险起见，在&#96;&#96;&#96;后加上语言名字。例如（不包括方括号内）：
+[START HERE] ```c int hash(char * str, int length) { // hash function int hash = 0; for (int i = 0; i &lt; length; i++) { hash = ((hash + str[i]) * 31) % MAX_ID; // maximum of ID? } return hash; } ```[END HERE]  显示效果如下：
+int hash(char * str, int length) { // hash function int hash = 0; for (int i = 0; i &lt; length; i++) { hash = ((hash + str[i]) * 31) % MAX_ID; // maximum of ID?
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/post/hugo_add_highlight/">Read more…</a>
+	</div>
+</article><article class="list__item post">
 	<header class="list__header">
 		<h3 class="list__title post__title ">
 			<a href="/post/md_display_img_parallel/" rel="bookmark">
@@ -195,6 +228,7 @@ baseurl = &quot;/&quot; title = &quot;Mainroad&quot; languageCode = &quot;en-us&
 	<h4 class="widget__title">Recent Posts</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/post/hugo_add_highlight/">在Hugo博客中加入代码高亮</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/md_display_img_parallel/">Markdown里图片并列显示</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/hugo_wp/">Hugo和WordPress比较</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/tips_hugo/">使用Hugo的一些注意事项</a></li>
@@ -246,7 +280,7 @@ baseurl = &quot;/&quot; title = &quot;Mainroad&quot; languageCode = &quot;en-us&
 	<a class="footer__link" href="/post/about/">关于</a>
 </div>
 		<div class="footer__copyright">
-			&copy; 2018 XP. All rights reserved. 禁止转载。.
+			&copy; 2018 XP. All rights reserved. 禁止转载.
 			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
 		</div>
 	</div>
