@@ -3,6 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://xpingbug.github.io/post/md_display_img_parallel/</loc>
+    <lastmod>2018-12-05T17:42:53+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://xpingbug.github.io/post/hugo_wp/</loc>
+    <lastmod>2018-12-05T17:38:52+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://xpingbug.github.io/post/tips_hugo/</loc>
+    <lastmod>2018-12-05T16:32:54+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://xpingbug.github.io/post/blog_building/</loc>
     <lastmod>2018-12-03T19:58:50+01:00</lastmod>
   </url>
@@ -18,19 +33,26 @@
   </url>
   
   <url>
+    <loc>https://xpingbug.github.io/tags/html/</loc>
+    <lastmod>2018-12-05T17:42:53+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://xpingbug.github.io/post/</loc>
-    <lastmod>2018-12-03T19:58:50+01:00</lastmod>
+    <lastmod>2018-12-05T17:42:53+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://xpingbug.github.io/tags/</loc>
+    <lastmod>2018-12-05T17:42:53+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://xpingbug.github.io/</loc>
-    <lastmod>2018-12-03T19:58:50+01:00</lastmod>
+    <lastmod>2018-12-05T17:42:53+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -42,25 +64,25 @@
   
   <url>
     <loc>https://xpingbug.github.io/tags/%E5%8D%9A%E5%AE%A2/</loc>
-    <lastmod>2018-12-03T19:58:50+01:00</lastmod>
+    <lastmod>2018-12-05T17:42:53+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://xpingbug.github.io/categories/%E6%9D%82%E8%B0%88/</loc>
-    <lastmod>2018-12-03T19:58:50+01:00</lastmod>
+    <lastmod>2018-12-05T17:38:52+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://xpingbug.github.io/categories/%E7%BD%91%E7%BB%9C/</loc>
-    <lastmod>2018-12-03T19:58:50+01:00</lastmod>
+    <lastmod>2018-12-05T17:38:52+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://xpingbug.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/</loc>
-    <lastmod>2018-12-03T19:58:50+01:00</lastmod>
+    <lastmod>2018-12-05T17:42:53+01:00</lastmod>
     <priority>0</priority>
   </url>
   

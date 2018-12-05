@@ -6,10 +6,43 @@
     <description>Recent content in 杂谈 on XP&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 03 Dec 2018 19:58:50 +0100</lastBuildDate>
+    <lastBuildDate>Wed, 05 Dec 2018 17:38:52 +0100</lastBuildDate>
     
 	<atom:link href="https://xpingbug.github.io/categories/%E6%9D%82%E8%B0%88/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Hugo和WordPress比较</title>
+      <link>https://xpingbug.github.io/post/hugo_wp/</link>
+      <pubDate>Wed, 05 Dec 2018 17:38:52 +0100</pubDate>
+      
+      <guid>https://xpingbug.github.io/post/hugo_wp/</guid>
+      <description>对比以前搭建WordPress博客的经历，Hugo有这样的一些不同：
+ Hugo生成的是静态页面，所以没有内置的评论、搜索、登陆等等一系列的需要后台的功能。
+ 没有WordPress上那么多五花八门的插件。
+ 虽然支持MathJax，但数学公式的编辑上还是有些力不从心。
+ 主题偏少，但足够。
+ 使用起来有些门槛，比如必须会markdown，最好有一点HTML、 CSS的知识。但比起WordPress，学习起来快很多。
+ 备份起来比WordPress简单（？），WordPress得用插件。
+ 管理简单，因为只有基本的功能。
+  所以如果要搭建个人博客，Hugo十分足够。如果是喜欢图形化的编辑，喜欢尝试各种各样的主题插件（喜新厌旧），需要能方便的互动的，推荐WordPress。如果搭建组织网站，比如社团网站，需要多人、多层管理维护的，上WordPress，不用考虑Hugo了。</description>
+    </item>
+    
+    <item>
+      <title>使用Hugo的一些注意事项</title>
+      <link>https://xpingbug.github.io/post/tips_hugo/</link>
+      <pubDate>Wed, 05 Dec 2018 16:32:54 +0100</pubDate>
+      
+      <guid>https://xpingbug.github.io/post/tips_hugo/</guid>
+      <description>如何插入本地图片？ 一直不知道怎样插入本地图片，查找后得知，在site目录下的static目录就是存放静态文件的地方，可以在下面创建一个media目录，用于保存图片等媒体文件，引用的话，使用/media/123.png即可。
+注意：不要使用大写的后缀名，如123.PNG，生成的静态页面引用的是小写后缀，会出现找不到文件。
+搜索引擎无法搜索到博客内容。 这是因为搜索引擎还没有收录我们的URL，可以在搜索引擎提交一下自己的网址，比如谷歌，并过一段时间再试。
+Hugo不支持站内搜索和内置评论。 这是因为Hugo生成的是静态网站，没有服务器后台，没有数据库，所以当然不能搜索和评论啦。如果你的网站被搜索引擎收录了，可以使用搜索引擎的限制搜索，比如serchword site:https://yoursite.com/，有的主题提供搜索框工具，基本也是靠这种方法。评论可以使用外置的评论系统，比如Discus。
+Git push的时候会发生冲突。 可能是在GitHub上配置自定义页面的时候（我就是在这时遇到的），repository里创建了新的文件（我碰到的是CNAME文件）而本地没有。解决方法是先pull再push。
+Hugo报错。 肯定是在配置文件或者是文章头部配置有问题，具体查看报错信息进行修改即可，Hugo的报错做的不错，很好理解。
+访问的时候浏览器提示“不安全”。 这是因为没有启用HTTPS，如果是托管在GitHub上的话可以使用GitHub提供的HTTPS福利。开启步骤如下：
+ 找到处于不可选状态的Enforce HTTPS选项，旁边会提示 Unavailable for your site because your domain is not properly configured to support HTTPS 。 将填在Custom domain里的自定义域名清空，保存，然后重新填上自定义域名，再保存。 现在可以勾选Enforce HTTPS选项了，这时会提示正在签发证书: Not yet available for your site because the certificate has not finished being issued 。 证书签发成功后，可以使用 https 链接访问自定义域名了。  DNS配置完成后，还不能访问页面，或者有的设备可以访问，而有的不行。 这是因为DNS需要一定时间传播，等待一段时间就好了。有兴趣可以阅读一下DNS的维基百科。</description>
+    </item>
     
     <item>
       <title>博客第一步</title>
