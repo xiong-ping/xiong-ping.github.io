@@ -146,7 +146,7 @@ hugo new site mysite  接下来，在这里找到一个漂亮的网站主题。�
 以Mainroad为例，将主题clone到本地的themes文件夹内：
 cd themes git clone https://github.com/Vimux/Mainroad.git  mysite/content是用来存放文档的地方，我们在其下建立一个新的Markdown文件：
 hugo new post/first.md  在first.md中写入一些内容，使用如下命令进行本地预览：
-hugo server -t casper -D  打开网址 http://localhost:1313/ 即可查看本地生成的静态网站。
+hugo server -t mainroad -D  打开网址 http://localhost:1313/ 即可查看本地生成的静态网站。
 适配主题 Hugo的每个主题都会有不同的参数配置，而这些配置被存放在根目录下的config.toml文件中，以Mainroad为例，官方的GitHub里已经做了说明：
 baseurl = &quot;/&quot; title = &quot;Mainroad&quot; languageCode = &quot;en-us&quot; paginate = &quot;10&quot; # Number of posts per page theme = &quot;mainroad&quot; disqusShortname = &quot;&quot; # Enable comments by entering your Disqus shortname googleAnalytics = &quot;&quot; # Enable Google Analytics by entering your tracking id [Author] # Used in authorbox name = &quot;John Doe&quot; bio = &quot;John Doe's true identity is unknown.
 	</div>

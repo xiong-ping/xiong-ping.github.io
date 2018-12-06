@@ -87,7 +87,7 @@ hugo new site mysite  接下来，在这里找到一个漂亮的网站主题。�
 以Mainroad为例，将主题clone到本地的themes文件夹内：
 cd themes git clone https://github.com/Vimux/Mainroad.git  mysite/content是用来存放文档的地方，我们在其下建立一个新的Markdown文件：
 hugo new post/first.md  在first.md中写入一些内容，使用如下命令进行本地预览：
-hugo server -t casper -D  打开网址 http://localhost:1313/ 即可查看本地生成的静态网站。
+hugo server -t mainroad -D  打开网址 http://localhost:1313/ 即可查看本地生成的静态网站。
 适配主题 Hugo的每个主题都会有不同的参数配置，而这些配置被存放在根目录下的config.toml文件中，以Mainroad为例，官方的GitHub里已经做了说明：
 baseurl = &amp;quot;/&amp;quot; title = &amp;quot;Mainroad&amp;quot; languageCode = &amp;quot;en-us&amp;quot; paginate = &amp;quot;10&amp;quot; # Number of posts per page theme = &amp;quot;mainroad&amp;quot; disqusShortname = &amp;quot;&amp;quot; # Enable comments by entering your Disqus shortname googleAnalytics = &amp;quot;&amp;quot; # Enable Google Analytics by entering your tracking id [Author] # Used in authorbox name = &amp;quot;John Doe&amp;quot; bio = &amp;quot;John Doe&#39;s true identity is unknown.</description>
     </item>
@@ -98,9 +98,8 @@ baseurl = &amp;quot;/&amp;quot; title = &amp;quot;Mainroad&amp;quot; languageCod
       <pubDate>Mon, 03 Dec 2018 19:40:38 +0100</pubDate>
       
       <guid>https://xpingbug.github.io/post/about/</guid>
-      <description>会写一些学习记录、生活感悟之类的随笔。
-联系方式在右边Social。
-博主留德华一名，在德国某大学读经济工程（信息技术方向）。</description>
+      <description>会在这里写一些学习记录、生活感悟之类的随笔。主要会涉及计算机、经济和统计学。
+博主留德华一名，在德国学习经济工程（信息技术方向）。欢迎通过Telegram或我的邮箱xiong.ping.xp@qq.com联系我。</description>
     </item>
     
   </channel>
