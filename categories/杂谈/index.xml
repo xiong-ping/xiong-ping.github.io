@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>杂谈 on XP&#39;s Blog</title>
-    <link>https://xpingbug.github.io/categories/%E6%9D%82%E8%B0%88/</link>
+    <link>https://blog.xpcl.xyz/categories/%E6%9D%82%E8%B0%88/</link>
     <description>Recent content in 杂谈 on XP&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <lastBuildDate>Wed, 05 Dec 2018 17:38:52 +0100</lastBuildDate>
     
-	<atom:link href="https://xpingbug.github.io/categories/%E6%9D%82%E8%B0%88/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.xpcl.xyz/categories/%E6%9D%82%E8%B0%88/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Hugo和WordPress比较</title>
-      <link>https://xpingbug.github.io/post/hugo_wp/</link>
+      <link>https://blog.xpcl.xyz/post/hugo_wp/</link>
       <pubDate>Wed, 05 Dec 2018 17:38:52 +0100</pubDate>
       
-      <guid>https://xpingbug.github.io/post/hugo_wp/</guid>
+      <guid>https://blog.xpcl.xyz/post/hugo_wp/</guid>
       <description>对比以前搭建WordPress博客的经历，Hugo有这样的一些不同：
  Hugo生成的是静态页面，所以没有内置的评论、搜索、登陆等等一系列的需要后台的功能。
  没有WordPress上那么多五花八门的插件。
@@ -29,10 +29,10 @@
     
     <item>
       <title>使用Hugo的一些注意事项</title>
-      <link>https://xpingbug.github.io/post/tips_hugo/</link>
+      <link>https://blog.xpcl.xyz/post/tips_hugo/</link>
       <pubDate>Wed, 05 Dec 2018 16:32:54 +0100</pubDate>
       
-      <guid>https://xpingbug.github.io/post/tips_hugo/</guid>
+      <guid>https://blog.xpcl.xyz/post/tips_hugo/</guid>
       <description>一些在使用Hugo时发现的小技巧或问题及解决方法，会持续更新。
 如何插入本地图片？ 一直不知道怎样插入本地图片，查找后得知，在site目录下的static目录就是存放静态文件的地方，可以在下面创建一个media目录，用于保存图片等媒体文件，引用的话，使用/media/123.png即可。
 注意：不要使用大写的后缀名，如123.PNG，生成的静态页面引用的是小写后缀，会出现找不到文件。
@@ -47,10 +47,10 @@ Hugo报错。 肯定是在配置文件或者是文章头部配置有问题，具
     
     <item>
       <title>博客第一步</title>
-      <link>https://xpingbug.github.io/post/blog_building/</link>
+      <link>https://blog.xpcl.xyz/post/blog_building/</link>
       <pubDate>Mon, 03 Dec 2018 19:58:50 +0100</pubDate>
       
-      <guid>https://xpingbug.github.io/post/blog_building/</guid>
+      <guid>https://blog.xpcl.xyz/post/blog_building/</guid>
       <description>Hugo是一个用Go编写的静态站点生成器，由于具有丰富的主题资源和惊人的生成速度而备受青睐。博文采用Markdown这一轻量的标记语言编写，速度快，美观。本博客即是基于Hugo搭建，下面讲述一下我的建站历程。
 安装Hugo 如果你是macOS用户，请使用Homebrew快速安装
 brew install hugo  如果你是Windows用户，请使用Chocolatey或者Scoop快速安装，取决于你使用什么包管理
