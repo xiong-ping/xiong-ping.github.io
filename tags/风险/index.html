@@ -4,15 +4,15 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>XP&#39;s Blog</title>
+	<title>风险</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
-	<meta name="description" content="Ping Xiong&#39;s Personal blog about everything">
+	<meta name="description" content="">
 	<meta name="generator" content="Hugo 0.52" />
-	<meta property="og:title" content="XP&#39;s Blog" />
+	<meta property="og:title" content="风险" />
 <meta property="og:description" content="Ping Xiong&#39;s Personal blog about everything" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://xpingbug.github.io/" />
-<meta property="og:updated_time" content="2018-12-03T19:58:50&#43;01:00"/>
+<meta property="og:url" content="https://xpingbug.github.io/tags/%E9%A3%8E%E9%99%A9/" />
+<meta property="og:updated_time" content="2018-12-07T21:48:39&#43;01:00"/>
 
 	
 	<link rel="stylesheet" href="/css/highlight.css">
@@ -20,7 +20,7 @@
 	<script>hljs.initHighlightingOnLoad();</script>
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
-	<link rel="alternate" type="application/rss+xml" href="/index.xml" title="XP's Blog">
+	<link rel="alternate" type="application/rss+xml" href="/tags/%E9%A3%8E%E9%99%A9/index.xml" title="XP's Blog">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
 	<link rel="stylesheet" href="/css/style.css">
 	<link rel="shortcut icon" href="/favicon.ico">
@@ -53,73 +53,63 @@ if (!doNotTrack) {
 		<div class="wrapper flex">
 			<div class="primary">
 			
-<main class="main list" role="main"><article class="list__item post">
+<main class="main list" role="main">
+	<header class="main__header">
+		<h1 class="main__title">风险</h1>
+	</header><article class="list__item post">
 	<header class="list__header">
 		<h3 class="list__title post__title ">
-			<a href="/post/blog_building/" rel="bookmark">
-			博客第一步
+			<a href="/post/put_call_parity/" rel="bookmark">
+			售出-购进平价理论
 			</a>
 		</h3>
-		<p class="list__lead post__lead">基于Hugo的博客搭建小记</p>
+		<p class="list__lead post__lead">Put-Call Parity</p>
 		<div class="list__meta meta">
 <div class="meta__item-datetime meta__item">
 	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
-	<time class="meta__text" datetime="2018-12-03T19:58:50">December 03, 2018</time>
+	<time class="meta__text" datetime="2018-12-07T21:48:39">December 07, 2018</time>
 </div>
 
 <div class="meta__item-categories meta__item">
 	<svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
-	<span class="meta__text"><a class="meta__link" href="/categories/%e6%9d%82%e8%b0%88" rel="category">杂谈</a>, <a class="meta__link" href="/categories/%e8%ae%a1%e7%ae%97%e6%9c%ba" rel="category">计算机</a>, <a class="meta__link" href="/categories/%e7%bd%91%e7%bb%9c" rel="category">网络</a></span>
+	<span class="meta__text"><a class="meta__link" href="/categories/%e7%bb%8f%e6%b5%8e" rel="category">经济</a></span>
 </div>
 </div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		Hugo是一个用Go编写的静态站点生成器，由于具有丰富的主题资源和惊人的生成速度而备受青睐。博文采用Markdown这一轻量的标记语言编写，速度快，美观。本博客即是基于Hugo搭建，下面讲述一下我的建站历程。
-安装Hugo 如果你是macOS用户，请使用Homebrew快速安装
-brew install hugo  如果你是Windows用户，请使用Chocolatey或者Scoop快速安装，取决于你使用什么包管理
-choco install hugo -confirm scoop install hugo  如果你是Debian或Ubuntu用户，请使用apt快速安装
-sudo apt-get install hugo  基本上使用单行命令都可以成功安装Hugo，具体请移步这里。
-生成第一篇文章 使用如下命令新建一个名为“mysite”的网站：
-hugo new site mysite  接下来，在这里找到一个漂亮的网站主题。主题极其之多，找到一个满意的并不难。本博客采用的是Mainroad主题。如果对主题的配色之类的不满意，可以通过修改style.css这一文件来达到想要的效果。
-以Mainroad为例，将主题clone到本地的themes文件夹内：
-cd themes git clone https://github.com/Vimux/Mainroad.git  mysite/content是用来存放文档的地方，我们在其下建立一个新的Markdown文件：
-hugo new post/first.md  在first.md中写入一些内容，使用如下命令进行本地预览：
-hugo server -t mainroad -D  打开网址 http://localhost:1313/ 即可查看本地生成的静态网站。
-适配主题 Hugo的每个主题都会有不同的参数配置，而这些配置被存放在根目录下的config.toml文件中，以Mainroad为例，官方的GitHub里已经做了说明：
-baseurl = &quot;/&quot; title = &quot;Mainroad&quot; languageCode = &quot;en-us&quot; paginate = &quot;10&quot; # Number of posts per page theme = &quot;mainroad&quot; disqusShortname = &quot;&quot; # Enable comments by entering your Disqus shortname googleAnalytics = &quot;&quot; # Enable Google Analytics by entering your tracking id [Author] # Used in authorbox name = &quot;John Doe&quot; bio = &quot;John Doe's true identity is unknown.
+		售出-购进平价理论（Put-Call Parity）指在无套利原则下（Non-Arbitrage），欧式看涨期权（Call Option）和欧式看跌期权（Put Option）定价之间存在的基本关系。
+看涨/看跌期权 看涨期权，Call Option，也被称为买进期权，买方期权，买权，延买期权或“敲进”（Knock In），是指期权的购买者拥有在期权合约规定有效期内按照执行价格购买 一定数量的标的物的权利。
+看跌期权，Put Option，也被称为认沽期权、卖出期权、出售期权、卖权选择权、卖方期权、卖权、延卖期权或“敲出”（Knock Out），是指期权的购买者拥有在期权合约规定有效期内按照执行价格卖出 一定数量的标的物的权利。
+举个例子，买家以20元购买了卖家的看涨期权，约定在一年后执行，执行价格为1500元，标的物是一吨铜。一年后铜的价格涨至2000元一吨，买家行使期权，以执行价格1500从卖家购买一吨铜（价值2000），获利2000-1500-20*K（K为贴现系数），卖家亏损2000-1500-20*K。如果一年后铜的价格跌至1300元一吨， 买家不行使期权，亏损20*K，卖家获利20*K。
+改动一下，买家以20元购买了卖家的看跌期权，约定在一年后执行，执行价格为1500元，标的物是一吨铜。一年后铜的价格跌至1300元一吨，买家行使期权，以执行价格1500向卖家售出一吨铜（价值1300），获利1500-1300-20*K（K为贴现系数），卖家亏损1500-1300-20*K。如果一年后铜的价格涨至2000元一吨， 买家不行使期权，亏损20*K，卖家获利20*K。
+推广可得，在期权行使时间看涨期权的获利/亏损可以表示为：
+$$ \max (0, S_T - E) - q^np $$
+其中，\(S_T\)是现价，\(E\)是执行价格，\(q\)是利率，\(p\)是购买权力费用，\(n = T-t\)是执行时间。
+看跌期权的获利/亏损则为：
+$$ \max (0, E - S_T) - q^np $$
+由此可见，期权买方有权利无义务，风险有限，最大损失是权利金，对于看涨期权，理论获利无上限，对于看跌期权，获利是有限的。而期权卖方有义务无权利，获利是有限的，而对于看涨期权，风险无限，对于看跌期权，风险有限。
+另外，期权分为美式期权和欧式期权，区别在于美式期权可以在到期日前任何时间行使权力，而欧式期权只能在到期日行使权力。但欧式期权可以在任何时间转让期权。
+售出-购进平价理论 考虑两个投资组合：
+ 买入一份欧式看涨期权，卖出一份欧式看跌期权，执行价格\(E\)，无股息。
+ 买入一单位标的物股权，借入\(\frac{E}{q}\)债券。
+  对于1，如果到期标的物价格下跌，不行使看涨期权，看跌期权买家行使权力，需要以执行价格\(E(&gt;S_T)\)买入；如果价格上涨，行使看涨期权，看跌期权买家不行使权力，以执行价格\(E(&lt;S_T)\)买入，两个情况结果一致，相当于支付价值\(S_T-E\)。
+对于2，期权到期（\(T\)）时，一单位标的物股权和债券的支付价值也为\(S_T - q\frac{E}{q} = S_T - E\)。
+基于无套利原则，在\(T\)时两个投资组合的支付价值一致，在之前的每个时间的价值也应该是一致的。所以在初始状态\(t\)时，有：
+$$ c-p=S_t-\frac{E}{q} $$
+其中\(c\)，\(p\)分别表示看跌/看涨期权的现价，\(S_t\)标的物的现价，\(E\)执行价格，\(q\)利率。
+美式期权的提前行权 美式期权可以在到期日前任何时间行使权力。根据售出-购进平价理论有：
+$$ c=p+S_t-\frac{E}{q^n} \geq S_t-\frac{E}{q^n} \geq S_t-E $$
 	</div>
 	<div class="list__footer clearfix">
-		<a class="list__footer-readmore btn" href="/post/blog_building/">Read more…</a>
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h3 class="list__title post__title ">
-			<a href="/post/about/" rel="bookmark">
-			关于
-			</a>
-		</h3>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
-	<time class="meta__text" datetime="2018-12-03T19:40:38">December 03, 2018</time>
-</div>
-</div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		会在这里写一些学习记录、生活感悟之类的随笔。主要会涉及计算机、经济和统计学。
-博主留德华一名，在德国学习经济工程（信息技术方向）。欢迎通过Telegram或我的邮箱xiong.ping.xp@qq.com联系我。
+		<a class="list__footer-readmore btn" href="/post/put_call_parity/">Read more…</a>
 	</div>
 </article>
 </main>
 
-<div class="pagination">
-	<a class="pagination__item pagination__item--prev btn" href="/">«</a>
-	<span class="pagination__item pagination__item--current">2/2</span>
-</div>
-
 
 			</div>
-			<aside class="sidebar"><div class="widget-search widget">
+			
+<aside class="sidebar"><div class="widget-search widget">
 	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
 		<label>
 			<input class="widget-search__field" type="search" placeholder="SEARCH..." value="" name="q" aria-label="SEARCH...">

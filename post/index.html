@@ -12,7 +12,7 @@
 <meta property="og:description" content="Ping Xiong&#39;s Personal blog about everything" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://xpingbug.github.io/post/" />
-<meta property="og:updated_time" content="2018-12-05T19:31:24&#43;01:00"/>
+<meta property="og:updated_time" content="2018-12-07T21:48:39&#43;01:00"/>
 
 	
 	<link rel="stylesheet" href="/css/highlight.css">
@@ -57,6 +57,53 @@ if (!doNotTrack) {
 	<header class="main__header">
 		<h1 class="main__title">Posts</h1>
 	</header><article class="list__item post">
+	<header class="list__header">
+		<h3 class="list__title post__title ">
+			<a href="/post/put_call_parity/" rel="bookmark">
+			售出-购进平价理论
+			</a>
+		</h3>
+		<p class="list__lead post__lead">Put-Call Parity</p>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+	<time class="meta__text" datetime="2018-12-07T21:48:39">December 07, 2018</time>
+</div>
+
+<div class="meta__item-categories meta__item">
+	<svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
+	<span class="meta__text"><a class="meta__link" href="/categories/%e7%bb%8f%e6%b5%8e" rel="category">经济</a></span>
+</div>
+</div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		售出-购进平价理论（Put-Call Parity）指在无套利原则下（Non-Arbitrage），欧式看涨期权（Call Option）和欧式看跌期权（Put Option）定价之间存在的基本关系。
+看涨/看跌期权 看涨期权，Call Option，也被称为买进期权，买方期权，买权，延买期权或“敲进”（Knock In），是指期权的购买者拥有在期权合约规定有效期内按照执行价格购买 一定数量的标的物的权利。
+看跌期权，Put Option，也被称为认沽期权、卖出期权、出售期权、卖权选择权、卖方期权、卖权、延卖期权或“敲出”（Knock Out），是指期权的购买者拥有在期权合约规定有效期内按照执行价格卖出 一定数量的标的物的权利。
+举个例子，买家以20元购买了卖家的看涨期权，约定在一年后执行，执行价格为1500元，标的物是一吨铜。一年后铜的价格涨至2000元一吨，买家行使期权，以执行价格1500从卖家购买一吨铜（价值2000），获利2000-1500-20*K（K为贴现系数），卖家亏损2000-1500-20*K。如果一年后铜的价格跌至1300元一吨， 买家不行使期权，亏损20*K，卖家获利20*K。
+改动一下，买家以20元购买了卖家的看跌期权，约定在一年后执行，执行价格为1500元，标的物是一吨铜。一年后铜的价格跌至1300元一吨，买家行使期权，以执行价格1500向卖家售出一吨铜（价值1300），获利1500-1300-20*K（K为贴现系数），卖家亏损1500-1300-20*K。如果一年后铜的价格涨至2000元一吨， 买家不行使期权，亏损20*K，卖家获利20*K。
+推广可得，在期权行使时间看涨期权的获利/亏损可以表示为：
+$$ \max (0, S_T - E) - q^np $$
+其中，\(S_T\)是现价，\(E\)是执行价格，\(q\)是利率，\(p\)是购买权力费用，\(n = T-t\)是执行时间。
+看跌期权的获利/亏损则为：
+$$ \max (0, E - S_T) - q^np $$
+由此可见，期权买方有权利无义务，风险有限，最大损失是权利金，对于看涨期权，理论获利无上限，对于看跌期权，获利是有限的。而期权卖方有义务无权利，获利是有限的，而对于看涨期权，风险无限，对于看跌期权，风险有限。
+另外，期权分为美式期权和欧式期权，区别在于美式期权可以在到期日前任何时间行使权力，而欧式期权只能在到期日行使权力。但欧式期权可以在任何时间转让期权。
+售出-购进平价理论 考虑两个投资组合：
+ 买入一份欧式看涨期权，卖出一份欧式看跌期权，执行价格\(E\)，无股息。
+ 买入一单位标的物股权，借入\(\frac{E}{q}\)债券。
+  对于1，如果到期标的物价格下跌，不行使看涨期权，看跌期权买家行使权力，需要以执行价格\(E(&gt;S_T)\)买入；如果价格上涨，行使看涨期权，看跌期权买家不行使权力，以执行价格\(E(&lt;S_T)\)买入，两个情况结果一致，相当于支付价值\(S_T-E\)。
+对于2，期权到期（\(T\)）时，一单位标的物股权和债券的支付价值也为\(S_T - q\frac{E}{q} = S_T - E\)。
+基于无套利原则，在\(T\)时两个投资组合的支付价值一致，在之前的每个时间的价值也应该是一致的。所以在初始状态\(t\)时，有：
+$$ c-p=S_t-\frac{E}{q} $$
+其中\(c\)，\(p\)分别表示看跌/看涨期权的现价，\(S_t\)标的物的现价，\(E\)执行价格，\(q\)利率。
+美式期权的提前行权 美式期权可以在到期日前任何时间行使权力。根据售出-购进平价理论有：
+$$ c=p+S_t-\frac{E}{q^n} \geq S_t-\frac{E}{q^n} \geq S_t-E $$
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/post/put_call_parity/">Read more…</a>
+	</div>
+</article><article class="list__item post">
 	<header class="list__header">
 		<h3 class="list__title post__title ">
 			<a href="/post/hugo_add_highlight/" rel="bookmark">
@@ -135,7 +182,6 @@ int hash(char * str, int length) { // hash function int hash = 0; for (int i = 0
 		对比以前搭建WordPress博客的经历，Hugo有这样的一些不同：
  Hugo生成的是静态页面，所以没有内置的评论、搜索、登陆等等一系列的需要后台的功能。
  没有WordPress上那么多五花八门的插件。
- 虽然支持MathJax，但数学公式的编辑上还是有些力不从心。
  主题偏少，但足够。
  使用起来有些门槛，比如必须会markdown，最好有一点HTML、 CSS的知识。但比起WordPress，学习起来快很多。
  备份起来比WordPress简单（？），WordPress得用插件。
@@ -162,7 +208,8 @@ int hash(char * str, int length) { // hash function int hash = 0; for (int i = 0
 </div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		如何插入本地图片？ 一直不知道怎样插入本地图片，查找后得知，在site目录下的static目录就是存放静态文件的地方，可以在下面创建一个media目录，用于保存图片等媒体文件，引用的话，使用/media/123.png即可。
+		一些在使用Hugo时发现的小技巧或问题及解决方法，会持续更新。
+如何插入本地图片？ 一直不知道怎样插入本地图片，查找后得知，在site目录下的static目录就是存放静态文件的地方，可以在下面创建一个media目录，用于保存图片等媒体文件，引用的话，使用/media/123.png即可。
 注意：不要使用大写的后缀名，如123.PNG，生成的静态页面引用的是小写后缀，会出现找不到文件。
 搜索引擎无法搜索到博客内容。 这是因为搜索引擎还没有收录我们的URL，可以在搜索引擎提交一下自己的网址，比如谷歌，并过一段时间再试。
 Hugo不支持站内搜索和内置评论。 这是因为Hugo生成的是静态网站，没有服务器后台，没有数据库，所以当然不能搜索和评论啦。如果你的网站被搜索引擎收录了，可以使用搜索引擎的限制搜索，比如serchword site:https://yoursite.com/，有的主题提供搜索框工具，基本也是靠这种方法。评论可以使用外置的评论系统，比如Discus。
@@ -170,44 +217,7 @@ Git push的时候会发生冲突。 可能是在GitHub上配置自定义页面�
 Hugo报错。 肯定是在配置文件或者是文章头部配置有问题，具体查看报错信息进行修改即可，Hugo的报错做的不错，很好理解。
 访问的时候浏览器提示“不安全”。 这是因为没有启用HTTPS，如果是托管在GitHub上的话可以使用GitHub提供的HTTPS福利。开启步骤如下：
  找到处于不可选状态的Enforce HTTPS选项，旁边会提示 Unavailable for your site because your domain is not properly configured to support HTTPS 。 将填在Custom domain里的自定义域名清空，保存，然后重新填上自定义域名，再保存。 现在可以勾选Enforce HTTPS选项了，这时会提示正在签发证书: Not yet available for your site because the certificate has not finished being issued 。 证书签发成功后，可以使用 https 链接访问自定义域名了。  DNS配置完成后，还不能访问页面，或者有的设备可以访问，而有的不行。 这是因为DNS需要一定时间传播，等待一段时间就好了。有兴趣可以阅读一下DNS的维基百科。
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h3 class="list__title post__title ">
-			<a href="/post/blog_building/" rel="bookmark">
-			博客第一步
-			</a>
-		</h3>
-		<p class="list__lead post__lead">基于Hugo的博客搭建小记</p>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
-	<time class="meta__text" datetime="2018-12-03T19:58:50">December 03, 2018</time>
-</div>
-
-<div class="meta__item-categories meta__item">
-	<svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
-	<span class="meta__text"><a class="meta__link" href="/categories/%e6%9d%82%e8%b0%88" rel="category">杂谈</a>, <a class="meta__link" href="/categories/%e8%ae%a1%e7%ae%97%e6%9c%ba" rel="category">计算机</a>, <a class="meta__link" href="/categories/%e7%bd%91%e7%bb%9c" rel="category">网络</a></span>
-</div>
-</div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		Hugo是一个用Go编写的静态站点生成器，由于具有丰富的主题资源和惊人的生成速度而备受青睐。博文采用Markdown这一轻量的标记语言编写，速度快，美观。本博客即是基于Hugo搭建，下面讲述一下我的建站历程。
-安装Hugo 如果你是macOS用户，请使用Homebrew快速安装
-brew install hugo  如果你是Windows用户，请使用Chocolatey或者Scoop快速安装，取决于你使用什么包管理
-choco install hugo -confirm scoop install hugo  如果你是Debian或Ubuntu用户，请使用apt快速安装
-sudo apt-get install hugo  基本上使用单行命令都可以成功安装Hugo，具体请移步这里。
-生成第一篇文章 使用如下命令新建一个名为“mysite”的网站：
-hugo new site mysite  接下来，在这里找到一个漂亮的网站主题。主题极其之多，找到一个满意的并不难。本博客采用的是Mainroad主题。如果对主题的配色之类的不满意，可以通过修改style.css这一文件来达到想要的效果。
-以Mainroad为例，将主题clone到本地的themes文件夹内：
-cd themes git clone https://github.com/Vimux/Mainroad.git  mysite/content是用来存放文档的地方，我们在其下建立一个新的Markdown文件：
-hugo new post/first.md  在first.md中写入一些内容，使用如下命令进行本地预览：
-hugo server -t mainroad -D  打开网址 http://localhost:1313/ 即可查看本地生成的静态网站。
-适配主题 Hugo的每个主题都会有不同的参数配置，而这些配置被存放在根目录下的config.toml文件中，以Mainroad为例，官方的GitHub里已经做了说明：
-baseurl = &quot;/&quot; title = &quot;Mainroad&quot; languageCode = &quot;en-us&quot; paginate = &quot;10&quot; # Number of posts per page theme = &quot;mainroad&quot; disqusShortname = &quot;&quot; # Enable comments by entering your Disqus shortname googleAnalytics = &quot;&quot; # Enable Google Analytics by entering your tracking id [Author] # Used in authorbox name = &quot;John Doe&quot; bio = &quot;John Doe's true identity is unknown.
-	</div>
-	<div class="list__footer clearfix">
-		<a class="list__footer-readmore btn" href="/post/blog_building/">Read more…</a>
+使用MathJax的时候，用$ $无法输入行内公式 MathJax默认禁用了这种方式，你可以使用\\( 你的公式 \\)的方法，也可以参考它的default.js自行配置（在295行）。行间公式默认可以用\\[ 你的公式 \\]或者传统的TeX写法$$ 你的公式 $$。
 	</div>
 </article>
 </main>
@@ -233,6 +243,7 @@ baseurl = &quot;/&quot; title = &quot;Mainroad&quot; languageCode = &quot;en-us&
 	<h4 class="widget__title">Recent Posts</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/post/put_call_parity/">售出-购进平价理论</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/hugo_add_highlight/">在Hugo博客中加入代码高亮</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/md_display_img_parallel/">Markdown里图片并列显示</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/hugo_wp/">Hugo和WordPress比较</a></li>
@@ -247,6 +258,7 @@ baseurl = &quot;/&quot; title = &quot;Mainroad&quot; languageCode = &quot;en-us&
 	<div class="widget__content">
 		<ul class="widget__list">
 			<li class="widget__item"><a class="widget__link" href="/categories/%e6%9d%82%e8%b0%88">杂谈</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e7%bb%8f%e6%b5%8e">经济</a></li>
 			<li class="widget__item"><a class="widget__link" href="/categories/%e7%bd%91%e7%bb%9c">网络</a></li>
 			<li class="widget__item"><a class="widget__link" href="/categories/%e8%ae%a1%e7%ae%97%e6%9c%ba">计算机</a></li>
 		</ul>
@@ -257,6 +269,8 @@ baseurl = &quot;/&quot; title = &quot;Mainroad&quot; languageCode = &quot;en-us&
 	<div class="widget__content">
 		<a class="widget-taglist__link widget__link btn" href="/tags/html" title="Html">Html</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%e5%8d%9a%e5%ae%a2" title="博客">博客</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e9%87%91%e8%9e%8d" title="金融">金融</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e9%a3%8e%e9%99%a9" title="风险">风险</a>
 	</div>
 </div>
 <div class="widget-social widget">

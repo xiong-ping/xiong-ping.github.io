@@ -395,6 +395,7 @@ select {
 
 .logo {
 	padding: 25px;
+	padding-bottom: 10px;
 }
 
 .logo__link {
@@ -1142,6 +1143,11 @@ textarea {
 	.container--outer {
 		width: 95%;
 	}
+
+	.logo {
+		padding: 20px;
+		padding-bottom: 10px;
+	}
 }
 
 @media screen and (max-width: 900px) {
@@ -1153,6 +1159,7 @@ textarea {
 	.wrapper,
 	.logo {
 		padding: 20px;
+		padding-bottom: 10px;
 	}
 
 	.widget {

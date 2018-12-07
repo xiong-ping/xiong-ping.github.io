@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>售出-购进平价理论</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<meta name="generator" content="Hugo 0.52" />
+	<meta property="og:title" content="售出-购进平价理论" />
+<meta property="og:description" content="售出-购进平价理论（Put-Call Parity）指在无套利原则下（Non-Arbitrage），欧式看涨期权（Call Option）和欧式看跌期权（Put Option）定价之间存在的基本关系。
+看涨/看跌期权 看涨期权，Call Option，也被称为买进期权，买方期权，买权，延买期权或“敲进”（Knock In），是指期权的购买者拥有在期权合约规定有效期内按照执行价格购买 一定数量的标的物的权利。
+看跌期权，Put Option，也被称为认沽期权、卖出期权、出售期权、卖权选择权、卖方期权、卖权、延卖期权或“敲出”（Knock Out），是指期权的购买者拥有在期权合约规定有效期内按照执行价格卖出 一定数量的标的物的权利。
+举个例子，买家以20元购买了卖家的看涨期权，约定在一年后执行，执行价格为1500元，标的物是一吨铜。一年后铜的价格涨至2000元一吨，买家行使期权，以执行价格1500从卖家购买一吨铜（价值2000），获利2000-1500-20*K（K为贴现系数），卖家亏损2000-1500-20*K。如果一年后铜的价格跌至1300元一吨， 买家不行使期权，亏损20*K，卖家获利20*K。
+改动一下，买家以20元购买了卖家的看跌期权，约定在一年后执行，执行价格为1500元，标的物是一吨铜。一年后铜的价格跌至1300元一吨，买家行使期权，以执行价格1500向卖家售出一吨铜（价值1300），获利1500-1300-20*K（K为贴现系数），卖家亏损1500-1300-20*K。如果一年后铜的价格涨至2000元一吨， 买家不行使期权，亏损20*K，卖家获利20*K。
+推广可得，在期权行使时间看涨期权的获利/亏损可以表示为：
+$$ \max (0, S_T - E) - q^np $$
+其中，\(S_T\)是现价，\(E\)是执行价格，\(q\)是利率，\(p\)是购买权力费用，\(n = T-t\)是执行时间。
+看跌期权的获利/亏损则为：
+$$ \max (0, E - S_T) - q^np $$
+由此可见，期权买方有权利无义务，风险有限，最大损失是权利金，对于看涨期权，理论获利无上限，对于看跌期权，获利是有限的。而期权卖方有义务无权利，获利是有限的，而对于看涨期权，风险无限，对于看跌期权，风险有限。
+另外，期权分为美式期权和欧式期权，区别在于美式期权可以在到期日前任何时间行使权力，而欧式期权只能在到期日行使权力。但欧式期权可以在任何时间转让期权。
+售出-购进平价理论 考虑两个投资组合：
+ 买入一份欧式看涨期权，卖出一份欧式看跌期权，执行价格\(E\)，无股息。
+ 买入一单位标的物股权，借入\(\frac{E}{q}\)债券。
+  对于1，如果到期标的物价格下跌，不行使看涨期权，看跌期权买家行使权力，需要以执行价格\(E(&gt;S_T)\)买入；如果价格上涨，行使看涨期权，看跌期权买家不行使权力，以执行价格\(E(&lt;S_T)\)买入，两个情况结果一致，相当于支付价值\(S_T-E\)。
+对于2，期权到期（\(T\)）时，一单位标的物股权和债券的支付价值也为\(S_T - q\frac{E}{q} = S_T - E\)。
+基于无套利原则，在\(T\)时两个投资组合的支付价值一致，在之前的每个时间的价值也应该是一致的。所以在初始状态\(t\)时，有：
+$$ c-p=S_t-\frac{E}{q} $$
+其中\(c\)，\(p\)分别表示看跌/看涨期权的现价，\(S_t\)标的物的现价，\(E\)执行价格，\(q\)利率。
+美式期权的提前行权 美式期权可以在到期日前任何时间行使权力。根据售出-购进平价理论有：
+$$ c=p&#43;S_t-\frac{E}{q^n} \geq S_t-\frac{E}{q^n} \geq S_t-E $$" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xpingbug.github.io/post/put_call_parity/" /><meta property="article:published_time" content="2018-12-07T21:48:39&#43;01:00"/>
+<meta property="article:modified_time" content="2018-12-07T21:48:39&#43;01:00"/>
+
+	
+	<link rel="stylesheet" href="/css/highlight.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-130422706-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container">
+		<div class="logo">
+			<a class="logo__link" href="/" title="XP&#39;s Blog" rel="home">
+				<div class="logo__title">XP&#39;s Blog</div>
+				<div class="logo__tagline">积跬步 以至千里</div>
+			</a>
+		</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">售出-购进平价理论</h1>
+			<p class="post__lead">Put-Call Parity</p>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+	<time class="meta__text" datetime="2018-12-07T21:48:39">December 07, 2018</time>
+</div>
+
+<div class="meta__item-categories meta__item">
+	<svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
+	<span class="meta__text"><a class="meta__link" href="/categories/%e7%bb%8f%e6%b5%8e" rel="category">经济</a></span>
+</div>
+</div>
+		</header><div class="content post__content clearfix">
+			
+
+<p>售出-购进平价理论（Put-Call Parity）指在无套利原则下（Non-Arbitrage），欧式看涨期权（Call Option）和欧式看跌期权（Put Option）定价之间存在的基本关系。</p>
+
+<h2 id="看涨-看跌期权">看涨/看跌期权</h2>
+
+<p>看涨期权，Call Option，也被称为买进期权，买方期权，买权，延买期权或“敲进”（Knock In），是指期权的购买者拥有在期权合约规定有效期内按照<strong>执行价格</strong><em>购买</em> 一定数量的<strong>标的物</strong>的权利。</p>
+
+<p>看跌期权，Put Option，也被称为认沽期权、卖出期权、出售期权、卖权选择权、卖方期权、卖权、延卖期权或“敲出”（Knock Out），是指期权的购买者拥有在期权合约规定有效期内按照<strong>执行价格</strong><em>卖出</em> 一定数量的<strong>标的物</strong>的权利。</p>
+
+<p>举个例子，买家以20元购买了卖家的看<strong>涨</strong>期权，约定在一年后执行，执行价格为1500元，标的物是一吨铜。一年后铜的价格<strong>涨</strong>至2000元一吨，买家行使期权，以执行价格1500从卖家购买一吨铜（价值2000），获利2000-1500-20*K（K为贴现系数），卖家亏损2000-1500-20*K。如果一年后铜的价格<strong>跌</strong>至1300元一吨， 买家不行使期权，亏损20*K，卖家获利20*K。</p>
+
+<p>改动一下，买家以20元购买了卖家的看<strong>跌</strong>期权，约定在一年后执行，执行价格为1500元，标的物是一吨铜。一年后铜的价格<strong>跌</strong>至1300元一吨，买家行使期权，以执行价格1500向卖家售出一吨铜（价值1300），获利1500-1300-20*K（K为贴现系数），卖家亏损1500-1300-20*K。如果一年后铜的价格<strong>涨</strong>至2000元一吨， 买家不行使期权，亏损20*K，卖家获利20*K。</p>
+
+<p>推广可得，在期权行使时间看涨期权的获利/亏损可以表示为：</p>
+
+<p>$$
+\max (0, S_T - E) - q^np
+$$</p>
+
+<p>其中，\(S_T\)是现价，\(E\)是执行价格，\(q\)是利率，\(p\)是购买权力费用，\(n = T-t\)是执行时间。</p>
+
+<p>看跌期权的获利/亏损则为：</p>
+
+<p>$$
+\max (0, E - S_T) - q^np
+$$</p>
+
+<p>由此可见，期权买方有权利无义务，风险有限，最大损失是权利金，对于看涨期权，理论获利无上限，对于看跌期权，获利是有限的。而期权卖方有义务无权利，获利是有限的，而对于看涨期权，风险无限，对于看跌期权，风险有限。</p>
+
+<p>另外，期权分为美式期权和欧式期权，区别在于美式期权可以在到期日前任何时间行使权力，而欧式期权只能在到期日行使权力。但欧式期权可以在任何时间转让期权。</p>
+
+<h2 id="售出-购进平价理论">售出-购进平价理论</h2>
+
+<p>考虑两个投资组合：</p>
+
+<ol>
+<li><p>买入一份欧式看涨期权，卖出一份欧式看跌期权，执行价格\(E\)，无股息。</p></li>
+
+<li><p>买入一单位标的物股权，借入\(\frac{E}{q}\)债券。</p></li>
+</ol>
+
+<p>对于1，如果到期标的物价格下跌，不行使看涨期权，看跌期权买家行使权力，需要以执行价格\(E(&gt;S_T)\)买入；如果价格上涨，行使看涨期权，看跌期权买家不行使权力，以执行价格\(E(&lt;S_T)\)买入，两个情况结果一致，相当于支付价值\(S_T-E\)。</p>
+
+<p>对于2，期权到期（\(T\)）时，一单位标的物股权和债券的支付价值也为\(S_T - q\frac{E}{q} = S_T - E\)。</p>
+
+<p>基于无套利原则，在\(T\)时两个投资组合的支付价值一致，在之前的每个时间的价值也应该是一致的。所以在初始状态\(t\)时，有：</p>
+
+<p>$$
+c-p=S_t-\frac{E}{q}
+$$</p>
+
+<p>其中\(c\)，\(p\)分别表示看跌/看涨期权的现价，\(S_t\)标的物的现价，\(E\)执行价格，\(q\)利率。</p>
+
+<h2 id="美式期权的提前行权">美式期权的提前行权</h2>
+
+<p>美式期权可以在到期日前任何时间行使权力。根据售出-购进平价理论有：</p>
+
+<p>$$
+c=p+S_t-\frac{E}{q^n} \geq S_t-\frac{E}{q^n} \geq S_t-E
+$$</p>
+
+<p>因为现价永远大于执行价格，所以提前行使期权不值得。美式看涨期权基本不可能提前行权。这样可以得出美式看涨期权的定价和欧式一致。</p>
+
+<p>而：</p>
+
+<p>$$
+p=c-S_t+\frac{E}{q^n} \ ? \  E - S_t
+$$</p>
+
+<p>大小关系未知，所以美式看跌期权有可能提前行权。</p>
+
+		</div>
+		
+<div class="post__tags tags clearfix">
+	<svg class="icon icon-tag" width="16" height="16" viewBox="0 0 16 16"><path d="M16 9.5c0 .373-.24.74-.5 1l-5 5c-.275.26-.634.5-1 .5-.373 0-.74-.24-1-.5L1 8a2.853 2.853 0 0 1-.7-1C.113 6.55 0 5.973 0 5.6V1.4C0 1.034.134.669.401.401.67.134 1.034 0 1.4 0h4.2c.373 0 .95.113 1.4.3.45.187.732.432 1 .7l7.5 7.502c.26.274.5.632.5.998zM3.5 5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item"><a class="tags__link btn" href="/tags/%E9%87%91%E8%9E%8D/" rel="tag">金融</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/tags/%E9%A3%8E%E9%99%A9/" rel="tag">风险</a></li>
+	</ul>
+</div>
+	</article>
+</main>
+
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="XIONG Ping avatar" src="/img/head.jpg" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		<span class="authorbox__name">About XIONG Ping</span>
+	</div>
+	<div class="authorbox__description">
+		Student, studying Wirtschaftsingenieurwesen/Industrial Engineering in Germany.
+	</div>
+</div>
+
+
+<section class="comments">
+	<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "XP" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+			</div>
+			<aside class="sidebar"><div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
+		<label>
+			<input class="widget-search__field" type="search" placeholder="SEARCH..." value="" name="q" aria-label="SEARCH...">
+		</label>
+		<input class="widget-search__submit" type="submit" value="Search">
+		<input type="hidden" name="sitesearch" value="https://xpingbug.github.io/" />
+	</form>
+</div>
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/post/put_call_parity/">售出-购进平价理论</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/hugo_add_highlight/">在Hugo博客中加入代码高亮</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/md_display_img_parallel/">Markdown里图片并列显示</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/hugo_wp/">Hugo和WordPress比较</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/tips_hugo/">使用Hugo的一些注意事项</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/blog_building/">博客第一步</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/about/">关于</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-categories widget">
+	<h4 class="widget__title">Categories</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/categories/%e6%9d%82%e8%b0%88">杂谈</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e7%bb%8f%e6%b5%8e">经济</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e7%bd%91%e7%bb%9c">网络</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e8%ae%a1%e7%ae%97%e6%9c%ba">计算机</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/tags/html" title="Html">Html</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e5%8d%9a%e5%ae%a2" title="博客">博客</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e9%87%91%e8%9e%8d" title="金融">金融</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e9%a3%8e%e9%99%a9" title="风险">风险</a>
+	</div>
+</div>
+<div class="widget-social widget">
+	<h4 class="widget-social__title widget__title">Social</h4>
+	<div class="widget-social__content widget__content">
+		<div class="widget-social__item widget__item">
+			<a class="widget-social__link widget__link btn" title="Telegram" rel="noopener noreferrer" href="https://t.me/xphahaha" target="_blank">
+				<svg class="widget-social__link-icon icon-telegram" viewBox="0 0 132 110" width="24" height="24"><path fill="#ddd" d="M50 103c-4 0-3-1-5-5L34 60l88-52"/><path fill="#aaa" d="M50 103c3 0 4-1 6-3l16-16-20-12"/><path fill="#fff" d="M52 72l48 36c6 3 10 2 11-5l20-93c2-8-3-11-8-9L7 45c-8 4-8 8-1 10l29 9 69-43c3-2 6-1 4 1"/></svg>
+				<span>Telegram</span>
+			</a>
+		</div>
+		<div class="widget-social__item widget__item">
+			<a class="widget-social__link widget__link btn" title="Email" href="mailto:xiong.ping.xp@qq.com">
+				<svg class="widget-social__link-icon icon-mail" viewBox="0 0 416 288" width="24" height="24" fill="#fff"><path d="m0 16v256 16h16 384 16v-16-256-16h-16-384-16zm347 16-139 92.5-139-92.5zm-148 125.5 9 5.5 9-5.5 167-111.5v210h-352v-210z"/></svg>
+				<span>xiong.ping.xp@qq.com</span>
+			</a>
+		</div>
+	</div>
+</div>
+</aside>
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		<div class="footer__links">
+	<a class="footer__link" href="/post/about/">关于</a>
+</div>
+		<div class="footer__copyright">
+			&copy; 2018 XP. All rights reserved. 禁止转载.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+</body>
+</html>

@@ -12,7 +12,6 @@
 <meta property="og:description" content="对比以前搭建WordPress博客的经历，Hugo有这样的一些不同：
  Hugo生成的是静态页面，所以没有内置的评论、搜索、登陆等等一系列的需要后台的功能。
  没有WordPress上那么多五花八门的插件。
- 虽然支持MathJax，但数学公式的编辑上还是有些力不从心。
  主题偏少，但足够。
  使用起来有些门槛，比如必须会markdown，最好有一点HTML、 CSS的知识。但比起WordPress，学习起来快很多。
  备份起来比WordPress简单（？），WordPress得用插件。
@@ -86,8 +85,6 @@ if (!doNotTrack) {
 
 <li><p>没有WordPress上那么多五花八门的插件。</p></li>
 
-<li><p>虽然支持MathJax，但数学公式的编辑上还是有些力不从心。</p></li>
-
 <li><p>主题偏少，但足够。</p></li>
 
 <li><p>使用起来有些门槛，比如必须会markdown，最好有一点HTML、 CSS的知识。但比起WordPress，学习起来快很多。</p></li>
@@ -123,6 +120,29 @@ if (!doNotTrack) {
 </div>
 
 
+<section class="comments">
+	<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "XP" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
 
 			</div>
 			<aside class="sidebar"><div class="widget-search widget">
@@ -138,6 +158,7 @@ if (!doNotTrack) {
 	<h4 class="widget__title">Recent Posts</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/post/put_call_parity/">售出-购进平价理论</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/hugo_add_highlight/">在Hugo博客中加入代码高亮</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/md_display_img_parallel/">Markdown里图片并列显示</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/hugo_wp/">Hugo和WordPress比较</a></li>
@@ -152,6 +173,7 @@ if (!doNotTrack) {
 	<div class="widget__content">
 		<ul class="widget__list">
 			<li class="widget__item"><a class="widget__link" href="/categories/%e6%9d%82%e8%b0%88">杂谈</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e7%bb%8f%e6%b5%8e">经济</a></li>
 			<li class="widget__item"><a class="widget__link" href="/categories/%e7%bd%91%e7%bb%9c">网络</a></li>
 			<li class="widget__item"><a class="widget__link" href="/categories/%e8%ae%a1%e7%ae%97%e6%9c%ba">计算机</a></li>
 		</ul>
@@ -162,6 +184,8 @@ if (!doNotTrack) {
 	<div class="widget__content">
 		<a class="widget-taglist__link widget__link btn" href="/tags/html" title="Html">Html</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%e5%8d%9a%e5%ae%a2" title="博客">博客</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e9%87%91%e8%9e%8d" title="金融">金融</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e9%a3%8e%e9%99%a9" title="风险">风险</a>
 	</div>
 </div>
 <div class="widget-social widget">
