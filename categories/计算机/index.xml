@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>计算机 on XP&#39;s Blog</title>
-    <link>https://blog.xpcl.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/</link>
+    <link>https://xping.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/</link>
     <description>Recent content in 计算机 on XP&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <lastBuildDate>Wed, 05 Dec 2018 19:31:24 +0100</lastBuildDate>
     
-	<atom:link href="https://blog.xpcl.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://xping.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>在Hugo博客中加入代码高亮</title>
-      <link>https://blog.xpcl.xyz/post/hugo_add_highlight/</link>
+      <link>https://xping.me/post/hugo_add_highlight/</link>
       <pubDate>Wed, 05 Dec 2018 19:31:24 +0100</pubDate>
       
-      <guid>https://blog.xpcl.xyz/post/hugo_add_highlight/</guid>
+      <guid>https://xping.me/post/hugo_add_highlight/</guid>
       <description>相信自己搭建博客的人中有一大半都是玩代码的，所以代码高亮可以说是博客的必备功能。本文提供一个在基于Hugo的博客上使用highlight.js的代码高亮方案。
 实施步骤  在highlight.js的官方网站上复制HTML的link和script标签。例如：  &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css&amp;quot;&amp;gt; &amp;lt;script src=&amp;quot;//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;   打开themes/yourtheme/layouts/_default目录，打开baseof.html，（可能对不同主题文件和路径会有不同，如果找不到可以试试查找head.html或header.html。这个html文件是网页的head部分的模板。在合适的地方粘贴第一步中的代码。
  大功告成。
@@ -27,10 +27,10 @@ int hash(char * str, int length) { // hash function int hash = 0; for (int i = 0
     
     <item>
       <title>Markdown里图片并列显示</title>
-      <link>https://blog.xpcl.xyz/post/md_display_img_parallel/</link>
+      <link>https://xping.me/post/md_display_img_parallel/</link>
       <pubDate>Wed, 05 Dec 2018 17:42:53 +0100</pubDate>
       
-      <guid>https://blog.xpcl.xyz/post/md_display_img_parallel/</guid>
+      <guid>https://xping.me/post/md_display_img_parallel/</guid>
       <description> 在编辑博文的时候，有时会想把两张图片并列在一起显示，参考了网上内容，分享一下。
 首先记住一点，在markdown里是可以直接写html代码的。这个前提下很自然的有下面的方法：
 调整图片宽度/高度： &amp;lt;img src=&amp;quot;http://xxx.jpg&amp;quot; title=&amp;quot;xxx&amp;quot; width=&amp;quot;100&amp;quot; height=&amp;quot;100&amp;quot;/&amp;gt;  宽度是 width，高度是 height，title 为图片描述。
@@ -40,10 +40,10 @@ int hash(char * str, int length) { // hash function int hash = 0; for (int i = 0
     
     <item>
       <title>Hugo和WordPress比较</title>
-      <link>https://blog.xpcl.xyz/post/hugo_wp/</link>
+      <link>https://xping.me/post/hugo_wp/</link>
       <pubDate>Wed, 05 Dec 2018 17:38:52 +0100</pubDate>
       
-      <guid>https://blog.xpcl.xyz/post/hugo_wp/</guid>
+      <guid>https://xping.me/post/hugo_wp/</guid>
       <description>对比以前搭建WordPress博客的经历，Hugo有这样的一些不同：
  Hugo生成的是静态页面，所以没有内置的评论、搜索、登陆等等一系列的需要后台的功能。
  没有WordPress上那么多五花八门的插件。
@@ -56,10 +56,10 @@ int hash(char * str, int length) { // hash function int hash = 0; for (int i = 0
     
     <item>
       <title>使用Hugo的一些注意事项</title>
-      <link>https://blog.xpcl.xyz/post/tips_hugo/</link>
+      <link>https://xping.me/post/tips_hugo/</link>
       <pubDate>Wed, 05 Dec 2018 16:32:54 +0100</pubDate>
       
-      <guid>https://blog.xpcl.xyz/post/tips_hugo/</guid>
+      <guid>https://xping.me/post/tips_hugo/</guid>
       <description>一些在使用Hugo时发现的小技巧或问题及解决方法，会持续更新。
 如何插入本地图片？ 一直不知道怎样插入本地图片，查找后得知，在site目录下的static目录就是存放静态文件的地方，可以在下面创建一个media目录，用于保存图片等媒体文件，引用的话，使用/media/123.png即可。
 注意：不要使用大写的后缀名，如123.PNG，生成的静态页面引用的是小写后缀，会出现找不到文件。
@@ -74,10 +74,10 @@ Hugo报错。 肯定是在配置文件或者是文章头部配置有问题，具
     
     <item>
       <title>博客第一步</title>
-      <link>https://blog.xpcl.xyz/post/blog_building/</link>
+      <link>https://xping.me/post/blog_building/</link>
       <pubDate>Mon, 03 Dec 2018 19:58:50 +0100</pubDate>
       
-      <guid>https://blog.xpcl.xyz/post/blog_building/</guid>
+      <guid>https://xping.me/post/blog_building/</guid>
       <description>Hugo是一个用Go编写的静态站点生成器，由于具有丰富的主题资源和惊人的生成速度而备受青睐。博文采用Markdown这一轻量的标记语言编写，速度快，美观。本博客即是基于Hugo搭建，下面讲述一下我的建站历程。
 安装Hugo 如果你是macOS用户，请使用Homebrew快速安装
 brew install hugo  如果你是Windows用户，请使用Chocolatey或者Scoop快速安装，取决于你使用什么包管理

@@ -20,7 +20,7 @@ Hugo报错。 肯定是在配置文件或者是文章头部配置有问题，具
  找到处于不可选状态的Enforce HTTPS选项，旁边会提示 Unavailable for your site because your domain is not properly configured to support HTTPS 。 将填在Custom domain里的自定义域名清空，保存，然后重新填上自定义域名，再保存。 现在可以勾选Enforce HTTPS选项了，这时会提示正在签发证书: Not yet available for your site because the certificate has not finished being issued 。 证书签发成功后，可以使用 https 链接访问自定义域名了。  DNS配置完成后，还不能访问页面，或者有的设备可以访问，而有的不行。 这是因为DNS需要一定时间传播，等待一段时间就好了。有兴趣可以阅读一下DNS的维基百科。
 使用MathJax的时候，用$ $无法输入行内公式 MathJax默认禁用了这种方式，你可以使用\\( 你的公式 \\)的方法，也可以参考它的default.js自行配置（在295行）。行间公式默认可以用\\[ 你的公式 \\]或者传统的TeX写法$$ 你的公式 $$。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.xpcl.xyz/post/tips_hugo/" /><meta property="article:published_time" content="2018-12-05T16:32:54&#43;01:00"/>
+<meta property="og:url" content="https://xping.me/post/tips_hugo/" /><meta property="article:published_time" content="2018-12-05T16:32:54&#43;01:00"/>
 <meta property="article:modified_time" content="2018-12-05T16:32:54&#43;01:00"/>
 
 	
@@ -177,7 +177,7 @@ if (!doNotTrack) {
 			<input class="widget-search__field" type="search" placeholder="SEARCH..." value="" name="q" aria-label="SEARCH...">
 		</label>
 		<input class="widget-search__submit" type="submit" value="Search">
-		<input type="hidden" name="sitesearch" value="https://blog.xpcl.xyz/" />
+		<input type="hidden" name="sitesearch" value="https://xping.me/" />
 	</form>
 </div>
 <div class="widget-recent widget">
