@@ -125,10 +125,10 @@ baseurl = &amp;quot;/&amp;quot; title = &amp;quot;Mainroad&amp;quot; languageCod
     
     <item>
       <title>关于与许可</title>
-      <link>https://xping.me/post/about/</link>
+      <link>https://xping.me/about/</link>
       <pubDate>Mon, 03 Dec 2018 19:40:38 +0100</pubDate>
       
-      <guid>https://xping.me/post/about/</guid>
+      <guid>https://xping.me/about/</guid>
       <description>Hello there! 这里是我的个人博客 ，基于Hugo和Mainroad主题。我会在这里写一些学习记录、生活感悟之类的随笔。内容主要涉及计算机、经济和统计学。
 博主留德华一名，在德国柏林工业大学学习经济工程（信息技术方向）。欢迎通过Telegram或我的邮箱xiong.ping.xp@qq.com联系我！
 许可 本博客内容采用CC BY-NC-SA 4.0许可，您可以自由地
