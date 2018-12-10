@@ -9,12 +9,7 @@
 	<meta name="description" content="">
 	<meta name="generator" content="Hugo 0.52" />
 	<meta property="og:title" content="在Hugo博客中加入代码高亮" />
-<meta property="og:description" content="相信自己搭建博客的人中有一大半都是玩代码的，所以代码高亮可以说是博客的必备功能。本文提供一个在基于Hugo的博客上使用highlight.js的代码高亮方案。
-实施步骤  在highlight.js的官方网站上复制HTML的link和script标签。例如：  &lt;link rel=&quot;stylesheet&quot; href=&quot;//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css&quot;&gt; &lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js&quot;&gt;&lt;/script&gt;   打开themes/yourtheme/layouts/_default目录，打开baseof.html，（可能对不同主题文件和路径会有不同，如果找不到可以试试查找head.html或header.html。这个html文件是网页的head部分的模板。在合适的地方粘贴第一步中的代码。
- 大功告成。
-  使用 用&#96;&#96;&#96;包裹代码块，保险起见，在&#96;&#96;&#96;后加上语言名字。例如（不包括方括号内）：
-[START HERE] ```c int hash(char * str, int length) { // hash function int hash = 0; for (int i = 0; i &lt; length; i&#43;&#43;) { hash = ((hash &#43; str[i]) * 31) % MAX_ID; // maximum of ID? } return hash; } ```[END HERE]  显示效果如下：
-int hash(char * str, int length) { // hash function int hash = 0; for (int i = 0; i &lt; length; i&#43;&#43;) { hash = ((hash &#43; str[i]) * 31) % MAX_ID; // maximum of ID?" />
+<meta property="og:description" content="相信自己搭建博客的人中有一大半都是玩代码的，所以代码高亮可以说是博客的必备功能。本文提供一个在基于Hugo的博客上使用highlight.js的代码高亮方案。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://xping.me/post/hugo_add_highlight/" /><meta property="article:published_time" content="2018-12-05T19:31:24&#43;01:00"/>
 <meta property="article:modified_time" content="2018-12-05T19:31:24&#43;01:00"/>
@@ -73,9 +68,7 @@ if (!doNotTrack) {
 </div>
 </div>
 		</header><div class="content post__content clearfix">
-			
-
-<p>相信自己搭建博客的人中有一大半都是玩代码的，所以代码高亮可以说是博客的必备功能。本文提供一个在基于Hugo的博客上使用<code>highlight.js</code>的代码高亮方案。</p>
+			<p>相信自己搭建博客的人中有一大半都是玩代码的，所以代码高亮可以说是博客的必备功能。本文提供一个在基于Hugo的博客上使用<code>highlight.js</code>的代码高亮方案。</p>
 
 <h2 id="实施步骤">实施步骤</h2>
 
@@ -127,7 +120,6 @@ int hash(char * str, int length) { // hash function
 
 <li><p>如果需要修改颜色、背景色等样式，可以把css下载下来，修改后本地引用。修改后的css放在<code>themes/yourtheme/static/css</code>里，用<code>href=&quot;/css/highlight.css&quot;</code>引用。<strong>强烈建议</strong>在css里把背景色去除。</p></li>
 </ol>
-
 		</div>
 		
 <div class="post__tags tags clearfix">

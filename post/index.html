@@ -77,31 +77,7 @@ if (!doNotTrack) {
 </div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		售出-购进平价理论（Put-Call Parity）指在无套利原则下（Non-Arbitrage），欧式看涨期权（Call Option）和欧式看跌期权（Put Option）定价之间存在的基本关系。
-看涨/看跌期权 看涨期权，Call Option，也被称为买进期权，买方期权，买权，延买期权或“敲进”（Knock In），是指期权的购买者拥有在期权合约规定有效期内按照执行价格购买 一定数量的标的物的权利。
-看跌期权，Put Option，也被称为认沽期权、卖出期权、出售期权、卖权选择权、卖方期权、卖权、延卖期权或“敲出”（Knock Out），是指期权的购买者拥有在期权合约规定有效期内按照执行价格卖出 一定数量的标的物的权利。
-举个例子，买家以20元购买了卖家的看涨期权，约定在一年后执行，执行价格为1500元，标的物是一吨铜。一年后铜的价格涨至2000元一吨，买家行使期权，以执行价格1500从卖家购买一吨铜（价值2000），获利2000-1500-20*K（K为贴现系数），卖家亏损2000-1500-20*K。如果一年后铜的价格跌至1300元一吨， 买家不行使期权，亏损20*K，卖家获利20*K。
-改动一下，买家以20元购买了卖家的看跌期权，约定在一年后执行，执行价格为1500元，标的物是一吨铜。一年后铜的价格跌至1300元一吨，买家行使期权，以执行价格1500向卖家售出一吨铜（价值1300），获利1500-1300-20*K（K为贴现系数），卖家亏损1500-1300-20*K。如果一年后铜的价格涨至2000元一吨， 买家不行使期权，亏损20*K，卖家获利20*K。
-推广可得，在期权行使时间看涨期权的获利/亏损可以表示为：
-$$ \max (0, S_T - E) - q^np $$
-其中，\(S_T\)是现价，\(E\)是执行价格，\(q\)是利率，\(p\)是购买权力费用，\(n = T-t\)是执行时间。
-看跌期权的获利/亏损则为：
-$$ \max (0, E - S_T) - q^np $$
-由此可见，期权买方有权利无义务，风险有限，最大损失是权利金，对于看涨期权，理论获利无上限，对于看跌期权，获利是有限的。而期权卖方有义务无权利，获利是有限的，而对于看涨期权，风险无限，对于看跌期权，风险有限。
-另外，期权分为美式期权和欧式期权，区别在于美式期权可以在到期日前任何时间行使权力，而欧式期权只能在到期日行使权力。但欧式期权可以在任何时间转让期权。
-售出-购进平价理论 考虑两个投资组合：
- 买入一份欧式看涨期权，卖出一份欧式看跌期权，执行价格\(E\)，无股息。
- 买入一单位标的物股权，借入\(\frac{E}{q}\)债券。
-  对于1，如果到期标的物价格下跌，不行使看涨期权，看跌期权买家行使权力，需要以执行价格\(E(&gt;S_T)\)买入；如果价格上涨，行使看涨期权，看跌期权买家不行使权力，以执行价格\(E(&lt;S_T)\)买入，两个情况结果一致，相当于支付价值\(S_T-E\)。
-对于2，期权到期（\(T\)）时，一单位标的物股权和债券的支付价值也为\(S_T - q\frac{E}{q} = S_T - E\)。
-基于无套利原则，在\(T\)时两个投资组合的支付价值一致，在之前的每个时间的价值也应该是一致的。所以在初始状态\(t\)时，有：
-$$ c-p=S_t-\frac{E}{q} $$
-其中\(c\)，\(p\)分别表示看跌/看涨期权的现价，\(S_t\)标的物的现价，\(E\)执行价格，\(q\)利率。
-美式期权的提前行权 美式期权可以在到期日前任何时间行使权力。根据售出-购进平价理论有：
-$$ c=p+S_t-\frac{E}{q^n} \geq S_t-\frac{E}{q^n} \geq S_t-E $$
-	</div>
-	<div class="list__footer clearfix">
-		<a class="list__footer-readmore btn" href="/post/put_call_parity/">Read more…</a>
+		<p>售出-购进平价理论（Put-Call Parity）指在无套利原则下（Non-Arbitrage），欧式看涨期权（Call Option）和欧式看跌期权（Put Option）定价之间存在的基本关系。</p>
 	</div>
 </article><article class="list__item post">
 	<header class="list__header">
@@ -123,15 +99,7 @@ $$ c=p+S_t-\frac{E}{q^n} \geq S_t-\frac{E}{q^n} \geq S_t-E $$
 </div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		相信自己搭建博客的人中有一大半都是玩代码的，所以代码高亮可以说是博客的必备功能。本文提供一个在基于Hugo的博客上使用highlight.js的代码高亮方案。
-实施步骤  在highlight.js的官方网站上复制HTML的link和script标签。例如：  &lt;link rel=&quot;stylesheet&quot; href=&quot;//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css&quot;&gt; &lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js&quot;&gt;&lt;/script&gt;   打开themes/yourtheme/layouts/_default目录，打开baseof.html，（可能对不同主题文件和路径会有不同，如果找不到可以试试查找head.html或header.html。这个html文件是网页的head部分的模板。在合适的地方粘贴第一步中的代码。
- 大功告成。
-  使用 用&#96;&#96;&#96;包裹代码块，保险起见，在&#96;&#96;&#96;后加上语言名字。例如（不包括方括号内）：
-[START HERE] ```c int hash(char * str, int length) { // hash function int hash = 0; for (int i = 0; i &lt; length; i++) { hash = ((hash + str[i]) * 31) % MAX_ID; // maximum of ID? } return hash; } ```[END HERE]  显示效果如下：
-int hash(char * str, int length) { // hash function int hash = 0; for (int i = 0; i &lt; length; i++) { hash = ((hash + str[i]) * 31) % MAX_ID; // maximum of ID?
-	</div>
-	<div class="list__footer clearfix">
-		<a class="list__footer-readmore btn" href="/post/hugo_add_highlight/">Read more…</a>
+		<p>相信自己搭建博客的人中有一大半都是玩代码的，所以代码高亮可以说是博客的必备功能。本文提供一个在基于Hugo的博客上使用<code>highlight.js</code>的代码高亮方案。</p>
 	</div>
 </article><article class="list__item post">
 	<header class="list__header">
@@ -153,11 +121,7 @@ int hash(char * str, int length) { // hash function int hash = 0; for (int i = 0
 </div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		 在编辑博文的时候，有时会想把两张图片并列在一起显示，参考了网上内容，分享一下。
-首先记住一点，在markdown里是可以直接写html代码的。这个前提下很自然的有下面的方法：
-调整图片宽度/高度： &lt;img src=&quot;http://xxx.jpg&quot; title=&quot;xxx&quot; width=&quot;100&quot; height=&quot;100&quot;/&gt;  宽度是 width，高度是 height，title 为图片描述。
-单张居中显示： &lt;center&gt; &lt;img src=&quot;http://example.com/xxx.png&quot;&gt; &lt;/center&gt;  或者：
-&lt;figure&gt; &lt;img src=&quot;http://xxx.jpg&quot;&gt; &lt;/figure&gt;  两张并排显示： &lt;figure class=&quot;half&quot;&gt; &lt;img src=&quot;http://xxx.jpg&quot;&gt; &lt;img src=&quot;http://xxx.jpg&quot;&gt; &lt;/figure&gt;  三张并排显示： &lt;figure class=&quot;third&quot;&gt; &lt;img src=&quot;http://xxx.jpg&quot;&gt; &lt;img src=&quot;http://xxx.jpg&quot;&gt; &lt;img src=&quot;http://xxx.jpg&quot;&gt; &lt;/figure&gt;  
+		<p>在编辑博文的时候，有时会想把两张图片并列在一起显示，参考了网上内容，分享一下。</p>
 	</div>
 </article><article class="list__item post">
 	<header class="list__header">
@@ -179,14 +143,7 @@ int hash(char * str, int length) { // hash function int hash = 0; for (int i = 0
 </div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		对比以前搭建WordPress博客的经历，Hugo有这样的一些不同：
- Hugo生成的是静态页面，所以没有内置的评论、搜索、登陆等等一系列的需要后台的功能。
- 没有WordPress上那么多五花八门的插件。
- 主题偏少，但足够。
- 使用起来有些门槛，比如必须会markdown，最好有一点HTML、 CSS的知识。但比起WordPress，学习起来快很多。
- 备份起来比WordPress简单（？），WordPress得用插件。
- 管理简单，因为只有基本的功能。
-  所以如果要搭建个人博客，Hugo十分足够。如果是喜欢图形化的编辑，喜欢尝试各种各样的主题插件（喜新厌旧），需要能方便的互动的，推荐WordPress。如果搭建组织网站，比如社团网站，需要多人、多层管理维护的，上WordPress，不用考虑Hugo了。
+		<p>对比以前搭建WordPress博客的经历，Hugo有这样的一些不同：</p>
 	</div>
 </article><article class="list__item post">
 	<header class="list__header">
@@ -208,16 +165,7 @@ int hash(char * str, int length) { // hash function int hash = 0; for (int i = 0
 </div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		一些在使用Hugo时发现的小技巧或问题及解决方法，会持续更新。
-如何插入本地图片？ 一直不知道怎样插入本地图片，查找后得知，在site目录下的static目录就是存放静态文件的地方，可以在下面创建一个media目录，用于保存图片等媒体文件，引用的话，使用/media/123.png即可。
-注意：不要使用大写的后缀名，如123.PNG，生成的静态页面引用的是小写后缀，会出现找不到文件。
-搜索引擎无法搜索到博客内容。 这是因为搜索引擎还没有收录我们的URL，可以在搜索引擎提交一下自己的网址，比如谷歌，并过一段时间再试。
-Hugo不支持站内搜索和内置评论。 这是因为Hugo生成的是静态网站，没有服务器后台，没有数据库，所以当然不能搜索和评论啦。如果你的网站被搜索引擎收录了，可以使用搜索引擎的限制搜索，比如serchword site:https://yoursite.com/，有的主题提供搜索框工具，基本也是靠这种方法。评论可以使用外置的评论系统，比如Discus。
-Git push的时候会发生冲突。 可能是在GitHub上配置自定义页面的时候（我就是在这时遇到的），repository里创建了新的文件（我碰到的是CNAME文件）而本地没有。解决方法是先pull再push。
-Hugo报错。 肯定是在配置文件或者是文章头部配置有问题，具体查看报错信息进行修改即可，Hugo的报错做的不错，很好理解。
-访问的时候浏览器提示“不安全”。 这是因为没有启用HTTPS，如果是托管在GitHub上的话可以使用GitHub提供的HTTPS福利。开启步骤如下：
- 找到处于不可选状态的Enforce HTTPS选项，旁边会提示 Unavailable for your site because your domain is not properly configured to support HTTPS 。 将填在Custom domain里的自定义域名清空，保存，然后重新填上自定义域名，再保存。 现在可以勾选Enforce HTTPS选项了，这时会提示正在签发证书: Not yet available for your site because the certificate has not finished being issued 。 证书签发成功后，可以使用 https 链接访问自定义域名了。  DNS配置完成后，还不能访问页面，或者有的设备可以访问，而有的不行。 这是因为DNS需要一定时间传播，等待一段时间就好了。有兴趣可以阅读一下DNS的维基百科。
-使用MathJax的时候，用$ $无法输入行内公式 MathJax默认禁用了这种方式，你可以使用\\( 你的公式 \\)的方法，也可以参考它的default.js自行配置（在295行）。行间公式默认可以用\\[ 你的公式 \\]或者传统的TeX写法$$ 你的公式 $$。
+		<p>一些在使用Hugo时发现的小技巧或问题及解决方法，会持续更新。</p>
 	</div>
 </article>
 </main>
