@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>布莱克-舒尔斯期权定价模型</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="BS_model">
+	<meta name="generator" content="Hugo 0.52" />
+	<meta property="og:title" content="布莱克-舒尔斯期权定价模型" />
+<meta property="og:description" content="BS_model" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xping.me/post/bs_model/" /><meta property="article:published_time" content="2018-12-11T22:05:54&#43;01:00"/>
+<meta property="article:modified_time" content="2018-12-11T22:05:54&#43;01:00"/>
+
+	
+	<link rel="stylesheet" href="/css/highlight.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-130422706-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container">
+		<div class="logo">
+			<a class="logo__link" href="/" title="XP&#39;s Blog" rel="home">
+				<div class="logo__title">XP&#39;s Blog</div>
+				<div class="logo__tagline">积跬步 以至千里</div>
+			</a>
+		</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">布莱克-舒尔斯期权定价模型</h1>
+			<p class="post__lead">Black-Scholes Model</p>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+	<time class="meta__text" datetime="2018-12-11T22:05:54">December 11, 2018</time>
+</div>
+
+<div class="meta__item-categories meta__item">
+	<svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
+	<span class="meta__text"><a class="meta__link" href="/categories/%e7%bb%8f%e6%b5%8e" rel="category">经济</a></span>
+</div>
+</div>
+		</header><div class="content post__content clearfix">
+			<p>在Risikomanagement课上讲到了布莱克-舒尔斯期权定价模型（Black-Scholes Option Pricing Model），但只是给出了公式，没有推导。在网上查找之后终于大致弄懂，把推导过程尽可能的详细的写一写。</p>
+
+<h2 id="简介">简介</h2>
+
+<p>布莱克-舒尔斯模型（英语：Black-Scholes Model），简称BS模型，又称布莱克-舒尔斯-墨顿模型（Black–Scholes–Merton model），是一种为期权或权证等金融衍生工具定价的数学模型，由美国经济学家迈伦·舒尔斯与费雪·布莱克首先提出，并由罗伯特·C·墨顿修改模型于有派发股利时亦可使用而更完善。由此模型可以推导出布莱克-舒尔斯公式，并由此公式估算出欧式期权的理论价格。此公式问世后带来了期权市场的繁荣。该公式被广泛使用，虽然在很多情况下被使用者进行一定的改动和修正。很多经验测试表明这个公式足够贴近市场价格，然而也有会出现差异的时候，如著名的“波动率的微笑”。</p>
+
+<p>该模型就是以迈伦·舒尔斯和费雪·布莱克命名的。1997年迈伦·舒尔斯和罗伯特·墨顿凭借该模型获得诺贝尔经济学奖。然而它假设价格的变动，会符合高斯分布（即俗称的钟形曲线），但在财务市场上经常出现符合统计学肥尾现象的事件，这影响此公式的有效性。（摘自<a href="https://zh.wikipedia.org/wiki/%E5%B8%83%E8%8E%B1%E5%85%8B-%E8%88%92%E5%B0%94%E5%85%B9%E6%A8%A1%E5%9E%8B">维基百科</a></p>
+
+<h2 id="效率市场假说">效率市场假说</h2>
+
+<p>1965年法玛（Fama）提出，认为投资者都试图利用可获得的信息获得更多报酬；证券价格对新的市场信息的反应应该是迅速且准确的，证券价格可以反应全部信息。证券价格在市场竞争下从一个均衡水平过渡到另一个均衡水平，而与新信息对应的价格变动是相互独立的。</p>
+
+<p>效率市场假说可以分为三类：</p>
+
+<ol>
+<li><strong>弱式</strong>：目前股票价格已充分反映了过去股票价格所提供的各项情报。所以，投资人无法再运用各种方法对<strong>过去股票价格</strong>进行分析，再利用分析结果来预测未来股票价格，基于随机游走假说，未来消息是随机而来的。意即投资者无法再利用<strong>过去资讯</strong>来获得高额报酬。所以，弱势效率越高，若以过去价量为基础的技术分析来进行预测效果将会十分不准确。</li>
+<li><strong>半强式</strong>：目前股票价格已充分反应了所有公开资讯，所以，投资者无法利用<strong>情报</strong>分析结果来进行股票价格预测而获取高额报酬。因此，半强式效率越高，依赖<strong>公开的</strong>财务报表、经济情况及政治情势来进行基本面分析，然后再预测股票价格是徒劳无功。</li>
+<li><strong>强式</strong>：目前股票价格充分反应了所有<strong>已公开和未公开</strong>之所有情报。虽然情报未公开，但投资者能利用各种管道来获得资讯，所以，所谓未公开的消息，实际上是已公开的资讯且已反应于股票价格上。此种情形下，投资者也无法因拥有某些股票内幕消息而获取高额报酬。</li>
+</ol>
+
+<p>区分点在于投资者可利用的信息对预测价格有没有用。此假说发布后，许多学者进行了实证分析，发现发达国家的证券市场大致符合弱式效率市场。</p>
+
+<h2 id="随机过程">随机过程</h2>
+
+<p>随机过程是指某变量的值以某种不确定的方式随时间变化的过程。根据变量是否连续和时间是否连续分为4种：连续变量在连续时间的随机过程、连续变量在离散时间的随机过程、离散变量在连续时间的随机过程，和离散变量在离散时间的随机过程。严格来说，证券价格的变化应该属于离散变量在离散时间的随机过程，然而在时间间隔很小的时候，我们可以近似的把它看作连续变量在连续时间的随机过程。</p>
+
+<h2 id="马尔可夫过程">马尔可夫过程</h2>
+
+<p>随机过程，在这个过程中只有变量的当前值才与其将来值有关系，过去的值与未来的预测无关。</p>
+
+<h2 id="布朗运动">布朗运动</h2>
+
+<p>又称维纳过程。由英国的植物学家罗伯特·布朗发现并命名，维纳（Wiener）给出的其随机过程的定义。</p>
+
+<h4 id="标准布朗运动">标准布朗运动</h4>
+
+<p>设\(\Delta t\)代表一个小的时间间隔长度，\(\Delta z\)代表变量\(z\)在\(\Delta t\)时间内的变化，遵循标准布朗运动的\(\Delta z\)具有两个特征：</p>
+
+<p>特征1：\(\Delta z\)和\(\Delta t\)的关系满足：</p>
+
+<p>$$
+\Delta z = \varepsilon \sqrt{\Delta t}
+$$</p>
+
+<p>其中\(\varepsilon \sim N(0,1)\)。</p>
+
+<p>特征2：对于任何两个不同时间，\(\Delta z\)和\(\Delta t\)相互独立。因此标准布朗运动是一个特殊的马尔可夫过程。</p>
+
+<p>考虑在一段时间\(T\)内\(z\)的变化：</p>
+
+<p>$$
+z(T) - z(0) = \sum^N_{i=1} \varepsilon_i \sqrt{\Delta t}
+$$</p>
+
+<p>当\(\Delta t \to 0\)时，可以得到极限的布朗运动：</p>
+
+<p>$$
+dz = \varepsilon \sqrt{dt}
+$$</p>
+
+<h4 id="普通布朗运动">普通布朗运动</h4>
+
+<p>引入两个概念：漂移率（Drift Rate），表示单位时间内\(z\)均值的变化值；方差率（Variance Rate），表示单位时间内的方差。令漂移率的期望为\(a\)，方差率的期望为\(b^2\)，可以得到变量\(x\)的普通布朗运动：</p>
+
+<p>$$
+dx = adt + bdz = adt + b\varepsilon \sqrt{dt}
+$$</p>
+
+<p>其中\(dz\)遵循标准布朗运动。</p>
+
+<h4 id="伊藤过程">伊藤过程</h4>
+
+<p>将普通布朗运动中的\(a\)和\(b\)当作随时间\(t\)和状态\(x\)的函数，可以得到伊藤过程（Ito Process）：</p>
+
+<p>$$
+dx = a(x,t)dt + b(x,t)dz
+$$</p>
+
+<h2 id="证券价格的变动过程">证券价格的变动过程</h2>
+
+<p><del>终于又回到证券上了。</del>（无收益）证券价格的变化可以用漂移率为\(\mu S\)、方差率为\((\sigma S)^2\)的伊藤过程表示：</p>
+
+<p>$$
+dS = \mu Sdt + \sigma Sdz
+$$</p>
+
+<p>两边同除以\(S\)有：</p>
+
+<p>$$
+\frac{dS}{S} = \mu dt + \sigma dz
+$$</p>
+
+<p>其中\(S\)表示证券价格，\(\mu\)表示单位时间内以连续复利表示的预期收益率，\(\sigma^2\)表示证券收益率在单位时间内的方差，\(\sigma\)简称证券价格的波动率（Volatility）。</p>
+
+<p>在短时间\(\Delta t\)后，证券价格比率的变化值\(\frac{\Delta S}{S}\)为：</p>
+
+<p>$$
+\frac{dS}{S} = \mu \Delta t + \varepsilon \sigma \sqrt{\Delta t} \sim N(\mu \Delta t, \sigma \sqrt{\Delta t})
+$$</p>
+
+<h2 id="伊藤引理">伊藤引理</h2>
+
+<p>伊藤进一步推导出（过程查论文吧）：若变量\(x\)遵循伊藤过程，则变量\(x\)和\(t\)的函数\(G\)遵循下列过程：</p>
+
+<p>$$
+dG = (\frac{\partial G}{\partial x}a + \frac{\partial G}{\partial t} + \frac{\partial^2 G}{2\partial x^2}b^2)dt + \frac{\partial G}{\partial x}bdz
+$$</p>
+
+<p>比较上面的伊藤过程，可以发现函数\(G\)是遵循伊藤过程的，漂移率：\(\frac{\partial G}{\partial x}a + \frac{\partial G}{\partial t} + \frac{\partial^2 G}{2\partial x^2}b^2\)，方差率：\((\frac{\partial G}{\partial x})^2b^2\)。根据上面的推理，我们有：</p>
+
+<p>$$
+dS = \mu Sdt + \sigma Sdz
+$$</p>
+
+<p>我们知道，衍生证券的价格是标的证券价格和时间的函数。根据伊藤引理，衍生证券的价格\(G\)应遵循过程：</p>
+
+<p>$$
+dG = (\frac{\partial G}{\partial S}\mu S + \frac{\partial G}{\partial t} + \frac{\partial^2 G}{2\partial S^2}\sigma^2S^2)dt + \frac{\partial G}{\partial S}\sigma Sdz
+$$</p>
+
+<p>比较前面两个式子可以知道，\(S\)和\(G\)都受同一个不确定性来源\(dz\)的影响，这个特点十分重要。</p>
+
+<h2 id="证券价格的自然对数变化过程">证券价格的自然对数变化过程</h2>
+
+<p>令\(G=\ln S\)，代入上式，则：</p>
+
+<p>$$
+dG = (\mu - \frac{\sigma^2}{2})dt+\sigma dz
+$$</p>
+
+<p>可以发现证券价格对数\(G\)遵循<strong>普通布朗运动</strong>，有恒定的漂移率\(\mu - \frac{\sigma^2}{2}\)和方差率\(\sigma^2\)！</p>
+
+<p>令\(t\)时刻的\(G\)值为\(\ln S\)，\(T\)时刻的\(G\)值为\(\ln S_T\)，则\(T - t\)时间内\(G\)的变化为：</p>
+
+<p>$$
+\ln S_T - \ln S \sim N[(\mu - \frac{\sigma^2}{2})(T-t), \sigma \sqrt{T-t}]
+$$</p>
+
+<p>因为\(\ln S\)是定值，所以可以得到：</p>
+
+<p>$$
+\ln S_T \sim N[\ln S + (\mu - \frac{\sigma^2}{2})(T-t), \sigma \sqrt{T-t}]
+$$</p>
+
+<p>这表明\(S_T\)服从对数正态分布，证券价格对数的不确定性（标准差）与时间长度的平方根成正比。</p>
+
+<h2 id="布莱克-舒尔斯微分方程">布莱克-舒尔斯微分方程</h2>
+
+<p>由于衍生证券价格和标的证券价格都受同一种不确定性影响（\(dz\)），若匹配适当，这种不确定性可以相互抵消。因此布莱克和舒尔斯建立了一个包括一单位衍生证券空头和若干单位标的证券多头的投资组合。若数量适当，衍生和标的证券的盈利和亏损是可以抵消的，短时间内该投资组合无风险。在<strong>无套利机会</strong>的情况下，该投资组合的短期收益率一定等于无风险利率。</p>
+
+<p>推导布莱克-舒尔斯微分方程需要以下假设：</p>
+
+<ol>
+<li>证券价格遵循几何布朗运动（可以放松为伊藤过程）</li>
+<li>允许卖空标的证券</li>
+<li>没有交易费用和税收</li>
+<li>所有证券都是完全可分的</li>
+<li>在衍生证券的有效期内的标的证券没有收益</li>
+<li>不存在无风险套利的机会</li>
+<li>证券交易和价格变动都是连续的</li>
+<li>在衍生证券有效期内，无风险利率\(r\)为常数</li>
+</ol>
+
+<p>由假设1，有：</p>
+
+<p>$$
+dS = \mu Sdt + \sigma Sdz
+$$</p>
+
+<p>在时间间隔\(\Delta t\)中，</p>
+
+<p>$$
+\Delta S = \mu S\Delta t + \sigma S\Delta z
+$$</p>
+
+<p>假设\(f\)是依赖于\(S\)的衍生证券的价格，则\(f\)是\(S\)和\(t\)的函数。由伊藤引理可得：</p>
+
+<p>$$
+df = (\frac{\partial f}{\partial S}\mu S + \frac{\partial f}{\partial t} + \frac{\partial^2 f}{2\partial S^2}\sigma^2S^2)dt + \frac{\partial f}{\partial S}\sigma Sdz
+$$</p>
+
+<p>在时间间隔\(\Delta t\)中，</p>
+
+<p>$$
+\Delta f = (\frac{\partial f}{\partial S}\mu S + \frac{\partial f}{\partial t} + \frac{\partial^2 f}{2\partial S^2}\sigma^2S^2)\Delta t + \frac{\partial f}{\partial S}\sigma S\Delta z
+$$</p>
+
+<p>其中\(\Delta z = \varepsilon \sqrt{\Delta t}\)。为了消除\(\Delta z\)，构建一个包括一单位衍生证券空头和\(\frac{\partial f}{\partial S}\)单位表弟证券多头的组合。令\(\Pi\)代表该投资组合的价值，则：</p>
+
+<p>$$
+\Pi = -f + \frac{\partial f}{\partial S}S
+$$</p>
+
+<p>在时间间隔\(\Delta t\)中，</p>
+
+<p>$$
+\Delta \Pi = -\Delta f + \frac{\partial f}{\partial S}\Delta S
+$$</p>
+
+<p>代入\(\Delta S\)和\(\Delta f\)，可得：</p>
+
+<p>$$
+\Delta \Pi = (-\frac{\partial f}{\partial S} - \frac{\partial^2 f}{2\partial S^2}\sigma^2S^2)\Delta t
+$$</p>
+
+<p>不含有\(\Delta z\)，所以该组合在\(\Delta t\)内没有风险。因为不存在无风险套利的机会，所以在\(\Delta t\)内的瞬时收益率一定等于\(\Delta t\)中的无风险收益率。因此：</p>
+
+<p>$$
+\Delta \Pi = r \Pi \Delta t
+$$</p>
+
+<p>代入\(\Delta \Pi\)和\(\Pi\)，得：</p>
+
+<p>$$
+(\frac{\partial f}{\partial t} + \frac{\partial^2 f}{2\partial S^2}\sigma^2S^2)\Delta t = r (f - \frac{\partial f}{\partial S}S \Delta t
+$$</p>
+
+<p>化简得：</p>
+
+<p>$$
+\frac{\partial f}{\partial t} + rS\frac{\partial f}{\partial S} + \frac{1}{2}\sigma^2S^2\frac{\partial^2 f}{\partial S^2} = rf
+$$</p>
+
+<p>这就是著名的布莱克-舒尔斯微分方程，适用于其价格取决于标的证券价格\(S\)的所有衍生证券的定价。</p>
+
+<h2 id="布莱克-舒尔斯期权定价公式">布莱克-舒尔斯期权定价公式</h2>
+
+<p>在风险中性的条件下，<strong>欧式</strong>看涨期权到期时（\(T\)）的期望值为：</p>
+
+<p>$$
+\hat E[max(S_T-X, 0)]
+$$</p>
+
+<p>根据风险中性定价原理，欧式看涨期权的价格\(c\)等于将此期望值按无风险利率进行贴现后的现值：</p>
+
+<p>$$
+c = e^{-r(T-t)} \hat E[max(S_T-X, 0)]
+$$</p>
+
+<p>根据前面，\(\ln S_T\)符合分布</p>
+
+<p>$$
+\ln S_T \sim N[\ln S + (\mu - \frac{\sigma^2}{2})(T-t), \sigma \sqrt{T-t}]
+$$</p>
+
+<p>在风险中性条件下，我们可以用\(r\)取代\(\mu\)，即：</p>
+
+<p>$$
+\ln S_T \sim N[\ln S + (r - \frac{\sigma^2}{2})(T-t), \sigma \sqrt{T-t}]
+$$</p>
+
+<p>对\(c\)式右边求值是一种积分过程（过程略），结果为：</p>
+
+<p>$$
+c=SN(d_1)-Xe^{-r(T-t)}N(d_2)
+$$</p>
+
+<p>其中，</p>
+
+<p>$$
+d_1 = \frac{\ln \frac{S}{X} + (r+\frac{\sigma^2}{2})(T-t)}{\sigma \sqrt{T-t}}
+$$
+$$
+d_2 = \frac{\ln \frac{S}{X} + (r-\frac{\sigma^2}{2})(T-t)}{\sigma \sqrt{T-t}}
+$$</p>
+
+<p>\(N(x)\)是标准正态分布变量的累计概率分布函数。</p>
+
+<p>这就是无收益资产欧式看涨期权的定价公式。</p>
+
+<p>由<a href="/post/put_call_parity/">售出-购进平价理论</a>可以进一步导出欧式看跌期权的定价公式：</p>
+
+<p>$$
+p=-SN(-d_1)+Xe^{-r(T-t)}N(-d_2)
+$$</p>
+
+<p>美式看涨期权不会提前行权，所以其定价与欧式看涨期权一致。而由于美式看跌期权与看涨期权之间不存在严密的平价关系，因此美式看跌期权的代价还没有得到一个精确的解析公式，但可用蒙特卡罗模拟、二叉树和有限差分三种数值方法以及解析近似方法求出。</p>
+
+<h2 id="有收益资产的期权定价公式">有收益资产的期权定价公式</h2>
+
+<p>在收益已知的情况下，可以把标的证券的价格分解成两个部分：期权有效期内已知的现金收益的现值部分，和一个有风险部分。当期权到期时，这部分现值将由于标的资产支付现金收益而消失。因此，我们只要用\(S\)表示有风险部分的证券价格，\(\sigma\)表示风险部分遵循随机过程的波动率，就能直接套用公式了。</p>
+
+<p>当标的证券的已知收益的现值为\(I\)时，需要用\((S-I)\)代替公式的\(S\)。</p>
+
+<p>当标的证券的收益为按连续复利计算的固定收益率\(q\)时，需要用\(Se^{-q(T-t)}\)代替公式的\(S\)即可。</p>
+		</div>
+		
+<div class="post__tags tags clearfix">
+	<svg class="icon icon-tag" width="16" height="16" viewBox="0 0 16 16"><path d="M16 9.5c0 .373-.24.74-.5 1l-5 5c-.275.26-.634.5-1 .5-.373 0-.74-.24-1-.5L1 8a2.853 2.853 0 0 1-.7-1C.113 6.55 0 5.973 0 5.6V1.4C0 1.034.134.669.401.401.67.134 1.034 0 1.4 0h4.2c.373 0 .95.113 1.4.3.45.187.732.432 1 .7l7.5 7.502c.26.274.5.632.5.998zM3.5 5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item"><a class="tags__link btn" href="/tags/%E9%87%91%E8%9E%8D/" rel="tag">金融</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/tags/%E9%A3%8E%E9%99%A9/" rel="tag">风险</a></li>
+	</ul>
+</div>
+	</article>
+</main>
+
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="XIONG Ping avatar" src="/img/head.jpg" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		<span class="authorbox__name">About XIONG Ping</span>
+	</div>
+	<div class="authorbox__description">
+		柏林工业大学的本科学生，专业经济工程计算机方向。
+	</div>
+</div>
+
+
+<section class="comments">
+	<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "xpblog-1" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+			</div>
+			<aside class="sidebar"><div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
+		<label>
+			<input class="widget-search__field" type="search" placeholder="SEARCH..." value="" name="q" aria-label="SEARCH...">
+		</label>
+		<input class="widget-search__submit" type="submit" value="Search">
+		<input type="hidden" name="sitesearch" value="https://xping.me/" />
+	</form>
+</div>
+<div class="widget-social widget">
+	<h4 class="widget-social__title widget__title">Social</h4>
+	<div class="widget-social__content widget__content">
+		<div class="widget-social__item widget__item">
+			<a class="widget-social__link widget__link btn" title="Telegram" rel="noopener noreferrer" href="https://t.me/xphahaha" target="_blank">
+				<svg class="widget-social__link-icon icon-telegram" viewBox="0 0 132 110" width="24" height="24"><path fill="#ddd" d="M50 103c-4 0-3-1-5-5L34 60l88-52"/><path fill="#aaa" d="M50 103c3 0 4-1 6-3l16-16-20-12"/><path fill="#fff" d="M52 72l48 36c6 3 10 2 11-5l20-93c2-8-3-11-8-9L7 45c-8 4-8 8-1 10l29 9 69-43c3-2 6-1 4 1"/></svg>
+				<span></span>
+			</a>
+		</div>
+		<div class="widget-social__item widget__item">
+			<a class="widget-social__link widget__link btn" title="Email" href="mailto:xiong.ping.xp@qq.com">
+				<svg class="widget-social__link-icon icon-mail" viewBox="0 0 416 288" width="24" height="24" fill="#fff"><path d="m0 16v256 16h16 384 16v-16-256-16h-16-384-16zm347 16-139 92.5-139-92.5zm-148 125.5 9 5.5 9-5.5 167-111.5v210h-352v-210z"/></svg>
+				<span></span>
+			</a>
+		</div>
+	</div>
+</div>
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/post/bs_model/">布莱克-舒尔斯期权定价模型</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/put_call_parity/">售出-购进平价理论</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/hugo_add_highlight/">在Hugo博客中加入代码高亮</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/md_display_img_parallel/">Markdown里图片并列显示</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/hugo_wp/">Hugo和WordPress比较</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-categories widget">
+	<h4 class="widget__title">Categories</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/categories/%e6%9d%82%e8%b0%88">杂谈</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e7%bb%8f%e6%b5%8e">经济</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e7%bd%91%e7%bb%9c">网络</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e8%ae%a1%e7%ae%97%e6%9c%ba">计算机</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/tags/html" title="Html">Html</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e5%8d%9a%e5%ae%a2" title="博客">博客</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e9%87%91%e8%9e%8d" title="金融">金融</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e9%a3%8e%e9%99%a9" title="风险">风险</a>
+	</div>
+</div>
+</aside>
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		<div class="footer__links">
+			<a class="footer__link" href="/about/">关于与许可</a>
+		</div>
+		
+		<div class="footer__copyright">
+			&copy; 2018 XP. 
+			<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 <img src="/media/license.jpg" width="50px"></a>
+		</div>
+	</div>
+
+
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+</body>
+</html>

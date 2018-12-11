@@ -6,10 +6,19 @@
     <description>Recent content in 风险 on XP&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 07 Dec 2018 21:48:39 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 11 Dec 2018 22:05:54 +0100</lastBuildDate>
     
 	<atom:link href="https://xping.me/tags/%E9%A3%8E%E9%99%A9/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>布莱克-舒尔斯期权定价模型</title>
+      <link>https://xping.me/post/bs_model/</link>
+      <pubDate>Tue, 11 Dec 2018 22:05:54 +0100</pubDate>
+      
+      <guid>https://xping.me/post/bs_model/</guid>
+      <description>&lt;p&gt;在Risikomanagement课上讲到了布莱克-舒尔斯期权定价模型（Black-Scholes Option Pricing Model），但只是给出了公式，没有推导。在网上查找之后终于大致弄懂，把推导过程尽可能的详细的写一写。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>售出-购进平价理论</title>
