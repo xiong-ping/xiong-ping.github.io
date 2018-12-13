@@ -1158,6 +1158,9 @@ textarea {
 		margin: 0 auto;
 	}
 
+	body {
+		background: none;
+	}
 	.wrapper,
 	.logo {
 		padding: 20px;
