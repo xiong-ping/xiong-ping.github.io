@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on XP&#39;s Blog</title>
+    <link>https://xping.me/tags/linux/</link>
+    <description>Recent content in Linux on XP&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 16 Dec 2018 13:30:23 +0100</lastBuildDate>
+    
+	<atom:link href="https://xping.me/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Linux下压缩命令</title>
+      <link>https://xping.me/post/linux_compress/</link>
+      <pubDate>Sun, 16 Dec 2018 13:30:23 +0100</pubDate>
+      
+      <guid>https://xping.me/post/linux_compress/</guid>
+      <description>&lt;p&gt;Linux下压缩解压缩命令的归纳。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
