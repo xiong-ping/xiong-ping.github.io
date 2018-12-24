@@ -6,10 +6,19 @@
     <description>Recent content on XP&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 16 Dec 2018 13:30:23 +0100</lastBuildDate>
+    <lastBuildDate>Mon, 24 Dec 2018 17:06:00 +0100</lastBuildDate>
     
 	<atom:link href="https://xping.me/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>期权的风险指标</title>
+      <link>https://xping.me/post/finance_greeks/</link>
+      <pubDate>Mon, 24 Dec 2018 17:06:00 +0100</pubDate>
+      
+      <guid>https://xping.me/post/finance_greeks/</guid>
+      <description>&lt;p&gt;期权的风险指标通常用希腊字母来表示，包括：Delta值(\(\Delta\))、Gamma值(\(\Gamma\))、Omega值(\(\Omega\))、Theta值(\(\theta\))、Vega值、Rho(\(\rho\))值等。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Linux下压缩命令</title>

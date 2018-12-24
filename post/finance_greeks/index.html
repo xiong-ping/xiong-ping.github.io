@@ -4,15 +4,15 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>使用Hugo的一些注意事项</title>
+	<title>期权的风险指标</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="">
 	<meta name="generator" content="Hugo 0.52" />
-	<meta property="og:title" content="使用Hugo的一些注意事项" />
-<meta property="og:description" content="一些在使用Hugo时发现的小技巧或问题及解决方法，会持续更新。" />
+	<meta property="og:title" content="期权的风险指标" />
+<meta property="og:description" content="期权的风险指标通常用希腊字母来表示，包括：Delta值(\(\Delta\))、Gamma值(\(\Gamma\))、Omega值(\(\Omega\))、Theta值(\(\theta\))、Vega值、Rho(\(\rho\))值等。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xping.me/post/tips_hugo/" /><meta property="article:published_time" content="2018-12-05T16:32:54&#43;01:00"/>
-<meta property="article:modified_time" content="2018-12-05T16:32:54&#43;01:00"/>
+<meta property="og:url" content="https://xping.me/post/finance_greeks/" /><meta property="article:published_time" content="2018-12-24T17:06:00&#43;01:00"/>
+<meta property="article:modified_time" content="2018-12-24T17:06:00&#43;01:00"/>
 
 	
 	<link rel="stylesheet" href="/css/highlight.css">
@@ -55,67 +55,164 @@ if (!doNotTrack) {
 <main class="main" role="main">
 	<article class="post">
 		<header class="post__header">
-			<h1 class="post__title">使用Hugo的一些注意事项</h1>
+			<h1 class="post__title">期权的风险指标</h1>
+			<p class="post__lead">Greeks (finance)</p>
 			<div class="post__meta meta">
 <div class="meta__item-datetime meta__item">
 	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
-	<time class="meta__text" datetime="2018-12-05T16:32:54">December 05, 2018</time>
+	<time class="meta__text" datetime="2018-12-24T17:06:00">December 24, 2018</time>
 </div>
 
 <div class="meta__item-categories meta__item">
 	<svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
-	<span class="meta__text"><a class="meta__link" href="/categories/%e6%9d%82%e8%b0%88" rel="category">杂谈</a>, <a class="meta__link" href="/categories/%e8%ae%a1%e7%ae%97%e6%9c%ba" rel="category">计算机</a>, <a class="meta__link" href="/categories/%e7%bd%91%e7%bb%9c" rel="category">网络</a></span>
+	<span class="meta__text"><a class="meta__link" href="/categories/%e9%87%91%e8%9e%8d" rel="category">金融</a></span>
 </div>
 </div>
 		</header><div class="content post__content clearfix">
-			<p>一些在使用Hugo时发现的小技巧或问题及解决方法，会持续更新。</p>
+			<p>期权的风险指标通常用希腊字母来表示，包括：Delta值(\(\Delta\))、Gamma值(\(\Gamma\))、Omega值(\(\Omega\))、Theta值(\(\theta\))、Vega值、Rho(\(\rho\))值等。</p>
 
-<h2 id="如何插入本地图片">如何插入本地图片？</h2>
+<p>结合<a href="/post/bs_model/">布莱克-舒尔斯期权定价模型</a>的公式来看：</p>
 
-<p>一直不知道怎样插入本地图片，查找后得知，在<code>site</code>目录下的<code>static</code>目录就是存放静态文件的地方，可以在下面创建一个<code>media</code>目录，用于保存图片等媒体文件，引用的话，使用<code>/media/123.png</code>即可。</p>
+<p>$$
+c=SN(d_1)-Xe^{-r(T-t)}N(d_2)
+$$</p>
 
-<p><strong>注意</strong>：不要使用大写的后缀名，如<code>123.PNG</code>，生成的静态页面引用的是小写后缀，会出现找不到文件。</p>
+<p>其中，</p>
 
-<h2 id="搜索引擎无法搜索到博客内容">搜索引擎无法搜索到博客内容。</h2>
+<p>$$
+d_1 = \frac{\ln \frac{S}{X} + (r+\frac{\sigma^2}{2})(T-t)}{\sigma \sqrt{T-t}}
+$$
+$$
+d_2 = \frac{\ln \frac{S}{X} + (r-\frac{\sigma^2}{2})(T-t)}{\sigma \sqrt{T-t}}
+$$</p>
 
-<p>这是因为搜索引擎还没有收录我们的URL，可以在搜索引擎提交一下自己的网址，比如<a href="https://www.google.com/webmasters/tools/home">谷歌</a>，并过一段时间再试。</p>
+<p>\(N(x)\)是标准正态分布变量的累计概率分布函数。</p>
 
-<h2 id="hugo不支持站内搜索和内置评论">Hugo不支持站内搜索和内置评论。</h2>
+<h2 id="delta-delta">Delta(\(\Delta\))</h2>
 
-<p>这是因为Hugo生成的是静态网站，没有服务器后台，没有数据库，所以当然不能搜索和评论啦。如果你的网站被搜索引擎收录了，可以使用搜索引擎的限制搜索，比如<code>serchword site:https://yoursite.com/</code>，有的主题提供搜索框工具，基本也是靠这种方法。评论可以使用外置的评论系统，比如<code>Discus</code>。</p>
+<p>又称<strong>对冲值</strong>，是衡量标的资产价格变动时，期权价格的变化幅度。</p>
 
-<h2 id="git-push的时候会发生冲突">Git push的时候会发生冲突。</h2>
+<p>$$
+\Delta = \frac{dc}{dS}
+$$</p>
 
-<p>可能是在GitHub上配置自定义页面的时候（我就是在这时遇到的），repository里创建了新的文件（我碰到的是CNAME文件）而本地没有。解决方法是先<code>pull</code>再<code>push</code>。</p>
+<p><strong>特性</strong>：</p>
 
-<h2 id="hugo报错">Hugo报错。</h2>
+<ul>
+<li>买权的Delta一定要是正值，因为期货价格上涨（下跌），期权价格随之上涨（下跌），二者始终保持同向变化。</li>
+<li>卖权的Delta一定要是负值，因为看跌期权价格的变化与期货价格相反。</li>
+<li>Delta的范围介乎-1到1之间。</li>
+</ul>
 
-<p>肯定是在配置文件或者是文章头部配置有问题，具体查看报错信息进行修改即可，Hugo的报错做的不错，很好理解。</p>
+<p><strong>运用</strong>：</p>
 
-<h2 id="访问的时候浏览器提示-不安全">访问的时候浏览器提示“不安全”。</h2>
+<ul>
+<li>衡量头寸风险：如看涨期权的Delta为0.4，意味着期货价格每变动一元，期权的价格则变动0.4元。Delta具有可加性，如果投资者持有以下投资组合：</li>
+</ul>
 
-<p>这是因为没有启用HTTPS，如果是托管在GitHub上的话可以使用GitHub提供的HTTPS福利。开启步骤如下：</p>
+<table>
+<thead>
+<tr>
+<th align="left">持仓头寸</th>
+<th align="left">Delta</th>
+<th align="left">数量（张）</th>
+</tr>
+</thead>
 
-<ol>
-<li>找到处于不可选状态的Enforce HTTPS选项，旁边会提示 <em>Unavailable for your site because your domain is not properly configured to support HTTPS</em> 。</li>
-<li>将填在Custom domain里的自定义域名清空，保存，然后重新填上自定义域名，再保存。</li>
-<li>现在可以勾选Enforce HTTPS选项了，这时会提示正在签发证书: <em>Not yet available for your site because the certificate has not finished being issued</em> 。</li>
-<li>证书签发成功后，可以使用 https 链接访问自定义域名了。</li>
-</ol>
+<tbody>
+<tr>
+<td align="left">买入小麦期货</td>
+<td align="left">1</td>
+<td align="left">1</td>
+</tr>
 
-<h2 id="dns配置完成后-还不能访问页面-或者有的设备可以访问-而有的不行">DNS配置完成后，还不能访问页面，或者有的设备可以访问，而有的不行。</h2>
+<tr>
+<td align="left">买入看涨期权</td>
+<td align="left">0.47</td>
+<td align="left">2</td>
+</tr>
 
-<p>这是因为DNS需要一定时间传播，等待一段时间就好了。有兴趣可以阅读一下DNS的<a href="https://zh.wikipedia.org/wiki/%E5%9F%9F%E5%90%8D%E7%B3%BB%E7%BB%9F">维基百科</a>。</p>
+<tr>
+<td align="left">买入看跌期权</td>
+<td align="left">-0.53</td>
+<td align="left">3</td>
+</tr>
+</tbody>
+</table>
 
-<h2 id="使用mathjax的时候-用-无法输入行内公式">使用MathJax的时候，用$ $无法输入行内公式</h2>
+<p>该交易者的总体持仓的Delta值为\(1+2*0.47-3*0.53=0.35\)，也就是说这是一个偏多的头寸，相当于0.35手期货多头。</p>
 
-<p>MathJax默认禁用了这种方式，你可以使用<code>\\( 你的公式 \\)</code>的方法，也可以参考它的<a href="https://github.com/mathjax/MathJax/blob/master/config/default.js">default.js</a>自行配置（在295行）。行间公式默认可以用<code>\\[ 你的公式 \\]</code>或者传统的TeX写法<code>$$ 你的公式 $$</code>。</p>
+<ul>
+<li><strong>Delta中性套期保值</strong>（Delta Hedging）：如果投资者希望对冲期权或期货头寸的风险，Delta就是套期保值比率。只要使头寸的整体 Delta值保持为0，就建立了一个中性的套期策略。</li>
+</ul>
+
+<h2 id="gamma-gamma">Gamma(\(\Gamma\))</h2>
+
+<p>反映期货价格对Delta值的影响程度。如某一期权的Delta为0.6，Gamma值为0.05，则表示期货价格上升1元，所引起Delta增加量为0.05。Delta将从0.6增加到0.65。</p>
+
+<p>$$
+\Gamma = \frac{d\Delta}{dS}
+$$</p>
+
+<p><strong>特性</strong>：</p>
+
+<ul>
+<li>Gamma值均为正值，因为若期货价格上涨，看涨期权的Delta值由0向1移动，看跌期权的Delta值从-1向0移动，即期权的Delta值从小到大移动，Gamma值为正。</li>
+<li>Gamma值越大，Delta值变化越快。</li>
+<li>平值期权的Gamma值最大。</li>
+<li>随着到期日的临近，平值期权Gamma值会急剧增加。</li>
+</ul>
+
+<p><strong>应用</strong>：</p>
+
+<p>进行Delta中性套期保值，Gamma绝对值越大的头寸，风险程度也越高，因为进行中性对冲需要调整的频率高；相反，Gamma绝对值越小的头寸，风险程度越低。对期权的买方来说，风险有限，所以Gamma值越高，Delta越不稳定，对投资者越有利。</p>
+
+<h2 id="omega-omega">Omega(\(\Omega\))</h2>
+
+<p>又称期权价格的无风险利率粘性，表示期权价格变动量和期货价格变动量的比值。</p>
+
+<p>$$
+\Omega = \frac{\frac{dc}{c}}{\frac{dS}{S}}
+$$</p>
+
+<h2 id="rho-rho">Rho(\(\rho\))</h2>
+
+<p>表示期权价格对无风险利率变化的敏感程度。</p>
+
+<p>$$
+\rho = \frac{dc}{dr}
+$$</p>
+
+<h2 id="theta-theta">Theta(\(\theta\))</h2>
+
+<p>表示时间变化对期权价格的影响。衡量期权的时间价值的折损的速度。</p>
+
+<p>$$
+\theta = - \frac{dc}{dT}
+$$</p>
+
+<p><strong>特性</strong>：</p>
+
+<p>Theta为负值，意味着期权的价格随着时间流逝会越来越低，折损的速度则可由Theta来衡量。例如还有60天到期的平价期权的Theta为-0.0002126，这意味着每天期权价值失去0.0002126美元。</p>
+
+<h2 id="vega">Vega</h2>
+
+<p>表示期货价格的波动率变化对期权价格的影响。</p>
+
+<p>$$
+Vega = \frac{dc}{d\sigma}
+$$</p>
+
+<p><strong>特性</strong>：</p>
+
+<p>Vega为正值，意味着期权的价格随着波动率的增加而增加。当期权处于平价状态时，Vega值最大；当期权处于较深的价内或者价外时，Vega值接近于零。（相关：<a href="https://wiki.mbalib.com/wiki/%E4%BB%B7%E5%86%85%E6%9D%83%E8%AF%81">价内权证</a>）</p>
 		</div>
 		
 <div class="post__tags tags clearfix">
 	<svg class="icon icon-tag" width="16" height="16" viewBox="0 0 16 16"><path d="M16 9.5c0 .373-.24.74-.5 1l-5 5c-.275.26-.634.5-1 .5-.373 0-.74-.24-1-.5L1 8a2.853 2.853 0 0 1-.7-1C.113 6.55 0 5.973 0 5.6V1.4C0 1.034.134.669.401.401.67.134 1.034 0 1.4 0h4.2c.373 0 .95.113 1.4.3.45.187.732.432 1 .7l7.5 7.502c.26.274.5.632.5.998zM3.5 5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>
 	<ul class="tags__list">
-		<li class="tags__item"><a class="tags__link btn" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/tags/%E9%A3%8E%E9%99%A9%E7%AE%A1%E7%90%86/" rel="tag">风险管理</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/tags/%E6%9C%9F%E6%9D%83/" rel="tag">期权</a></li>
 	</ul>
 </div>
 	</article>
@@ -236,5 +333,7 @@ if (!doNotTrack) {
 
 </footer>
 	</div>
-<script async defer src="/js/menu.js"></script></body>
+<script async defer src="/js/menu.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+</body>
 </html>

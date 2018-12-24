@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>风险管理 on XP&#39;s Blog</title>
+    <link>https://xping.me/tags/%E9%A3%8E%E9%99%A9%E7%AE%A1%E7%90%86/</link>
+    <description>Recent content in 风险管理 on XP&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 24 Dec 2018 17:06:00 +0100</lastBuildDate>
+    
+	<atom:link href="https://xping.me/tags/%E9%A3%8E%E9%99%A9%E7%AE%A1%E7%90%86/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>期权的风险指标</title>
+      <link>https://xping.me/post/finance_greeks/</link>
+      <pubDate>Mon, 24 Dec 2018 17:06:00 +0100</pubDate>
+      
+      <guid>https://xping.me/post/finance_greeks/</guid>
+      <description>&lt;p&gt;期权的风险指标通常用希腊字母来表示，包括：Delta值(\(\Delta\))、Gamma值(\(\Gamma\))、Omega值(\(\Omega\))、Theta值(\(\theta\))、Vega值、Rho(\(\rho\))值等。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>布莱克-舒尔斯期权定价模型</title>
+      <link>https://xping.me/post/bs_model/</link>
+      <pubDate>Tue, 11 Dec 2018 22:05:54 +0100</pubDate>
+      
+      <guid>https://xping.me/post/bs_model/</guid>
+      <description>&lt;p&gt;在Risikomanagement课上讲到了布莱克-舒尔斯期权定价模型（Black-Scholes Option Pricing Model），但只是给出了公式，没有推导。在网上查找之后终于大致弄懂，把推导过程尽可能的详细的写一写。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>售出-购进平价理论</title>
+      <link>https://xping.me/post/put_call_parity/</link>
+      <pubDate>Fri, 07 Dec 2018 21:48:39 +0100</pubDate>
+      
+      <guid>https://xping.me/post/put_call_parity/</guid>
+      <description>&lt;p&gt;售出-购进平价理论（Put-Call Parity）指在无套利原则下（Non-Arbitrage），欧式看涨期权（Call Option）和欧式看跌期权（Put Option）定价之间存在的基本关系。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://xping.me/post/finance_greeks/</loc>
+    <lastmod>2018-12-24T17:06:00+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://xping.me/post/linux_compress/</loc>
     <lastmod>2018-12-16T13:30:23+01:00</lastmod>
   </url>
@@ -66,7 +71,7 @@
   
   <url>
     <loc>https://xping.me/post/</loc>
-    <lastmod>2018-12-16T13:30:23+01:00</lastmod>
+    <lastmod>2018-12-24T17:06:00+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -78,7 +83,7 @@
   
   <url>
     <loc>https://xping.me/</loc>
-    <lastmod>2018-12-16T13:30:23+01:00</lastmod>
+    <lastmod>2018-12-24T17:06:00+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -89,14 +94,14 @@
   </url>
   
   <url>
-    <loc>https://xping.me/categories/%E6%9D%82%E8%B0%88/</loc>
-    <lastmod>2018-12-05T17:38:52+01:00</lastmod>
+    <loc>https://xping.me/tags/%E6%9C%9F%E6%9D%83/</loc>
+    <lastmod>2018-12-24T17:06:00+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://xping.me/categories/%E7%BB%8F%E6%B5%8E/</loc>
-    <lastmod>2018-12-11T22:05:54+01:00</lastmod>
+    <loc>https://xping.me/categories/%E6%9D%82%E8%B0%88/</loc>
+    <lastmod>2018-12-05T17:38:52+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -113,14 +118,14 @@
   </url>
   
   <url>
-    <loc>https://xping.me/tags/%E9%87%91%E8%9E%8D/</loc>
-    <lastmod>2018-12-11T22:05:54+01:00</lastmod>
+    <loc>https://xping.me/categories/%E9%87%91%E8%9E%8D/</loc>
+    <lastmod>2018-12-24T17:06:00+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://xping.me/tags/%E9%A3%8E%E9%99%A9/</loc>
-    <lastmod>2018-12-11T22:05:54+01:00</lastmod>
+    <loc>https://xping.me/tags/%E9%A3%8E%E9%99%A9%E7%AE%A1%E7%90%86/</loc>
+    <lastmod>2018-12-24T17:06:00+01:00</lastmod>
     <priority>0</priority>
   </url>
   
