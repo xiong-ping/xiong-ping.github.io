@@ -4,15 +4,15 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Hugo和WordPress比较</title>
+	<title>认知算法小结</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="">
 	<meta name="generator" content="Hugo 0.52" />
-	<meta property="og:title" content="Hugo和WordPress比较" />
-<meta property="og:description" content="对比以前搭建WordPress博客的经历，Hugo有这样的一些不同：" />
+	<meta property="og:title" content="认知算法小结" />
+<meta property="og:description" content="在认知算法课里学习了一些算法，比如NCC，感知算法，LDA等等，小结一下。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xping.me/post/hugo_wp/" /><meta property="article:published_time" content="2018-12-05T17:38:52&#43;01:00"/>
-<meta property="article:modified_time" content="2018-12-05T17:38:52&#43;01:00"/>
+<meta property="og:url" content="https://xping.me/post/ca_short_summary/" /><meta property="article:published_time" content="2018-12-28T20:57:51&#43;01:00"/>
+<meta property="article:modified_time" content="2018-12-28T20:57:51&#43;01:00"/>
 
 	
 	<link rel="stylesheet" href="/css/highlight.css">
@@ -55,47 +55,140 @@ if (!doNotTrack) {
 <main class="main" role="main">
 	<article class="post">
 		<header class="post__header">
-			<h1 class="post__title">Hugo和WordPress比较</h1>
+			<h1 class="post__title">认知算法小结</h1>
 			<div class="post__meta meta">
 <div class="meta__item-datetime meta__item">
 	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
-	<time class="meta__text" datetime="2018-12-05T17:38:52">December 05, 2018</time>
+	<time class="meta__text" datetime="2018-12-28T20:57:51">December 28, 2018</time>
 </div>
 
 <div class="meta__item-categories meta__item">
 	<svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
-	<span class="meta__text"><a class="meta__link" href="/categories/%e6%9d%82%e8%b0%88" rel="category">杂谈</a>, <a class="meta__link" href="/categories/%e8%ae%a1%e7%ae%97%e6%9c%ba" rel="category">计算机</a>, <a class="meta__link" href="/categories/%e7%bd%91%e7%bb%9c" rel="category">网络</a></span>
+	<span class="meta__text"><a class="meta__link" href="/categories/%e8%ae%a1%e7%ae%97%e6%9c%ba" rel="category">计算机</a></span>
 </div>
 </div>
 		</header><div class="content post__content clearfix">
-			<p>对比以前搭建WordPress博客的经历，Hugo有这样的一些不同：</p>
+			<p>在认知算法课里学习了一些算法，比如NCC，感知算法，LDA等等，小结一下。</p>
 
-<p><center>
-    <img src="https://avatars0.githubusercontent.com/u/29385237?s=400&v=4" width="200">
-    <img src="https://s.w.org/style/images/about/WordPress-logotype-wmark.png" width="200">
-</center></p>
+<h2 id="nearest-centroid-classifier">Nearest Centroid Classifier</h2>
 
-<ul>
-<li><p>Hugo生成的是<strong>静态页面</strong>，所以没有内置的评论、搜索、登陆等等一系列的需要后台的功能。</p></li>
+<p>NCC. 最简单的一个归类算法。输入多个\((\mathbf x, y)\)，其中\(\mathbf x\)表示特征，\(y\)表示所属类别，比如\( y \in \{ -1,1 \} \)。将每一类的\(\mathbf x\)取平均，得到一个向量，称为原型（Prototype）。预测一个新的\(\mathbf x\)是属于哪一类的时候，计算并比较它与每一类的原型的相似度（距离），归为最相似的那一类中。比如\(y = -1： (0, 1); y = 1: (1, 0)\)，输入\(\mathbf x = (0, 2)\)，计算它与\((0, 1)\)和\((1, 0)\)的距离并比较，容易得出离前者更近，所以归入\(y = -1\)组。</p>
 
-<li><p>没有WordPress上那么多五花八门的插件。</p></li>
+<p>基于这一思想，可以推导出一个函数\(f(\mathbf x)\)，当\(\mathbf x\)属于一个组的时候函数值为正，属于另一个组的时候函数值为负。略去推导过程，给出结果：</p>
 
-<li><p>主题偏少，但足够。</p></li>
+<p>$$
+f(\mathbf x) = {\mathbf w}^T - \beta
+$$</p>
 
-<li><p>使用起来有些门槛，比如必须会markdown，最好有一点HTML、 CSS的知识。但比起WordPress，学习起来快很多。</p></li>
+<p>其中：</p>
 
-<li><p>备份起来比WordPress简单（？），WordPress得用插件。</p></li>
+<p>$$
+{\mathbf w} = \mathbf w_{-1} - \mathbf w_{+1}
+\\ \beta = \frac{1}{2} \left( \mathbf w_{-1}^T \mathbf w_{-1} - \mathbf w_{+1}^T \mathbf w_{+1} \right)
+$$</p>
 
-<li><p>管理简单，<del>因为只有基本的功能</del>。</p></li>
-</ul>
+<h2 id="感知算法">感知算法</h2>
 
-<p>所以如果要搭建个人博客，Hugo十分足够。如果是喜欢图形化的编辑，喜欢尝试各种各样的主题插件（<del>喜新厌旧</del>），需要能方便的互动的，推荐WordPress。如果搭建组织网站，比如社团网站，需要多人、多层管理维护的，上WordPress，不用考虑Hugo了。</p>
+<p>和NCC类似，输入一组数据和他们的类别，输出一个\(\mathbf w\)。</p>
+
+<p>引入一个概念<strong>感知错误</strong>（Perceptron Error），衡量一个\(\mathbf w\)的好坏。定义为：</p>
+
+<p>$$
+E_p(\mathbf w) = - \sum_{m \in M} \mathbf w^T \mathbf x_m y_m
+$$</p>
+
+<p>其中\(M\)是所有分类错误的数据的index。为了获得一个最优的\(\mathbf w\)，将上面的\(E_p(\mathbf w)\)最小化即可。在这里使用了<a href="https://zh.wikipedia.org/zh-hans/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95">随机梯度下降法</a>（Stochastic Gradient Descent）。</p>
+
+<p>$$
+\mathbf w^{new} = \mathbf w^{old} - \eta \nabla E_p(\mathbf w^{old}) = \mathbf w^{old} + \eta \mathbf x_m y_m
+$$</p>
+
+<p>其中最初的\(\mathbf w\)可以随机取得，\(\eta\)是学习率（learning rate），反应变化的速率，由于梯度下降法的特点，\(\eta\)不能太大也不能太小，太大可能得不出结果，太小的话会收敛太慢。</p>
+
+<p>使用这个方法时，可以设定一个跳出条件，比如相邻两次的变化量小于某个值，让模型重复随机取值、计算即可。</p>
+
+<h2 id="linear-discriminant-analysis">Linear Discriminant Analysis</h2>
+
+<p>LDA，线性判别分析，是后续很多算法的基础，十分重要。和前面两个算法的目的一样，为了找出\(\mathbf w\)和\(\beta\)。</p>
+
+<p>引入一个概念，费希尔标准（Fisher Criterion），用来衡量两个类别的分离程度：</p>
+
+<p>$$
+F = \frac{between \ class \ variance}{within \ class \ variance} = \frac{{\mathbf w_{+1} - \mathbf w_{-1}}^2}{\sigma_{+1}^2 + \sigma_{-1}^2}
+$$</p>
+
+<p>其中：</p>
+
+<p>$$
+\mathbf w_i = \frac{1}{N_i}\sum_{j=1}^{N_i}\mathbf x_{ji},
+\\ \sigma_i^2 = \frac{1}{N_i} \sum_{j=1}^{N_i}(x_{ji} - \mathbf w_i)^2
+$$</p>
+
+<p>为了找到最优的\((\mathbf w , \beta)\)组合，只需要最大化组间variance，最小化组内variance即可，即最大化\(F\)。求导、推导过程略过，计算方法如下：</p>
+
+<p>首先用上面的方法计算\(\mathbf w_i\)。</p>
+
+<p>计算组内方差矩阵：</p>
+
+<p>$$
+S_W = \frac{1}{N_{-}} \sum_{i \in y_{-}} (\mathbf x_i - \mathbf w_{-}) (\mathbf x_i - \mathbf w_{-})^T + \frac{1}{N_{+}} \sum_{i \in y_{+}} (\mathbf x_i - \mathbf w_{+}) (\mathbf x_i - \mathbf w_{+})^T
+$$</p>
+
+<p>算出结果：</p>
+
+<p>$$
+\mathbf w = S_W^{-1}(\mathbf w_{+} - \mathbf w_{-}) \\
+\beta = \frac{1}{2} \mathbf w^T (\mathbf w_{+} + \mathbf w_{-}) + \log (\frac{N_{-}}{N_{+}})
+$$</p>
+
+<h2 id="ordinary-least-squares">Ordinary Least Squares</h2>
+
+<p>OLS，普通最小二乘法，用于线性回归。输入一组数据\((\mathbf x, y)\)，得到线性函数\(f(\mathbf x) = \mathbf \omega^T \mathbf x\)，把其中的\(\mathbf x\)替换为合适的核函数（Kernel Function）\(\mathbf \phi (\mathbf x)\)可以用于非线性回归。</p>
+
+<p>引入概念最小二乘误差（Least Square Error），用于衡量线性函数与样本的契合度：</p>
+
+<p>$$
+E(\mathbf \omega) = \sum_{t=1}^T (y_t - \mathbf \omega^T \mathbf x_t)^2
+$$</p>
+
+<p>求导，置零，推导过程略过，得到结果为：</p>
+
+<p>$$
+\mathbf \omega = (\mathbf X \mathbf X^T)^{-1}\mathbf X y^T
+$$</p>
+
+<p>可以把\(y\)扩展到多维，这样得到的是Linear Mapping。</p>
+
+<p>很多时候时候线性函数\(f(\mathbf x) = \mathbf \omega^T \mathbf x\)不满足需求，需要添加一个偏移量，也就是把函数变成\(f(\mathbf x) = \mathbf \omega^T \mathbf x + bias\)，可以通过在样本\(\mathbf X\)的最上方加入一行\(1\)来实现。</p>
+
+<h2 id="ridge-regression">Ridge Regression</h2>
+
+<p>有时候仅仅使用OLS会导致过拟合(Overfitting)的问题，即模型使用过多的参数过度适应样本而不能反应真实情况，所以控制\(\mathbf \omega\)的复杂度是有必要的。</p>
+
+<p>扩展一下最小二乘误差：</p>
+
+<p>$$
+E_{RR} (\mathbf \omega) = (y - \mathbf \omega^T \mathbf X)^2 + \lambda \mathbf \omega^2
+$$</p>
+
+<p>其中\(\lambda\)被称为Ridge，控制它的大小以控制\(\mathbf \omega\)的复杂度，不能太大也不能太小，太大会导致欠拟合，太小会导致过拟合。</p>
+
+<p>推导过程略过，得到的结果为：</p>
+
+<p>$$
+\mathbf \omega = (\mathbf X \mathbf X^T + \lambda \mathbf I)^{-1}\mathbf X y^T
+$$</p>
+
+<h2 id="结语">结语</h2>
+
+<p>以上差不多是这门课里学到的全部算法，主要用于线性归类和回归，可以使用适当的<a href="https://en.wikipedia.org/wiki/Kernel_method">核函数</a>（Kernel Function）扩展到非线性的范围。另外还可以使用<a href="https://en.wikipedia.org/wiki/Cross-validation_(statistics)">Cross Validation</a>来判断一个模型的好坏。关于这两个话题之后再做总结。</p>
 		</div>
 		
 <div class="post__tags tags clearfix">
 	<svg class="icon icon-tag" width="16" height="16" viewBox="0 0 16 16"><path d="M16 9.5c0 .373-.24.74-.5 1l-5 5c-.275.26-.634.5-1 .5-.373 0-.74-.24-1-.5L1 8a2.853 2.853 0 0 1-.7-1C.113 6.55 0 5.973 0 5.6V1.4C0 1.034.134.669.401.401.67.134 1.034 0 1.4 0h4.2c.373 0 .95.113 1.4.3.45.187.732.432 1 .7l7.5 7.502c.26.274.5.632.5.998zM3.5 5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>
 	<ul class="tags__list">
-		<li class="tags__item"><a class="tags__link btn" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li>
 	</ul>
 </div>
 	</article>
@@ -218,5 +311,7 @@ if (!doNotTrack) {
 
 </footer>
 	</div>
-<script async defer src="/js/menu.js"></script></body>
+<script async defer src="/js/menu.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+</body>
 </html>

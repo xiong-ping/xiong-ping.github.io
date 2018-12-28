@@ -6,10 +6,19 @@
     <description>Recent content on XP&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 25 Dec 2018 11:02:13 +0100</lastBuildDate>
+    <lastBuildDate>Fri, 28 Dec 2018 20:57:51 +0100</lastBuildDate>
     
 	<atom:link href="https://xping.me/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>认知算法小结</title>
+      <link>https://xping.me/post/ca_short_summary/</link>
+      <pubDate>Fri, 28 Dec 2018 20:57:51 +0100</pubDate>
+      
+      <guid>https://xping.me/post/ca_short_summary/</guid>
+      <description>&lt;p&gt;在认知算法课里学习了一些算法，比如NCC，感知算法，LDA等等，小结一下。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>利率期权</title>
