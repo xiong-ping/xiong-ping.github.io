@@ -112,11 +112,47 @@
     
     <item>
       <title>关于与许可</title>
-      <link>https://xping.me/about/</link>
+      <link>https://xping.me/about_license/</link>
       <pubDate>Mon, 03 Dec 2018 19:40:38 +0100</pubDate>
       
+      <guid>https://xping.me/about_license/</guid>
+      <description>Hello there! 这里是我的个人博客 ，基于Hugo和Mainroad主题，是一个静态博客，但会使用Disqus和Google Analytics，前者可以提</description>
+    </item>
+    
+    <item>
+      <title>许可</title>
+      <link>https://xping.me/license/</link>
+      <pubDate>Mon, 03 Dec 2018 19:40:38 +0100</pubDate>
+      
+      <guid>https://xping.me/license/</guid>
+      <description>本博客内容采用CC BY-NC-SA 4.0许可，您可以自由地 共享 — 在任何媒介以任何形式复制、发行本作品。 演绎 — 修改、转换或以本作品为基础进行创作。 惟须遵守下</description>
+    </item>
+    
+    <item>
+      <title>关于</title>
+      <link>https://xping.me/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
       <guid>https://xping.me/about/</guid>
-      <description>Hello there! 这里是我的个人博客 ，基于Hugo和Mainroad主题。我会在这里写一些学习记录、生活感悟之类的随笔。内容主要涉及计算机、经济和统计学。</description>
+      <description>Hello there! 这里是我的个人博客 ，基于Hugo和Mainroad主题，是一个静态博客，但会使用Disqus和Google Analytics，前者可以提</description>
+    </item>
+    
+    <item>
+      <title>友链</title>
+      <link>https://xping.me/links/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xping.me/links/</guid>
+      <description>Google Microsoft Apple Telegram （友链申请：联系我 via Telegram）</description>
+    </item>
+    
+    <item>
+      <title>归档</title>
+      <link>https://xping.me/archive/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xping.me/archive/</guid>
+      <description>博客第一步, 2018-12-03, https://xping.me/post/blog_building/ 使用Hugo的一些注意事项, 2018-12-05, https://xping.me/post/tips_hugo/ Hugo和WordPress比较, 2018-12-05, https://xping.me/post/hugo_wp/ Markdown里图片并列显示, 2018-12-05, https://xping.me/post/md_display_img_parallel/ 在Hugo博客中加</description>
     </item>
     
   </channel>

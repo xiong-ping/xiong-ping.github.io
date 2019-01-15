@@ -421,7 +421,7 @@ select {
 	font-weight: 700;
 	line-height: 1;
 	color: #1986b2;
-	border-top: 1px solid #ebebeb;
+	border-top: 1px solid #1986b2;
 }
 
 .divider {
@@ -451,9 +451,9 @@ select {
 	position: relative;
 	display: block;
 	padding: 10px 15px;
-	padding: .625rem .9375rem;
+	padding: .25rem .9375rem;
 	font-weight: 700;
-	text-align: right;
+	text-align: center;
 	text-transform: uppercase;
 	cursor: pointer;
 	-webkit-user-select: none;
@@ -500,10 +500,11 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 .menu__link {
 	display: block;
 	padding: 10px 15px;
-	padding: .625rem .9375rem;
+	padding: .25rem .9375rem;
 	font-weight: 700;
 	color: #fff;
 	text-transform: uppercase;
+	text-align: center;
 }
 
 .menu__link:hover {
@@ -535,7 +536,7 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 
 @media screen and (min-width: 767px) {
 	.menu {
-		border-bottom: 5px solid #1986b2;
+		border-bottom: 3px solid #1986b2;
 	}
 
 	.menu__btn {
