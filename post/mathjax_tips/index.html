@@ -99,37 +99,34 @@ if (!doNotTrack) {
 
 <h2 id="输入下标出错">输入下标出错</h2>
 
-<pre><code class="language-x_{abc}```这样使用的时候会莫名其妙的报错，试了一下把```_```转义：```x\_{abc}```，就能用了。">
-## 公式不能换行
+<p><code>x_{abc}</code>这样使用的时候会莫名其妙的报错，试了一下把<code>_</code>转义：<code>x\_{abc}</code>，就能用了。</p>
 
-因为md解析的时候把```\\```解析成了一个```\```，解决方法是用四根```\\\\ ```换行（最后要加一个半角空格）。（~~也是醉了~~）
+<h2 id="公式不能换行">公式不能换行</h2>
 
-## 公式对齐
+<p>因为md解析的时候把<code>\\</code>解析成了一个<code>\</code>，解决方法是用四根<code>\\\\</code>换行（最后要加一个半角空格）。（<del>也是醉了</del>）</p>
 
-直接上代码：
+<h2 id="公式对齐">公式对齐</h2>
 
-</code></pre>
+<p>直接上代码：</p>
 
-<p>\begin{aligned}
-&amp;\nabla_{\mathbf x}A\mathbf x = A \\
-&amp;\frac{\partial \mathbf x^T \mathbf a}{\partial \mathbf x} = \frac{\partial \mathbf a^T \mathbf x}{\partial \mathbf x} = \mathbf a \\
-\end{aligned}</p>
-
-<pre><code>
-效果：
-$$
-\begin{aligned}
+<pre><code>\begin{aligned}
 &amp;\nabla_{\mathbf x}A\mathbf x = A \\\\ 
 &amp;\frac{\partial \mathbf x^T \mathbf a}{\partial \mathbf x} = \frac{\partial \mathbf a^T \mathbf x}{\partial \mathbf x} = \mathbf a \\\\ 
 \end{aligned}
-$$
-
-## 自定义运算名，比如argmax
-
 </code></pre>
 
-<p>\underset{\mathbf w}{\operatorname{argmax}} \frac{\mathbf w^TS_B\mathbf w}{\mathbf w^TS_B\mathbf w}
-```</p>
+<p>效果：
+$$
+\begin{aligned}
+&amp;\nabla_{\mathbf x}A\mathbf x = A \\
+&amp;\frac{\partial \mathbf x^T \mathbf a}{\partial \mathbf x} = \frac{\partial \mathbf a^T \mathbf x}{\partial \mathbf x} = \mathbf a \\
+\end{aligned}
+$$</p>
+
+<h2 id="自定义运算名-比如argmax">自定义运算名，比如argmax</h2>
+
+<pre><code>\\underset{\mathbf w}{\operatorname{argmax}} \frac{\mathbf w^TS_B\mathbf w}{\mathbf w^TS_B\mathbf w} 
+</code></pre>
 
 <p>效果：</p>
 
