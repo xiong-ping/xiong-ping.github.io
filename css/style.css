@@ -534,10 +534,11 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 	transition: visibility .15s ease, transform .15s ease, -webkit-transform .15s ease;
 }
 
+.menu {
+	border-bottom: 3px solid #1986b2;
+}
+
 @media screen and (min-width: 767px) {
-	.menu {
-		border-bottom: 3px solid #1986b2;
-	}
 
 	.menu__btn {
 		display: none;
