@@ -3,6 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://xping.me/post/linalg_in_ml/</loc>
+    <lastmod>2019-01-17T21:47:14+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://xping.me/post/mathjax_tips/</loc>
+    <lastmod>2019-01-17T17:28:35+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://xping.me/post/ca_short_summary/</loc>
     <lastmod>2018-12-28T20:57:51+01:00</lastmod>
   </url>
@@ -81,7 +91,7 @@
   
   <url>
     <loc>https://xping.me/post/</loc>
-    <lastmod>2018-12-28T20:57:51+01:00</lastmod>
+    <lastmod>2019-01-17T21:47:14+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -93,7 +103,7 @@
   
   <url>
     <loc>https://xping.me/</loc>
-    <lastmod>2018-12-28T20:57:51+01:00</lastmod>
+    <lastmod>2019-01-17T21:47:14+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -103,7 +113,7 @@
   
   <url>
     <loc>https://xping.me/tags/%E5%8D%9A%E5%AE%A2/</loc>
-    <lastmod>2018-12-05T19:31:24+01:00</lastmod>
+    <lastmod>2019-01-17T17:28:35+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -116,6 +126,12 @@
   </url>
   
   <url>
+    <loc>https://xping.me/categories/%E6%95%B0%E5%AD%A6/</loc>
+    <lastmod>2019-01-17T21:47:14+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://xping.me/tags/%E6%9C%9F%E6%9D%83/</loc>
     <lastmod>2018-12-25T11:02:13+01:00</lastmod>
     <priority>0</priority>
@@ -123,13 +139,13 @@
   
   <url>
     <loc>https://xping.me/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2018-12-28T20:57:51+01:00</lastmod>
+    <lastmod>2019-01-17T21:47:14+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://xping.me/categories/%E6%9D%82%E8%B0%88/</loc>
-    <lastmod>2018-12-05T17:38:52+01:00</lastmod>
+    <lastmod>2019-01-17T17:28:35+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -140,14 +156,20 @@
   </url>
   
   <url>
+    <loc>https://xping.me/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/</loc>
+    <lastmod>2019-01-17T21:47:14+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://xping.me/categories/%E7%BD%91%E7%BB%9C/</loc>
-    <lastmod>2018-12-05T17:38:52+01:00</lastmod>
+    <lastmod>2019-01-17T17:28:35+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://xping.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/</loc>
-    <lastmod>2018-12-28T20:57:51+01:00</lastmod>
+    <lastmod>2019-01-17T21:47:14+01:00</lastmod>
     <priority>0</priority>
   </url>
   

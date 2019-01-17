@@ -6,10 +6,28 @@
     <description>Recent content in 计算机 on XP&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 28 Dec 2018 20:57:51 +0100</lastBuildDate>
+    <lastBuildDate>Thu, 17 Jan 2019 21:47:14 +0100</lastBuildDate>
     
 	<atom:link href="https://xping.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>机器学习中的矩阵求导</title>
+      <link>https://xping.me/post/linalg_in_ml/</link>
+      <pubDate>Thu, 17 Jan 2019 21:47:14 +0100</pubDate>
+      
+      <guid>https://xping.me/post/linalg_in_ml/</guid>
+      <description>&lt;p&gt;在学习机器学习的算法时，推导过程中往往会涉及矩阵或向量求导以及一些其他的线性代数的知识。比如在推导LDA算法的时候，就是把Fisher&amp;rsquo;s Criterion求导后置零得到的结果。另外在优化的时候经常会使用到梯度下降法，这与矩阵向量求导也是分不开的。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>使用MathJax时的注意事项</title>
+      <link>https://xping.me/post/mathjax_tips/</link>
+      <pubDate>Thu, 17 Jan 2019 17:28:35 +0100</pubDate>
+      
+      <guid>https://xping.me/post/mathjax_tips/</guid>
+      <description>&lt;p&gt;记录一些在使用MathJax写公式时踩过的坑，持续更新。本来放在另一篇里的，内容越来越多，单独成篇。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>认知算法小结</title>

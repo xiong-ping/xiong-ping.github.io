@@ -6,10 +6,19 @@
     <description>Recent content in 博客 on XP&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 05 Dec 2018 19:31:24 +0100</lastBuildDate>
+    <lastBuildDate>Thu, 17 Jan 2019 17:28:35 +0100</lastBuildDate>
     
 	<atom:link href="https://xping.me/tags/%E5%8D%9A%E5%AE%A2/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>使用MathJax时的注意事项</title>
+      <link>https://xping.me/post/mathjax_tips/</link>
+      <pubDate>Thu, 17 Jan 2019 17:28:35 +0100</pubDate>
+      
+      <guid>https://xping.me/post/mathjax_tips/</guid>
+      <description>&lt;p&gt;记录一些在使用MathJax写公式时踩过的坑，持续更新。本来放在另一篇里的，内容越来越多，单独成篇。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>在Hugo博客中加入代码高亮</title>

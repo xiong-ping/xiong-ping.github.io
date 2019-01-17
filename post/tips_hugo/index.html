@@ -129,14 +129,6 @@ if (!doNotTrack) {
 <h2 id="dns配置完成后-还不能访问页面-或者有的设备可以访问-而有的不行">DNS配置完成后，还不能访问页面，或者有的设备可以访问，而有的不行。</h2>
 
 <p>这是因为DNS需要一定时间传播，等待一段时间就好了。有兴趣可以阅读一下DNS的<a href="https://zh.wikipedia.org/wiki/%E5%9F%9F%E5%90%8D%E7%B3%BB%E7%BB%9F">维基百科</a>。</p>
-
-<h2 id="使用mathjax的时候-用-无法输入行内公式">使用MathJax的时候，用$ $无法输入行内公式</h2>
-
-<p>MathJax默认禁用了这种方式，你可以使用<code>\\( 你的公式 \\)</code>的方法，也可以参考它的<a href="https://github.com/mathjax/MathJax/blob/master/config/default.js">default.js</a>自行配置（在295行）。行间公式默认可以用<code>\\[ 你的公式 \\]</code>或者传统的TeX写法<code>$$ 你的公式 $$</code>。</p>
-
-<h2 id="使用mathjax的时候输入下标出错">使用MathJax的时候输入下标出错</h2>
-
-<p><code>x_{abc}</code>这样使用的时候会莫名其妙的报错，试了一下把<code>_</code>转义：<code>x\_{abc}</code>，就能用了。</p>
 		</div>
 		
 <div class="post__tags tags clearfix">
@@ -217,11 +209,11 @@ if (!doNotTrack) {
 	<h4 class="widget__title">Recent Posts</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/post/linalg_in_ml/">机器学习中的矩阵求导</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/mathjax_tips/">使用MathJax时的注意事项</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/ca_short_summary/">认知算法小结</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/intrest_option/">利率期权</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/finance_greeks/">期权的风险指标</a></li>
-			<li class="widget__item"><a class="widget__link" href="/post/linux_compress/">Linux下压缩命令</a></li>
-			<li class="widget__item"><a class="widget__link" href="/post/bs_model/">布莱克-舒尔斯期权定价模型</a></li>
 		</ul>
 	</div>
 </div>
@@ -229,6 +221,7 @@ if (!doNotTrack) {
 	<h4 class="widget__title">Categories</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/categories/%e6%95%b0%e5%ad%a6">数学</a></li>
 			<li class="widget__item"><a class="widget__link" href="/categories/%e6%9d%82%e8%b0%88">杂谈</a></li>
 			<li class="widget__item"><a class="widget__link" href="/categories/%e7%bd%91%e7%bb%9c">网络</a></li>
 			<li class="widget__item"><a class="widget__link" href="/categories/%e8%ae%a1%e7%ae%97%e6%9c%ba">计算机</a></li>
@@ -245,6 +238,7 @@ if (!doNotTrack) {
 		<a class="widget-taglist__link widget__link btn" href="/tags/%e6%9c%9f%e6%9d%83" title="期权">期权</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%e6%9c%ba%e5%99%a8%e5%ad%a6%e4%b9%a0" title="机器学习">机器学习</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%e7%ae%97%e6%b3%95" title="算法">算法</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e7%ba%bf%e6%80%a7%e4%bb%a3%e6%95%b0" title="线性代数">线性代数</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%e9%a3%8e%e9%99%a9%e7%ae%a1%e7%90%86" title="风险管理">风险管理</a>
 	</div>
 </div>
