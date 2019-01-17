@@ -111,15 +111,6 @@
     </item>
     
     <item>
-      <title>关于与许可</title>
-      <link>https://xping.me/about_license/</link>
-      <pubDate>Mon, 03 Dec 2018 19:40:38 +0100</pubDate>
-      
-      <guid>https://xping.me/about_license/</guid>
-      <description>Hello there! 这里是我的个人博客 ，基于Hugo和Mainroad主题，是一个静态博客，但会使用Disqus和Google Analytics，前者可以提</description>
-    </item>
-    
-    <item>
       <title>许可</title>
       <link>https://xping.me/license/</link>
       <pubDate>Mon, 03 Dec 2018 19:40:38 +0100</pubDate>
