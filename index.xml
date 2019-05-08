@@ -6,10 +6,19 @@
     <description>Recent content on XP&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 17 Jan 2019 21:47:14 +0100</lastBuildDate>
+    <lastBuildDate>Wed, 08 May 2019 22:13:27 +0200</lastBuildDate>
     
 	<atom:link href="https://xping.me/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>英文论文写作句型</title>
+      <link>https://xping.me/post/eng_thesis_voc/</link>
+      <pubDate>Wed, 08 May 2019 22:13:27 +0200</pubDate>
+      
+      <guid>https://xping.me/post/eng_thesis_voc/</guid>
+      <description>&lt;p&gt;最近终于开始写毕业论文了，要求用英语，从网上搜集了一下英语论文的句型，整理后发布到博客，方便查阅。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>机器学习中的矩阵求导</title>
