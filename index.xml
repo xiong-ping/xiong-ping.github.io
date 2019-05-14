@@ -6,10 +6,19 @@
     <description>Recent content on XP&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 08 May 2019 22:13:27 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 14 May 2019 10:48:15 +0200</lastBuildDate>
     
 	<atom:link href="https://xping.me/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>递归神经网络</title>
+      <link>https://xping.me/post/rnn_lstm_gru/</link>
+      <pubDate>Tue, 14 May 2019 10:48:15 +0200</pubDate>
+      
+      <guid>https://xping.me/post/rnn_lstm_gru/</guid>
+      <description>&lt;p&gt;递归神经网络是神经网络的一种，与其他神经网络不同点在于，它可以很好地处理序列数据，即前面的数据的输入与后面的输出是有关系的，比如一句话的语义理解。本文介绍了递归神经网络及其两个变种——LSTM和GRU，目的是梳理一下自己所理解的RRN，也希望能够给初次接触RRN的同学一点帮助。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>英文论文写作句型</title>
