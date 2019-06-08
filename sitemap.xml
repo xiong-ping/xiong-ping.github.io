@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://xping.me/post/irrelevance_invest/</loc>
+    <lastmod>2019-06-08T11:23:53+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://xping.me/post/epf_models/</loc>
     <lastmod>2019-05-25T17:35:01+02:00</lastmod>
   </url>
@@ -106,7 +111,7 @@
   
   <url>
     <loc>https://xping.me/post/</loc>
-    <lastmod>2019-05-25T17:35:01+02:00</lastmod>
+    <lastmod>2019-06-08T11:23:53+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -118,7 +123,7 @@
   
   <url>
     <loc>https://xping.me/</loc>
-    <lastmod>2019-05-25T17:35:01+02:00</lastmod>
+    <lastmod>2019-06-08T11:23:53+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -144,6 +149,12 @@
   
   <url>
     <loc>https://xping.me/archive/</loc>
+  </url>
+  
+  <url>
+    <loc>https://xping.me/tags/%E6%8A%95%E8%B5%84/</loc>
+    <lastmod>2019-06-08T11:23:53+02:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -214,7 +225,7 @@
   
   <url>
     <loc>https://xping.me/categories/%E9%87%91%E8%9E%8D/</loc>
-    <lastmod>2018-12-25T11:02:13+01:00</lastmod>
+    <lastmod>2019-06-08T11:23:53+02:00</lastmod>
     <priority>0</priority>
   </url>
   

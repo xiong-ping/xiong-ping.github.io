@@ -6,10 +6,19 @@
     <description>Recent content on XP&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 25 May 2019 17:35:01 +0200</lastBuildDate>
+    <lastBuildDate>Sat, 08 Jun 2019 11:23:53 +0200</lastBuildDate>
     
 	<atom:link href="https://xping.me/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>投资对象的资本结构无关性</title>
+      <link>https://xping.me/post/irrelevance_invest/</link>
+      <pubDate>Sat, 08 Jun 2019 11:23:53 +0200</pubDate>
+      
+      <guid>https://xping.me/post/irrelevance_invest/</guid>
+      <description>&lt;p&gt;本文介绍了公司的杠杆效应（Leverage Effect）和Modigliani-Miller定理，以阐述投资对象的资本结构与价值的无关性。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>中短期电价预测模型简介</title>

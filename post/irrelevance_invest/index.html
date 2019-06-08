@@ -4,15 +4,15 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>机器学习中的矩阵求导</title>
+	<title>投资对象的资本结构无关性</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="">
 	<meta name="generator" content="Hugo 0.52" />
-	<meta property="og:title" content="机器学习中的矩阵求导" />
-<meta property="og:description" content="在学习机器学习的算法时，推导过程中往往会涉及矩阵或向量求导以及一些其他的线性代数的知识。比如在推导LDA算法的时候，就是把Fisher&rsquo;s Criterion求导后置零得到的结果。另外在优化的时候经常会使用到梯度下降法，这与矩阵向量求导也是分不开的。" />
+	<meta property="og:title" content="投资对象的资本结构无关性" />
+<meta property="og:description" content="本文介绍了公司的杠杆效应（Leverage Effect）和Modigliani-Miller定理，以阐述投资对象的资本结构与价值的无关性。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xping.me/post/linalg_in_ml/" /><meta property="article:published_time" content="2019-01-17T21:47:14&#43;01:00"/>
-<meta property="article:modified_time" content="2019-01-17T21:47:14&#43;01:00"/>
+<meta property="og:url" content="https://xping.me/post/irrelevance_invest/" /><meta property="article:published_time" content="2019-06-08T11:23:53&#43;02:00"/>
+<meta property="article:modified_time" content="2019-06-08T11:23:53&#43;02:00"/>
 
 	
 	<link rel="stylesheet" href="/css/highlight.css">
@@ -78,226 +78,70 @@ if (!doNotTrack) {
 <main class="main" role="main">
 	<article class="post">
 		<header class="post__header">
-			<h1 class="post__title">机器学习中的矩阵求导</h1>
+			<h1 class="post__title">投资对象的资本结构无关性</h1>
 			<div class="post__meta meta">
 <div class="meta__item-datetime meta__item">
 	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
-	<time class="meta__text" datetime="2019-01-17T21:47:14">January 17, 2019</time>
+	<time class="meta__text" datetime="2019-06-08T11:23:53">June 08, 2019</time>
 </div>
 
 <div class="meta__item-categories meta__item">
 	<svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
-	<span class="meta__text"><a class="meta__link" href="/categories/%e6%95%b0%e5%ad%a6" rel="category">数学</a>, <a class="meta__link" href="/categories/%e8%ae%a1%e7%ae%97%e6%9c%ba" rel="category">计算机</a></span>
+	<span class="meta__text"><a class="meta__link" href="/categories/%e9%87%91%e8%9e%8d" rel="category">金融</a></span>
 </div>
 </div>
 		</header><div class="content post__content clearfix">
-			<p>在学习机器学习的算法时，推导过程中往往会涉及矩阵或向量求导以及一些其他的线性代数的知识。比如在推导LDA算法的时候，就是把Fisher&rsquo;s Criterion求导后置零得到的结果。另外在优化的时候经常会使用到梯度下降法，这与矩阵向量求导也是分不开的。</p>
+			<p>本文介绍了公司的杠杆效应（Leverage Effect）和Modigliani-Miller定理，以阐述投资对象的资本结构与价值的无关性。</p>
 
-<h2 id="记号">记号</h2>
+<h2 id="杠杆效应">杠杆效应</h2>
 
-<p>在这篇文章中，向量统一为列向量，用\(\mathbf x\)表示，矩阵用\(X\)大写字母表示，标量用\(x\)表示。求导使用\(\frac{\partial f(\mathbf x)}{\partial \mathbf x}\)表示。</p>
-
-<h2 id="线性代数的一些变换">线性代数的一些变换</h2>
+<p>一个公司的资本结构是总资产（Total capital, T) = 股权（Equity, E）+ 债务（Debt, D）。定义：\(r_T\)是总资产回报率，毛利 = \(r_T * (E+D)\)；净利 = 毛利 - 债务利息 = \(r_T * (E+D) - r_D * D := r_E * E\)。则：</p>
 
 <p>$$
 \begin{aligned}
-&amp;1.\ (AB)^{-1} = B^{-1}A^{-1}\\
-&amp;2.\ (A^T)^{-1} = (A^{-1})^T\\
-&amp;3.\ AB = C \Leftrightarrow DAB = DC\\
-&amp;4.\ \left[
- \begin{matrix}
-   a &amp; b\\
-   c &amp; d
-  \end{matrix}
-  \right]^{-1} = \frac{1}{ad-bc}\left[
-                                 \begin{matrix}
-                                   d &amp; -b\\
-                                   -c &amp; a
-                                  \end{matrix}
-                                  \right] \\
-&amp;5.\ (A+B)^T = A^T + B^T\\
-&amp;6.\ (AB)^T = B^TA^T \\
-&amp;7.\ A = A^{\frac{1}{2}}A^{\frac{1}{2}} \\
-&amp;8.\ A^0 = I
+r_E * E &amp;= r_T * (E+D) - r_D * D
+\\r_E &amp;= r_T + (r_T - r_D) * \frac{D}{E}
+\\r_E &amp;= r_T + (r_T - r_D) * DR
 \end{aligned}
 $$</p>
 
-<h3 id="正交矩阵">正交矩阵</h3>
-
-<p>正交矩阵（orthogonal matrix）是一个方块矩阵，其元素为实数，而且行与列皆为正交的单位向量，使得该矩阵的转置矩阵为其逆矩阵：\(S^{-1} = S^T\)。比如恒等变换：</p>
-
-<p>$$
-\left[
-\begin{matrix}
-1 &amp; 0\\
-0 &amp; 1
-\end{matrix}
-\right]
-$$</p>
-
-<p>和旋转\(\alpha \)：</p>
-
-<p>$$
-\left[
-\begin{matrix}
-\cos \alpha &amp; -\sin \alpha \\
-\sin \alpha &amp; \cos \alpha
-\end{matrix}
-\right]
-$$</p>
-
-<h3 id="eigenvalue-特征值">Eigenvalue（特征值）</h3>
-
-<p>若</p>
-
-<p>$$
-A\mathbf u = \lambda \mathbf u
-$$</p>
-
-<p>则\(\lambda\)是特征值，\(\mathbf u\)是其对应的特征向量。</p>
-
-<p>由此可以推出特征值分解，即对于对称矩阵\(A\)，可以被分解为：</p>
-
-<p>$$
-A = U \Lambda U^T
-$$</p>
-
-<p>其中\(U\)是正交矩阵，它的列是\(A\)的特征向量，\(\Lambda\)是对角矩阵，是对应的\(A\)的特征值。</p>
-
-<h2 id="变量多次出现的求导方法">变量多次出现的求导方法</h2>
-
-<p>若在函数表达式中，某个变量出现了多次，可以单独计算函数对自变量的每一次出现的导数，再把结果加起来。</p>
-
-<p>举例（该规则对向量和矩阵也是成立的，这里先用标量举一个简单的例子）：假设函数表达式是\(f(x)=(2x+1)x+x^2\)，可以先把三个\(x\)看成三个不同的变量，即把\(f\)的表达式看成\((2x_1+1)x_2+x_3^2\)，然后分别计算\(\partial f / \partial x_1 = 2x_2\),\(\partial f / \partial x_2 = 2x_1 + 1\)，和\(\partial f / \partial x_3 = 2x_3\)，最后总的导数就是这三项加起来：\(2x_2 + 2x_1 + 1 + 2x_3\)，此时再把\(x\)的下标抹掉并化简，就得到\(6x+1\)。熟悉这个过程之后，可以省掉添加下标再移除的过程。</p>
-
-<p>这个方法和多层神经网络算法中的反向传递（Back Propagation）的思想方法是一样的。</p>
-
-<h2 id="最常用的四个矩阵向量求导公式">最常用的四个矩阵向量求导公式</h2>
+<p>如果\(r_T &gt; r_B\)，\(r_E\)随着负债率（Debt-to-equity ratio）上升而上升。这样看来，公司应尽可能地提高负债率以提高利润率，然而这与常识似乎有矛盾。原因在于没有考虑回报率的不确定性，即他们的方差。用期望和方差的眼光来看，假设债务的利息是确定的，可以得到：</p>
 
 <p>$$
 \begin{aligned}
-&amp;1.\ \frac{\partial A\mathbf x}{\partial \mathbf x} = A \\
-&amp;2.\ \frac{\partial \mathbf x^T \mathbf a}{\partial \mathbf x} = \frac{\partial \mathbf a^T \mathbf x}{\partial \mathbf x} = \mathbf a \\
-&amp;3.\ \frac{\partial \mathbf ||x||^2}{\partial \mathbf x} = \frac{\partial \mathbf x^T \mathbf x}{\partial \mathbf x} = 2 \mathbf x \\
-&amp;4.\ \frac{\partial \mathbf x^T A \mathbf x}{\partial \mathbf x} = (A + A^T)\mathbf x
+&amp;E(r_E) = E(r_T) * E+(E(r_T) - r_D) * D
+\\&amp;Var(r_E) = (D+1)^2 * Var(r_T)
 \end{aligned}
 $$</p>
 
-<h2 id="推导过程">推导过程</h2>
+<p>这两个式子分别表示杠杆效应和杠杆风险（Leverage Risk）。可以看出更高负债率意味着更高的股权回报率和更高的风险，且风险升高的速度更快，这是一个用高风险换高收益的典型例子。此外，当负债率升高到足够高的时候，对债权人的风险上升，债务的利息也会上升，进一步地降低回报率。那么按照一般的想法，一定存在一个均衡点，也就是一个最好的负债率，事实如此吗？</p>
 
-<p>最基础的出发点是，对矩阵或者向量求导，就是对其中的每一个元素关于每一个自变量中的元素进行求导，最后写成一个矩阵的形式，所以落脚点在单个元素上。</p>
+<h2 id="modigliani-miller定理">Modigliani-Miller定理</h2>
 
-<h4 id="公式1">公式1</h4>
+<p>由经济学家弗兰科·莫迪利安尼和默顿·米勒提出，它是现代资本结构理论的基础。该定理认为，在不考虑税，破产成本，信息不对称并且假设在有效市场里面，企业价值不会因为企业融资方式（资本结构）改变而改变。也即是说，不论公司选择发行股票或者卖债券，或是采用不同的红利政策，都不会影响企业价值。因此莫迪尼亚尼-米勒定理也被称为资本结构无关原理。</p>
 
-<p>容易看出\(A\mathbf x\)是一个向量，对其中一个元素进行求导，注意下标，求和符号内只有一项包含\(x_k\)，其他的可以直接舍弃：</p>
+<p>假设一个投资人投资了一个公司\(\alpha\)的股份，\(\widetilde{R}\)表示未扣除利息的公司收益，\(r * D\)表示确定的需要公司支付的债务利息（假定利率等于市场无风险利率）。此时投资人的收入为\(\alpha (\widetilde R - r * D)\)，投资头寸为\(\alpha * E_M\)（\(E_M\)是公司股权的市值。）</p>
+
+<p>这个投资人有自己的偏好，他更想投资一个零负债的公司，他打算出售一部分的股票投资到无风险项目中，假设新的投资比例为\(\beta\)，出售股票回流\((\alpha - \beta) * E_M\)。此时投资人的收入为：来自投资公司\(\beta (\widetilde R - r * D)\)，来自无风险投资\(r(\alpha - \beta)E_M\)，投资头寸分别为\(\beta * E_M\)和\((\alpha - \beta) * E_M\)。</p>
+
+<p>当\(\beta\)为多少的时候，投资人的收入和投资一个无负债公司的收入是一样的？当投资人要承担的公司债务利息部分与投资人无风险投资的利息相等的时候：</p>
 
 <p>$$
 \begin{aligned}
-\frac{\partial}{\partial x_k} (A\mathbf x)_{i} &amp;= \frac{\partial}{\partial x_k} \sum_{j=1}^{n} A_{ij}x_j \\
-&amp;= A_{ik}
+\beta * r * D &amp;= r(\alpha - \beta)E_M
+\\\beta * r * DR * E_M &amp;= r(\alpha - \beta)E_M
+\\\beta * DR &amp;= \alpha - \beta
+\\\beta &amp;= \frac{\alpha}{1+DR}
 \end{aligned}
 $$</p>
 
-<p>所以可得在求导结果矩阵中每一行每一列的元素都等于\(A\)在这个位置上的元素，q.e.d.</p>
-
-<h4 id="公式2">公式2</h4>
-
-<p>\(\mathbf x^T \mathbf a\)和\(\mathbf a^T \mathbf x\)都是标量。证明过程和1相似：</p>
-
-<p>$$
-\frac{\partial}{\partial x_i} \mathbf x^T \mathbf a = \frac{\partial}{\partial x_i} \sum_{j=1}^{n} x_ja_j = a_i \\
-\frac{\partial}{\partial x_i} \mathbf a^T \mathbf x = \frac{\partial}{\partial x_i} \sum_{j=1}^{n} a_jx_j = a_i
-$$</p>
-
-<p>这个公式是最基本的，但极其重要和常用。</p>
-
-<h4 id="公式3">公式3</h4>
-
-<p>证明过程也十分简单：</p>
-
-<p>$$
-\frac{\partial \mathbf ||x||^2}{\partial x_i} = \frac{\partial}{\partial x_i} \sum_j x_j^2 = \frac{\partial}{\partial x_i} x_i^2 = 2x_i
-$$</p>
-
-<h4 id="公式4">公式4</h4>
-
-<p>可以看出结果是一个标量。应用前面所说的<strong>变量多次出现的求导方法</strong>，先把后面的\(A \mathbf x\)看成整体，对前一个\(\mathbf x\)求导，运用公式2，可得：</p>
-
-<p>$$
-\frac{\partial \mathbf x^T (A \mathbf x&rsquo;)}{\partial \mathbf x} = A \mathbf x&rsquo;
-$$</p>
-
-<p>类似的对后面的\(\mathbf x\)求导，可得：</p>
-
-<p>$$
-\frac{\partial (\mathbf x&rsquo;^T A) \mathbf x}{\partial \mathbf x} = (\mathbf x&rsquo;^T A)^T = A^T\mathbf x&rsquo;
-$$</p>
-
-<p>去掉一撇，加起来，可得：</p>
-
-<p>$$
-\frac{\partial \mathbf x^T A \mathbf x}{\partial \mathbf x} = A \mathbf x + A^T\mathbf x = (A + A^T)\mathbf x
-$$</p>
-
-<p>q.e.d.</p>
-
-<h2 id="应用举例">应用举例</h2>
-
-<p>LDA算法的推导过程中需要解\(\mathbf w\)：</p>
-
-<p>$$
-\underset{\mathbf w}{\operatorname{argmax}} \frac{\mathbf w^TS_B\mathbf w}{\mathbf w^TS_W\mathbf w}
-$$</p>
-
-<p>其中\(S_B\)和\(S_W\)都是对称矩阵。容易发现分式上下都是标量。要求最大值，对\(\mathbf w\)求导，置零即可。先运用商的导数公式：</p>
-
-<p>$$
-\frac{\partial}{\partial \mathbf w}\frac{\mathbf w^TS_B\mathbf w}{\mathbf w^TS_W\mathbf w} = \frac{\mathbf w^TS_W\mathbf w(\frac{\partial}{\partial \mathbf w}\mathbf w^TS_B\mathbf w) - \mathbf w^TS_B\mathbf w(\frac{\partial}{\partial \mathbf w}\mathbf w^TS_W\mathbf w)}{(\mathbf w^TS_W\mathbf w)^2}
-$$</p>
-
-<p>求分子上的导数，运用上面的公式4：</p>
-
-<p>$$
-\frac{\partial}{\partial \mathbf w}\mathbf w^TS_B\mathbf w = (S_B + S_B^T)\mathbf w
-$$</p>
-
-<p>由于\(S_B\)是对称的，\(S_B^T = S_B\),</p>
-
-<p>$$
-\frac{\partial}{\partial \mathbf w}\mathbf w^TS_B\mathbf w = 2S_B\mathbf w
-$$</p>
-
-<p>对另一个倒数类似，置零可得：</p>
-
-<p>$$
-\frac{(\mathbf w^TS_W\mathbf w)2S_B\mathbf w - (\mathbf w^TS_B\mathbf w)2S_W\mathbf w}{(\mathbf w^TS_W\mathbf w)^2} \overset{!}{=} 0
-$$</p>
-
-<p>即：</p>
-
-<p>$$
-\begin{aligned}
-(\mathbf w^TS_B\mathbf w)2S_W\mathbf w &amp;= (\mathbf w^TS_W\mathbf w)2S_B\mathbf w \\
-S_W\mathbf w &amp;= \frac{\mathbf w^TS_W\mathbf w}{\mathbf w^TS_B\mathbf w}S_B\mathbf w \\
-S_W\mathbf w &amp;= S_B\mathbf w \lambda \\
-\mathbf w &amp;= S_W^{-1} S_B\mathbf w \lambda
-\end{aligned}
-$$</p>
-
-<h2 id="另请参阅">另请参阅</h2>
-
-<ul>
-<li><a href="https://atmos.washington.edu/~dennis/MatrixCalculus.pdf">Matrix Cookbook</a>，很好的一本公式集，适合查阅。</li>
-<li><a href="https://gwthomas.github.io/docs/math4ml.pdf">Mathematics for Machine Learning</a></li>
-<li><a href="/file/matrixvectorderivativesformachinelearning.pdf">机器学习中的矩阵、向量求导</a></li>
-</ul>
+<p>即投资人把投资比例调至\(\frac{\alpha}{1+DR}\)时，等价于投资了一个零负债的公司。所以，公司的负债比例与投资人能否按自己偏好进行投资没有关系，因为可以用这种方法创建完全符合投资人的投资组合。</p>
 		</div>
 		
 <div class="post__tags tags clearfix">
 	<svg class="icon icon-tag" width="16" height="16" viewBox="0 0 16 16"><path d="M16 9.5c0 .373-.24.74-.5 1l-5 5c-.275.26-.634.5-1 .5-.373 0-.74-.24-1-.5L1 8a2.853 2.853 0 0 1-.7-1C.113 6.55 0 5.973 0 5.6V1.4C0 1.034.134.669.401.401.67.134 1.034 0 1.4 0h4.2c.373 0 .95.113 1.4.3.45.187.732.432 1 .7l7.5 7.502c.26.274.5.632.5.998zM3.5 5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>
 	<ul class="tags__list">
-		<li class="tags__item"><a class="tags__link btn" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li>
-		<li class="tags__item"><a class="tags__link btn" href="/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/" rel="tag">线性代数</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/tags/%E6%8A%95%E8%B5%84/" rel="tag">投资</a></li>
 	</ul>
 </div>
 	</article>
