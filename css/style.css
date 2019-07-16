@@ -56,7 +56,7 @@ body {
 .container {
 	position: relative;
 	width: 100%;
-	max-width: 1080px;
+	max-width: 1480px;
 	margin: 0 auto;
 }
 
@@ -77,9 +77,9 @@ body {
 }
 
 .primary {
-	-webkit-flex: 1 0 65.83%;
-	-ms-flex: 1 0 65.83%;
-	flex: 1 0 65.83%;
+	-webkit-flex: 1 0 75%;
+	-ms-flex: 1 0 75%;
+	flex: 1 0 75%;
 	-ms-flex-order: 1;
 	-webkit-order: 1;
 	order: 1;
@@ -87,9 +87,9 @@ body {
 }
 
 .sidebar {
-	-webkit-flex: 1 0 31.66%;
-	-ms-flex: 1 0 31.66%;
-	flex: 1 0 31.66%;
+	-webkit-flex: 1 0 20%;
+	-ms-flex: 1 0 20%;
+	flex: 1 0 20%;
 	-ms-flex-order: 2;
 	-webkit-order: 2;
 	order: 2;

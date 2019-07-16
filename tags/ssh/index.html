@@ -4,15 +4,15 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Linux下压缩命令</title>
+	<title>Ssh</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="">
 	<meta name="generator" content="Hugo 0.52" />
-	<meta property="og:title" content="Linux下压缩命令" />
-<meta property="og:description" content="Linux下压缩解压缩命令的归纳。" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://xping.me/post/linux_compress/" /><meta property="article:published_time" content="2018-12-16T13:30:23&#43;01:00"/>
-<meta property="article:modified_time" content="2018-12-16T13:30:23&#43;01:00"/>
+	<meta property="og:title" content="Ssh" />
+<meta property="og:description" content="Ping Xiong&#39;s Personal blog about everything" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://xping.me/tags/ssh/" />
+<meta property="og:updated_time" content="2019-07-16T16:21:51&#43;02:00"/>
 
 	
 	<link rel="stylesheet" href="/css/highlight.css">
@@ -20,6 +20,7 @@
 	<script>hljs.initHighlightingOnLoad();</script>
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="alternate" type="application/rss+xml" href="/tags/ssh/index.xml" title="XP's Blog">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
 	<link rel="stylesheet" href="/css/style.css">
 	<link rel="shortcut icon" href="/favicon.ico">
@@ -75,14 +76,20 @@ if (!doNotTrack) {
 		<div class="wrapper flex">
 			<div class="primary">
 			
-<main class="main" role="main">
-	<article class="post">
-		<header class="post__header">
-			<h1 class="post__title">Linux下压缩命令</h1>
-			<div class="post__meta meta">
+<main class="main list" role="main">
+	<header class="main__header">
+		<h1 class="main__title">Ssh</h1>
+	</header><article class="list__item post">
+	<header class="list__header">
+		<h3 class="list__title post__title ">
+			<a href="/post/keep_running_after-disconnect/" rel="bookmark">
+			让程序在后台稳定运行的方法
+			</a>
+		</h3>
+		<div class="list__meta meta">
 <div class="meta__item-datetime meta__item">
 	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
-	<time class="meta__text" datetime="2018-12-16T13:30:23">December 16, 2018</time>
+	<time class="meta__text" datetime="2019-07-16T16:21:51">July 16, 2019</time>
 </div>
 
 <div class="meta__item-categories meta__item">
@@ -90,152 +97,17 @@ if (!doNotTrack) {
 	<span class="meta__text"><a class="meta__link" href="/categories/%e8%ae%a1%e7%ae%97%e6%9c%ba" rel="category">计算机</a></span>
 </div>
 </div>
-		</header><div class="content post__content clearfix">
-			<p>Linux下压缩解压缩命令的归纳。</p>
-
-<h4 id="tar">.tar</h4>
-
-<p>解包：<code>tar xvf FileName.tar</code></p>
-
-<p>打包：<code>tar cvf FileName.tar DirName</code></p>
-
-<p>（注：tar是打包，不是压缩！）</p>
-
-<h4 id="gz">.gz</h4>
-
-<p>解压1：<code>gunzip FileName.gz</code></p>
-
-<p>解压2：<code>gzip -d FileName.gz</code></p>
-
-<p>压缩：<code>gzip FileName</code></p>
-
-<h4 id="tar-gz-和-tgz">.tar.gz 和 .tgz</h4>
-
-<p>解压：<code>tar zxvf FileName.tar.gz</code></p>
-
-<p>压缩：<code>tar zcvf FileName.tar.gz DirName</code></p>
-
-<h4 id="bz2">.bz2</h4>
-
-<p>解压1：<code>bzip2 -d FileName.bz2</code></p>
-
-<p>解压2：<code>bunzip2 FileName.bz2</code></p>
-
-<p>压缩：<code>bzip2 -z FileName</code></p>
-
-<h4 id="tar-bz2">.tar.bz2</h4>
-
-<p>解压：<code>tar jxvf FileName.tar.bz2</code></p>
-
-<p>压缩：<code>tar jcvf FileName.tar.bz2 DirName</code></p>
-
-<h4 id="bz">.bz</h4>
-
-<p>解压1：<code>bzip2 -d FileName.bz</code></p>
-
-<p>解压2：<code>bunzip2 FileName.bz</code></p>
-
-<p>压缩：未知</p>
-
-<h4 id="tar-bz">.tar.bz</h4>
-
-<p>解压：<code>tar jxvf FileName.tar.bz</code></p>
-
-<p>压缩：未知</p>
-
-<h4 id="z">.Z</h4>
-
-<p>解压：<code>uncompress FileName.Z</code></p>
-
-<p>压缩：<code>compress FileName</code></p>
-
-<h4 id="tar-z">.tar.Z</h4>
-
-<p>解压：<code>tar Zxvf FileName.tar.Z</code></p>
-
-<p>压缩：<code>tar Zcvf FileName.tar.Z DirName</code></p>
-
-<h4 id="zip">.zip</h4>
-
-<p>解压：<code>unzip FileName.zip</code></p>
-
-<p>压缩：<code>zip FileName.zip DirName</code></p>
-
-<h4 id="rar">.rar</h4>
-
-<p>解压：<code>rar x FileName.rar</code></p>
-
-<p>压缩：<code>rar a FileName.rar DirName</code></p>
-
-<h4 id="lha">.lha</h4>
-
-<p>解压：<code>lha -e FileName.lha</code></p>
-
-<p>压缩：<code>lha -a FileName.lha FileName</code></p>
-
-<h4 id="rpm">.rpm</h4>
-
-<p>解包：<code>rpm2cpio FileName.rpm | cpio -div</code></p>
-
-<h4 id="deb">.deb</h4>
-
-<p>解包：<code>ar p FileName.deb data.tar.gz | tar zxf -</code></p>
-
-<h4 id="用sex">用sEx</h4>
-
-<p>解压：<code>sEx x FileName.*</code></p>
-
-<p>压缩：<code>sEx a FileName.* FileName</code></p>
-		</div>
-		
-<div class="post__tags tags clearfix">
-	<svg class="icon icon-tag" width="16" height="16" viewBox="0 0 16 16"><path d="M16 9.5c0 .373-.24.74-.5 1l-5 5c-.275.26-.634.5-1 .5-.373 0-.74-.24-1-.5L1 8a2.853 2.853 0 0 1-.7-1C.113 6.55 0 5.973 0 5.6V1.4C0 1.034.134.669.401.401.67.134 1.034 0 1.4 0h4.2c.373 0 .95.113 1.4.3.45.187.732.432 1 .7l7.5 7.502c.26.274.5.632.5.998zM3.5 5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>
-	<ul class="tags__list">
-		<li class="tags__item"><a class="tags__link btn" href="/tags/linux/" rel="tag">Linux</a></li>
-	</ul>
-</div>
-	</article>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>在使用SSH链接远程虚拟机的时候经常会出现网络连接不稳定而导致前台运行的代码终止运行的情况，怎样能让程序稳定地在后台运行，不受断线的影响？IBM Developer上的这篇文章很有帮助，转载方便以后查阅。</p>
+	</div>
+</article>
 </main>
-
-<div class="authorbox clearfix">
-	<figure class="authorbox__avatar">
-		<img alt="XIONG Ping avatar" src="/img/head.jpg" class="avatar" height="90" width="90">
-	</figure>
-	<div class="authorbox__header">
-		
-		<span class="authorbox__name">XIONG Ping</span>
-	</div>
-	<div class="authorbox__description">
-		柏林工业大学的本科学生，专业经济工程计算机方向。
-	</div>
-</div>
-
-
-<section class="comments">
-	
-
-	<div id="lv-container" data-id="city" data-uid="MTAyMC80MzkyNy8yMDQ2Mw==">
-		<script type="text/javascript">
-	   (function(d, s) {
-	       var j, e = d.getElementsByTagName(s)[0];
-
-	       if (typeof LivereTower === 'function') { return; }
-
-	       j = d.createElement(s);
-	       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-	       j.async = true;
-
-	       e.parentNode.insertBefore(j, e);
-	   	})(document, 'script');
-		</script>
-		<noscript>为正常使用评论功能请激活JavaScript</noscript>
-	</div>
-
-</section>
 
 
 			</div>
-			<aside class="sidebar"><div class="widget-search widget">
+			
+<aside class="sidebar"><div class="widget-search widget">
 	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
 		<label>
 			<input class="widget-search__field" type="search" placeholder="Enter to SEARCH..." value="" name="q" aria-label="SEARCH...">

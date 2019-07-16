@@ -6,10 +6,19 @@
     <description>Recent content in Posts on XP&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 08 Jun 2019 11:23:53 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 16 Jul 2019 16:21:51 +0200</lastBuildDate>
     
 	<atom:link href="https://xping.me/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>让程序在后台稳定运行的方法</title>
+      <link>https://xping.me/post/keep_running_after-disconnect/</link>
+      <pubDate>Tue, 16 Jul 2019 16:21:51 +0200</pubDate>
+      
+      <guid>https://xping.me/post/keep_running_after-disconnect/</guid>
+      <description>&lt;p&gt;在使用SSH链接远程虚拟机的时候经常会出现网络连接不稳定而导致前台运行的代码终止运行的情况，怎样能让程序稳定地在后台运行，不受断线的影响？IBM Developer上的这篇文章很有帮助，转载方便以后查阅。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>投资对象的资本结构无关性</title>

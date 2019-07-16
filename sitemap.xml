@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://xping.me/post/keep_running_after-disconnect/</loc>
+    <lastmod>2019-07-16T16:21:51+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://xping.me/post/irrelevance_invest/</loc>
     <lastmod>2019-06-08T11:23:53+02:00</lastmod>
   </url>
@@ -105,13 +110,19 @@
   
   <url>
     <loc>https://xping.me/tags/linux/</loc>
-    <lastmod>2018-12-16T13:30:23+01:00</lastmod>
+    <lastmod>2019-07-16T16:21:51+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://xping.me/post/</loc>
-    <lastmod>2019-06-08T11:23:53+02:00</lastmod>
+    <lastmod>2019-07-16T16:21:51+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://xping.me/tags/ssh/</loc>
+    <lastmod>2019-07-16T16:21:51+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -123,7 +134,7 @@
   
   <url>
     <loc>https://xping.me/</loc>
-    <lastmod>2019-06-08T11:23:53+02:00</lastmod>
+    <lastmod>2019-07-16T16:21:51+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -213,7 +224,7 @@
   
   <url>
     <loc>https://xping.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/</loc>
-    <lastmod>2019-05-25T17:35:01+02:00</lastmod>
+    <lastmod>2019-07-16T16:21:51+02:00</lastmod>
     <priority>0</priority>
   </url>
   
