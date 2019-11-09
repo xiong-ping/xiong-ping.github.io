@@ -2,120 +2,120 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on XP&#39;s Blog</title>
-    <link>https://xping.me/tags/</link>
+    <link>http://xpgreat.com/tags/</link>
     <description>Recent content in Tags on XP&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <lastBuildDate>Wed, 05 Dec 2018 17:42:53 +0100</lastBuildDate>
     
-	<atom:link href="https://xping.me/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://xpgreat.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Html</title>
-      <link>https://xping.me/tags/html/</link>
+      <link>http://xpgreat.com/tags/html/</link>
       <pubDate>Wed, 05 Dec 2018 17:42:53 +0100</pubDate>
       
-      <guid>https://xping.me/tags/html/</guid>
+      <guid>http://xpgreat.com/tags/html/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Linux</title>
-      <link>https://xping.me/tags/linux/</link>
+      <link>http://xpgreat.com/tags/linux/</link>
       <pubDate>Tue, 16 Jul 2019 16:21:51 +0200</pubDate>
       
-      <guid>https://xping.me/tags/linux/</guid>
+      <guid>http://xpgreat.com/tags/linux/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Ssh</title>
-      <link>https://xping.me/tags/ssh/</link>
+      <link>http://xpgreat.com/tags/ssh/</link>
       <pubDate>Tue, 16 Jul 2019 16:21:51 +0200</pubDate>
       
-      <guid>https://xping.me/tags/ssh/</guid>
+      <guid>http://xpgreat.com/tags/ssh/</guid>
       <description></description>
     </item>
     
     <item>
       <title>价格预测</title>
-      <link>https://xping.me/tags/%E4%BB%B7%E6%A0%BC%E9%A2%84%E6%B5%8B/</link>
+      <link>http://xpgreat.com/tags/%E4%BB%B7%E6%A0%BC%E9%A2%84%E6%B5%8B/</link>
       <pubDate>Sat, 25 May 2019 17:35:01 +0200</pubDate>
       
-      <guid>https://xping.me/tags/%E4%BB%B7%E6%A0%BC%E9%A2%84%E6%B5%8B/</guid>
+      <guid>http://xpgreat.com/tags/%E4%BB%B7%E6%A0%BC%E9%A2%84%E6%B5%8B/</guid>
       <description></description>
     </item>
     
     <item>
       <title>博客</title>
-      <link>https://xping.me/tags/%E5%8D%9A%E5%AE%A2/</link>
+      <link>http://xpgreat.com/tags/%E5%8D%9A%E5%AE%A2/</link>
       <pubDate>Thu, 17 Jan 2019 17:28:35 +0100</pubDate>
       
-      <guid>https://xping.me/tags/%E5%8D%9A%E5%AE%A2/</guid>
+      <guid>http://xpgreat.com/tags/%E5%8D%9A%E5%AE%A2/</guid>
       <description></description>
     </item>
     
     <item>
       <title>投资</title>
-      <link>https://xping.me/tags/%E6%8A%95%E8%B5%84/</link>
+      <link>http://xpgreat.com/tags/%E6%8A%95%E8%B5%84/</link>
       <pubDate>Sat, 08 Jun 2019 11:23:53 +0200</pubDate>
       
-      <guid>https://xping.me/tags/%E6%8A%95%E8%B5%84/</guid>
+      <guid>http://xpgreat.com/tags/%E6%8A%95%E8%B5%84/</guid>
       <description></description>
     </item>
     
     <item>
       <title>期权</title>
-      <link>https://xping.me/tags/%E6%9C%9F%E6%9D%83/</link>
+      <link>http://xpgreat.com/tags/%E6%9C%9F%E6%9D%83/</link>
       <pubDate>Tue, 25 Dec 2018 11:02:13 +0100</pubDate>
       
-      <guid>https://xping.me/tags/%E6%9C%9F%E6%9D%83/</guid>
+      <guid>http://xpgreat.com/tags/%E6%9C%9F%E6%9D%83/</guid>
       <description></description>
     </item>
     
     <item>
       <title>机器学习</title>
-      <link>https://xping.me/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</link>
+      <link>http://xpgreat.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Sat, 25 May 2019 17:35:01 +0200</pubDate>
       
-      <guid>https://xping.me/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</guid>
+      <guid>http://xpgreat.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</guid>
       <description></description>
     </item>
     
     <item>
       <title>算法</title>
-      <link>https://xping.me/tags/%E7%AE%97%E6%B3%95/</link>
+      <link>http://xpgreat.com/tags/%E7%AE%97%E6%B3%95/</link>
       <pubDate>Tue, 14 May 2019 10:48:15 +0200</pubDate>
       
-      <guid>https://xping.me/tags/%E7%AE%97%E6%B3%95/</guid>
+      <guid>http://xpgreat.com/tags/%E7%AE%97%E6%B3%95/</guid>
       <description></description>
     </item>
     
     <item>
       <title>线性代数</title>
-      <link>https://xping.me/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/</link>
+      <link>http://xpgreat.com/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/</link>
       <pubDate>Thu, 17 Jan 2019 21:47:14 +0100</pubDate>
       
-      <guid>https://xping.me/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/</guid>
+      <guid>http://xpgreat.com/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/</guid>
       <description></description>
     </item>
     
     <item>
       <title>论文</title>
-      <link>https://xping.me/tags/%E8%AE%BA%E6%96%87/</link>
+      <link>http://xpgreat.com/tags/%E8%AE%BA%E6%96%87/</link>
       <pubDate>Sat, 25 May 2019 17:35:01 +0200</pubDate>
       
-      <guid>https://xping.me/tags/%E8%AE%BA%E6%96%87/</guid>
+      <guid>http://xpgreat.com/tags/%E8%AE%BA%E6%96%87/</guid>
       <description></description>
     </item>
     
     <item>
       <title>风险管理</title>
-      <link>https://xping.me/tags/%E9%A3%8E%E9%99%A9%E7%AE%A1%E7%90%86/</link>
+      <link>http://xpgreat.com/tags/%E9%A3%8E%E9%99%A9%E7%AE%A1%E7%90%86/</link>
       <pubDate>Tue, 25 Dec 2018 11:02:13 +0100</pubDate>
       
-      <guid>https://xping.me/tags/%E9%A3%8E%E9%99%A9%E7%AE%A1%E7%90%86/</guid>
+      <guid>http://xpgreat.com/tags/%E9%A3%8E%E9%99%A9%E7%AE%A1%E7%90%86/</guid>
       <description></description>
     </item>
     

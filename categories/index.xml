@@ -2,74 +2,74 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on XP&#39;s Blog</title>
-    <link>https://xping.me/categories/</link>
+    <link>http://xpgreat.com/categories/</link>
     <description>Recent content in Categories on XP&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     
-	<atom:link href="https://xping.me/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://xpgreat.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>数学</title>
-      <link>https://xping.me/categories/%E6%95%B0%E5%AD%A6/</link>
+      <link>http://xpgreat.com/categories/%E6%95%B0%E5%AD%A6/</link>
       <pubDate>Tue, 14 May 2019 10:48:15 +0200</pubDate>
       
-      <guid>https://xping.me/categories/%E6%95%B0%E5%AD%A6/</guid>
+      <guid>http://xpgreat.com/categories/%E6%95%B0%E5%AD%A6/</guid>
       <description></description>
     </item>
     
     <item>
       <title>杂谈</title>
-      <link>https://xping.me/categories/%E6%9D%82%E8%B0%88/</link>
+      <link>http://xpgreat.com/categories/%E6%9D%82%E8%B0%88/</link>
       <pubDate>Thu, 17 Jan 2019 17:28:35 +0100</pubDate>
       
-      <guid>https://xping.me/categories/%E6%9D%82%E8%B0%88/</guid>
+      <guid>http://xpgreat.com/categories/%E6%9D%82%E8%B0%88/</guid>
       <description></description>
     </item>
     
     <item>
       <title>统计学</title>
-      <link>https://xping.me/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/</link>
+      <link>http://xpgreat.com/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/</link>
       <pubDate>Sat, 25 May 2019 17:35:01 +0200</pubDate>
       
-      <guid>https://xping.me/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/</guid>
+      <guid>http://xpgreat.com/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/</guid>
       <description></description>
     </item>
     
     <item>
       <title>网络</title>
-      <link>https://xping.me/categories/%E7%BD%91%E7%BB%9C/</link>
+      <link>http://xpgreat.com/categories/%E7%BD%91%E7%BB%9C/</link>
       <pubDate>Thu, 17 Jan 2019 17:28:35 +0100</pubDate>
       
-      <guid>https://xping.me/categories/%E7%BD%91%E7%BB%9C/</guid>
+      <guid>http://xpgreat.com/categories/%E7%BD%91%E7%BB%9C/</guid>
       <description></description>
     </item>
     
     <item>
       <title>英语</title>
-      <link>https://xping.me/categories/%E8%8B%B1%E8%AF%AD/</link>
+      <link>http://xpgreat.com/categories/%E8%8B%B1%E8%AF%AD/</link>
       <pubDate>Wed, 08 May 2019 22:13:27 +0200</pubDate>
       
-      <guid>https://xping.me/categories/%E8%8B%B1%E8%AF%AD/</guid>
+      <guid>http://xpgreat.com/categories/%E8%8B%B1%E8%AF%AD/</guid>
       <description></description>
     </item>
     
     <item>
       <title>计算机</title>
-      <link>https://xping.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/</link>
+      <link>http://xpgreat.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/</link>
       <pubDate>Tue, 16 Jul 2019 16:21:51 +0200</pubDate>
       
-      <guid>https://xping.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/</guid>
+      <guid>http://xpgreat.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/</guid>
       <description></description>
     </item>
     
     <item>
       <title>金融</title>
-      <link>https://xping.me/categories/%E9%87%91%E8%9E%8D/</link>
+      <link>http://xpgreat.com/categories/%E9%87%91%E8%9E%8D/</link>
       <pubDate>Sat, 08 Jun 2019 11:23:53 +0200</pubDate>
       
-      <guid>https://xping.me/categories/%E9%87%91%E8%9E%8D/</guid>
+      <guid>http://xpgreat.com/categories/%E9%87%91%E8%9E%8D/</guid>
       <description></description>
     </item>
     

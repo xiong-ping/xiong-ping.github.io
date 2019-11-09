@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>统计学 on XP&#39;s Blog</title>
-    <link>https://xping.me/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/</link>
+    <link>http://xpgreat.com/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/</link>
     <description>Recent content in 统计学 on XP&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <lastBuildDate>Sat, 25 May 2019 17:35:01 +0200</lastBuildDate>
     
-	<atom:link href="https://xping.me/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://xpgreat.com/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>中短期电价预测模型简介</title>
-      <link>https://xping.me/post/epf_models/</link>
+      <link>http://xpgreat.com/post/epf_models/</link>
       <pubDate>Sat, 25 May 2019 17:35:01 +0200</pubDate>
       
-      <guid>https://xping.me/post/epf_models/</guid>
+      <guid>http://xpgreat.com/post/epf_models/</guid>
       <description>&lt;p&gt;从1981年的智利电力体制改革之后，英美等国先后进行了电力工业重组，这些努力导致了电力工业的市场化，促成了电力市场的形成，实现了资源的合理分配和社会效益的最大化。准确的电力价格对发电商、用户、监管者具有重要的意义。本文将常用的电价预测（EPF, Electricity Price Forecasting）模型进行了分类，并加以简介。&lt;/p&gt;</description>
     </item>
     

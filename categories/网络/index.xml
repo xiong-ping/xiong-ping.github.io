@@ -2,48 +2,48 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>网络 on XP&#39;s Blog</title>
-    <link>https://xping.me/categories/%E7%BD%91%E7%BB%9C/</link>
+    <link>http://xpgreat.com/categories/%E7%BD%91%E7%BB%9C/</link>
     <description>Recent content in 网络 on XP&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <lastBuildDate>Thu, 17 Jan 2019 17:28:35 +0100</lastBuildDate>
     
-	<atom:link href="https://xping.me/categories/%E7%BD%91%E7%BB%9C/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://xpgreat.com/categories/%E7%BD%91%E7%BB%9C/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>使用MathJax时的注意事项</title>
-      <link>https://xping.me/post/mathjax_tips/</link>
+      <link>http://xpgreat.com/post/mathjax_tips/</link>
       <pubDate>Thu, 17 Jan 2019 17:28:35 +0100</pubDate>
       
-      <guid>https://xping.me/post/mathjax_tips/</guid>
+      <guid>http://xpgreat.com/post/mathjax_tips/</guid>
       <description>&lt;p&gt;记录一些在使用MathJax写公式时踩过的坑，持续更新。本来放在另一篇里的，内容越来越多，单独成篇。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Hugo和WordPress比较</title>
-      <link>https://xping.me/post/hugo_wp/</link>
+      <link>http://xpgreat.com/post/hugo_wp/</link>
       <pubDate>Wed, 05 Dec 2018 17:38:52 +0100</pubDate>
       
-      <guid>https://xping.me/post/hugo_wp/</guid>
+      <guid>http://xpgreat.com/post/hugo_wp/</guid>
       <description>&lt;p&gt;对比以前搭建WordPress博客的经历，Hugo有这样的一些不同：&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>使用Hugo的一些注意事项</title>
-      <link>https://xping.me/post/tips_hugo/</link>
+      <link>http://xpgreat.com/post/tips_hugo/</link>
       <pubDate>Wed, 05 Dec 2018 16:32:54 +0100</pubDate>
       
-      <guid>https://xping.me/post/tips_hugo/</guid>
+      <guid>http://xpgreat.com/post/tips_hugo/</guid>
       <description>&lt;p&gt;一些在使用Hugo时发现的小技巧或问题及解决方法，会持续更新。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>博客第一步</title>
-      <link>https://xping.me/post/blog_building/</link>
+      <link>http://xpgreat.com/post/blog_building/</link>
       <pubDate>Mon, 03 Dec 2018 19:58:50 +0100</pubDate>
       
-      <guid>https://xping.me/post/blog_building/</guid>
+      <guid>http://xpgreat.com/post/blog_building/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;是一个用Go编写的静态站点生成器，由于具有丰富的主题资源和惊人的生成速度而备受青睐。博文采用&lt;code&gt;Markdown&lt;/code&gt;这一轻量的标记语言编写，速度快，美观。本博客即是基于Hugo搭建，下面讲述一下我的建站历程。&lt;/p&gt;</description>
     </item>
     
