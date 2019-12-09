@@ -6,10 +6,19 @@
     <description>Recent content on XP&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 16 Jul 2019 16:21:51 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 09 Dec 2019 22:01:11 +0100</lastBuildDate>
     
 	<atom:link href="http://xpgreat.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>在Jupyer Notebook里安装包</title>
+      <link>http://xpgreat.com/post/jupyter_install_package/</link>
+      <pubDate>Mon, 09 Dec 2019 22:01:11 +0100</pubDate>
+      
+      <guid>http://xpgreat.com/post/jupyter_install_package/</guid>
+      <description>&lt;p&gt;一个方便的小技巧，可以很快的安装缺失的包。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>让程序在后台稳定运行的方法</title>
