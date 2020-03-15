@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://xpgreat.com/post/tip_inst_tf/</loc>
+    <lastmod>2020-03-15T15:22:49+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://xpgreat.com/post/jupyter_install_package/</loc>
     <lastmod>2019-12-09T22:01:11+01:00</lastmod>
   </url>
@@ -127,7 +132,7 @@
   
   <url>
     <loc>http://xpgreat.com/post/</loc>
-    <lastmod>2019-12-09T22:01:11+01:00</lastmod>
+    <lastmod>2020-03-15T15:22:49+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -144,8 +149,14 @@
   </url>
   
   <url>
+    <loc>http://xpgreat.com/tags/tensorflow/</loc>
+    <lastmod>2020-03-15T15:22:49+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://xpgreat.com/</loc>
-    <lastmod>2019-12-09T22:01:11+01:00</lastmod>
+    <lastmod>2020-03-15T15:22:49+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -193,7 +204,7 @@
   
   <url>
     <loc>http://xpgreat.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2019-05-25T17:35:01+02:00</lastmod>
+    <lastmod>2020-03-15T15:22:49+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -235,7 +246,7 @@
   
   <url>
     <loc>http://xpgreat.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/</loc>
-    <lastmod>2019-12-09T22:01:11+01:00</lastmod>
+    <lastmod>2020-03-15T15:22:49+08:00</lastmod>
     <priority>0</priority>
   </url>
   

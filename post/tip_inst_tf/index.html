@@ -4,15 +4,15 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>投资</title>
+	<title>安装TensorFlow时踩的一个小坑</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="">
 	<meta name="generator" content="Hugo 0.52" />
-	<meta property="og:title" content="投资" />
-<meta property="og:description" content="Ping Xiong&#39;s Personal blog about everything" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://xpgreat.com/tags/%E6%8A%95%E8%B5%84/" />
-<meta property="og:updated_time" content="2019-06-08T11:23:53&#43;02:00"/>
+	<meta property="og:title" content="安装TensorFlow时踩的一个小坑" />
+<meta property="og:description" content="不记得之前安装的是什么版本，这次（2020/3）让pip自动安装选择的是2.1.0，但这个版本安装后使用import tensorflow会报错，如下：" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://xpgreat.com/post/tip_inst_tf/" /><meta property="article:published_time" content="2020-03-15T15:22:49&#43;08:00"/>
+<meta property="article:modified_time" content="2020-03-15T15:22:49&#43;08:00"/>
 
 	
 	<link rel="stylesheet" href="/css/highlight.css">
@@ -20,7 +20,6 @@
 	<script>hljs.initHighlightingOnLoad();</script>
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
-	<link rel="alternate" type="application/rss+xml" href="/tags/%E6%8A%95%E8%B5%84/index.xml" title="XP's Blog">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
 	<link rel="stylesheet" href="/css/style.css">
 	<link rel="shortcut icon" href="/favicon.ico">
@@ -76,38 +75,129 @@ if (!doNotTrack) {
 		<div class="wrapper flex">
 			<div class="primary">
 			
-<main class="main list" role="main">
-	<header class="main__header">
-		<h1 class="main__title">投资</h1>
-	</header><article class="list__item post">
-	<header class="list__header">
-		<h3 class="list__title post__title ">
-			<a href="/post/irrelevance_invest/" rel="bookmark">
-			投资对象的资本结构无关性
-			</a>
-		</h3>
-		<div class="list__meta meta">
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">安装TensorFlow时踩的一个小坑</h1>
+			<div class="post__meta meta">
 <div class="meta__item-datetime meta__item">
 	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
-	<time class="meta__text" datetime="2019-06-08T11:23:53">June 08, 2019</time>
+	<time class="meta__text" datetime="2020-03-15T15:22:49">March 15, 2020</time>
 </div>
 
 <div class="meta__item-categories meta__item">
 	<svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
-	<span class="meta__text"><a class="meta__link" href="/categories/%e9%87%91%e8%9e%8d" rel="category">金融</a></span>
+	<span class="meta__text"><a class="meta__link" href="/categories/%e8%ae%a1%e7%ae%97%e6%9c%ba" rel="category">计算机</a></span>
 </div>
 </div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<p>本文介绍了公司的杠杆效应（Leverage Effect）和Modigliani-Miller定理，以阐述投资对象的资本结构与价值的无关性。</p>
-	</div>
-</article>
+		</header><div class="content post__content clearfix">
+			<p>不记得之前安装的是什么版本，这次（2020/3）让<code>pip</code>自动安装选择的是<code>2.1.0</code>，但这个版本安装后使用<code>import tensorflow</code>会报错，如下：</p>
+
+<pre><code>Traceback (most recent call last):
+  File &quot;[...]\lib\site-packages\tensorflow_core\python\pywrap_tensorflow.py&quot;, line 58, in &lt;module&gt;
+    from tensorflow.python.pywrap_tensorflow_internal import *
+  File &quot;[...]\lib\site-packages\tensorflow_core\python\pywrap_tensorflow_internal.py&quot;, line 28, in &lt;module&gt;
+    _pywrap_tensorflow_internal = swig_import_helper()
+  File &quot;[...]\lib\site-packages\tensorflow_core\python\pywrap_tensorflow_internal.py&quot;, line 24, in swig_import_helper
+    _mod = imp.load_module('_pywrap_tensorflow_internal', fp, pathname, description)
+  File &quot;[...]\lib\imp.py&quot;, line 242, in load_module
+    return load_dynamic(name, filename, file)
+  File &quot;[...]\lib\imp.py&quot;, line 342, in load_dynamic
+    return _load(spec)
+ImportError: DLL load failed: 找不到指定的模块。
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+  File &quot;[...]\lib\site-packages\tensorflow\__init__.py&quot;, line 101, in &lt;module&gt;
+    from tensorflow_core import *
+  File &quot;[...]\lib\site-packages\tensorflow_core\__init__.py&quot;, line 40, in &lt;module&gt;
+    from tensorflow.python.tools import module_util as _module_util
+  File &quot;[...]\lib\site-packages\tensorflow\__init__.py&quot;, line 50, in __getattr__
+    module = self._load()
+  File &quot;[...]\lib\site-packages\tensorflow\__init__.py&quot;, line 44, in _load
+    module = _importlib.import_module(self.__name__)
+  File &quot;[...]\lib\importlib\__init__.py&quot;, line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File &quot;[...]\lib\site-packages\tensorflow_core\python\__init__.py&quot;, line 49, in &lt;module&gt;
+    from tensorflow.python import pywrap_tensorflow
+  File &quot;[...]\lib\site-packages\tensorflow_core\python\pywrap_tensorflow.py&quot;, line 74, in &lt;module&gt;
+    raise ImportError(msg)
+ImportError: Traceback (most recent call last):
+  File &quot;[...]\lib\site-packages\tensorflow_core\python\pywrap_tensorflow.py&quot;, line 58, in &lt;module&gt;
+    from tensorflow.python.pywrap_tensorflow_internal import *
+  File &quot;[...]\lib\site-packages\tensorflow_core\python\pywrap_tensorflow_internal.py&quot;, line 28, in &lt;module&gt;
+    _pywrap_tensorflow_internal = swig_import_helper()
+  File &quot;[...]\lib\site-packages\tensorflow_core\python\pywrap_tensorflow_internal.py&quot;, line 24, in swig_import_helper
+    _mod = imp.load_module('_pywrap_tensorflow_internal', fp, pathname, description)
+  File &quot;[...]\lib\imp.py&quot;, line 242, in load_module
+    return load_dynamic(name, filename, file)
+  File &quot;[...]\lib\imp.py&quot;, line 342, in load_dynamic
+    return _load(spec)
+ImportError: DLL load failed: 找不到指定的模块。
+</code></pre>
+
+<p>报错十分奇怪，提示缺少DLL，但在网上找到的信息只有需要<code>system32</code>里的<code>msvc140p.dll</code>可能是问题所在，如果缺少可以安装<code>Microsoft Visual C++ 2015 Redistributable</code>解决。在检查后发现这个文件已经存在。尝试 <a href="https://blog.csdn.net/qq_42580947/article/details/104175457">https://blog.csdn.net/qq_42580947/article/details/104175457</a> 上的方法后才解决。问题出在版本上，换成<code>2.0.0</code>正常运行。<code>pip install tensorflow==2.0.0</code>。另附上国内比较好用的<code>pip</code>源：</p>
+
+<ul>
+<li><p>清华大学：<a href="https://pypi.tuna.tsinghua.edu.cn/simple/">https://pypi.tuna.tsinghua.edu.cn/simple/</a></p></li>
+
+<li><p>中科大：<a href="https://pypi.mirrors.ustc.edu.cn/simple/">https://pypi.mirrors.ustc.edu.cn/simple/</a></p></li>
+</ul>
+
+<p>使用的时候在命令后面加上<code>-i [源]</code>即可。</p>
+		</div>
+		
+<div class="post__tags tags clearfix">
+	<svg class="icon icon-tag" width="16" height="16" viewBox="0 0 16 16"><path d="M16 9.5c0 .373-.24.74-.5 1l-5 5c-.275.26-.634.5-1 .5-.373 0-.74-.24-1-.5L1 8a2.853 2.853 0 0 1-.7-1C.113 6.55 0 5.973 0 5.6V1.4C0 1.034.134.669.401.401.67.134 1.034 0 1.4 0h4.2c.373 0 .95.113 1.4.3.45.187.732.432 1 .7l7.5 7.502c.26.274.5.632.5.998zM3.5 5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item"><a class="tags__link btn" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/tags/tensorflow/" rel="tag">TensorFlow</a></li>
+	</ul>
+</div>
+	</article>
 </main>
+
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="XIONG Ping avatar" src="/img/head.jpg" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		
+		<span class="authorbox__name">XIONG Ping</span>
+	</div>
+	<div class="authorbox__description">
+		柏林工业大学的硕士生，专业经济工程计算机方向。
+	</div>
+</div>
+
+
+<section class="comments">
+	
+
+	<div id="lv-container" data-id="city" data-uid="MTAyMC80MzkyNy8yMDQ2Mw==">
+		<script type="text/javascript">
+	   (function(d, s) {
+	       var j, e = d.getElementsByTagName(s)[0];
+
+	       if (typeof LivereTower === 'function') { return; }
+
+	       j = d.createElement(s);
+	       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+	       j.async = true;
+
+	       e.parentNode.insertBefore(j, e);
+	   	})(document, 'script');
+		</script>
+		<noscript>为正常使用评论功能请激活JavaScript</noscript>
+	</div>
+
+</section>
 
 
 			</div>
-			
-<aside class="sidebar"><div class="widget-search widget">
+			<aside class="sidebar"><div class="widget-search widget">
 	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
 		<label>
 			<input class="widget-search__field" type="search" placeholder="Enter to SEARCH..." value="" name="q" aria-label="SEARCH...">
