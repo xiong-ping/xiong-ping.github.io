@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://xpgreat.com/post/explore_text_dataset/</loc>
+    <lastmod>2020-11-19T15:14:26+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://xpgreat.com/post/hive_windowfunc/</loc>
     <lastmod>2020-10-29T11:01:26+08:00</lastmod>
   </url>
@@ -147,8 +152,14 @@
   </url>
   
   <url>
+    <loc>http://xpgreat.com/tags/nlp/</loc>
+    <lastmod>2020-11-19T15:14:26+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://xpgreat.com/post/</loc>
-    <lastmod>2020-10-29T11:01:26+08:00</lastmod>
+    <lastmod>2020-11-19T15:14:26+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -172,7 +183,7 @@
   
   <url>
     <loc>http://xpgreat.com/</loc>
-    <lastmod>2020-10-29T11:01:26+08:00</lastmod>
+    <lastmod>2020-11-19T15:14:26+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -238,7 +249,7 @@
   
   <url>
     <loc>http://xpgreat.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2020-03-15T16:25:12+08:00</lastmod>
+    <lastmod>2020-11-19T15:14:26+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -250,7 +261,7 @@
   
   <url>
     <loc>http://xpgreat.com/tags/%E7%AE%97%E6%B3%95/</loc>
-    <lastmod>2019-05-14T10:48:15+02:00</lastmod>
+    <lastmod>2020-11-19T15:14:26+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -280,13 +291,19 @@
   
   <url>
     <loc>http://xpgreat.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/</loc>
-    <lastmod>2020-03-15T16:25:12+08:00</lastmod>
+    <lastmod>2020-11-19T15:14:26+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://xpgreat.com/tags/%E8%AE%BA%E6%96%87/</loc>
     <lastmod>2019-05-25T17:35:01+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://xpgreat.com/categories/%E8%AE%BA%E6%96%87/</loc>
+    <lastmod>2020-11-19T15:14:26+08:00</lastmod>
     <priority>0</priority>
   </url>
   

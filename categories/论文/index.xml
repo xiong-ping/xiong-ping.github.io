@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>论文 on XP&#39;s Blog</title>
+    <link>http://xpgreat.com/categories/%E8%AE%BA%E6%96%87/</link>
+    <description>Recent content in 论文 on XP&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 19 Nov 2020 15:14:26 +0800</lastBuildDate>
+    
+	<atom:link href="http://xpgreat.com/categories/%E8%AE%BA%E6%96%87/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>论文解读：Exploring text datasets by visualizing relevant words</title>
+      <link>http://xpgreat.com/post/explore_text_dataset/</link>
+      <pubDate>Thu, 19 Nov 2020 15:14:26 +0800</pubDate>
+      
+      <guid>http://xpgreat.com/post/explore_text_dataset/</guid>
+      <description>&lt;p&gt;在做机器学习使用新数据集时，我们首先要知道它的特点，一个可以快速可靠地深入了解所选文档的内容，并区分它们类别的工具十分重要。 在这篇论文，作者从文本集合中提取“相关词”，以概括属于某个类别（或在unlabeled数据集下为聚类的组）的文档的内容，并在词云中可视化它们。 作者比较了三种提取相关单词的方法，并使用两个数据集验证了模型的可用性。论文链接：&lt;a href=&#34;https://arxiv.org/pdf/1707.05261.pdf，论文代码：https://github.com/cod3licious/textcatvis&#34;&gt;https://arxiv.org/pdf/1707.05261.pdf，论文代码：https://github.com/cod3licious/textcatvis&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
