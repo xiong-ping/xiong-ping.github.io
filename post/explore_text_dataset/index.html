@@ -105,7 +105,7 @@ if (!doNotTrack) {
 
 <h3 id="数据预处理和特征提取">数据预处理和特征提取</h3>
 
-<p>首先对所有文件进行1.小写化 2. 删除非字母数字的字符。然后逐段用tfidf转换为bag-of-words（BOW）特征向量\(\bold x_k \in \bold R^T \forall k \in {1,\dots,N}\)，其中\(k\)是文件编号，\(T\)是该文件包含的词汇数（vocabulary，即去重词数），\(N\)是文件数。表示文件\(k\)的特征向量里对应单词\(t<em>i\)的值\(\bold x</em>{ki} = tf(t_i) idf(t_i)\)。</p>
+<p>首先对所有文件进行1.小写化 2. 删除非字母数字的字符。然后逐段用tfidf转换为bag-of-words（BOW）特征向量\(\mathbf x_k \in \mathbf R^T \forall k \in {1,\dots,N}\)，其中\(k\)是文件编号，\(T\)是该文件包含的词汇数（vocabulary，即去重词数），\(N\)是文件数。表示文件\(k\)的特征向量里对应单词\(t<em>i\)的值\(\mathbf x</em>{ki} = tf(t_i) idf(t_i)\)。</p>
 
 <h4 id="tf-idf">TF-IDF</h4>
 
@@ -137,23 +137,23 @@ $$</p>
 <p>最直接简单的方法，对类别\(c\)计算\(r_c\)的公式为：</p>
 
 <p>$$
-r_c (t<em>i) = \sum</em>{k:y<em>k=c}\bold x</em>{ki}=\sum_{k:y_k=c}tf_k(t_i)idf_k(t_i)
+r_c (t<em>i) = \sum</em>{k:y<em>k=c}\mathbf x</em>{ki}=\sum_{k:y_k=c}tf_k(t_i)idf_k(t_i)
 $$</p>
 
 <p>即将所有属于类别\(c\)的文件\(k\)中的单词\(t_i\)的tf-idf值加起来作为这个类别中该单词的relevance score。这样分数最高的单词在该类别的文件中出现频率最高，且不会在大多数其他文件里出现（否则idf值会很低）。然而，一个可能的问题是，高分词在其他类别的文件中出现频率也差不多，这对idf的值影响不大，但意味着在其他类别中该词也会被判定为relevant word，这与relevant word的定义矛盾（最能用来区分不同类别的词）。</p>
 
 <h4 id="svm-lrp-decomposed-classifier-scores">SVM+LRP（Decomposed classifier scores）</h4>
 
-<p>分为两步，第一步找到一个线性分类器，利用tfidf特征将文件分类。即对类\(c\)，找到\(\bold w_c\)，最优化分类器：</p>
+<p>分为两步，第一步找到一个线性分类器，利用tfidf特征将文件分类。即对类\(c\)，找到\(\mathbf w_c\)，最优化分类器：</p>
 
 <p>$$
-\hat y<em>k  = \mathop{\arg \max}</em>{c} \ b_c + \bold w_c^T\bold x_k
+\hat y<em>k  = \mathop{\arg \max}</em>{c} \ b_c + \mathbf w_c^T\mathbf x_k
 $$</p>
 
 <p>优化好分类器后，计算relevance score：</p>
 
 <p>$$
-r_c(t<em>i) = \sum</em>{k:y<em>k=c}\left( \bold w</em>{ci} \bold x_{ki} + \frac{b_c}{T}\right)
+r_c(t<em>i) = \sum</em>{k:y<em>k=c}\left( \mathbf w</em>{ci} \mathbf x_{ki} + \frac{b_c}{T}\right)
 $$</p>
 
 <p>其中\(T\)是词汇数。</p>
@@ -172,7 +172,7 @@ $$</p>
 
 <p>是一种二分类模型，它的基本模型是定义在特征空间上的<strong>间隔最大</strong>的<strong>线性分类器</strong>，间隔最大使它有别于感知机；SVM还包括<strong>核技巧</strong>，这使它成为实质上的非线性分类器。SVM的的学习策略就是间隔最大化，可形式化为一个求解凸二次规划的问题，也等价于正则化的合页损失函数的最小化问题。SVM的的学习算法就是求解凸二次规划的最优化算法。</p>
 
-<p>SVM学习的基本想法是求解能够正确划分训练数据集并且几何间隔最大的分离超平面。如下图所示，\(\bold w \bold x + b = 0\)即为分离超平面，对于线性可分的数据集来说，这样的超平面有无穷多个（即感知机），但是几何间隔最大的分离超平面却是唯一的。</p>
+<p>SVM学习的基本想法是求解能够正确划分训练数据集并且几何间隔最大的分离超平面。如下图所示，\(\mathbf w \mathbf x + b = 0\)即为分离超平面，对于线性可分的数据集来说，这样的超平面有无穷多个（即感知机），但是几何间隔最大的分离超平面却是唯一的。</p>
 
 <p><img src="/media/image-20201119213025858.png" alt="image-20201119213025858" /></p>
 
@@ -180,42 +180,42 @@ $$</p>
 
 <p>算法如下：</p>
 
-<p><strong>输入</strong>：训练数据集 \(T={(\bold x_1,y_1),(\bold x_2,y_2),\dots,(\bold x_n,y_n)}\)其中，\(\bold x_i \in \bold R^n, y_i \in {1,-1},i = 1,2,\dots,n\)；</p>
+<p><strong>输入</strong>：训练数据集 \(T={(\mathbf x_1,y_1),(\mathbf x_2,y_2),\dots,(\mathbf x_n,y_n)}\)其中，\(\mathbf x_i \in \mathbf R^n, y_i \in {1,-1},i = 1,2,\dots,n\)；</p>
 
 <p><strong>输出</strong>：分离超平面和分类决策函数</p>
 
 <p>（1）选择惩罚参数\(C &gt; 0\) ，构造并求解凸二次规划问题</p>
 
 <p>$$
-\min<em>\alpha \frac{1}{2}\sum</em>{i=1}^N\sum_{j=1}^N\alpha_i\alpha_jy_iy_j(\bold x_i\bold x<em>j) - \sum</em>{i=1}^N\alpha<em>i<br />
+\min<em>\alpha \frac{1}{2}\sum</em>{i=1}^N\sum_{j=1}^N\alpha_i\alpha_jy_iy_j(\mathbf x_i\mathbf x<em>j) - \sum</em>{i=1}^N\alpha<em>i<br />
 s.t.\ \sum</em>{i=1}^N\alpha_iy_i=0<br />
 0\le \alpha_i\le C, i=1,2,\dots,N
 $$</p>
 
-<p>得到最优解\(\bold\alpha^<em>=(\alpha_1^</em>,\alpha_2^<em>,\dots,\alpha_N^</em>)^T\)</p>
+<p>得到最优解\(\mathbf\alpha^<em>=(\alpha_1^</em>,\alpha_2^<em>,\dots,\alpha_N^</em>)^T\)</p>
 
 <p>（2）计算</p>
 
 <p>$$
-\mathbf {\omega} ^* = \sum_{i=1}^N\alpha_i^*y_i\bold x_i
+\mathbf {\omega} ^* = \sum_{i=1}^N\alpha_i^*y_i\mathbf x_i
 $$</p>
 
-<p>选择\(\bold \alpha^<em>\)的一个分量\(\bold \alpha_j^</em>\)满足条件\(0&lt;\bold \alpha_j^* &lt; C\)，计算</p>
+<p>选择\(\mathbf \alpha^<em>\)的一个分量\(\mathbf \alpha_j^</em>\)满足条件\(0&lt;\mathbf \alpha_j^* &lt; C\)，计算</p>
 
 <p>$$
-b^* = y<em>j - \sum</em>{i=1}^N\alpha_i^*y_i(\bold x_i\bold x_j)
+b^* = y<em>j - \sum</em>{i=1}^N\alpha_i^*y_i(\mathbf x_i\mathbf x_j)
 $$</p>
 
 <p>（3）求分离超平面</p>
 
 <p>$$
-\bold \omega ^* \bold x + b^* = 0
+\mathbf \omega ^* \mathbf x + b^* = 0
 $$</p>
 
 <p>分类决策函数：</p>
 
 <p>$$
-f(\bold x) = sign(\bold\omega^<em>\bold x +b^</em>)
+f(\mathbf x) = sign(\mathbf\omega^<em>\mathbf x +b^</em>)
 $$</p>
 
 <h4 id="词-文件数量法-distinctive-words">词-文件数量法（Distinctive words）</h4>
@@ -223,7 +223,7 @@ $$</p>
 <p>作者引入了两个概念：TPR（True Positive Rate，真阳性率）和FPR（假阳性率）。定义分别为</p>
 
 <p>$$
-TPR_c(t_i) = \frac{类别为c且t_i的tfidf值大于0的文件数}{类别为c的文件数}=\frac {|{k:y<em>k=c\ \and \ \bold x</em>{ki} &gt; 0}|}{|{k:y_k=c}|}<br />
+TPR_c(t_i) = \frac{类别为c且t_i的tfidf值大于0的文件数}{类别为c的文件数}=\frac {|{k:y<em>k=c\ \and \ \mathbf x</em>{ki} &gt; 0}|}{|{k:y_k=c}|}<br />
 FPR_c(t_i) = mean({TPR_l(t_i):l\ne c})+std({TPR_l(t_i):l\ne c})
 $$</p>
 
