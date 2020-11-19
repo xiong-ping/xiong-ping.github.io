@@ -105,20 +105,18 @@ if (!doNotTrack) {
 
 <h3 id="数据预处理和特征提取">数据预处理和特征提取</h3>
 
-<p>首先对所有文件进行1.小写化 2. 删除非字母数字的字符。然后逐段用tfidf转换为bag-of-words（BOW）特征向量$\bold x_k \in \bold R^T \forall k \in {1,\dots,N}$，其中$k$是文件编号，$T$是该文件包含的词汇数（vocabulary，即去重词数），$N$是文件数。表示文件$k$的特征向量里对应单词$t<em>i$的值$\bold x</em>{ki} = tf(t_i) idf(t_i)$。</p>
+<p>首先对所有文件进行1.小写化 2. 删除非字母数字的字符。然后逐段用tfidf转换为bag-of-words（BOW）特征向量\(\bold x_k \in \bold R^T \forall k \in {1,\dots,N}\)，其中\(k\)是文件编号，\(T\)是该文件包含的词汇数（vocabulary，即去重词数），\(N\)是文件数。表示文件\(k\)的特征向量里对应单词\(t<em>i\)的值\(\bold x</em>{ki} = tf(t_i) idf(t_i)\)。</p>
 
 <h4 id="tf-idf">TF-IDF</h4>
 
-<p>Term Frequency-Inverse Document Frequency，词频-逆文件频率，是一种用于资讯检索与资讯探勘的常用加权技术。TF-IDF是一种统计方法，用以评估一单词对于一个文件集或一个语料库中的其中一份文件的重要程度。字词的重要性随着它在文件中出现的次数成正比增加，但同时会随着它在语料库中出现的频率成反比下降。即<strong>一个词语在一篇文件中出现次数越多, 同时在所有文档中出现次数越少, 越能够代表该文件</strong>。一般做归一化处理，公式如下：
-$$
-tf(t_i)=\frac{在某一文件中词t_i出现的次数}{该文件中所有的词数目}
-$$</p>
+<p>Term Frequency-Inverse Document Frequency，词频-逆文件频率，是一种用于资讯检索与资讯探勘的常用加权技术。TF-IDF是一种统计方法，用以评估一单词对于一个文件集或一个语料库中的其中一份文件的重要程度。字词的重要性随着它在文件中出现的次数成正比增加，但同时会随着它在语料库中出现的频率成反比下降。即<strong>一个词语在一篇文件中出现次数越多, 同时在所有文档中出现次数越少, 越能够代表该文件</strong>。一般做归一化处理，公式如下：</p>
 
 <p>$$
+tf(t_i)=\frac{在某一文件中词t_i出现的次数}{该文件中所有的词数目} <br />
 idf(t_i)=\log(\frac{数据集的文件总数}{包含词t_i的文件数})=\log\frac{|N|}{|{k\in N:t_i\in k}|}
 $$</p>
 
-<p>有时为了保证$idf$分母不为零，可以在分母上加一。</p>
+<p>有时为了保证\(idf\)分母不为零，可以在分母上加一。</p>
 
 <h3 id="未标注数据集聚类">未标注数据集聚类</h3>
 
@@ -126,33 +124,39 @@ $$</p>
 
 <h3 id="计算相关单词-relevant-word">计算相关单词（relevant word）</h3>
 
-<p>确定相关单词分为两步，第一步是计算描述相关性的relevance score $r_c$，第二步时根据$r_c$给所有单词排序，越高代表越相关。为了计算$r_c$，作者比较了三种方法：</p>
+<p>确定相关单词分为两步，第一步是计算描述相关性的relevance score \(r_c\)，第二步时根据\(r_c\)给所有单词排序，越高代表越相关。为了计算\(r_c\)，作者比较了三种方法：</p>
 
 <ol>
 <li>通过汇总组中所有文档的原始tf-idf特征；</li>
 <li>通过汇总由某些分类器（SVM+LRP）加权的这些特征；</li>
-<li>分别计算每个单词在该类和其他类出现的文件数量，进而求出$r_c$。</li>
+<li>分别计算每个单词在该类和其他类出现的文件数量，进而求出\(r_c\)。</li>
 </ol>
 
 <h4 id="突出tfidf特征法-salient-tf-idf-features">突出tfidf特征法（Salient tf-idf features）</h4>
 
-<p>最直接简单的方法，对类别$c$计算$r_c$的公式为：
-$$
+<p>最直接简单的方法，对类别\(c\)计算\(r_c\)的公式为：</p>
+
+<p>$$
 r_c (t<em>i) = \sum</em>{k:y<em>k=c}\bold x</em>{ki}=\sum_{k:y_k=c}tf_k(t_i)idf_k(t_i)
-$$
-即将所有属于类别$c$的文件$k$中的单词$t_i$的tf-idf值加起来作为这个类别中该单词的relevance score。这样分数最高的单词在该类别的文件中出现频率最高，且不会在大多数其他文件里出现（否则idf值会很低）。然而，一个可能的问题是，高分词在其他类别的文件中出现频率也差不多，这对idf的值影响不大，但意味着在其他类别中该词也会被判定为relevant word，这与relevant word的定义矛盾（最能用来区分不同类别的词）。</p>
+$$</p>
+
+<p>即将所有属于类别\(c\)的文件\(k\)中的单词\(t_i\)的tf-idf值加起来作为这个类别中该单词的relevance score。这样分数最高的单词在该类别的文件中出现频率最高，且不会在大多数其他文件里出现（否则idf值会很低）。然而，一个可能的问题是，高分词在其他类别的文件中出现频率也差不多，这对idf的值影响不大，但意味着在其他类别中该词也会被判定为relevant word，这与relevant word的定义矛盾（最能用来区分不同类别的词）。</p>
 
 <h4 id="svm-lrp-decomposed-classifier-scores">SVM+LRP（Decomposed classifier scores）</h4>
 
-<p>分为两步，第一步找到一个线性分类器，利用tfidf特征将文件分类。即对类$c$，找到$\bold w_c$，最优化分类器：
-$$
+<p>分为两步，第一步找到一个线性分类器，利用tfidf特征将文件分类。即对类\(c\)，找到\(\bold w_c\)，最优化分类器：</p>
+
+<p>$$
 \hat y<em>k  = \mathop{\arg \max}</em>{c} \ b_c + \bold w_c^T\bold x_k
-$$
-优化好分类器后，计算relevance score：
-$$
+$$</p>
+
+<p>优化好分类器后，计算relevance score：</p>
+
+<p>$$
 r_c(t<em>i) = \sum</em>{k:y<em>k=c}\left( \bold w</em>{ci} \bold x_{ki} + \frac{b_c}{T}\right)
-$$
-其中$T$是词汇数。</p>
+$$</p>
+
+<p>其中\(T\)是词汇数。</p>
 
 <p>在优化分类器时，作者选择了SVM，并提出，也可以用其他的线性分类器比如逻辑回归，甚至DNN。作者强调，只有在分类器精确度相当高的时候，这个方法找出来的相关词汇才有意义，所以分类器的精确度比简便更加重要。</p>
 
@@ -162,13 +166,13 @@ $$
 
 <p><img src="/media/image-20201119212624565.png" alt="image-20201119212624565" style="zoom:50%;" /></p>
 
-<p>如果要计算 $v_1$ 和 $u_1$ 之间的相关性，首先计算 $v_1 $和 $z_1$, $z_2$ 之间的相关性，再将 $v_1$ 和$z_1$, $z_2$ 的相关性传递到 $u_1$, 从而求得 $v_1$ 和 $u_1$ 之间的相关性。</p>
+<p>如果要计算 \(v_1\) 和 \(u_1\) 之间的相关性，首先计算 \(v_1\)和 \(z_1\), \(z_2\) 之间的相关性，再将 \(v_1\) 和\(z_1\), \(z_2\) 的相关性传递到 \(u_1\), 从而求得 \(v_1\) 和 \(u_1\) 之间的相关性。</p>
 
 <h5 id="support-vector-machine-svm-支持向量机">Support vector machine （SVM，支持向量机）</h5>
 
 <p>是一种二分类模型，它的基本模型是定义在特征空间上的<strong>间隔最大</strong>的<strong>线性分类器</strong>，间隔最大使它有别于感知机；SVM还包括<strong>核技巧</strong>，这使它成为实质上的非线性分类器。SVM的的学习策略就是间隔最大化，可形式化为一个求解凸二次规划的问题，也等价于正则化的合页损失函数的最小化问题。SVM的的学习算法就是求解凸二次规划的最优化算法。</p>
 
-<p>SVM学习的基本想法是求解能够正确划分训练数据集并且几何间隔最大的分离超平面。如下图所示，$\bold w \bold x + b = 0$即为分离超平面，对于线性可分的数据集来说，这样的超平面有无穷多个（即感知机），但是几何间隔最大的分离超平面却是唯一的。</p>
+<p>SVM学习的基本想法是求解能够正确划分训练数据集并且几何间隔最大的分离超平面。如下图所示，\(\bold w \bold x + b = 0\)即为分离超平面，对于线性可分的数据集来说，这样的超平面有无穷多个（即感知机），但是几何间隔最大的分离超平面却是唯一的。</p>
 
 <p><img src="/media/image-20201119213025858.png" alt="image-20201119213025858" /></p>
 
@@ -176,57 +180,73 @@ $$
 
 <p>算法如下：</p>
 
-<p><strong>输入</strong>：训练数据集 $T={(\bold x_1,y_1),(\bold x_2,y_2),\dots,(\bold x_n,y_n)}$其中，$\bold x_i \in \bold R^n, y_i \in {1,-1},i = 1,2,\dots,n$；</p>
+<p><strong>输入</strong>：训练数据集 \(T={(\bold x_1,y_1),(\bold x_2,y_2),\dots,(\bold x_n,y_n)}\)其中，\(\bold x_i \in \bold R^n, y_i \in {1,-1},i = 1,2,\dots,n\)；</p>
 
 <p><strong>输出</strong>：分离超平面和分类决策函数</p>
 
-<p>（1）选择惩罚参数$C &gt; 0$ ，构造并求解凸二次规划问题
-$$
+<p>（1）选择惩罚参数\(C &gt; 0\) ，构造并求解凸二次规划问题</p>
+
+<p>$$
 \min<em>\alpha \frac{1}{2}\sum</em>{i=1}^N\sum_{j=1}^N\alpha_i\alpha_jy_iy_j(\bold x_i\bold x<em>j) - \sum</em>{i=1}^N\alpha<em>i<br />
 s.t.\ \sum</em>{i=1}^N\alpha_iy_i=0<br />
 0\le \alpha_i\le C, i=1,2,\dots,N
-$$
-得到最优解$\bold\alpha^<em>=(\alpha_1^</em>,\alpha_2^<em>,\dots,\alpha_N^</em>)^T$</p>
+$$</p>
 
-<p>（2）计算
-$$
+<p>得到最优解\(\bold\alpha^<em>=(\alpha_1^</em>,\alpha_2^<em>,\dots,\alpha_N^</em>)^T\)</p>
+
+<p>（2）计算</p>
+
+<p>$$
 \mathbf {\omega} ^* = \sum_{i=1}^N\alpha_i^*y_i\bold x_i
 $$</p>
 
-<p>选择$\bold \alpha^<em>$的一个分量$\bold \alpha_j^</em>$满足条件$0&lt;\bold \alpha_j^* &lt; C$，计算
-$$
-b^* = y<em>j - \sum</em>{i=1}^N\alpha_i^<em>y_i(\bold x_i\bold x_j)
-$$
-（3）求分离超平面
-$$
-\bold \omega ^</em> \bold x + b^* = 0
-$$
-分类决策函数：
-$$
+<p>选择\(\bold \alpha^<em>\)的一个分量\(\bold \alpha_j^</em>\)满足条件\(0&lt;\bold \alpha_j^* &lt; C\)，计算</p>
+
+<p>$$
+b^* = y<em>j - \sum</em>{i=1}^N\alpha_i^*y_i(\bold x_i\bold x_j)
+$$</p>
+
+<p>（3）求分离超平面</p>
+
+<p>$$
+\bold \omega ^* \bold x + b^* = 0
+$$</p>
+
+<p>分类决策函数：</p>
+
+<p>$$
 f(\bold x) = sign(\bold\omega^<em>\bold x +b^</em>)
 $$</p>
 
 <h4 id="词-文件数量法-distinctive-words">词-文件数量法（Distinctive words）</h4>
 
-<p>作者引入了两个概念：TPR（True Positive Rate，真阳性率）和FPR（假阳性率）。定义分别为
-$$
+<p>作者引入了两个概念：TPR（True Positive Rate，真阳性率）和FPR（假阳性率）。定义分别为</p>
+
+<p>$$
 TPR_c(t_i) = \frac{类别为c且t_i的tfidf值大于0的文件数}{类别为c的文件数}=\frac {|{k:y<em>k=c\ \and \ \bold x</em>{ki} &gt; 0}|}{|{k:y_k=c}|}<br />
 FPR_c(t_i) = mean({TPR_l(t_i):l\ne c})+std({TPR_l(t_i):l\ne c})
-$$
-最终目的是找出在目标类中出现频繁（TPR高），且在非目标类中出现不频繁（FPR低）的词，需要一个度量这一性质的函数。一种直接的方法是直接算差值：
-$$
+$$</p>
+
+<p>最终目的是找出在目标类中出现频繁（TPR高），且在非目标类中出现不频繁（FPR低）的词，需要一个度量这一性质的函数。一种直接的方法是直接算差值：</p>
+
+<p>$$
 r_c_diff(t_i) = \max {TPR_c(t_i)-FPR_c(t_i),0}
-$$
-这种方法存在一个问题，即只考虑了两个率的绝对差值，未考虑相对差，即如果1. TPR=0.9，FPR=0.8；2. TPR=0.2，FPR=0.1，这种量度会认为他们一样重要，但显然前者对于后者，TPR和FPR相差过近。因此引入基于除法的算法：
-$$
+$$</p>
+
+<p>这种方法存在一个问题，即只考虑了两个率的绝对差值，未考虑相对差，即如果1. TPR=0.9，FPR=0.8；2. TPR=0.2，FPR=0.1，这种量度会认为他们一样重要，但显然前者对于后者，TPR和FPR相差过近。因此引入基于除法的算法：</p>
+
+<p>$$
 r_c_quot(t_i) = \frac{\min{\max{z_c(t_i),1},4} -1}{3} <br />
 where\ z_c(t_i) = \frac{TPR_c(t_i)}{\max{FPR_c(t_i),\epsilon}}, \epsilon是一个极小值，用来避免除数为零
-$$
-综合二者，得到既考虑相对又考虑绝对差异的度量：
-$$
+$$</p>
+
+<p>综合二者，得到既考虑相对又考虑绝对差异的度量：</p>
+
+<p>$$
 r_c_dist(t_i) = 0.5(r_c_diff(t_i)+r_c_quot(t_i))
-$$
-rc-TPR-FPR关系图：</p>
+$$</p>
+
+<p>rc-TPR-FPR关系图：</p>
 
 <p><img src="/media/image-20201119232608223.png" alt="image-20201119232608223" style="zoom:50%;" /></p>
 
