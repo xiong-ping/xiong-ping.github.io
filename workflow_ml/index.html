@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>机器学习的工作流程</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<meta name="generator" content="Hugo 0.78.2" />
+	<meta property="og:title" content="机器学习的工作流程" />
+<meta property="og:description" content="最近在阅读François Chollet写的Deep Learning with Python. 书中有很多经验性的技巧和归纳，其中4.5写的Machine Learning的工作流程归纳的很好，看完深有启发，摘录于此。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://xpgreat.com/workflow_ml/" />
+<meta property="article:published_time" content="2020-03-15T16:25:12+08:00" />
+<meta property="article:modified_time" content="2020-03-15T16:25:12+08:00" />
+
+	
+	<link rel="stylesheet" href="/css/highlight.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-130422706-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container">
+		<div class="logo">
+			<a class="logo__link" href="/" title="XP&#39;s Blog" rel="home">
+				<div class="logo__title">XP&#39;s Blog</div>
+				<div class="logo__tagline">积跬步 以至千里</div>
+			</a>
+		</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">Menu</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item">
+			<a class="menu__link" href="/">首页</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/archive/">归档</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/links/">友链</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/about/">关于</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/license/">许可</a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">机器学习的工作流程</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+	<time class="meta__text" datetime="2020-03-15T16:25:12">March 15, 2020</time>
+</div>
+
+<div class="meta__item-categories meta__item">
+	<svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
+	<span class="meta__text"><a class="meta__link" href="/categories/%e8%ae%a1%e7%ae%97%e6%9c%ba" rel="category">计算机</a></span>
+</div>
+</div>
+		</header><div class="content post__content clearfix">
+			<p>最近在阅读François Chollet写的Deep Learning with Python. 书中有很多经验性的技巧和归纳，其中4.5写的Machine Learning的工作流程归纳的很好，看完深有启发，摘录于此。</p>
+<p>机器学习的标准流程可以分为六个步骤：</p>
+<ol>
+<li>定义问题</li>
+<li>确定衡量模型的标准</li>
+<li>确定评估方式</li>
+<li>建立一个比理论平均更好的简单模型</li>
+<li>扩展模型，使其过拟合</li>
+<li>优化模型</li>
+</ol>
+<p>一般的机器学习方面的研究主要关注第6步，但最好按照标准流程来做。</p>
+<h3 id="定义问题">定义问题</h3>
+<p>首先思考，可用的数据有哪些，希望从这些数据中得到什么信息，希望用这些信息预测什么。需要注意预测的内容必须要从training data中能得到信息的，比如要为影评做情绪分类，必须要有影评和它对应的情绪标签作training data才行。</p>
+<p>考虑问题的类型：二元分类？多元分类？标量回归？向量回归？多元多标签分类？聚类？&hellip;&hellip;总之明确问题的类型，有助于后面选择模型。</p>
+<p>明确输入和输出。时刻记住在使用机器学习的时候，存在两个假设：</p>
+<ol>
+<li>输出可以通过输入预测得到。</li>
+<li>已有的数据足够多以提取出输入和输出的关系。</li>
+</ol>
+<p>比如如果做一个模型预测股票价格的走势，在仅有历史价格数据的时候是不够的，因为历史价格不包含未来价格的信息。机器学习只能利用training data中存在的模式(pattern)。</p>
+<p>另外如果这个问题是不平稳的(Nonstationary)，机器学习也不适用。比如做推荐服装的模型，不同季节对不同服装的喜好程度是不同的，如果用八月的数据训练预测九月的情况，模型效果肯定很差。这时则要采取变通，比如使用多年的数据训练，添加月份标签等。</p>
+<h3 id="确定衡量模型的标准">确定衡量模型的标准</h3>
+<p>考虑清楚问题并估计可以建模之后，需要确定一个衡量标准，来判断模型是否成功。比如预测值的准确度，客户留存度，正确分类的比例等等。需要注意的是很多时候标准是根据问题自定的，这就需要建模者有经验。可以在<a href="kaggle.com">Kaggle</a>之类的竞赛网站上拓展视野。</p>
+<h3 id="确定评估方式">确定评估方式</h3>
+<p>确定一个评估方式来衡量进度也是很重要的。一般来说有三种方法：</p>
+<ol>
+<li>使用一个hold-out validation set，即将数据集分出一部分专门用来验证模型效果。在有大量数据时可以使用这个方法。</li>
+<li>K-fold Cross Validation， 将原始数据分成K组(K-Fold)，将每个子集数据分别做一次验证集，其余的K-1组子集数据作为训练集，这样会得到K个模型。这K个模型分别在验证集中评估结果，最后的误差取平均就得到交叉验证误差。在数据量不足以做第一种方法时可以选择。但这种方法计算需求很大。</li>
+<li>循环K-fold validation，每次都进行数据随机排列，然后进行完整的k-fold。适用于数据量很小且对精度要求高的情况。</li>
+</ol>
+<p>一般选第一个即可。</p>
+<h3 id="建立一个比理论平均更好的简单模型">建立一个比理论平均更好的简单模型</h3>
+<p>这一步的目的是较快的找到比理论平均好的简单模型，通常可以进行简单的尝试，比如在MNIST数字分类时用最简单的feed feedforward 模型尝试，得到精确度高于0.1（完全随机分类的平均精度），这样就可以在这个基础上进行下一步的优化了。需要注意的是不是所有时候都能够找得到这样的简单模型的。如果在多次尝试后仍找不到，需要考虑是否是前面的两个假设不成立，即根本不存在输出和输入之间的明确关系，或者这种关系在已有的数据集中不明确。</p>
+<p>如果顺利找到这种简单模型，下一步需要考虑三个问题：</p>
+<ol>
+<li>最后一层的激活函数。将模型网络中的倒数第二层输出组合形成最终输出，比如在二元分类时可以使用relu激活，得到一个0-1之间的数字作为选择一类的概率。</li>
+<li>loss function，即一个可微的函数，用来衡量模型的精度。可微性是必要的因为使用梯度下降法优化时需要求微分。</li>
+<li>优化方法，比如Adam，RmsProp等。通常可以先尝试用这两种的默认学习率（learning rate）优化。</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Problem type</th>
+<th>Last-layer activation</th>
+<th>Loss function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Binary classification</td>
+<td><code>sigmoid</code></td>
+<td><code>binary_crossentropy</code></td>
+</tr>
+<tr>
+<td>Multiclass, single-label classification</td>
+<td><code>softmax</code></td>
+<td><code>categorical_crossentropy</code></td>
+</tr>
+<tr>
+<td>Multiclass, multilabel classification</td>
+<td><code>sigmoid</code></td>
+<td><code>binary_crossentropy</code></td>
+</tr>
+<tr>
+<td>Regression to arbitrary values</td>
+<td>None</td>
+<td><code>mse</code></td>
+</tr>
+<tr>
+<td>Regression to values between 0 and 1</td>
+<td><code>sigmoid</code></td>
+<td><code>mse</code> or <code>binary_crossentropy</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="扩展模型">扩展模型</h3>
+<p>这一步将模型扩展，使其过拟合，因为上一步得到的简单模型可能没有足够的层数，没有足够多的神经元等等。机器学习问题其实就是平衡拟合能力和泛化能力的问题，我们的目标是找到二者平衡的一个点。既不能让它欠拟合，也不能让它过拟合。一般的做法是先让模型过拟合，然后再进行细节优化。扩展模型有三个方法：</p>
+<ol>
+<li>增加层数。</li>
+<li>增加单层神经元个数。</li>
+<li>训练更多的epochs。</li>
+</ol>
+<p>如果你发现验证的精度开始下降了，这时候就说明模型已经过拟合，这一步也可以结束了。</p>
+<h3 id="优化模型">优化模型</h3>
+<p>最复杂也最耗时的一步，大部分研究的重点。大致逻辑是对模型做小修小改，把数据放进去跑，看模型验证精度的变化，直到优化到不能再优化为止。一般可以尝试的方向有：</p>
+<ol>
+<li>加入Dropout。</li>
+<li>改变结构，比如增加或删除一层。</li>
+<li>L1/L2正则化（Regularization）。</li>
+<li>更改不同的超参数（hyperparameter），比如学习率、每层神经元个数等等。</li>
+<li>增加或删除feature。</li>
+</ol>
+<p><strong>注意</strong>如果多次依据验证精度调整模型，会把验证集的信息泄露给模型（相当于验证集也参与了模型的构建和优化）。少量的次数还可以接受，太多次后会让优化后的模型没有说服力。</p>
+<p>当你获得一个满意的优化后的模型，可以使用所有的数据（training 和 validation set）来最后训练一次，再使用test data做最后的测试。如果最后测试结果显著不如validation的结果，则需要考虑是否overfitting，或者时评估方式（第三步）选择不对，可以尝试换一个试试。</p>
+		</div>
+		
+<div class="post__tags tags clearfix">
+	<svg class="icon icon-tag" width="16" height="16" viewBox="0 0 16 16"><path d="M16 9.5c0 .373-.24.74-.5 1l-5 5c-.275.26-.634.5-1 .5-.373 0-.74-.24-1-.5L1 8a2.853 2.853 0 0 1-.7-1C.113 6.55 0 5.973 0 5.6V1.4C0 1.034.134.669.401.401.67.134 1.034 0 1.4 0h4.2c.373 0 .95.113 1.4.3.45.187.732.432 1 .7l7.5 7.502c.26.274.5.632.5.998zM3.5 5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item"><a class="tags__link btn" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/tags/%E6%8A%80%E5%B7%A7/" rel="tag">技巧</a></li>
+	</ul>
+</div>
+	</article>
+</main>
+
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="XIONG Ping avatar" src="/img/head.jpg" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		
+		<span class="authorbox__name">XIONG Ping</span>
+	</div>
+	<div class="authorbox__description">
+		柏林工业大学的硕士生，专业经济工程计算机方向。
+	</div>
+</div>
+
+
+<section class="comments">
+	
+
+	<div id="lv-container" data-id="city" data-uid="MTAyMC80MzkyNy8yMDQ2Mw==">
+		<script type="text/javascript">
+	   (function(d, s) {
+	       var j, e = d.getElementsByTagName(s)[0];
+
+	       if (typeof LivereTower === 'function') { return; }
+
+	       j = d.createElement(s);
+	       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+	       j.async = true;
+
+	       e.parentNode.insertBefore(j, e);
+	   	})(document, 'script');
+		</script>
+		<noscript>为正常使用评论功能请激活JavaScript</noscript>
+	</div>
+
+</section>
+
+
+			</div>
+			<aside class="sidebar"><div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
+		<label>
+			<input class="widget-search__field" type="search" placeholder="Enter to SEARCH..." value="" name="q" aria-label="SEARCH...">
+		</label>
+		<input class="widget-search__submit" type="submit" value="Search">
+		<input type="hidden" name="sitesearch" value="http://xpgreat.com/" />
+	</form>
+</div>
+<script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=080808&w=a&t=tt&d=vn9XwpQC1mo0ktLzWyesdzglYxafoYqO_-XrgyT-k8w&co=ffffff&cmo=3acc3a&cmn=008eff&ct=808080'></script>
+<div class="widget-social widget">
+	<h4 class="widget-social__title widget__title">Social</h4>
+	<div class="widget-social__content widget__content">
+		<div class="widget-social__item widget__item">
+			<a class="widget-social__link widget__link btn" title="Telegram" rel="noopener noreferrer" href="https://t.me/xphahaha" target="_blank">
+				<svg class="widget-social__link-icon icon-telegram" viewBox="0 0 132 110" width="24" height="24"><path fill="#ddd" d="M50 103c-4 0-3-1-5-5L34 60l88-52"/><path fill="#aaa" d="M50 103c3 0 4-1 6-3l16-16-20-12"/><path fill="#fff" d="M52 72l48 36c6 3 10 2 11-5l20-93c2-8-3-11-8-9L7 45c-8 4-8 8-1 10l29 9 69-43c3-2 6-1 4 1"/></svg>
+				<span></span>
+			</a>
+		</div>
+		<div class="widget-social__item widget__item">
+			<a class="widget-social__link widget__link btn" title="Email" href="mailto:xiong.ping.xp@qq.com">
+				<svg class="widget-social__link-icon icon-mail" viewBox="0 0 416 288" width="24" height="24" fill="#fff"><path d="m0 16v256 16h16 384 16v-16-256-16h-16-384-16zm347 16-139 92.5-139-92.5zm-148 125.5 9 5.5 9-5.5 167-111.5v210h-352v-210z"/></svg>
+				<span></span>
+			</a>
+		</div>
+	</div>
+</div>
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/post/explore_text_dataset/">论文解读：Exploring text datasets by visualizing relevant words</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/hive_windowfunc/">Hive窗口函数总结</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/workflow_ml/">机器学习的工作流程</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/tip_inst_tf/">安装TensorFlow时踩的一个小坑</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/jupyter_install_package/">在Jupyer Notebook里安装包</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-categories widget">
+	<h4 class="widget__title">Categories</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/categories/%e5%a4%a7%e6%95%b0%e6%8d%ae">大数据</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e6%95%b0%e5%ad%a6">数学</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e6%95%b0%e6%8d%ae%e5%ba%93">数据库</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e6%9d%82%e8%b0%88">杂谈</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e7%bb%9f%e8%ae%a1%e5%ad%a6">统计学</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e7%bd%91%e7%bb%9c">网络</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e8%8b%b1%e8%af%ad">英语</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e8%ae%a1%e7%ae%97%e6%9c%ba">计算机</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e8%ae%ba%e6%96%87">论文</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e9%87%91%e8%9e%8d">金融</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/hive" title=" Hive ">Hive</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/html" title=" Html ">Html</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/linux" title=" Linux ">Linux</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/nlp" title=" Nlp ">Nlp</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/ssh" title=" Ssh ">Ssh</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/tensorflow" title=" Tensorflow ">Tensorflow</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/%e4%bb%b7%e6%a0%bc%e9%a2%84%e6%b5%8b" title=" 价格预测 ">价格预测</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/%e5%8d%9a%e5%ae%a2" title=" 博客 ">博客</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/%e6%8a%80%e5%b7%a7" title=" 技巧 ">技巧</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/%e6%8a%95%e8%b5%84" title=" 投资 ">投资</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/%e6%9c%9f%e6%9d%83" title=" 期权 ">期权</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/%e6%9c%ba%e5%99%a8%e5%ad%a6%e4%b9%a0" title=" 机器学习 ">机器学习</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/%e7%ae%97%e6%b3%95" title=" 算法 ">算法</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/%e7%ba%bf%e6%80%a7%e4%bb%a3%e6%95%b0" title=" 线性代数 ">线性代数</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/%e8%ae%ba%e6%96%87" title=" 论文 ">论文</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/%e9%a3%8e%e9%99%a9%e7%ae%a1%e7%90%86" title=" 风险管理 ">风险管理</a>
+		
+	</div>
+</div>
+</aside>
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2018 - 2020 XP. 
+			本博客采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>许可。<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="/media/license.jpg" width="50px"></a>
+		</div>
+	</div>
+
+
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script></body>
+</html>

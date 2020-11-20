@@ -16,5 +16,14 @@
       <description>&lt;p&gt;不记得之前安装的是什么版本，这次（2020/3）让&lt;code&gt;pip&lt;/code&gt;自动安装选择的是&lt;code&gt;2.1.0&lt;/code&gt;，但这个版本安装后使用&lt;code&gt;import tensorflow&lt;/code&gt;会报错，如下：&lt;/p&gt;</description>
     </item>
     
+    <item>
+      <title>安装TensorFlow时踩的一个小坑</title>
+      <link>http://xpgreat.com/tip_inst_tf/</link>
+      <pubDate>Sun, 15 Mar 2020 15:22:49 +0800</pubDate>
+      
+      <guid>http://xpgreat.com/tip_inst_tf/</guid>
+      <description>&lt;p&gt;不记得之前安装的是什么版本，这次（2020/3）让&lt;code&gt;pip&lt;/code&gt;自动安装选择的是&lt;code&gt;2.1.0&lt;/code&gt;，但这个版本安装后使用&lt;code&gt;import tensorflow&lt;/code&gt;会报错，如下：&lt;/p&gt;</description>
+    </item>
+    
   </channel>
 </rss>

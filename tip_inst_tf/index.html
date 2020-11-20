@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>安装TensorFlow时踩的一个小坑</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<meta name="generator" content="Hugo 0.78.2" />
+	<meta property="og:title" content="安装TensorFlow时踩的一个小坑" />
+<meta property="og:description" content="不记得之前安装的是什么版本，这次（2020/3）让pip自动安装选择的是2.1.0，但这个版本安装后使用import tensorflow会报错，如下：" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://xpgreat.com/tip_inst_tf/" />
+<meta property="article:published_time" content="2020-03-15T15:22:49+08:00" />
+<meta property="article:modified_time" content="2020-03-15T15:22:49+08:00" />
+
+	
+	<link rel="stylesheet" href="/css/highlight.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-130422706-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container">
+		<div class="logo">
+			<a class="logo__link" href="/" title="XP&#39;s Blog" rel="home">
+				<div class="logo__title">XP&#39;s Blog</div>
+				<div class="logo__tagline">积跬步 以至千里</div>
+			</a>
+		</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">Menu</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item">
+			<a class="menu__link" href="/">首页</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/archive/">归档</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/links/">友链</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/about/">关于</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/license/">许可</a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">安装TensorFlow时踩的一个小坑</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+	<time class="meta__text" datetime="2020-03-15T15:22:49">March 15, 2020</time>
+</div>
+
+<div class="meta__item-categories meta__item">
+	<svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
+	<span class="meta__text"><a class="meta__link" href="/categories/%e8%ae%a1%e7%ae%97%e6%9c%ba" rel="category">计算机</a></span>
+</div>
+</div>
+		</header><div class="content post__content clearfix">
+			<p>不记得之前安装的是什么版本，这次（2020/3）让<code>pip</code>自动安装选择的是<code>2.1.0</code>，但这个版本安装后使用<code>import tensorflow</code>会报错，如下：</p>
+<pre><code>Traceback (most recent call last):
+  File &quot;[...]\lib\site-packages\tensorflow_core\python\pywrap_tensorflow.py&quot;, line 58, in &lt;module&gt;
+    from tensorflow.python.pywrap_tensorflow_internal import *
+  File &quot;[...]\lib\site-packages\tensorflow_core\python\pywrap_tensorflow_internal.py&quot;, line 28, in &lt;module&gt;
+    _pywrap_tensorflow_internal = swig_import_helper()
+  File &quot;[...]\lib\site-packages\tensorflow_core\python\pywrap_tensorflow_internal.py&quot;, line 24, in swig_import_helper
+    _mod = imp.load_module('_pywrap_tensorflow_internal', fp, pathname, description)
+  File &quot;[...]\lib\imp.py&quot;, line 242, in load_module
+    return load_dynamic(name, filename, file)
+  File &quot;[...]\lib\imp.py&quot;, line 342, in load_dynamic
+    return _load(spec)
+ImportError: DLL load failed: 找不到指定的模块。
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+  File &quot;[...]\lib\site-packages\tensorflow\__init__.py&quot;, line 101, in &lt;module&gt;
+    from tensorflow_core import *
+  File &quot;[...]\lib\site-packages\tensorflow_core\__init__.py&quot;, line 40, in &lt;module&gt;
+    from tensorflow.python.tools import module_util as _module_util
+  File &quot;[...]\lib\site-packages\tensorflow\__init__.py&quot;, line 50, in __getattr__
+    module = self._load()
+  File &quot;[...]\lib\site-packages\tensorflow\__init__.py&quot;, line 44, in _load
+    module = _importlib.import_module(self.__name__)
+  File &quot;[...]\lib\importlib\__init__.py&quot;, line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File &quot;[...]\lib\site-packages\tensorflow_core\python\__init__.py&quot;, line 49, in &lt;module&gt;
+    from tensorflow.python import pywrap_tensorflow
+  File &quot;[...]\lib\site-packages\tensorflow_core\python\pywrap_tensorflow.py&quot;, line 74, in &lt;module&gt;
+    raise ImportError(msg)
+ImportError: Traceback (most recent call last):
+  File &quot;[...]\lib\site-packages\tensorflow_core\python\pywrap_tensorflow.py&quot;, line 58, in &lt;module&gt;
+    from tensorflow.python.pywrap_tensorflow_internal import *
+  File &quot;[...]\lib\site-packages\tensorflow_core\python\pywrap_tensorflow_internal.py&quot;, line 28, in &lt;module&gt;
+    _pywrap_tensorflow_internal = swig_import_helper()
+  File &quot;[...]\lib\site-packages\tensorflow_core\python\pywrap_tensorflow_internal.py&quot;, line 24, in swig_import_helper
+    _mod = imp.load_module('_pywrap_tensorflow_internal', fp, pathname, description)
+  File &quot;[...]\lib\imp.py&quot;, line 242, in load_module
+    return load_dynamic(name, filename, file)
+  File &quot;[...]\lib\imp.py&quot;, line 342, in load_dynamic
+    return _load(spec)
+ImportError: DLL load failed: 找不到指定的模块。
+</code></pre><p>报错十分奇怪，提示缺少DLL，但在网上找到的信息只有需要<code>system32</code>里的<code>msvc140p.dll</code>可能是问题所在，如果缺少可以安装<code>Microsoft Visual C++ 2015 Redistributable</code>解决。在检查后发现这个文件已经存在。尝试 <a href="https://blog.csdn.net/qq_42580947/article/details/104175457">https://blog.csdn.net/qq_42580947/article/details/104175457</a> 上的方法后才解决。问题出在版本上，换成<code>2.0.0</code>正常运行。<code>pip install tensorflow==2.0.0</code>。另附上国内比较好用的<code>pip</code>源：</p>
+<ul>
+<li>
+<p>清华大学：https://pypi.tuna.tsinghua.edu.cn/simple/</p>
+</li>
+<li>
+<p>中科大：https://pypi.mirrors.ustc.edu.cn/simple/</p>
+</li>
+</ul>
+<p>使用的时候在命令后面加上<code>-i [源]</code>即可。</p>
+		</div>
+		
+<div class="post__tags tags clearfix">
+	<svg class="icon icon-tag" width="16" height="16" viewBox="0 0 16 16"><path d="M16 9.5c0 .373-.24.74-.5 1l-5 5c-.275.26-.634.5-1 .5-.373 0-.74-.24-1-.5L1 8a2.853 2.853 0 0 1-.7-1C.113 6.55 0 5.973 0 5.6V1.4C0 1.034.134.669.401.401.67.134 1.034 0 1.4 0h4.2c.373 0 .95.113 1.4.3.45.187.732.432 1 .7l7.5 7.502c.26.274.5.632.5.998zM3.5 5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item"><a class="tags__link btn" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/tags/tensorflow/" rel="tag">TensorFlow</a></li>
+	</ul>
+</div>
+	</article>
+</main>
+
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="XIONG Ping avatar" src="/img/head.jpg" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		
+		<span class="authorbox__name">XIONG Ping</span>
+	</div>
+	<div class="authorbox__description">
+		柏林工业大学的硕士生，专业经济工程计算机方向。
+	</div>
+</div>
+
+
+<section class="comments">
+	
+
+	<div id="lv-container" data-id="city" data-uid="MTAyMC80MzkyNy8yMDQ2Mw==">
+		<script type="text/javascript">
+	   (function(d, s) {
+	       var j, e = d.getElementsByTagName(s)[0];
+
+	       if (typeof LivereTower === 'function') { return; }
+
+	       j = d.createElement(s);
+	       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+	       j.async = true;
+
+	       e.parentNode.insertBefore(j, e);
+	   	})(document, 'script');
+		</script>
+		<noscript>为正常使用评论功能请激活JavaScript</noscript>
+	</div>
+
+</section>
+
+
+			</div>
+			<aside class="sidebar"><div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
+		<label>
+			<input class="widget-search__field" type="search" placeholder="Enter to SEARCH..." value="" name="q" aria-label="SEARCH...">
+		</label>
+		<input class="widget-search__submit" type="submit" value="Search">
+		<input type="hidden" name="sitesearch" value="http://xpgreat.com/" />
+	</form>
+</div>
+<script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=080808&w=a&t=tt&d=vn9XwpQC1mo0ktLzWyesdzglYxafoYqO_-XrgyT-k8w&co=ffffff&cmo=3acc3a&cmn=008eff&ct=808080'></script>
+<div class="widget-social widget">
+	<h4 class="widget-social__title widget__title">Social</h4>
+	<div class="widget-social__content widget__content">
+		<div class="widget-social__item widget__item">
+			<a class="widget-social__link widget__link btn" title="Telegram" rel="noopener noreferrer" href="https://t.me/xphahaha" target="_blank">
+				<svg class="widget-social__link-icon icon-telegram" viewBox="0 0 132 110" width="24" height="24"><path fill="#ddd" d="M50 103c-4 0-3-1-5-5L34 60l88-52"/><path fill="#aaa" d="M50 103c3 0 4-1 6-3l16-16-20-12"/><path fill="#fff" d="M52 72l48 36c6 3 10 2 11-5l20-93c2-8-3-11-8-9L7 45c-8 4-8 8-1 10l29 9 69-43c3-2 6-1 4 1"/></svg>
+				<span></span>
+			</a>
+		</div>
+		<div class="widget-social__item widget__item">
+			<a class="widget-social__link widget__link btn" title="Email" href="mailto:xiong.ping.xp@qq.com">
+				<svg class="widget-social__link-icon icon-mail" viewBox="0 0 416 288" width="24" height="24" fill="#fff"><path d="m0 16v256 16h16 384 16v-16-256-16h-16-384-16zm347 16-139 92.5-139-92.5zm-148 125.5 9 5.5 9-5.5 167-111.5v210h-352v-210z"/></svg>
+				<span></span>
+			</a>
+		</div>
+	</div>
+</div>
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/post/explore_text_dataset/">论文解读：Exploring text datasets by visualizing relevant words</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/hive_windowfunc/">Hive窗口函数总结</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/workflow_ml/">机器学习的工作流程</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/tip_inst_tf/">安装TensorFlow时踩的一个小坑</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/jupyter_install_package/">在Jupyer Notebook里安装包</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-categories widget">
+	<h4 class="widget__title">Categories</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/categories/%e5%a4%a7%e6%95%b0%e6%8d%ae">大数据</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e6%95%b0%e5%ad%a6">数学</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e6%95%b0%e6%8d%ae%e5%ba%93">数据库</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e6%9d%82%e8%b0%88">杂谈</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e7%bb%9f%e8%ae%a1%e5%ad%a6">统计学</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e7%bd%91%e7%bb%9c">网络</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e8%8b%b1%e8%af%ad">英语</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e8%ae%a1%e7%ae%97%e6%9c%ba">计算机</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e8%ae%ba%e6%96%87">论文</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e9%87%91%e8%9e%8d">金融</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/hive" title=" Hive ">Hive</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/html" title=" Html ">Html</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/linux" title=" Linux ">Linux</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/nlp" title=" Nlp ">Nlp</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/ssh" title=" Ssh ">Ssh</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/tensorflow" title=" Tensorflow ">Tensorflow</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/%e4%bb%b7%e6%a0%bc%e9%a2%84%e6%b5%8b" title=" 价格预测 ">价格预测</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/%e5%8d%9a%e5%ae%a2" title=" 博客 ">博客</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/%e6%8a%80%e5%b7%a7" title=" 技巧 ">技巧</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/%e6%8a%95%e8%b5%84" title=" 投资 ">投资</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/%e6%9c%9f%e6%9d%83" title=" 期权 ">期权</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/%e6%9c%ba%e5%99%a8%e5%ad%a6%e4%b9%a0" title=" 机器学习 ">机器学习</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/%e7%ae%97%e6%b3%95" title=" 算法 ">算法</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/%e7%ba%bf%e6%80%a7%e4%bb%a3%e6%95%b0" title=" 线性代数 ">线性代数</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/%e8%ae%ba%e6%96%87" title=" 论文 ">论文</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/%e9%a3%8e%e9%99%a9%e7%ae%a1%e7%90%86" title=" 风险管理 ">风险管理</a>
+		
+	</div>
+</div>
+</aside>
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2018 - 2020 XP. 
+			本博客采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>许可。<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="/media/license.jpg" width="50px"></a>
+		</div>
+	</div>
+
+
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script></body>
+</html>

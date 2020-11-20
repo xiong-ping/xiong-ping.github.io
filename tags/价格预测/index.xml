@@ -9,6 +9,15 @@
     <lastBuildDate>Sat, 25 May 2019 17:35:01 +0200</lastBuildDate><atom:link href="http://xpgreat.com/tags/%E4%BB%B7%E6%A0%BC%E9%A2%84%E6%B5%8B/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>中短期电价预测模型简介</title>
+      <link>http://xpgreat.com/epf_models/</link>
+      <pubDate>Sat, 25 May 2019 17:35:01 +0200</pubDate>
+      
+      <guid>http://xpgreat.com/epf_models/</guid>
+      <description>&lt;p&gt;从1981年的智利电力体制改革之后，英美等国先后进行了电力工业重组，这些努力导致了电力工业的市场化，促成了电力市场的形成，实现了资源的合理分配和社会效益的最大化。准确的电力价格对发电商、用户、监管者具有重要的意义。本文将常用的电价预测（EPF, Electricity Price Forecasting）模型进行了分类，并加以简介。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>中短期电价预测模型简介</title>
       <link>http://xpgreat.com/post/epf_models/</link>
       <pubDate>Sat, 25 May 2019 17:35:01 +0200</pubDate>
       

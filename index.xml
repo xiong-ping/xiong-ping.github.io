@@ -9,11 +9,29 @@
     <lastBuildDate>Thu, 19 Nov 2020 15:14:26 +0800</lastBuildDate><atom:link href="http://xpgreat.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>论文解读：Exploring text datasets by visualizing relevant words</title>
+      <link>http://xpgreat.com/explore_text_dataset/</link>
+      <pubDate>Thu, 19 Nov 2020 15:14:26 +0800</pubDate>
+      
+      <guid>http://xpgreat.com/explore_text_dataset/</guid>
+      <description>&lt;p&gt;在做机器学习使用新数据集时，我们首先要知道它的特点，一个可以快速可靠地深入了解所选文档的内容，并区分它们类别的工具十分重要。 在这篇论文，作者从文本集合中提取“相关词”，以概括属于某个类别（或在unlabeled数据集下为聚类的组）的文档的内容，并在词云中可视化它们。 作者比较了三种提取相关单词的方法，并使用两个数据集验证了模型的可用性。论文链接：https://arxiv.org/pdf/1707.05261.pdf，论文代码：https://github.com/cod3licious/textcatvis&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>论文解读：Exploring text datasets by visualizing relevant words</title>
       <link>http://xpgreat.com/post/explore_text_dataset/</link>
       <pubDate>Thu, 19 Nov 2020 15:14:26 +0800</pubDate>
       
       <guid>http://xpgreat.com/post/explore_text_dataset/</guid>
       <description>&lt;p&gt;在做机器学习使用新数据集时，我们首先要知道它的特点，一个可以快速可靠地深入了解所选文档的内容，并区分它们类别的工具十分重要。 在这篇论文，作者从文本集合中提取“相关词”，以概括属于某个类别（或在unlabeled数据集下为聚类的组）的文档的内容，并在词云中可视化它们。 作者比较了三种提取相关单词的方法，并使用两个数据集验证了模型的可用性。论文链接：https://arxiv.org/pdf/1707.05261.pdf，论文代码：https://github.com/cod3licious/textcatvis&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Hive窗口函数总结</title>
+      <link>http://xpgreat.com/hive_windowfunc/</link>
+      <pubDate>Thu, 29 Oct 2020 11:01:26 +0800</pubDate>
+      
+      <guid>http://xpgreat.com/hive_windowfunc/</guid>
+      <description>&lt;p&gt;窗口函数是对Hive的一项增强，用来更方便地分析离线数据。窗口函数的使用场景非常之多，包括去重、排名、分组求和等等。本文希望尽可能全面的归纳窗口函数的用法，以便日后的查阅。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -35,12 +53,39 @@
     </item>
     
     <item>
+      <title>机器学习的工作流程</title>
+      <link>http://xpgreat.com/workflow_ml/</link>
+      <pubDate>Sun, 15 Mar 2020 16:25:12 +0800</pubDate>
+      
+      <guid>http://xpgreat.com/workflow_ml/</guid>
+      <description>&lt;p&gt;最近在阅读François Chollet写的Deep Learning with Python. 书中有很多经验性的技巧和归纳，其中4.5写的Machine Learning的工作流程归纳的很好，看完深有启发，摘录于此。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>安装TensorFlow时踩的一个小坑</title>
       <link>http://xpgreat.com/post/tip_inst_tf/</link>
       <pubDate>Sun, 15 Mar 2020 15:22:49 +0800</pubDate>
       
       <guid>http://xpgreat.com/post/tip_inst_tf/</guid>
       <description>&lt;p&gt;不记得之前安装的是什么版本，这次（2020/3）让&lt;code&gt;pip&lt;/code&gt;自动安装选择的是&lt;code&gt;2.1.0&lt;/code&gt;，但这个版本安装后使用&lt;code&gt;import tensorflow&lt;/code&gt;会报错，如下：&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>安装TensorFlow时踩的一个小坑</title>
+      <link>http://xpgreat.com/tip_inst_tf/</link>
+      <pubDate>Sun, 15 Mar 2020 15:22:49 +0800</pubDate>
+      
+      <guid>http://xpgreat.com/tip_inst_tf/</guid>
+      <description>&lt;p&gt;不记得之前安装的是什么版本，这次（2020/3）让&lt;code&gt;pip&lt;/code&gt;自动安装选择的是&lt;code&gt;2.1.0&lt;/code&gt;，但这个版本安装后使用&lt;code&gt;import tensorflow&lt;/code&gt;会报错，如下：&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>在Jupyer Notebook里安装包</title>
+      <link>http://xpgreat.com/jupyter_install_package/</link>
+      <pubDate>Mon, 09 Dec 2019 22:01:11 +0100</pubDate>
+      
+      <guid>http://xpgreat.com/jupyter_install_package/</guid>
+      <description>&lt;p&gt;一个方便的小技巧，可以很快的安装缺失的包。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -54,6 +99,15 @@
     
     <item>
       <title>让程序在后台稳定运行的方法</title>
+      <link>http://xpgreat.com/keep_running_after-disconnect/</link>
+      <pubDate>Tue, 16 Jul 2019 16:21:51 +0200</pubDate>
+      
+      <guid>http://xpgreat.com/keep_running_after-disconnect/</guid>
+      <description>&lt;p&gt;在使用SSH链接远程虚拟机的时候经常会出现网络连接不稳定而导致前台运行的代码终止运行的情况，怎样能让程序稳定地在后台运行，不受断线的影响？IBM Developer上的这篇文章很有帮助，转载方便以后查阅。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>让程序在后台稳定运行的方法</title>
       <link>http://xpgreat.com/post/keep_running_after-disconnect/</link>
       <pubDate>Tue, 16 Jul 2019 16:21:51 +0200</pubDate>
       
@@ -63,11 +117,29 @@
     
     <item>
       <title>投资对象的资本结构无关性</title>
+      <link>http://xpgreat.com/irrelevance_invest/</link>
+      <pubDate>Sat, 08 Jun 2019 11:23:53 +0200</pubDate>
+      
+      <guid>http://xpgreat.com/irrelevance_invest/</guid>
+      <description>&lt;p&gt;本文介绍了公司的杠杆效应（Leverage Effect）和Modigliani-Miller定理，以阐述投资对象的资本结构与价值的无关性。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>投资对象的资本结构无关性</title>
       <link>http://xpgreat.com/post/irrelevance_invest/</link>
       <pubDate>Sat, 08 Jun 2019 11:23:53 +0200</pubDate>
       
       <guid>http://xpgreat.com/post/irrelevance_invest/</guid>
       <description>&lt;p&gt;本文介绍了公司的杠杆效应（Leverage Effect）和Modigliani-Miller定理，以阐述投资对象的资本结构与价值的无关性。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>中短期电价预测模型简介</title>
+      <link>http://xpgreat.com/epf_models/</link>
+      <pubDate>Sat, 25 May 2019 17:35:01 +0200</pubDate>
+      
+      <guid>http://xpgreat.com/epf_models/</guid>
+      <description>&lt;p&gt;从1981年的智利电力体制改革之后，英美等国先后进行了电力工业重组，这些努力导致了电力工业的市场化，促成了电力市场的形成，实现了资源的合理分配和社会效益的最大化。准确的电力价格对发电商、用户、监管者具有重要的意义。本文将常用的电价预测（EPF, Electricity Price Forecasting）模型进行了分类，并加以简介。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -89,12 +161,39 @@
     </item>
     
     <item>
+      <title>递归神经网络</title>
+      <link>http://xpgreat.com/rnn_lstm_gru/</link>
+      <pubDate>Tue, 14 May 2019 10:48:15 +0200</pubDate>
+      
+      <guid>http://xpgreat.com/rnn_lstm_gru/</guid>
+      <description>&lt;p&gt;递归神经网络是神经网络的一种，与其他神经网络不同点在于，它可以很好地处理序列数据，即前面的数据的输入与后面的输出是有关系的，比如一句话的语义理解。本文介绍了递归神经网络及其两个变种——LSTM和GRU，目的是梳理一下自己所理解的RRN，也希望能够给初次接触RRN的同学一点帮助。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>英文论文写作句型</title>
+      <link>http://xpgreat.com/eng_thesis_voc/</link>
+      <pubDate>Wed, 08 May 2019 22:13:27 +0200</pubDate>
+      
+      <guid>http://xpgreat.com/eng_thesis_voc/</guid>
+      <description>&lt;p&gt;最近终于开始写毕业论文了，要求用英语，从网上搜集了一下英语论文的句型，整理后发布到博客，方便查阅。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>英文论文写作句型</title>
       <link>http://xpgreat.com/post/eng_thesis_voc/</link>
       <pubDate>Wed, 08 May 2019 22:13:27 +0200</pubDate>
       
       <guid>http://xpgreat.com/post/eng_thesis_voc/</guid>
       <description>&lt;p&gt;最近终于开始写毕业论文了，要求用英语，从网上搜集了一下英语论文的句型，整理后发布到博客，方便查阅。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>机器学习中的矩阵求导</title>
+      <link>http://xpgreat.com/linalg_in_ml/</link>
+      <pubDate>Thu, 17 Jan 2019 21:47:14 +0100</pubDate>
+      
+      <guid>http://xpgreat.com/linalg_in_ml/</guid>
+      <description>&lt;p&gt;在学习机器学习的算法时，推导过程中往往会涉及矩阵或向量求导以及一些其他的线性代数的知识。比如在推导LDA算法的时候，就是把Fisher&amp;rsquo;s Criterion求导后置零得到的结果。另外在优化的时候经常会使用到梯度下降法，这与矩阵向量求导也是分不开的。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -108,11 +207,29 @@
     
     <item>
       <title>使用MathJax时的注意事项</title>
+      <link>http://xpgreat.com/mathjax_tips/</link>
+      <pubDate>Thu, 17 Jan 2019 17:28:35 +0100</pubDate>
+      
+      <guid>http://xpgreat.com/mathjax_tips/</guid>
+      <description>&lt;p&gt;记录一些在使用MathJax写公式时踩过的坑，持续更新。本来放在另一篇里的，内容越来越多，单独成篇。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>使用MathJax时的注意事项</title>
       <link>http://xpgreat.com/post/mathjax_tips/</link>
       <pubDate>Thu, 17 Jan 2019 17:28:35 +0100</pubDate>
       
       <guid>http://xpgreat.com/post/mathjax_tips/</guid>
       <description>&lt;p&gt;记录一些在使用MathJax写公式时踩过的坑，持续更新。本来放在另一篇里的，内容越来越多，单独成篇。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>认知算法小结</title>
+      <link>http://xpgreat.com/ca_short_summary/</link>
+      <pubDate>Fri, 28 Dec 2018 20:57:51 +0100</pubDate>
+      
+      <guid>http://xpgreat.com/ca_short_summary/</guid>
+      <description>&lt;p&gt;在认知算法课里学习了一些算法，比如NCC，感知算法，LDA等等，小结一下。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -126,11 +243,29 @@
     
     <item>
       <title>利率期权</title>
+      <link>http://xpgreat.com/intrest_option/</link>
+      <pubDate>Tue, 25 Dec 2018 11:02:13 +0100</pubDate>
+      
+      <guid>http://xpgreat.com/intrest_option/</guid>
+      <description>&lt;p&gt;利率期权(interest-rate option)是一项关于利率变化的权利。买方支付一定金额的期权费后，就可以获得这项权利：在到期日按预先约定的利率，按一定的期限借入或贷出一定金额的货币。这样当市场利率向不利方向变化时，买方可固定其利率水平；当市场利率向有利方向变化时，买方可获得利率变化的好处。利率期权的卖方向买方收取期权费，同时承担相应的责任。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>利率期权</title>
       <link>http://xpgreat.com/post/intrest_option/</link>
       <pubDate>Tue, 25 Dec 2018 11:02:13 +0100</pubDate>
       
       <guid>http://xpgreat.com/post/intrest_option/</guid>
       <description>&lt;p&gt;利率期权(interest-rate option)是一项关于利率变化的权利。买方支付一定金额的期权费后，就可以获得这项权利：在到期日按预先约定的利率，按一定的期限借入或贷出一定金额的货币。这样当市场利率向不利方向变化时，买方可固定其利率水平；当市场利率向有利方向变化时，买方可获得利率变化的好处。利率期权的卖方向买方收取期权费，同时承担相应的责任。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>期权的风险指标</title>
+      <link>http://xpgreat.com/finance_greeks/</link>
+      <pubDate>Mon, 24 Dec 2018 17:06:00 +0100</pubDate>
+      
+      <guid>http://xpgreat.com/finance_greeks/</guid>
+      <description>&lt;p&gt;期权的风险指标通常用希腊字母来表示，包括：Delta值(\(\Delta\))、Gamma值(\(\Gamma\))、Omega值(\(\Omega\))、Theta值(\(\theta\))、Vega值、Rho(\(\rho\))值等。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -144,11 +279,29 @@
     
     <item>
       <title>Linux下压缩命令</title>
+      <link>http://xpgreat.com/linux_compress/</link>
+      <pubDate>Sun, 16 Dec 2018 13:30:23 +0100</pubDate>
+      
+      <guid>http://xpgreat.com/linux_compress/</guid>
+      <description>&lt;p&gt;Linux下压缩解压缩命令的归纳。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Linux下压缩命令</title>
       <link>http://xpgreat.com/post/linux_compress/</link>
       <pubDate>Sun, 16 Dec 2018 13:30:23 +0100</pubDate>
       
       <guid>http://xpgreat.com/post/linux_compress/</guid>
       <description>&lt;p&gt;Linux下压缩解压缩命令的归纳。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>布莱克-舒尔斯期权定价模型</title>
+      <link>http://xpgreat.com/bs_model/</link>
+      <pubDate>Tue, 11 Dec 2018 22:05:54 +0100</pubDate>
+      
+      <guid>http://xpgreat.com/bs_model/</guid>
+      <description>&lt;p&gt;在Risikomanagement课上讲到了布莱克-舒尔斯期权定价模型（Black-Scholes Option Pricing Model），但只是给出了公式，没有推导。在网上查找之后终于大致弄懂，把推导过程尽可能的详细的写一写。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -170,6 +323,24 @@
     </item>
     
     <item>
+      <title>售出-购进平价理论</title>
+      <link>http://xpgreat.com/put_call_parity/</link>
+      <pubDate>Fri, 07 Dec 2018 21:48:39 +0100</pubDate>
+      
+      <guid>http://xpgreat.com/put_call_parity/</guid>
+      <description>&lt;p&gt;售出-购进平价理论（Put-Call Parity）指在无套利原则下（Non-Arbitrage），欧式看涨期权（Call Option）和欧式看跌期权（Put Option）定价之间存在的基本关系。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>在Hugo博客中加入代码高亮</title>
+      <link>http://xpgreat.com/hugo_add_highlight/</link>
+      <pubDate>Wed, 05 Dec 2018 19:31:24 +0100</pubDate>
+      
+      <guid>http://xpgreat.com/hugo_add_highlight/</guid>
+      <description>&lt;p&gt;相信自己搭建博客的人中有一大半都是玩代码的，所以代码高亮可以说是博客的必备功能。本文提供一个在基于Hugo的博客上使用&lt;code&gt;highlight.js&lt;/code&gt;的代码高亮方案。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>在Hugo博客中加入代码高亮</title>
       <link>http://xpgreat.com/post/hugo_add_highlight/</link>
       <pubDate>Wed, 05 Dec 2018 19:31:24 +0100</pubDate>
@@ -180,11 +351,29 @@
     
     <item>
       <title>Markdown里图片并列显示</title>
+      <link>http://xpgreat.com/md_display_img_parallel/</link>
+      <pubDate>Wed, 05 Dec 2018 17:42:53 +0100</pubDate>
+      
+      <guid>http://xpgreat.com/md_display_img_parallel/</guid>
+      <description>&lt;p&gt;在编辑博文的时候，有时会想把两张图片并列在一起显示，参考了网上内容，分享一下。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Markdown里图片并列显示</title>
       <link>http://xpgreat.com/post/md_display_img_parallel/</link>
       <pubDate>Wed, 05 Dec 2018 17:42:53 +0100</pubDate>
       
       <guid>http://xpgreat.com/post/md_display_img_parallel/</guid>
       <description>&lt;p&gt;在编辑博文的时候，有时会想把两张图片并列在一起显示，参考了网上内容，分享一下。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Hugo和WordPress比较</title>
+      <link>http://xpgreat.com/hugo_wp/</link>
+      <pubDate>Wed, 05 Dec 2018 17:38:52 +0100</pubDate>
+      
+      <guid>http://xpgreat.com/hugo_wp/</guid>
+      <description>&lt;p&gt;对比以前搭建WordPress博客的经历，Hugo有这样的一些不同：&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -203,6 +392,24 @@
       
       <guid>http://xpgreat.com/post/tips_hugo/</guid>
       <description>&lt;p&gt;一些在使用Hugo时发现的小技巧或问题及解决方法，会持续更新。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>使用Hugo的一些注意事项</title>
+      <link>http://xpgreat.com/tips_hugo/</link>
+      <pubDate>Wed, 05 Dec 2018 16:32:54 +0100</pubDate>
+      
+      <guid>http://xpgreat.com/tips_hugo/</guid>
+      <description>&lt;p&gt;一些在使用Hugo时发现的小技巧或问题及解决方法，会持续更新。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>博客第一步</title>
+      <link>http://xpgreat.com/blog_building/</link>
+      <pubDate>Mon, 03 Dec 2018 19:58:50 +0100</pubDate>
+      
+      <guid>http://xpgreat.com/blog_building/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;是一个用Go编写的静态站点生成器，由于具有丰富的主题资源和惊人的生成速度而备受青睐。博文采用&lt;code&gt;Markdown&lt;/code&gt;这一轻量的标记语言编写，速度快，美观。本博客即是基于Hugo搭建，下面讲述一下我的建站历程。&lt;/p&gt;</description>
     </item>
     
     <item>

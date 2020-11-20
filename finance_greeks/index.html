@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>期权的风险指标</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<meta name="generator" content="Hugo 0.78.2" />
+	<meta property="og:title" content="期权的风险指标" />
+<meta property="og:description" content="期权的风险指标通常用希腊字母来表示，包括：Delta值(\(\Delta\))、Gamma值(\(\Gamma\))、Omega值(\(\Omega\))、Theta值(\(\theta\))、Vega值、Rho(\(\rho\))值等。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://xpgreat.com/finance_greeks/" />
+<meta property="article:published_time" content="2018-12-24T17:06:00+01:00" />
+<meta property="article:modified_time" content="2018-12-24T17:06:00+01:00" />
+
+	
+	<link rel="stylesheet" href="/css/highlight.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-130422706-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container">
+		<div class="logo">
+			<a class="logo__link" href="/" title="XP&#39;s Blog" rel="home">
+				<div class="logo__title">XP&#39;s Blog</div>
+				<div class="logo__tagline">积跬步 以至千里</div>
+			</a>
+		</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">Menu</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item">
+			<a class="menu__link" href="/">首页</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/archive/">归档</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/links/">友链</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/about/">关于</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/license/">许可</a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">期权的风险指标</h1>
+			<p class="post__lead">Greeks (finance)</p>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+	<time class="meta__text" datetime="2018-12-24T17:06:00">December 24, 2018</time>
+</div>
+
+<div class="meta__item-categories meta__item">
+	<svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
+	<span class="meta__text"><a class="meta__link" href="/categories/%e9%87%91%e8%9e%8d" rel="category">金融</a></span>
+</div>
+</div>
+		</header><div class="content post__content clearfix">
+			<p>期权的风险指标通常用希腊字母来表示，包括：Delta值(\(\Delta\))、Gamma值(\(\Gamma\))、Omega值(\(\Omega\))、Theta值(\(\theta\))、Vega值、Rho(\(\rho\))值等。</p>
+<p>结合<a href="/post/bs_model/">布莱克-舒尔斯期权定价模型</a>的公式来看：</p>
+<p>$$
+c=SN(d_1)-Xe^{-r(T-t)}N(d_2)
+$$</p>
+<p>其中，</p>
+<p>$$
+d_1 = \frac{\ln \frac{S}{X} + (r+\frac{\sigma^2}{2})(T-t)}{\sigma \sqrt{T-t}}
+$$
+$$
+d_2 = \frac{\ln \frac{S}{X} + (r-\frac{\sigma^2}{2})(T-t)}{\sigma \sqrt{T-t}}
+$$</p>
+<p>\(N(x)\)是标准正态分布变量的累计概率分布函数。</p>
+<h2 id="deltadelta">Delta(\(\Delta\))</h2>
+<p>又称<strong>对冲值</strong>，是衡量标的资产价格变动时，期权价格的变化幅度。</p>
+<p>$$
+\Delta = \frac{dc}{dS}
+$$</p>
+<p><strong>特性</strong>：</p>
+<ul>
+<li>买权的Delta一定要是正值，因为期货价格上涨（下跌），期权价格随之上涨（下跌），二者始终保持同向变化。</li>
+<li>卖权的Delta一定要是负值，因为看跌期权价格的变化与期货价格相反。</li>
+<li>Delta的范围介乎-1到1之间。</li>
+</ul>
+<p><strong>运用</strong>：</p>
+<ul>
+<li>衡量头寸风险：如看涨期权的Delta为0.4，意味着期货价格每变动一元，期权的价格则变动0.4元。Delta具有可加性，如果投资者持有以下投资组合：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">持仓头寸</th>
+<th style="text-align:left">Delta</th>
+<th style="text-align:left">数量（张）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">买入小麦期货</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">1</td>
+</tr>
+<tr>
+<td style="text-align:left">买入看涨期权</td>
+<td style="text-align:left">0.47</td>
+<td style="text-align:left">2</td>
+</tr>
+<tr>
+<td style="text-align:left">买入看跌期权</td>
+<td style="text-align:left">-0.53</td>
+<td style="text-align:left">3</td>
+</tr>
+</tbody>
+</table>
+<p>该交易者的总体持仓的Delta值为\(1+2<em>0.47-3</em>0.53=0.35\)，也就是说这是一个偏多的头寸，相当于0.35手期货多头。</p>
+<ul>
+<li><strong>Delta中性套期保值</strong>（Delta Hedging）：如果投资者希望对冲期权或期货头寸的风险，Delta就是套期保值比率。只要使头寸的整体 Delta值保持为0，就建立了一个中性的套期策略。</li>
+</ul>
+<h2 id="gammagamma">Gamma(\(\Gamma\))</h2>
+<p>反映期货价格对Delta值的影响程度。如某一期权的Delta为0.6，Gamma值为0.05，则表示期货价格上升1元，所引起Delta增加量为0.05。Delta将从0.6增加到0.65。</p>
+<p>$$
+\Gamma = \frac{d\Delta}{dS}
+$$</p>
+<p><strong>特性</strong>：</p>
+<ul>
+<li>Gamma值均为正值，因为若期货价格上涨，看涨期权的Delta值由0向1移动，看跌期权的Delta值从-1向0移动，即期权的Delta值从小到大移动，Gamma值为正。</li>
+<li>Gamma值越大，Delta值变化越快。</li>
+<li>平值期权的Gamma值最大。</li>
+<li>随着到期日的临近，平值期权Gamma值会急剧增加。</li>
+</ul>
+<p><strong>应用</strong>：</p>
+<p>进行Delta中性套期保值，Gamma绝对值越大的头寸，风险程度也越高，因为进行中性对冲需要调整的频率高；相反，Gamma绝对值越小的头寸，风险程度越低。对期权的买方来说，风险有限，所以Gamma值越高，Delta越不稳定，对投资者越有利。</p>
+<h2 id="omegaomega">Omega(\(\Omega\))</h2>
+<p>又称期权价格的无风险利率粘性，表示期权价格变动量和期货价格变动量的比值。</p>
+<p>$$
+\Omega = \frac{\frac{dc}{c}}{\frac{dS}{S}}
+$$</p>
+<h2 id="rhorho">Rho(\(\rho\))</h2>
+<p>表示期权价格对无风险利率变化的敏感程度。</p>
+<p>$$
+\rho = \frac{dc}{dr}
+$$</p>
+<h2 id="thetatheta">Theta(\(\theta\))</h2>
+<p>表示时间变化对期权价格的影响。衡量期权的时间价值的折损的速度。</p>
+<p>$$
+\theta = - \frac{dc}{dT}
+$$</p>
+<p><strong>特性</strong>：</p>
+<p>Theta为负值，意味着期权的价格随着时间流逝会越来越低，折损的速度则可由Theta来衡量。例如还有60天到期的平价期权的Theta为-0.0002126，这意味着每天期权价值失去0.0002126美元。</p>
+<h2 id="vega">Vega</h2>
+<p>表示期货价格的波动率变化对期权价格的影响。</p>
+<p>$$
+Vega = \frac{dc}{d\sigma}
+$$</p>
+<p><strong>特性</strong>：</p>
+<p>Vega为正值，意味着期权的价格随着波动率的增加而增加。当期权处于平价状态时，Vega值最大；当期权处于较深的价内或者价外时，Vega值接近于零。（相关：<a href="https://wiki.mbalib.com/wiki/%E4%BB%B7%E5%86%85%E6%9D%83%E8%AF%81">价内权证</a>）</p>
+		</div>
+		
+<div class="post__tags tags clearfix">
+	<svg class="icon icon-tag" width="16" height="16" viewBox="0 0 16 16"><path d="M16 9.5c0 .373-.24.74-.5 1l-5 5c-.275.26-.634.5-1 .5-.373 0-.74-.24-1-.5L1 8a2.853 2.853 0 0 1-.7-1C.113 6.55 0 5.973 0 5.6V1.4C0 1.034.134.669.401.401.67.134 1.034 0 1.4 0h4.2c.373 0 .95.113 1.4.3.45.187.732.432 1 .7l7.5 7.502c.26.274.5.632.5.998zM3.5 5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item"><a class="tags__link btn" href="/tags/%E9%A3%8E%E9%99%A9%E7%AE%A1%E7%90%86/" rel="tag">风险管理</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/tags/%E6%9C%9F%E6%9D%83/" rel="tag">期权</a></li>
+	</ul>
+</div>
+	</article>
+</main>
+
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="XIONG Ping avatar" src="/img/head.jpg" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		
+		<span class="authorbox__name">XIONG Ping</span>
+	</div>
+	<div class="authorbox__description">
+		柏林工业大学的硕士生，专业经济工程计算机方向。
+	</div>
+</div>
+
+
+<section class="comments">
+	
+
+	<div id="lv-container" data-id="city" data-uid="MTAyMC80MzkyNy8yMDQ2Mw==">
+		<script type="text/javascript">
+	   (function(d, s) {
+	       var j, e = d.getElementsByTagName(s)[0];
+
+	       if (typeof LivereTower === 'function') { return; }
+
+	       j = d.createElement(s);
+	       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+	       j.async = true;
+
+	       e.parentNode.insertBefore(j, e);
+	   	})(document, 'script');
+		</script>
+		<noscript>为正常使用评论功能请激活JavaScript</noscript>
+	</div>
+
+</section>
+
+
+			</div>
+			<aside class="sidebar"><div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
+		<label>
+			<input class="widget-search__field" type="search" placeholder="Enter to SEARCH..." value="" name="q" aria-label="SEARCH...">
+		</label>
+		<input class="widget-search__submit" type="submit" value="Search">
+		<input type="hidden" name="sitesearch" value="http://xpgreat.com/" />
+	</form>
+</div>
+<script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=080808&w=a&t=tt&d=vn9XwpQC1mo0ktLzWyesdzglYxafoYqO_-XrgyT-k8w&co=ffffff&cmo=3acc3a&cmn=008eff&ct=808080'></script>
+<div class="widget-social widget">
+	<h4 class="widget-social__title widget__title">Social</h4>
+	<div class="widget-social__content widget__content">
+		<div class="widget-social__item widget__item">
+			<a class="widget-social__link widget__link btn" title="Telegram" rel="noopener noreferrer" href="https://t.me/xphahaha" target="_blank">
+				<svg class="widget-social__link-icon icon-telegram" viewBox="0 0 132 110" width="24" height="24"><path fill="#ddd" d="M50 103c-4 0-3-1-5-5L34 60l88-52"/><path fill="#aaa" d="M50 103c3 0 4-1 6-3l16-16-20-12"/><path fill="#fff" d="M52 72l48 36c6 3 10 2 11-5l20-93c2-8-3-11-8-9L7 45c-8 4-8 8-1 10l29 9 69-43c3-2 6-1 4 1"/></svg>
+				<span></span>
+			</a>
+		</div>
+		<div class="widget-social__item widget__item">
+			<a class="widget-social__link widget__link btn" title="Email" href="mailto:xiong.ping.xp@qq.com">
+				<svg class="widget-social__link-icon icon-mail" viewBox="0 0 416 288" width="24" height="24" fill="#fff"><path d="m0 16v256 16h16 384 16v-16-256-16h-16-384-16zm347 16-139 92.5-139-92.5zm-148 125.5 9 5.5 9-5.5 167-111.5v210h-352v-210z"/></svg>
+				<span></span>
+			</a>
+		</div>
+	</div>
+</div>
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/post/explore_text_dataset/">论文解读：Exploring text datasets by visualizing relevant words</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/hive_windowfunc/">Hive窗口函数总结</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/workflow_ml/">机器学习的工作流程</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/tip_inst_tf/">安装TensorFlow时踩的一个小坑</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/jupyter_install_package/">在Jupyer Notebook里安装包</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-categories widget">
+	<h4 class="widget__title">Categories</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/categories/%e5%a4%a7%e6%95%b0%e6%8d%ae">大数据</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e6%95%b0%e5%ad%a6">数学</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e6%95%b0%e6%8d%ae%e5%ba%93">数据库</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e6%9d%82%e8%b0%88">杂谈</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e7%bb%9f%e8%ae%a1%e5%ad%a6">统计学</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e7%bd%91%e7%bb%9c">网络</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e8%8b%b1%e8%af%ad">英语</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e8%ae%a1%e7%ae%97%e6%9c%ba">计算机</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e8%ae%ba%e6%96%87">论文</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e9%87%91%e8%9e%8d">金融</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/hive" title=" Hive ">Hive</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/html" title=" Html ">Html</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/linux" title=" Linux ">Linux</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/nlp" title=" Nlp ">Nlp</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/ssh" title=" Ssh ">Ssh</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/tensorflow" title=" Tensorflow ">Tensorflow</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/%e4%bb%b7%e6%a0%bc%e9%a2%84%e6%b5%8b" title=" 价格预测 ">价格预测</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/%e5%8d%9a%e5%ae%a2" title=" 博客 ">博客</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/%e6%8a%80%e5%b7%a7" title=" 技巧 ">技巧</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/%e6%8a%95%e8%b5%84" title=" 投资 ">投资</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/%e6%9c%9f%e6%9d%83" title=" 期权 ">期权</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/%e6%9c%ba%e5%99%a8%e5%ad%a6%e4%b9%a0" title=" 机器学习 ">机器学习</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/%e7%ae%97%e6%b3%95" title=" 算法 ">算法</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/%e7%ba%bf%e6%80%a7%e4%bb%a3%e6%95%b0" title=" 线性代数 ">线性代数</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/%e8%ae%ba%e6%96%87" title=" 论文 ">论文</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/%e9%a3%8e%e9%99%a9%e7%ae%a1%e7%90%86" title=" 风险管理 ">风险管理</a>
+		
+	</div>
+</div>
+</aside>
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2018 - 2020 XP. 
+			本博客采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>许可。<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="/media/license.jpg" width="50px"></a>
+		</div>
+	</div>
+
+
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+</body>
+</html>

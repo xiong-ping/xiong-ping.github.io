@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>递归神经网络</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="Recurrent Neural Network">
+	<meta name="generator" content="Hugo 0.78.2" />
+	<meta property="og:title" content="递归神经网络" />
+<meta property="og:description" content="Recurrent Neural Network" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://xpgreat.com/rnn_lstm_gru/" />
+<meta property="article:published_time" content="2019-05-14T10:48:15+02:00" />
+<meta property="article:modified_time" content="2019-05-14T10:48:15+02:00" />
+
+	
+	<link rel="stylesheet" href="/css/highlight.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-130422706-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container">
+		<div class="logo">
+			<a class="logo__link" href="/" title="XP&#39;s Blog" rel="home">
+				<div class="logo__title">XP&#39;s Blog</div>
+				<div class="logo__tagline">积跬步 以至千里</div>
+			</a>
+		</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">Menu</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item">
+			<a class="menu__link" href="/">首页</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/archive/">归档</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/links/">友链</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/about/">关于</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/license/">许可</a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">递归神经网络</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+	<time class="meta__text" datetime="2019-05-14T10:48:15">May 14, 2019</time>
+</div>
+
+<div class="meta__item-categories meta__item">
+	<svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
+	<span class="meta__text"><a class="meta__link" href="/categories/%e8%ae%a1%e7%ae%97%e6%9c%ba" rel="category">计算机</a>, <a class="meta__link" href="/categories/%e6%95%b0%e5%ad%a6" rel="category">数学</a></span>
+</div>
+</div>
+		</header><div class="content post__content clearfix">
+			<p>递归神经网络是神经网络的一种，与其他神经网络不同点在于，它可以很好地处理序列数据，即前面的数据的输入与后面的输出是有关系的，比如一句话的语义理解。本文介绍了递归神经网络及其两个变种——LSTM和GRU，目的是梳理一下自己所理解的RRN，也希望能够给初次接触RRN的同学一点帮助。</p>
+<h2 id="其他神经网络的不足为什么需要rrn">其他神经网络的不足——为什么需要RRN？</h2>
+<p><img src="/media/1_SL8FESMwzSy6QTrcIzcRYw.png" alt=""></p>
+<p>传统神经网络的结构大多为输入-隐藏层（多个）-输出，即给定一组输入数据，输出结果，隐藏层像一个黑盒子，通过各种运算把输入的数据算成需要的结果。输入不同的数据运行两次，它们的结果是完全无关的。而有的时候我们需要处理一个序列，比如一个句子，它是单词的序列，要理解这句话中各个单词的意思，必须要结合语境，也就是要结合其他的单词的意思，一般情况下要结合这个单词前面的单词。例如前面两个词是我、吃，那么后面的一个词很大概率是一个表示食物的名词。</p>
+<p>为了解决一些这样类似的问题，能够更好的处理序列的信息，RNN就诞生了。</p>
+<h2 id="rnn的结构">RNN的结构</h2>
+<p><img src="/media/v2-b0175ebd3419f9a11a3d0d8b00e28675_r.jpg" alt=""></p>
+<p>循环神经网络也由输入层、隐藏层和输出层构成，这是神经网络的基本结构，不同的是它的隐藏层（也叫cell）可以连续的接收输入\(x\)，输出\(o\)，而贯穿其中的\(s\)可以存储这个网络的状态，也就是“记忆”到的前面发生的事情，利用它可以更加精准的预测后面的输出。</p>
+<p><img src="/media/RNN20190514210119.png" alt="">
+一个最简单的RNN结构如图所示，每一个cell输入一个\(x\)和一个\(s\)，输出两个同样的\(h\)，通过下列算法算出：</p>
+<p>$$
+\begin{aligned}
+&amp;s_t = \tanh (Ws_{t-1} + Ux_t)
+\\&amp;h_t = Vs_t
+\end{aligned}
+$$</p>
+<p>这种简单的结构虽然可以达到记忆的效果，然而存在着一个致命的问题：<strong>梯度爆炸</strong>和<strong>梯度消失</strong>。即在多次循环后，利用梯度下降法调整，在求导的时候会出现\(\frac{\partial Loss}{\partial w_i} = \frac{\partial Loss}{\partial f_t}\frac{\partial f_t}{\partial f_{t-1}}&hellip;\frac{\partial f_i}{\partial w_i} \)，如果\(\frac{\partial f_t}{\partial f_{t-1}}\)部分大于或小于1，会出现类似1.01的99次方（或0.99的99次方）的问题，使得权重过大或过小，无法使用梯度下降。这一问题的根源就在于\(W\)和\(s\)之间的乘法运算。为了解决这一问题，<a href="/file/lstm.pdf">Hochreiter, Schmidhuber（1997)</a>提出了LSTM。</p>
+<h2 id="lstm">LSTM</h2>
+<p>LSTM全称Long Short Time Memory RRN，长短期记忆循环神经网络，它本质上也是一个循环神经网络，只是cell不一样而已，如下图：
+<img src="/media/LSTM20190514210208.png" alt=""></p>
+<p>LSTM的关键之处在于cell的状态，也就是图中贯穿顶部的那条水平线。Cell的状态像是一条传送带，它贯穿整条链，其中只发生一些小的线性作用。信息流过这条线而不改变是非常容易的。但是，LSTM也有能力移除或增加信息到cell状态中，由被称为门的结构精细控制。门是一种让信息可选地通过的方法。它们由一个sigmoid(\( S(t)={\frac {1}{1+e^{-t}}}\))神经网络层和一个点乘操作组成。这里的sigmoid函数取0-1的值，充当了开关的作用，控制影响的程度。</p>
+<h3 id="运行过程">运行过程</h3>
+<p><img src="/media/v2-d7a679e66345c250ebcf9d53ba5be867_r.jpg" alt="">
+从左往右看这幅图，首先第一步是决定我们需要从cell状态中扔掉什么样的信息。这个决策由一个称为“遗忘门（forget gate）”的sigmoid层决定。输入 \(h_{t-1}\) 和 \(x_t\) ，输出一个0和1之间的数。1代表“完全保留这个值”，而0代表“完全扔掉这个值”。比如对于一个基于上文预测最后一个词的语言模型。cell的状态可能包含当前主题的信息，来预测下一个准确的词。而当我们得到一个新的语言主题的时候，我们会想要遗忘旧的主题的记忆，应用新的语言主题的信息来预测准确的词。</p>
+<p><img src="/media/v2-535a2df5db8ac715ee373209d7cbd346_r.jpg" alt="">
+第二步是决定我们需要在cell state里存储什么样的信息。这个问题有两个部分。第一，一个sigmoid层调用“输入门（input gate）”以决定哪些数据是需要更新的。然后，一个\(tanh\)层为新的候选值创建一个向量 \(\tilde{C}_t\) ，这些值能够加入state中。下一步，我们要将这两个部分合并以创建对state的更新。</p>
+<p>比如还是语言模型，可以表示为想要把新的语言主题的信息加入到cell state中，以替代我们要遗忘的旧的记忆信息。</p>
+<p><img src="/media/v2-f2dccb5533133c5ff61a58a0e1a752ab_r.jpg" alt="">
+在决定需要遗忘和需要加入的记忆之后，就可以更新旧的cell state \(C_{t-1}\) 到新的cell state \(C_t\) 了。在这一步，我们把旧的state  \(C_{t-1}\) 与 \(f_t\) 相乘，遗忘我们先前决定遗忘的东西，然后我们加上 \(i_t * \tilde{C}_t\) ，这可以理解为新的记忆信息，当然，这里体现了对状态值的更新度是有限制的，我们可以把 \(i_t\)  当成一个权重。</p>
+<p><img src="/media/v2-9b77a873ce830ea4a3bdb0385fe275ef_r.jpg" alt="">
+最后，我们需要决定要输出的东西。这个输出基于我们的cell state，但会是一个过滤后的值。首先，我们运行一个sigmoid层，这个也就是输出门（output gate），以决定cell state中的那个部分是我们将要输出的。然后我们把cell state放进\(tanh\)（将数值压到-1和1之间），最后将它与sigmoid门的输出相乘，这样我们就只输出了我们想要的部分了。</p>
+<p>在LSTM中，状态\(S\)通过累加的方式来计算，\(S_t = \sum_{\tau=1}^t \Delta S_{\tau}\)，这样就不会是一直复合函数的形式了，它的导数也不是乘积的形式，这样就不会发生梯度消失的情况了。（具体论文：An Empirical Exploration of Recurrent Network Architectures 和 Empirical Evaluation of Gated Recurrent Neural Networks on Sequence Modeling）</p>
+<h2 id="gru">GRU</h2>
+<p>GRU全称Gated Recurrent Unit，循环门单元。和LSTM一样，他也只是个cell的种类，本质上是RNN，由 <a href="/file/gru.pdf">Cho, et al. (2014)</a>提出。它将LSTM的遗忘门和输入门组合成了一个新的更新门，合并了cell state和hidden state，比LSTM更加简单（尽管稍微难理解一些）。</p>
+<p><img src="/media/v2-f2716bc289734d8b545926b38a224692_r.jpg" alt=""></p>
+<p>从左往右看，前两个门是reset gate和update gate，计算方法：</p>
+<p>$$
+\begin{aligned}
+&amp;r_t = \sigma (W^rx_t + U^rh_{t-1})
+\\&amp;z_t = \sigma (W^zx_t + U^zh_{t-1})
+\end{aligned}
+$$</p>
+<p>reset gate控制在计算候选状态时使用多少前序的状态，update gate则表示计算新状态时候选状态和原状态各取多少比例（注意特殊的“1-”门，表示把\(z_t\)当作一个比例）。</p>
+<h2 id="总结和比较">总结和比较</h2>
+<p>RRN是神经网络的一个种类，LSTM和GRU是两种特殊的cell。与最基本的cell结构相比，LSTM和GRU都很好的解决了梯度爆炸和梯度消失的问题。对比LSTM，GRU的参数更少，因而训练稍快或需要更少的数据来泛化。另一方面，如果有足够的数据，LSTM的强大表达能力可能会产生更好的结果。<a href="https://link.zhihu.com/?target=http%3A//arxiv.org/pdf/1503.04069.pdf">Greff, et al. (2015)</a>对流行的变种做了一个很好的比较，发现它们都是一样的。<a href="https://link.zhihu.com/?target=http%3A//jmlr.org/proceedings/papers/v37/jozefowicz15.pdf">Jozefowicz, et al.(2015)</a>测试了超过一万中RNN结构，发现某些任务情形下，有些比LSTM工作得更好，但那也是比较特殊的时候。</p>
+<p>总的来说，没有通用的最好的模型，只能通过具体的数据和问题来选择模型。如果研究的数据序列会相互影响，比如做词语预测，那么LSTM-RRN和GRU-RRN不失为一种很好的选择。</p>
+<p><em>参考：</em></p>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/34203833">深入理解lstm及其变种gru</a></li>
+<li><a href="http://colah.github.io/posts/2015-08-Understanding-LSTMs/">Understanding LSTM Networks</a></li>
+</ul>
+		</div>
+		
+<div class="post__tags tags clearfix">
+	<svg class="icon icon-tag" width="16" height="16" viewBox="0 0 16 16"><path d="M16 9.5c0 .373-.24.74-.5 1l-5 5c-.275.26-.634.5-1 .5-.373 0-.74-.24-1-.5L1 8a2.853 2.853 0 0 1-.7-1C.113 6.55 0 5.973 0 5.6V1.4C0 1.034.134.669.401.401.67.134 1.034 0 1.4 0h4.2c.373 0 .95.113 1.4.3.45.187.732.432 1 .7l7.5 7.502c.26.274.5.632.5.998zM3.5 5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item"><a class="tags__link btn" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li>
+	</ul>
+</div>
+	</article>
+</main>
+
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="XIONG Ping avatar" src="/img/head.jpg" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		
+		<span class="authorbox__name">XIONG Ping</span>
+	</div>
+	<div class="authorbox__description">
+		柏林工业大学的硕士生，专业经济工程计算机方向。
+	</div>
+</div>
+
+
+<section class="comments">
+	
+
+	<div id="lv-container" data-id="city" data-uid="MTAyMC80MzkyNy8yMDQ2Mw==">
+		<script type="text/javascript">
+	   (function(d, s) {
+	       var j, e = d.getElementsByTagName(s)[0];
+
+	       if (typeof LivereTower === 'function') { return; }
+
+	       j = d.createElement(s);
+	       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+	       j.async = true;
+
+	       e.parentNode.insertBefore(j, e);
+	   	})(document, 'script');
+		</script>
+		<noscript>为正常使用评论功能请激活JavaScript</noscript>
+	</div>
+
+</section>
+
+
+			</div>
+			<aside class="sidebar"><div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
+		<label>
+			<input class="widget-search__field" type="search" placeholder="Enter to SEARCH..." value="" name="q" aria-label="SEARCH...">
+		</label>
+		<input class="widget-search__submit" type="submit" value="Search">
+		<input type="hidden" name="sitesearch" value="http://xpgreat.com/" />
+	</form>
+</div>
+<script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=080808&w=a&t=tt&d=vn9XwpQC1mo0ktLzWyesdzglYxafoYqO_-XrgyT-k8w&co=ffffff&cmo=3acc3a&cmn=008eff&ct=808080'></script>
+<div class="widget-social widget">
+	<h4 class="widget-social__title widget__title">Social</h4>
+	<div class="widget-social__content widget__content">
+		<div class="widget-social__item widget__item">
+			<a class="widget-social__link widget__link btn" title="Telegram" rel="noopener noreferrer" href="https://t.me/xphahaha" target="_blank">
+				<svg class="widget-social__link-icon icon-telegram" viewBox="0 0 132 110" width="24" height="24"><path fill="#ddd" d="M50 103c-4 0-3-1-5-5L34 60l88-52"/><path fill="#aaa" d="M50 103c3 0 4-1 6-3l16-16-20-12"/><path fill="#fff" d="M52 72l48 36c6 3 10 2 11-5l20-93c2-8-3-11-8-9L7 45c-8 4-8 8-1 10l29 9 69-43c3-2 6-1 4 1"/></svg>
+				<span></span>
+			</a>
+		</div>
+		<div class="widget-social__item widget__item">
+			<a class="widget-social__link widget__link btn" title="Email" href="mailto:xiong.ping.xp@qq.com">
+				<svg class="widget-social__link-icon icon-mail" viewBox="0 0 416 288" width="24" height="24" fill="#fff"><path d="m0 16v256 16h16 384 16v-16-256-16h-16-384-16zm347 16-139 92.5-139-92.5zm-148 125.5 9 5.5 9-5.5 167-111.5v210h-352v-210z"/></svg>
+				<span></span>
+			</a>
+		</div>
+	</div>
+</div>
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/post/explore_text_dataset/">论文解读：Exploring text datasets by visualizing relevant words</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/hive_windowfunc/">Hive窗口函数总结</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/workflow_ml/">机器学习的工作流程</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/tip_inst_tf/">安装TensorFlow时踩的一个小坑</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/jupyter_install_package/">在Jupyer Notebook里安装包</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-categories widget">
+	<h4 class="widget__title">Categories</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/categories/%e5%a4%a7%e6%95%b0%e6%8d%ae">大数据</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e6%95%b0%e5%ad%a6">数学</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e6%95%b0%e6%8d%ae%e5%ba%93">数据库</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e6%9d%82%e8%b0%88">杂谈</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e7%bb%9f%e8%ae%a1%e5%ad%a6">统计学</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e7%bd%91%e7%bb%9c">网络</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e8%8b%b1%e8%af%ad">英语</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e8%ae%a1%e7%ae%97%e6%9c%ba">计算机</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e8%ae%ba%e6%96%87">论文</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e9%87%91%e8%9e%8d">金融</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/hive" title=" Hive ">Hive</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/html" title=" Html ">Html</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/linux" title=" Linux ">Linux</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/nlp" title=" Nlp ">Nlp</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/ssh" title=" Ssh ">Ssh</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/tensorflow" title=" Tensorflow ">Tensorflow</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/%e4%bb%b7%e6%a0%bc%e9%a2%84%e6%b5%8b" title=" 价格预测 ">价格预测</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/%e5%8d%9a%e5%ae%a2" title=" 博客 ">博客</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/%e6%8a%80%e5%b7%a7" title=" 技巧 ">技巧</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/%e6%8a%95%e8%b5%84" title=" 投资 ">投资</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/%e6%9c%9f%e6%9d%83" title=" 期权 ">期权</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/%e6%9c%ba%e5%99%a8%e5%ad%a6%e4%b9%a0" title=" 机器学习 ">机器学习</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/%e7%ae%97%e6%b3%95" title=" 算法 ">算法</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/%e7%ba%bf%e6%80%a7%e4%bb%a3%e6%95%b0" title=" 线性代数 ">线性代数</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/%e8%ae%ba%e6%96%87" title=" 论文 ">论文</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/%e9%a3%8e%e9%99%a9%e7%ae%a1%e7%90%86" title=" 风险管理 ">风险管理</a>
+		
+	</div>
+</div>
+</aside>
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2018 - 2020 XP. 
+			本博客采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>许可。<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="/media/license.jpg" width="50px"></a>
+		</div>
+	</div>
+
+
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+</body>
+</html>

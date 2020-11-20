@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>机器学习中的矩阵求导</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<meta name="generator" content="Hugo 0.78.2" />
+	<meta property="og:title" content="机器学习中的矩阵求导" />
+<meta property="og:description" content="在学习机器学习的算法时，推导过程中往往会涉及矩阵或向量求导以及一些其他的线性代数的知识。比如在推导LDA算法的时候，就是把Fisher&rsquo;s Criterion求导后置零得到的结果。另外在优化的时候经常会使用到梯度下降法，这与矩阵向量求导也是分不开的。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://xpgreat.com/linalg_in_ml/" />
+<meta property="article:published_time" content="2019-01-17T21:47:14+01:00" />
+<meta property="article:modified_time" content="2019-01-17T21:47:14+01:00" />
+
+	
+	<link rel="stylesheet" href="/css/highlight.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-130422706-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container">
+		<div class="logo">
+			<a class="logo__link" href="/" title="XP&#39;s Blog" rel="home">
+				<div class="logo__title">XP&#39;s Blog</div>
+				<div class="logo__tagline">积跬步 以至千里</div>
+			</a>
+		</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">Menu</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item">
+			<a class="menu__link" href="/">首页</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/archive/">归档</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/links/">友链</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/about/">关于</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/license/">许可</a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">机器学习中的矩阵求导</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+	<time class="meta__text" datetime="2019-01-17T21:47:14">January 17, 2019</time>
+</div>
+
+<div class="meta__item-categories meta__item">
+	<svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
+	<span class="meta__text"><a class="meta__link" href="/categories/%e6%95%b0%e5%ad%a6" rel="category">数学</a>, <a class="meta__link" href="/categories/%e8%ae%a1%e7%ae%97%e6%9c%ba" rel="category">计算机</a></span>
+</div>
+</div>
+		</header><div class="content post__content clearfix">
+			<p>在学习机器学习的算法时，推导过程中往往会涉及矩阵或向量求导以及一些其他的线性代数的知识。比如在推导LDA算法的时候，就是把Fisher&rsquo;s Criterion求导后置零得到的结果。另外在优化的时候经常会使用到梯度下降法，这与矩阵向量求导也是分不开的。</p>
+<h2 id="记号">记号</h2>
+<p>在这篇文章中，向量统一为列向量，用\(\mathbf x\)表示，矩阵用\(X\)大写字母表示，标量用\(x\)表示。求导使用\(\frac{\partial f(\mathbf x)}{\partial \mathbf x}\)表示。</p>
+<h2 id="线性代数的一些变换">线性代数的一些变换</h2>
+<p>$$
+\begin{aligned}
+&amp;1.\ (AB)^{-1} = B^{-1}A^{-1}\\
+&amp;2.\ (A^T)^{-1} = (A^{-1})^T\\
+&amp;3.\ AB = C \Leftrightarrow DAB = DC\\
+&amp;4.\ \left[
+\begin{matrix}
+a &amp; b\\
+c &amp; d
+\end{matrix}
+\right]^{-1} = \frac{1}{ad-bc}\left[
+\begin{matrix}
+d &amp; -b\\
+-c &amp; a
+\end{matrix}
+\right] \\
+&amp;5.\ (A+B)^T = A^T + B^T\\
+&amp;6.\ (AB)^T = B^TA^T \\
+&amp;7.\ A = A^{\frac{1}{2}}A^{\frac{1}{2}} \\
+&amp;8.\ A^0 = I
+\end{aligned}
+$$</p>
+<h3 id="正交矩阵">正交矩阵</h3>
+<p>正交矩阵（orthogonal matrix）是一个方块矩阵，其元素为实数，而且行与列皆为正交的单位向量，使得该矩阵的转置矩阵为其逆矩阵：\(S^{-1} = S^T\)。比如恒等变换：</p>
+<p>$$
+\left[
+\begin{matrix}
+1 &amp; 0\\
+0 &amp; 1
+\end{matrix}
+\right]
+$$</p>
+<p>和旋转\(\alpha \)：</p>
+<p>$$
+\left[
+\begin{matrix}
+\cos \alpha &amp; -\sin \alpha \\
+\sin \alpha &amp; \cos \alpha
+\end{matrix}
+\right]
+$$</p>
+<h3 id="eigenvalue特征值">Eigenvalue（特征值）</h3>
+<p>若</p>
+<p>$$
+A\mathbf u = \lambda \mathbf u
+$$</p>
+<p>则\(\lambda\)是特征值，\(\mathbf u\)是其对应的特征向量。</p>
+<p>由此可以推出特征值分解，即对于对称矩阵\(A\)，可以被分解为：</p>
+<p>$$
+A = U \Lambda U^T
+$$</p>
+<p>其中\(U\)是正交矩阵，它的列是\(A\)的特征向量，\(\Lambda\)是对角矩阵，是对应的\(A\)的特征值。</p>
+<h2 id="变量多次出现的求导方法">变量多次出现的求导方法</h2>
+<p>若在函数表达式中，某个变量出现了多次，可以单独计算函数对自变量的每一次出现的导数，再把结果加起来。</p>
+<p>举例（该规则对向量和矩阵也是成立的，这里先用标量举一个简单的例子）：假设函数表达式是\(f(x)=(2x+1)x+x^2\)，可以先把三个\(x\)看成三个不同的变量，即把\(f\)的表达式看成\((2x_1+1)x_2+x_3^2\)，然后分别计算\(\partial f / \partial x_1 = 2x_2\),\(\partial f / \partial x_2 = 2x_1 + 1\)，和\(\partial f / \partial x_3 = 2x_3\)，最后总的导数就是这三项加起来：\(2x_2 + 2x_1 + 1 + 2x_3\)，此时再把\(x\)的下标抹掉并化简，就得到\(6x+1\)。熟悉这个过程之后，可以省掉添加下标再移除的过程。</p>
+<p>这个方法和多层神经网络算法中的反向传递（Back Propagation）的思想方法是一样的。</p>
+<h2 id="最常用的四个矩阵向量求导公式">最常用的四个矩阵向量求导公式</h2>
+<p>$$
+\begin{aligned}
+&amp;1.\ \frac{\partial A\mathbf x}{\partial \mathbf x} = A \\
+&amp;2.\ \frac{\partial \mathbf x^T \mathbf a}{\partial \mathbf x} = \frac{\partial \mathbf a^T \mathbf x}{\partial \mathbf x} = \mathbf a \\
+&amp;3.\ \frac{\partial \mathbf ||x||^2}{\partial \mathbf x} = \frac{\partial \mathbf x^T \mathbf x}{\partial \mathbf x} = 2 \mathbf x \\
+&amp;4.\ \frac{\partial \mathbf x^T A \mathbf x}{\partial \mathbf x} = (A + A^T)\mathbf x
+\end{aligned}
+$$</p>
+<h2 id="推导过程">推导过程</h2>
+<p>最基础的出发点是，对矩阵或者向量求导，就是对其中的每一个元素关于每一个自变量中的元素进行求导，最后写成一个矩阵的形式，所以落脚点在单个元素上。</p>
+<h4 id="公式1">公式1</h4>
+<p>容易看出\(A\mathbf x\)是一个向量，对其中一个元素进行求导，注意下标，求和符号内只有一项包含\(x_k\)，其他的可以直接舍弃：</p>
+<p>$$
+\begin{aligned}
+\frac{\partial}{\partial x_k} (A\mathbf x)_{i} &amp;= \frac{\partial}{\partial x_k} \sum_{j=1}^{n} A_{ij}x_j \\
+&amp;= A_{ik}
+\end{aligned}
+$$</p>
+<p>所以可得在求导结果矩阵中每一行每一列的元素都等于\(A\)在这个位置上的元素，q.e.d.</p>
+<h4 id="公式2">公式2</h4>
+<p>\(\mathbf x^T \mathbf a\)和\(\mathbf a^T \mathbf x\)都是标量。证明过程和1相似：</p>
+<p>$$
+\frac{\partial}{\partial x_i} \mathbf x^T \mathbf a = \frac{\partial}{\partial x_i} \sum_{j=1}^{n} x_ja_j = a_i \\
+\frac{\partial}{\partial x_i} \mathbf a^T \mathbf x = \frac{\partial}{\partial x_i} \sum_{j=1}^{n} a_jx_j = a_i
+$$</p>
+<p>这个公式是最基本的，但极其重要和常用。</p>
+<h4 id="公式3">公式3</h4>
+<p>证明过程也十分简单：</p>
+<p>$$
+\frac{\partial \mathbf ||x||^2}{\partial x_i} = \frac{\partial}{\partial x_i} \sum_j x_j^2 = \frac{\partial}{\partial x_i} x_i^2 = 2x_i
+$$</p>
+<h4 id="公式4">公式4</h4>
+<p>可以看出结果是一个标量。应用前面所说的<strong>变量多次出现的求导方法</strong>，先把后面的\(A \mathbf x\)看成整体，对前一个\(\mathbf x\)求导，运用公式2，可得：</p>
+<p>$$
+\frac{\partial \mathbf x^T (A \mathbf x')}{\partial \mathbf x} = A \mathbf x'
+$$</p>
+<p>类似的对后面的\(\mathbf x\)求导，可得：</p>
+<p>$$
+\frac{\partial (\mathbf x'^T A) \mathbf x}{\partial \mathbf x} = (\mathbf x'^T A)^T = A^T\mathbf x'
+$$</p>
+<p>去掉一撇，加起来，可得：</p>
+<p>$$
+\frac{\partial \mathbf x^T A \mathbf x}{\partial \mathbf x} = A \mathbf x + A^T\mathbf x = (A + A^T)\mathbf x
+$$</p>
+<p>q.e.d.</p>
+<h2 id="应用举例">应用举例</h2>
+<p>LDA算法的推导过程中需要解\(\mathbf w\)：</p>
+<p>$$
+\underset{\mathbf w}{\operatorname{argmax}} \frac{\mathbf w^TS_B\mathbf w}{\mathbf w^TS_W\mathbf w}
+$$</p>
+<p>其中\(S_B\)和\(S_W\)都是对称矩阵。容易发现分式上下都是标量。要求最大值，对\(\mathbf w\)求导，置零即可。先运用商的导数公式：</p>
+<p>$$
+\frac{\partial}{\partial \mathbf w}\frac{\mathbf w^TS_B\mathbf w}{\mathbf w^TS_W\mathbf w} = \frac{\mathbf w^TS_W\mathbf w(\frac{\partial}{\partial \mathbf w}\mathbf w^TS_B\mathbf w) - \mathbf w^TS_B\mathbf w(\frac{\partial}{\partial \mathbf w}\mathbf w^TS_W\mathbf w)}{(\mathbf w^TS_W\mathbf w)^2}
+$$</p>
+<p>求分子上的导数，运用上面的公式4：</p>
+<p>$$
+\frac{\partial}{\partial \mathbf w}\mathbf w^TS_B\mathbf w = (S_B + S_B^T)\mathbf w
+$$</p>
+<p>由于\(S_B\)是对称的，\(S_B^T = S_B\),</p>
+<p>$$
+\frac{\partial}{\partial \mathbf w}\mathbf w^TS_B\mathbf w = 2S_B\mathbf w
+$$</p>
+<p>对另一个倒数类似，置零可得：</p>
+<p>$$
+\frac{(\mathbf w^TS_W\mathbf w)2S_B\mathbf w - (\mathbf w^TS_B\mathbf w)2S_W\mathbf w}{(\mathbf w^TS_W\mathbf w)^2} \overset{!}{=} 0
+$$</p>
+<p>即：</p>
+<p>$$
+\begin{aligned}
+(\mathbf w^TS_B\mathbf w)2S_W\mathbf w &amp;= (\mathbf w^TS_W\mathbf w)2S_B\mathbf w \\
+S_W\mathbf w &amp;= \frac{\mathbf w^TS_W\mathbf w}{\mathbf w^TS_B\mathbf w}S_B\mathbf w \\
+S_W\mathbf w &amp;= S_B\mathbf w \lambda \\
+\mathbf w &amp;= S_W^{-1} S_B\mathbf w \lambda
+\end{aligned}
+$$</p>
+<h2 id="另请参阅">另请参阅</h2>
+<ul>
+<li><a href="https://atmos.washington.edu/~dennis/MatrixCalculus.pdf">Matrix Cookbook</a>，很好的一本公式集，适合查阅。</li>
+<li><a href="https://gwthomas.github.io/docs/math4ml.pdf">Mathematics for Machine Learning</a></li>
+<li><a href="/file/matrixvectorderivativesformachinelearning.pdf">机器学习中的矩阵、向量求导</a></li>
+</ul>
+		</div>
+		
+<div class="post__tags tags clearfix">
+	<svg class="icon icon-tag" width="16" height="16" viewBox="0 0 16 16"><path d="M16 9.5c0 .373-.24.74-.5 1l-5 5c-.275.26-.634.5-1 .5-.373 0-.74-.24-1-.5L1 8a2.853 2.853 0 0 1-.7-1C.113 6.55 0 5.973 0 5.6V1.4C0 1.034.134.669.401.401.67.134 1.034 0 1.4 0h4.2c.373 0 .95.113 1.4.3.45.187.732.432 1 .7l7.5 7.502c.26.274.5.632.5.998zM3.5 5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item"><a class="tags__link btn" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/" rel="tag">线性代数</a></li>
+	</ul>
+</div>
+	</article>
+</main>
+
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="XIONG Ping avatar" src="/img/head.jpg" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		
+		<span class="authorbox__name">XIONG Ping</span>
+	</div>
+	<div class="authorbox__description">
+		柏林工业大学的硕士生，专业经济工程计算机方向。
+	</div>
+</div>
+
+
+<section class="comments">
+	
+
+	<div id="lv-container" data-id="city" data-uid="MTAyMC80MzkyNy8yMDQ2Mw==">
+		<script type="text/javascript">
+	   (function(d, s) {
+	       var j, e = d.getElementsByTagName(s)[0];
+
+	       if (typeof LivereTower === 'function') { return; }
+
+	       j = d.createElement(s);
+	       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+	       j.async = true;
+
+	       e.parentNode.insertBefore(j, e);
+	   	})(document, 'script');
+		</script>
+		<noscript>为正常使用评论功能请激活JavaScript</noscript>
+	</div>
+
+</section>
+
+
+			</div>
+			<aside class="sidebar"><div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
+		<label>
+			<input class="widget-search__field" type="search" placeholder="Enter to SEARCH..." value="" name="q" aria-label="SEARCH...">
+		</label>
+		<input class="widget-search__submit" type="submit" value="Search">
+		<input type="hidden" name="sitesearch" value="http://xpgreat.com/" />
+	</form>
+</div>
+<script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=080808&w=a&t=tt&d=vn9XwpQC1mo0ktLzWyesdzglYxafoYqO_-XrgyT-k8w&co=ffffff&cmo=3acc3a&cmn=008eff&ct=808080'></script>
+<div class="widget-social widget">
+	<h4 class="widget-social__title widget__title">Social</h4>
+	<div class="widget-social__content widget__content">
+		<div class="widget-social__item widget__item">
+			<a class="widget-social__link widget__link btn" title="Telegram" rel="noopener noreferrer" href="https://t.me/xphahaha" target="_blank">
+				<svg class="widget-social__link-icon icon-telegram" viewBox="0 0 132 110" width="24" height="24"><path fill="#ddd" d="M50 103c-4 0-3-1-5-5L34 60l88-52"/><path fill="#aaa" d="M50 103c3 0 4-1 6-3l16-16-20-12"/><path fill="#fff" d="M52 72l48 36c6 3 10 2 11-5l20-93c2-8-3-11-8-9L7 45c-8 4-8 8-1 10l29 9 69-43c3-2 6-1 4 1"/></svg>
+				<span></span>
+			</a>
+		</div>
+		<div class="widget-social__item widget__item">
+			<a class="widget-social__link widget__link btn" title="Email" href="mailto:xiong.ping.xp@qq.com">
+				<svg class="widget-social__link-icon icon-mail" viewBox="0 0 416 288" width="24" height="24" fill="#fff"><path d="m0 16v256 16h16 384 16v-16-256-16h-16-384-16zm347 16-139 92.5-139-92.5zm-148 125.5 9 5.5 9-5.5 167-111.5v210h-352v-210z"/></svg>
+				<span></span>
+			</a>
+		</div>
+	</div>
+</div>
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/post/explore_text_dataset/">论文解读：Exploring text datasets by visualizing relevant words</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/hive_windowfunc/">Hive窗口函数总结</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/workflow_ml/">机器学习的工作流程</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/tip_inst_tf/">安装TensorFlow时踩的一个小坑</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/jupyter_install_package/">在Jupyer Notebook里安装包</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-categories widget">
+	<h4 class="widget__title">Categories</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/categories/%e5%a4%a7%e6%95%b0%e6%8d%ae">大数据</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e6%95%b0%e5%ad%a6">数学</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e6%95%b0%e6%8d%ae%e5%ba%93">数据库</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e6%9d%82%e8%b0%88">杂谈</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e7%bb%9f%e8%ae%a1%e5%ad%a6">统计学</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e7%bd%91%e7%bb%9c">网络</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e8%8b%b1%e8%af%ad">英语</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e8%ae%a1%e7%ae%97%e6%9c%ba">计算机</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e8%ae%ba%e6%96%87">论文</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e9%87%91%e8%9e%8d">金融</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/hive" title=" Hive ">Hive</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/html" title=" Html ">Html</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/linux" title=" Linux ">Linux</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/nlp" title=" Nlp ">Nlp</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/ssh" title=" Ssh ">Ssh</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/tensorflow" title=" Tensorflow ">Tensorflow</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/%e4%bb%b7%e6%a0%bc%e9%a2%84%e6%b5%8b" title=" 价格预测 ">价格预测</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/%e5%8d%9a%e5%ae%a2" title=" 博客 ">博客</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/%e6%8a%80%e5%b7%a7" title=" 技巧 ">技巧</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/%e6%8a%95%e8%b5%84" title=" 投资 ">投资</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/%e6%9c%9f%e6%9d%83" title=" 期权 ">期权</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/%e6%9c%ba%e5%99%a8%e5%ad%a6%e4%b9%a0" title=" 机器学习 ">机器学习</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/%e7%ae%97%e6%b3%95" title=" 算法 ">算法</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/%e7%ba%bf%e6%80%a7%e4%bb%a3%e6%95%b0" title=" 线性代数 ">线性代数</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/%e8%ae%ba%e6%96%87" title=" 论文 ">论文</a>
+		
+		
+			<a class="widget-taglist__link widget__link btn" href="/tags/%e9%a3%8e%e9%99%a9%e7%ae%a1%e7%90%86" title=" 风险管理 ">风险管理</a>
+		
+	</div>
+</div>
+</aside>
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2018 - 2020 XP. 
+			本博客采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>许可。<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="/media/license.jpg" width="50px"></a>
+		</div>
+	</div>
+
+
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+</body>
+</html>
