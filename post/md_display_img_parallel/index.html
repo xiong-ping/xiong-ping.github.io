@@ -7,12 +7,13 @@
 	<title>Markdown里图片并列显示</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="">
-	<meta name="generator" content="Hugo 0.52" />
+	<meta name="generator" content="Hugo 0.78.2" />
 	<meta property="og:title" content="Markdown里图片并列显示" />
 <meta property="og:description" content="在编辑博文的时候，有时会想把两张图片并列在一起显示，参考了网上内容，分享一下。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://xpgreat.com/post/md_display_img_parallel/" /><meta property="article:published_time" content="2018-12-05T17:42:53&#43;01:00"/>
-<meta property="article:modified_time" content="2018-12-05T17:42:53&#43;01:00"/>
+<meta property="og:url" content="http://xpgreat.com/post/md_display_img_parallel/" />
+<meta property="article:published_time" content="2018-12-05T17:42:53+01:00" />
+<meta property="article:modified_time" content="2018-12-05T17:42:53+01:00" />
 
 	
 	<link rel="stylesheet" href="/css/highlight.css">
@@ -92,40 +93,24 @@ if (!doNotTrack) {
 </div>
 		</header><div class="content post__content clearfix">
 			<p>在编辑博文的时候，有时会想把两张图片并列在一起显示，参考了网上内容，分享一下。</p>
-
 <p>首先记住一点，在markdown里是可以直接写html代码的。这个前提下很自然的有下面的方法：</p>
-
-<h2 id="调整图片宽度-高度">调整图片宽度/高度：</h2>
-
+<h2 id="调整图片宽度高度">调整图片宽度/高度：</h2>
 <pre><code>&lt;img src=&quot;http://xxx.jpg&quot; title=&quot;xxx&quot; width=&quot;100&quot; height=&quot;100&quot;/&gt; 
-</code></pre>
-
-<p>宽度是 <code>width</code>，高度是 <code>height</code>，<code>title</code> 为图片描述。</p>
-
+</code></pre><p>宽度是 <code>width</code>，高度是 <code>height</code>，<code>title</code> 为图片描述。</p>
 <h2 id="单张居中显示">单张居中显示：</h2>
-
 <pre><code>&lt;center&gt;
     &lt;img src=&quot;http://example.com/xxx.png&quot;&gt;
 &lt;/center&gt;
-</code></pre>
-
-<p>或者：</p>
-
+</code></pre><p>或者：</p>
 <pre><code>&lt;figure&gt;
     &lt;img src=&quot;http://xxx.jpg&quot;&gt;
 &lt;/figure&gt; 
-</code></pre>
-
-<h2 id="两张并排显示">两张并排显示：</h2>
-
+</code></pre><h2 id="两张并排显示">两张并排显示：</h2>
 <pre><code>&lt;figure class=&quot;half&quot;&gt;
     &lt;img src=&quot;http://xxx.jpg&quot;&gt;
     &lt;img src=&quot;http://xxx.jpg&quot;&gt;
 &lt;/figure&gt;
-</code></pre>
-
-<h2 id="三张并排显示">三张并排显示：</h2>
-
+</code></pre><h2 id="三张并排显示">三张并排显示：</h2>
 <pre><code>&lt;figure class=&quot;third&quot;&gt;
     &lt;img src=&quot;http://xxx.jpg&quot;&gt;
     &lt;img src=&quot;http://xxx.jpg&quot;&gt;
@@ -241,7 +226,6 @@ if (!doNotTrack) {
 <div class="widget-taglist widget">
 	<h4 class="widget__title">Tags</h4>
 	<div class="widget__content">
-		
 		
 			<a class="widget-taglist__link widget__link btn" href="/tags/hive" title=" Hive ">Hive</a>
 		

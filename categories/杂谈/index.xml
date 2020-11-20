@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>杂谈 on XP&#39;s Blog</title>
@@ -6,11 +6,7 @@
     <description>Recent content in 杂谈 on XP&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 17 Jan 2019 17:28:35 +0100</lastBuildDate>
-    
-	<atom:link href="http://xpgreat.com/categories/%E6%9D%82%E8%B0%88/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 17 Jan 2019 17:28:35 +0100</lastBuildDate><atom:link href="http://xpgreat.com/categories/%E6%9D%82%E8%B0%88/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>使用MathJax时的注意事项</title>
       <link>http://xpgreat.com/post/mathjax_tips/</link>

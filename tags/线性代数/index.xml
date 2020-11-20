@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>线性代数 on XP&#39;s Blog</title>
@@ -6,11 +6,7 @@
     <description>Recent content in 线性代数 on XP&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 17 Jan 2019 21:47:14 +0100</lastBuildDate>
-    
-	<atom:link href="http://xpgreat.com/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 17 Jan 2019 21:47:14 +0100</lastBuildDate><atom:link href="http://xpgreat.com/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>机器学习中的矩阵求导</title>
       <link>http://xpgreat.com/post/linalg_in_ml/</link>

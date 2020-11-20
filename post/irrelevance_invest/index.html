@@ -7,12 +7,13 @@
 	<title>投资对象的资本结构无关性</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="">
-	<meta name="generator" content="Hugo 0.52" />
+	<meta name="generator" content="Hugo 0.78.2" />
 	<meta property="og:title" content="投资对象的资本结构无关性" />
 <meta property="og:description" content="本文介绍了公司的杠杆效应（Leverage Effect）和Modigliani-Miller定理，以阐述投资对象的资本结构与价值的无关性。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://xpgreat.com/post/irrelevance_invest/" /><meta property="article:published_time" content="2019-06-08T11:23:53&#43;02:00"/>
-<meta property="article:modified_time" content="2019-06-08T11:23:53&#43;02:00"/>
+<meta property="og:url" content="http://xpgreat.com/post/irrelevance_invest/" />
+<meta property="article:published_time" content="2019-06-08T11:23:53+02:00" />
+<meta property="article:modified_time" content="2019-06-08T11:23:53+02:00" />
 
 	
 	<link rel="stylesheet" href="/css/highlight.css">
@@ -92,11 +93,8 @@ if (!doNotTrack) {
 </div>
 		</header><div class="content post__content clearfix">
 			<p>本文介绍了公司的杠杆效应（Leverage Effect）和Modigliani-Miller定理，以阐述投资对象的资本结构与价值的无关性。</p>
-
 <h2 id="杠杆效应">杠杆效应</h2>
-
 <p>一个公司的资本结构是总资产（Total capital, T) = 股权（Equity, E）+ 债务（Debt, D）。定义：\(r_T\)是总资产回报率，毛利 = \(r_T * (E+D)\)；净利 = 毛利 - 债务利息 = \(r_T * (E+D) - r_D * D := r_E * E\)。则：</p>
-
 <p>$$
 \begin{aligned}
 r_E * E &amp;= r_T * (E+D) - r_D * D
@@ -104,28 +102,19 @@ r_E * E &amp;= r_T * (E+D) - r_D * D
 \\r_E &amp;= r_T + (r_T - r_D) * DR
 \end{aligned}
 $$</p>
-
 <p>如果\(r_T &gt; r_B\)，\(r_E\)随着负债率（Debt-to-equity ratio）上升而上升。这样看来，公司应尽可能地提高负债率以提高利润率，然而这与常识似乎有矛盾。原因在于没有考虑回报率的不确定性，即他们的方差。用期望和方差的眼光来看，假设债务的利息是确定的，可以得到：</p>
-
 <p>$$
 \begin{aligned}
 &amp;E(r_E) = E(r_T) * E+(E(r_T) - r_D) * D
 \\&amp;Var(r_E) = (D+1)^2 * Var(r_T)
 \end{aligned}
 $$</p>
-
 <p>这两个式子分别表示杠杆效应和杠杆风险（Leverage Risk）。可以看出更高负债率意味着更高的股权回报率和更高的风险，且风险升高的速度更快，这是一个用高风险换高收益的典型例子。此外，当负债率升高到足够高的时候，对债权人的风险上升，债务的利息也会上升，进一步地降低回报率。那么按照一般的想法，一定存在一个均衡点，也就是一个最好的负债率，事实如此吗？</p>
-
 <h2 id="modigliani-miller定理">Modigliani-Miller定理</h2>
-
 <p>由经济学家弗兰科·莫迪利安尼和默顿·米勒提出，它是现代资本结构理论的基础。该定理认为，在不考虑税，破产成本，信息不对称并且假设在有效市场里面，企业价值不会因为企业融资方式（资本结构）改变而改变。也即是说，不论公司选择发行股票或者卖债券，或是采用不同的红利政策，都不会影响企业价值。因此莫迪尼亚尼-米勒定理也被称为资本结构无关原理。</p>
-
 <p>假设一个投资人投资了一个公司\(\alpha\)的股份，\(\widetilde{R}\)表示未扣除利息的公司收益，\(r * D\)表示确定的需要公司支付的债务利息（假定利率等于市场无风险利率）。此时投资人的收入为\(\alpha (\widetilde R - r * D)\)，投资头寸为\(\alpha * E_M\)（\(E_M\)是公司股权的市值。）</p>
-
 <p>这个投资人有自己的偏好，他更想投资一个零负债的公司，他打算出售一部分的股票投资到无风险项目中，假设新的投资比例为\(\beta\)，出售股票回流\((\alpha - \beta) * E_M\)。此时投资人的收入为：来自投资公司\(\beta (\widetilde R - r * D)\)，来自无风险投资\(r(\alpha - \beta)E_M\)，投资头寸分别为\(\beta * E_M\)和\((\alpha - \beta) * E_M\)。</p>
-
 <p>当\(\beta\)为多少的时候，投资人的收入和投资一个无负债公司的收入是一样的？当投资人要承担的公司债务利息部分与投资人无风险投资的利息相等的时候：</p>
-
 <p>$$
 \begin{aligned}
 \beta * r * D &amp;= r(\alpha - \beta)E_M
@@ -134,7 +123,6 @@ $$</p>
 \\\beta &amp;= \frac{\alpha}{1+DR}
 \end{aligned}
 $$</p>
-
 <p>即投资人把投资比例调至\(\frac{\alpha}{1+DR}\)时，等价于投资了一个零负债的公司。所以，公司的负债比例与投资人能否按自己偏好进行投资没有关系，因为可以用这种方法创建完全符合投资人的投资组合。</p>
 		</div>
 		
@@ -244,7 +232,6 @@ $$</p>
 <div class="widget-taglist widget">
 	<h4 class="widget__title">Tags</h4>
 	<div class="widget__content">
-		
 		
 			<a class="widget-taglist__link widget__link btn" href="/tags/hive" title=" Hive ">Hive</a>
 		

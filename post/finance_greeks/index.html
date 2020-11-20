@@ -7,12 +7,13 @@
 	<title>期权的风险指标</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="">
-	<meta name="generator" content="Hugo 0.52" />
+	<meta name="generator" content="Hugo 0.78.2" />
 	<meta property="og:title" content="期权的风险指标" />
 <meta property="og:description" content="期权的风险指标通常用希腊字母来表示，包括：Delta值(\(\Delta\))、Gamma值(\(\Gamma\))、Omega值(\(\Omega\))、Theta值(\(\theta\))、Vega值、Rho(\(\rho\))值等。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://xpgreat.com/post/finance_greeks/" /><meta property="article:published_time" content="2018-12-24T17:06:00&#43;01:00"/>
-<meta property="article:modified_time" content="2018-12-24T17:06:00&#43;01:00"/>
+<meta property="og:url" content="http://xpgreat.com/post/finance_greeks/" />
+<meta property="article:published_time" content="2018-12-24T17:06:00+01:00" />
+<meta property="article:modified_time" content="2018-12-24T17:06:00+01:00" />
 
 	
 	<link rel="stylesheet" href="/css/highlight.css">
@@ -93,141 +94,100 @@ if (!doNotTrack) {
 </div>
 		</header><div class="content post__content clearfix">
 			<p>期权的风险指标通常用希腊字母来表示，包括：Delta值(\(\Delta\))、Gamma值(\(\Gamma\))、Omega值(\(\Omega\))、Theta值(\(\theta\))、Vega值、Rho(\(\rho\))值等。</p>
-
 <p>结合<a href="/post/bs_model/">布莱克-舒尔斯期权定价模型</a>的公式来看：</p>
-
 <p>$$
 c=SN(d_1)-Xe^{-r(T-t)}N(d_2)
 $$</p>
-
 <p>其中，</p>
-
 <p>$$
 d_1 = \frac{\ln \frac{S}{X} + (r+\frac{\sigma^2}{2})(T-t)}{\sigma \sqrt{T-t}}
 $$
 $$
 d_2 = \frac{\ln \frac{S}{X} + (r-\frac{\sigma^2}{2})(T-t)}{\sigma \sqrt{T-t}}
 $$</p>
-
 <p>\(N(x)\)是标准正态分布变量的累计概率分布函数。</p>
-
-<h2 id="delta-delta">Delta(\(\Delta\))</h2>
-
+<h2 id="deltadelta">Delta(\(\Delta\))</h2>
 <p>又称<strong>对冲值</strong>，是衡量标的资产价格变动时，期权价格的变化幅度。</p>
-
 <p>$$
 \Delta = \frac{dc}{dS}
 $$</p>
-
 <p><strong>特性</strong>：</p>
-
 <ul>
 <li>买权的Delta一定要是正值，因为期货价格上涨（下跌），期权价格随之上涨（下跌），二者始终保持同向变化。</li>
 <li>卖权的Delta一定要是负值，因为看跌期权价格的变化与期货价格相反。</li>
 <li>Delta的范围介乎-1到1之间。</li>
 </ul>
-
 <p><strong>运用</strong>：</p>
-
 <ul>
 <li>衡量头寸风险：如看涨期权的Delta为0.4，意味着期货价格每变动一元，期权的价格则变动0.4元。Delta具有可加性，如果投资者持有以下投资组合：</li>
 </ul>
-
 <table>
 <thead>
 <tr>
-<th align="left">持仓头寸</th>
-<th align="left">Delta</th>
-<th align="left">数量（张）</th>
+<th style="text-align:left">持仓头寸</th>
+<th style="text-align:left">Delta</th>
+<th style="text-align:left">数量（张）</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
-<td align="left">买入小麦期货</td>
-<td align="left">1</td>
-<td align="left">1</td>
+<td style="text-align:left">买入小麦期货</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">1</td>
 </tr>
-
 <tr>
-<td align="left">买入看涨期权</td>
-<td align="left">0.47</td>
-<td align="left">2</td>
+<td style="text-align:left">买入看涨期权</td>
+<td style="text-align:left">0.47</td>
+<td style="text-align:left">2</td>
 </tr>
-
 <tr>
-<td align="left">买入看跌期权</td>
-<td align="left">-0.53</td>
-<td align="left">3</td>
+<td style="text-align:left">买入看跌期权</td>
+<td style="text-align:left">-0.53</td>
+<td style="text-align:left">3</td>
 </tr>
 </tbody>
 </table>
-
-<p>该交易者的总体持仓的Delta值为\(1+2*0.47-3*0.53=0.35\)，也就是说这是一个偏多的头寸，相当于0.35手期货多头。</p>
-
+<p>该交易者的总体持仓的Delta值为\(1+2<em>0.47-3</em>0.53=0.35\)，也就是说这是一个偏多的头寸，相当于0.35手期货多头。</p>
 <ul>
 <li><strong>Delta中性套期保值</strong>（Delta Hedging）：如果投资者希望对冲期权或期货头寸的风险，Delta就是套期保值比率。只要使头寸的整体 Delta值保持为0，就建立了一个中性的套期策略。</li>
 </ul>
-
-<h2 id="gamma-gamma">Gamma(\(\Gamma\))</h2>
-
+<h2 id="gammagamma">Gamma(\(\Gamma\))</h2>
 <p>反映期货价格对Delta值的影响程度。如某一期权的Delta为0.6，Gamma值为0.05，则表示期货价格上升1元，所引起Delta增加量为0.05。Delta将从0.6增加到0.65。</p>
-
 <p>$$
 \Gamma = \frac{d\Delta}{dS}
 $$</p>
-
 <p><strong>特性</strong>：</p>
-
 <ul>
 <li>Gamma值均为正值，因为若期货价格上涨，看涨期权的Delta值由0向1移动，看跌期权的Delta值从-1向0移动，即期权的Delta值从小到大移动，Gamma值为正。</li>
 <li>Gamma值越大，Delta值变化越快。</li>
 <li>平值期权的Gamma值最大。</li>
 <li>随着到期日的临近，平值期权Gamma值会急剧增加。</li>
 </ul>
-
 <p><strong>应用</strong>：</p>
-
 <p>进行Delta中性套期保值，Gamma绝对值越大的头寸，风险程度也越高，因为进行中性对冲需要调整的频率高；相反，Gamma绝对值越小的头寸，风险程度越低。对期权的买方来说，风险有限，所以Gamma值越高，Delta越不稳定，对投资者越有利。</p>
-
-<h2 id="omega-omega">Omega(\(\Omega\))</h2>
-
+<h2 id="omegaomega">Omega(\(\Omega\))</h2>
 <p>又称期权价格的无风险利率粘性，表示期权价格变动量和期货价格变动量的比值。</p>
-
 <p>$$
 \Omega = \frac{\frac{dc}{c}}{\frac{dS}{S}}
 $$</p>
-
-<h2 id="rho-rho">Rho(\(\rho\))</h2>
-
+<h2 id="rhorho">Rho(\(\rho\))</h2>
 <p>表示期权价格对无风险利率变化的敏感程度。</p>
-
 <p>$$
 \rho = \frac{dc}{dr}
 $$</p>
-
-<h2 id="theta-theta">Theta(\(\theta\))</h2>
-
+<h2 id="thetatheta">Theta(\(\theta\))</h2>
 <p>表示时间变化对期权价格的影响。衡量期权的时间价值的折损的速度。</p>
-
 <p>$$
 \theta = - \frac{dc}{dT}
 $$</p>
-
 <p><strong>特性</strong>：</p>
-
 <p>Theta为负值，意味着期权的价格随着时间流逝会越来越低，折损的速度则可由Theta来衡量。例如还有60天到期的平价期权的Theta为-0.0002126，这意味着每天期权价值失去0.0002126美元。</p>
-
 <h2 id="vega">Vega</h2>
-
 <p>表示期货价格的波动率变化对期权价格的影响。</p>
-
 <p>$$
 Vega = \frac{dc}{d\sigma}
 $$</p>
-
 <p><strong>特性</strong>：</p>
-
 <p>Vega为正值，意味着期权的价格随着波动率的增加而增加。当期权处于平价状态时，Vega值最大；当期权处于较深的价内或者价外时，Vega值接近于零。（相关：<a href="https://wiki.mbalib.com/wiki/%E4%BB%B7%E5%86%85%E6%9D%83%E8%AF%81">价内权证</a>）</p>
 		</div>
 		
@@ -338,7 +298,6 @@ $$</p>
 <div class="widget-taglist widget">
 	<h4 class="widget__title">Tags</h4>
 	<div class="widget__content">
-		
 		
 			<a class="widget-taglist__link widget__link btn" href="/tags/hive" title=" Hive ">Hive</a>
 		

@@ -7,12 +7,13 @@
 	<title>博客第一步</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="基于Hugo的博客搭建小记">
-	<meta name="generator" content="Hugo 0.52" />
+	<meta name="generator" content="Hugo 0.78.2" />
 	<meta property="og:title" content="博客第一步" />
 <meta property="og:description" content="基于Hugo的博客搭建小记" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://xpgreat.com/post/blog_building/" /><meta property="article:published_time" content="2018-12-03T19:58:50&#43;01:00"/>
-<meta property="article:modified_time" content="2018-12-03T19:58:50&#43;01:00"/>
+<meta property="og:url" content="http://xpgreat.com/post/blog_building/" />
+<meta property="article:published_time" content="2018-12-03T19:58:50+01:00" />
+<meta property="article:modified_time" content="2018-12-03T19:58:50+01:00" />
 
 	
 	<link rel="stylesheet" href="/css/highlight.css">
@@ -93,58 +94,29 @@ if (!doNotTrack) {
 </div>
 		</header><div class="content post__content clearfix">
 			<p><a href="https://gohugo.io/">Hugo</a>是一个用Go编写的静态站点生成器，由于具有丰富的主题资源和惊人的生成速度而备受青睐。博文采用<code>Markdown</code>这一轻量的标记语言编写，速度快，美观。本博客即是基于Hugo搭建，下面讲述一下我的建站历程。</p>
-
 <h2 id="安装hugo">安装Hugo</h2>
-
 <p>如果你是<code>macOS</code>用户，请使用<code>Homebrew</code>快速安装</p>
-
 <pre><code>brew install hugo
-</code></pre>
-
-<p>如果你是<code>Windows</code>用户，请使用<code>Chocolatey</code>或者<code>Scoop</code>快速安装，取决于你使用什么包管理</p>
-
+</code></pre><p>如果你是<code>Windows</code>用户，请使用<code>Chocolatey</code>或者<code>Scoop</code>快速安装，取决于你使用什么包管理</p>
 <pre><code>choco install hugo -confirm
 scoop install hugo
-</code></pre>
-
-<p>如果你是<code>Debian</code>或<code>Ubuntu</code>用户，请使用<code>apt</code>快速安装</p>
-
+</code></pre><p>如果你是<code>Debian</code>或<code>Ubuntu</code>用户，请使用<code>apt</code>快速安装</p>
 <pre><code>sudo apt-get install hugo
-</code></pre>
-
-<p>基本上使用单行命令都可以成功安装Hugo，具体请移步<a href="https://gohugo.io/getting-started/installing">这里</a>。</p>
-
+</code></pre><p>基本上使用单行命令都可以成功安装Hugo，具体请移步<a href="https://gohugo.io/getting-started/installing">这里</a>。</p>
 <h2 id="生成第一篇文章">生成第一篇文章</h2>
-
 <p>使用如下命令新建一个名为“mysite”的网站：</p>
-
 <pre><code>hugo new site mysite
-</code></pre>
-
-<p>接下来，在<a href="https://themes.gohugo.io/">这里</a>找到一个漂亮的网站主题。主题极其之多，找到一个满意的并不难。本博客采用的是<a href="https://github.com/Vimux/Mainroad/">Mainroad</a>主题。如果对主题的配色之类的不满意，可以通过修改<code>style.css</code>这一文件来达到想要的效果。</p>
-
+</code></pre><p>接下来，在<a href="https://themes.gohugo.io/">这里</a>找到一个漂亮的网站主题。主题极其之多，找到一个满意的并不难。本博客采用的是<a href="https://github.com/Vimux/Mainroad/">Mainroad</a>主题。如果对主题的配色之类的不满意，可以通过修改<code>style.css</code>这一文件来达到想要的效果。</p>
 <p>以Mainroad为例，将主题<code>clone</code>到本地的<code>themes</code>文件夹内：</p>
-
 <pre><code>cd themes
 git clone https://github.com/Vimux/Mainroad.git
-</code></pre>
-
-<p><code>mysite/content</code>是用来存放文档的地方，我们在其下建立一个新的<code>Markdown</code>文件：</p>
-
+</code></pre><p><code>mysite/content</code>是用来存放文档的地方，我们在其下建立一个新的<code>Markdown</code>文件：</p>
 <pre><code>hugo new post/first.md
-</code></pre>
-
-<p>在<code>first.md</code>中写入一些内容，使用如下命令进行本地预览：</p>
-
+</code></pre><p>在<code>first.md</code>中写入一些内容，使用如下命令进行本地预览：</p>
 <pre><code>hugo server -t mainroad -D
-</code></pre>
-
-<p>打开网址 <a href="http://localhost:1313/">http://localhost:1313/</a> 即可查看本地生成的静态网站。</p>
-
+</code></pre><p>打开网址 <a href="http://localhost:1313/">http://localhost:1313/</a> 即可查看本地生成的静态网站。</p>
 <h2 id="适配主题">适配主题</h2>
-
 <p>Hugo的每个主题都会有不同的参数配置，而这些配置被存放在根目录下的<code>config.toml</code>文件中，以Mainroad为例，<a href="https://github.com/Vimux/Mainroad/">官方的GitHub</a>里已经做了说明：</p>
-
 <pre><code>baseurl = &quot;/&quot;
 title = &quot;Mainroad&quot;
 languageCode = &quot;en-us&quot;
@@ -199,10 +171,7 @@ googleAnalytics = &quot;&quot; # Enable Google Analytics by entering your tracki
   bitbucket = &quot;username&quot;
   email = &quot;example@example.com&quot;
   google_plus = &quot;profileid&quot;
-</code></pre>
-
-<p>在每一篇博文前也有一个<code>Header</code>，官方提供的样例为：</p>
-
+</code></pre><p>在每一篇博文前也有一个<code>Header</code>，官方提供的样例为：</p>
 <pre><code>---
 title: &quot;Example article title&quot;
 date: &quot;2017-08-21&quot;
@@ -221,31 +190,19 @@ tags:
   - &quot;Another test&quot;
 menu: main # Optional, add page to a menu. Options: main, side, footer
 ---
-</code></pre>
-
-<p>可以把<code>Header</code>的内容复制到<code>mysite//archetypes/default.md</code>中，这样新建新文档的时候才会适应你的主题的结构。如果在写草稿，为了不让它在博客里显示，需要在<code>Header</code>里加入：</p>
-
+</code></pre><p>可以把<code>Header</code>的内容复制到<code>mysite//archetypes/default.md</code>中，这样新建新文档的时候才会适应你的主题的结构。如果在写草稿，为了不让它在博客里显示，需要在<code>Header</code>里加入：</p>
 <pre><code>draft: true
-</code></pre>
-
-<h2 id="发布网站到github-pages">发布网站到GitHub Pages</h2>
-
+</code></pre><h2 id="发布网站到github-pages">发布网站到GitHub Pages</h2>
 <p>在使用<code>hugo server -D</code>预览网站无误后可正式发布网站到域名供大家浏览。将要发布的文章内<code>draft</code>改为<code>false</code>后执行命令</p>
-
 <pre><code>hugo
-</code></pre>
-
-<p>可看到根目录下多出<code>/public</code>文件夹出来，该文件夹的内容即Hugo生成的整个静态网站。最终我们需要把这些静态网站的文件部署到一个地方，免费且稳定的GitHub Pages是一个很好的选择。具体操作如下：</p>
-
+</code></pre><p>可看到根目录下多出<code>/public</code>文件夹出来，该文件夹的内容即Hugo生成的整个静态网站。最终我们需要把这些静态网站的文件部署到一个地方，免费且稳定的GitHub Pages是一个很好的选择。具体操作如下：</p>
 <ol>
 <li>在GitHub新建一个Repository命名为Example.github.io，其中Example改成自己的GitHub账户名；</li>
 <li>在/mysite外建立一个平行的文件夹，此处假设也命名为/Example.github.io；</li>
 <li>进入/public文件夹将内容复制到/Example.github.io；</li>
 <li>将/Example.github.io的内容push到远程仓库。</li>
 </ol>
-
 <p>以上命令可在命令行通过以下语句实现：</p>
-
 <pre><code>mkdir Example.github.io
 cd mysite/public
 cp -r . ../../Example.github.io
@@ -255,23 +212,19 @@ git add .
 git commit -m &quot;commit message&quot;
 git remote add origin https://github.com/Example/Example.github.io.git
 git push -u origin master
-</code></pre>
-
-<p>完成以上命令后，等待一分钟左右即可在 <a href="https://Example.github.io/">https://Example.github.io/</a> 访问你的网站。
+</code></pre><p>完成以上命令后，等待一分钟左右即可在 <a href="https://Example.github.io/">https://Example.github.io/</a> 访问你的网站。
 以后每次更新文章后只用将生成的<code>/public</code>文件夹的静态网站内容复制到<code>/Example.github.io</code>，然后再<code>push</code>到远程仓库即可。也可将步骤写为Shell脚本，此处不再赘述。</p>
-
 <h2 id="使用自己的域名">使用自己的域名</h2>
-
 <p>当然，GitHub的域名怎么能满足装*的心理，这时可以将网站设置为自己的域名。购买域名的地方很多，如国外知名网站GoDaddy，简体中文页面、支持支付宝付款、不用备案等都带来了很多方便。关于如何将域名定向到自己的页面，请<a href="https://zhuanlan.zhihu.com/p/34426950">参阅</a></p>
-
 <p>将网页托管到GitHub还有一个好处，可以设置强制https协议，这样你的网站就不会被识别成不安全啦。</p>
-
 <p><strong>Tips</strong>：</p>
-
 <ul>
-<li><p><code>Markdown</code>可以用很多编辑器编辑，我使用的是<a href="https://www.sublimetext.com/">Sublime Text</a>，十分好用。</p></li>
-
-<li><p>如果嫌打开Bash麻烦可以把命令写成<code>.sh</code>或<code>.bat</code>文件方便操作。</p></li>
+<li>
+<p><code>Markdown</code>可以用很多编辑器编辑，我使用的是<a href="https://www.sublimetext.com/">Sublime Text</a>，十分好用。</p>
+</li>
+<li>
+<p>如果嫌打开Bash麻烦可以把命令写成<code>.sh</code>或<code>.bat</code>文件方便操作。</p>
+</li>
 </ul>
 		</div>
 		
@@ -381,7 +334,6 @@ git push -u origin master
 <div class="widget-taglist widget">
 	<h4 class="widget__title">Tags</h4>
 	<div class="widget__content">
-		
 		
 			<a class="widget-taglist__link widget__link btn" href="/tags/hive" title=" Hive ">Hive</a>
 		

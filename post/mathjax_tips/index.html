@@ -7,12 +7,13 @@
 	<title>使用MathJax时的注意事项</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="">
-	<meta name="generator" content="Hugo 0.52" />
+	<meta name="generator" content="Hugo 0.78.2" />
 	<meta property="og:title" content="使用MathJax时的注意事项" />
 <meta property="og:description" content="记录一些在使用MathJax写公式时踩过的坑，持续更新。本来放在另一篇里的，内容越来越多，单独成篇。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://xpgreat.com/post/mathjax_tips/" /><meta property="article:published_time" content="2019-01-17T17:28:35&#43;01:00"/>
-<meta property="article:modified_time" content="2019-01-17T17:28:35&#43;01:00"/>
+<meta property="og:url" content="http://xpgreat.com/post/mathjax_tips/" />
+<meta property="article:published_time" content="2019-01-17T17:28:35+01:00" />
+<meta property="article:modified_time" content="2019-01-17T17:28:35+01:00" />
 
 	
 	<link rel="stylesheet" href="/css/highlight.css">
@@ -92,44 +93,28 @@ if (!doNotTrack) {
 </div>
 		</header><div class="content post__content clearfix">
 			<p>记录一些在使用MathJax写公式时踩过的坑，持续更新。本来放在另一篇里的，内容越来越多，单独成篇。</p>
-
 <h2 id="用-无法输入行内公式">用$ $无法输入行内公式</h2>
-
 <p>MathJax默认禁用了这种方式，你可以使用<code>\\( 你的公式 \\)</code>的方法，也可以参考它的<a href="https://github.com/mathjax/MathJax/blob/master/config/default.js">default.js</a>自行配置（在295行）。行间公式默认可以用<code>\\[ 你的公式 \\]</code>或者传统的TeX写法<code>$$ 你的公式 $$</code>。</p>
-
 <h2 id="输入下标出错">输入下标出错</h2>
-
 <p><code>x_{abc}</code>这样使用的时候会莫名其妙的报错，试了一下把<code>_</code>转义：<code>x\_{abc}</code>，就能用了。</p>
-
 <h2 id="公式不能换行">公式不能换行</h2>
-
-<p>因为md解析的时候把<code>\\</code>解析成了一个<code>\</code>，解决方法是用四根<code>\\\\</code>换行（最后要加一个半角空格）。（<del>也是醉了</del>）</p>
-
+<p>因为md解析的时候把<code>\\</code>解析成了一个<code>\</code>，解决方法是用四根<code>\\\\ </code>换行（最后要加一个半角空格）。（<del>也是醉了</del>）</p>
 <h2 id="公式对齐">公式对齐</h2>
-
 <p>直接上代码：</p>
-
 <pre><code>\begin{aligned}
 &amp;\nabla_{\mathbf x}A\mathbf x = A \\\\ 
 &amp;\frac{\partial \mathbf x^T \mathbf a}{\partial \mathbf x} = \frac{\partial \mathbf a^T \mathbf x}{\partial \mathbf x} = \mathbf a \\\\ 
 \end{aligned}
-</code></pre>
-
-<p>效果：
+</code></pre><p>效果：
 $$
 \begin{aligned}
 &amp;\nabla_{\mathbf x}A\mathbf x = A \\
 &amp;\frac{\partial \mathbf x^T \mathbf a}{\partial \mathbf x} = \frac{\partial \mathbf a^T \mathbf x}{\partial \mathbf x} = \mathbf a \\
 \end{aligned}
 $$</p>
-
-<h2 id="自定义运算名-比如argmax">自定义运算名，比如argmax</h2>
-
+<h2 id="自定义运算名比如argmax">自定义运算名，比如argmax</h2>
 <pre><code>\\underset{\mathbf w}{\operatorname{argmax}} \frac{\mathbf w^TS_B\mathbf w}{\mathbf w^TS_B\mathbf w} 
-</code></pre>
-
-<p>效果：</p>
-
+</code></pre><p>效果：</p>
 <p>$$
 \underset{\mathbf w}{\operatorname{argmax}} \frac{\mathbf w^TS_B\mathbf w}{\mathbf w^TS_B\mathbf w}
 $$</p>
@@ -241,7 +226,6 @@ $$</p>
 <div class="widget-taglist widget">
 	<h4 class="widget__title">Tags</h4>
 	<div class="widget__content">
-		
 		
 			<a class="widget-taglist__link widget__link btn" href="/tags/hive" title=" Hive ">Hive</a>
 		

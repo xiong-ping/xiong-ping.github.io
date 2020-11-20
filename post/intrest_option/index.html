@@ -7,12 +7,13 @@
 	<title>利率期权</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="">
-	<meta name="generator" content="Hugo 0.52" />
+	<meta name="generator" content="Hugo 0.78.2" />
 	<meta property="og:title" content="利率期权" />
 <meta property="og:description" content="利率期权(interest-rate option)是一项关于利率变化的权利。买方支付一定金额的期权费后，就可以获得这项权利：在到期日按预先约定的利率，按一定的期限借入或贷出一定金额的货币。这样当市场利率向不利方向变化时，买方可固定其利率水平；当市场利率向有利方向变化时，买方可获得利率变化的好处。利率期权的卖方向买方收取期权费，同时承担相应的责任。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://xpgreat.com/post/intrest_option/" /><meta property="article:published_time" content="2018-12-25T11:02:13&#43;01:00"/>
-<meta property="article:modified_time" content="2018-12-25T11:02:13&#43;01:00"/>
+<meta property="og:url" content="http://xpgreat.com/post/intrest_option/" />
+<meta property="article:published_time" content="2018-12-25T11:02:13+01:00" />
+<meta property="article:modified_time" content="2018-12-25T11:02:13+01:00" />
 
 	
 	<link rel="stylesheet" href="/css/highlight.css">
@@ -92,31 +93,18 @@ if (!doNotTrack) {
 </div>
 		</header><div class="content post__content clearfix">
 			<p>利率期权(interest-rate option)是一项关于利率变化的权利。买方支付一定金额的期权费后，就可以获得这项权利：在到期日按预先约定的利率，按一定的期限借入或贷出一定金额的货币。这样当市场利率向不利方向变化时，买方可固定其利率水平；当市场利率向有利方向变化时，买方可获得利率变化的好处。利率期权的卖方向买方收取期权费，同时承担相应的责任。</p>
-
-<h2 id="put-call">put &amp; call</h2>
-
+<h2 id="put--call">put &amp; call</h2>
 <p><strong>put</strong>：约定在到期日买方有按预定利率贷出一定金额的货币的权利，如果到期日利率下跌，买方可以获得到期日利率和预定利率之间的差值作为获利；如果到期日利率上涨，高于预定利率，这时行权则不值得，不会行权。</p>
-
 <p><strong>call</strong>：约定在到期日买方有按预定利率借入一定金额的货币的权利，如果到期日利率上涨，买方可以获得到期日利率和预定利率之间的差值作为获利；如果到期日利率下跌，低于预定利率，这时行权则不值得，不会行权。</p>
-
-<h2 id="利率封顶-interest-rate-cap">利率封顶（Interest Rate Cap）</h2>
-
+<h2 id="利率封顶interest-rate-cap">利率封顶（Interest Rate Cap）</h2>
 <p>又称利率上限。客户同银行达成一项协议，指定某一种市场参考利率，同时确定一个利率上限水平。在此基础之上，利率封顶的卖出方向买入方承诺：在规定的期限内，如果市场参考利率（一般参考LIBOR(伦敦同业拆借利率),美国的联邦基金利率(Federal Funds Rate)）高于协定的利率上限水平，卖方向买方支付市场利率高于利率上限的差额部分；如果市场参考利率低于或等于协定的利率上限水平，则卖方无任何支付义务。买方由于获得了上述权利，必须向卖方支付一定数额的期权费。</p>
-
 <p>例子：发行一份浮动利率票据（Floating Rate Note, FRN），购入一份利率call。到期时市场参考利率如果低于预定利率，call不执行，利率是浮动的；如果市场参考利率高于预定利率，执行call，call的获利与市场参考利率上升的部分对冲，以达到将利率封顶的目的。</p>
-
 <p>可以用于控制利率上升的风险，比如某公司现有金额为美元1000万，期限6个月，以LIBOR计息的浮动债务，公司既希望在市场利率降低时能享有低利率的好处，又想避免市场利率上涨时利息成本增加的风险。这时，公司支付一定的期权费，向银行买入6个月，协定利率为5%的利率封顶。6个月后，如果LIBOR上升为6%（利率大于等于5%），公司选择行使该期权，即银行向公司支付市场利率和协议利率的差价（6%-5%=1%），公司有效地固定了其债务利息；如果LIBOR利率低于5%，公司可选择不实施该权利，而以较低的市场利率支付债务利息。这样，对于买方，有效地控制了利率上升的风险，而卖方则收取一笔期权费。</p>
-
 <p>利率封顶的期权费与利率上限水平和协议期限有关。相对而言，利率上限水平越高，期权费率越低；期限越短，期权费率也越低。</p>
-
 <h2 id="利率封底-interest-rate-floor">利率封底 （Interest Rate Floor）</h2>
-
 <p>又称利率下限，与利率封顶相反，利率封底是客户与银行达成一项协议，指定某一种市场参考利率，同时确定一个利率下限水平。在此基础之上，利率封底的卖出方向买入方承诺：在规定的期限内，如果市场参考利率低于协定的利率下限水平，卖方向买方支付市场利率低于利率下限的差额部分；如果市场参考利率高于或等于协定的利率下限水平，则卖方无任何支付义务。买方由于获得了上述权利，必须向卖方支付一定数额的期权手续费。</p>
-
 <p>例子：购入一份浮动利率票据，购入一份利率put。到期时市场参考利率如果高于预定利率，put不执行，利率是浮动的；如果市场参考利率低于预定利率，执行put，put的获利与市场参考利率低于预期的部分对冲，以达到将利率封底的目的。</p>
-
-<h2 id="利率两头封-interest-rate-collar">利率两头封（Interest Rate Collar）</h2>
-
+<h2 id="利率两头封interest-rate-collar">利率两头封（Interest Rate Collar）</h2>
 <p>又称利率上下限，是将利率封顶和利率封底两种金融工具合成的产品。具体地说，购买一项利率两头封，就是在买进一项Cap的同时，卖出一项Floor，以收入的期权费来部分抵销需要支出的期权费，达到既规避利率风险又降低费用成本的目的（自筹资金，self-financing）。卖出一项利率两头封，则是指在卖出一项Cap的同时，买入一项Floor。若Cap和Floor的预定利率相同，可以完全消除市场利率变化的影响，然而也没有获利空间，所以没有意义。Cap和Floor的预定利率不同时，可以在一定范围内从市场利率的浮动获利。当借款人预计市场利率会上涨时，可以考虑购买一项利率两头封。</p>
 		</div>
 		
@@ -227,7 +215,6 @@ if (!doNotTrack) {
 <div class="widget-taglist widget">
 	<h4 class="widget__title">Tags</h4>
 	<div class="widget__content">
-		
 		
 			<a class="widget-taglist__link widget__link btn" href="/tags/hive" title=" Hive ">Hive</a>
 		

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hive on XP&#39;s Blog</title>
@@ -6,11 +6,7 @@
     <description>Recent content in Hive on XP&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 29 Oct 2020 11:01:26 +0800</lastBuildDate>
-    
-	<atom:link href="http://xpgreat.com/tags/hive/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 29 Oct 2020 11:01:26 +0800</lastBuildDate><atom:link href="http://xpgreat.com/tags/hive/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hive窗口函数总结</title>
       <link>http://xpgreat.com/post/hive_windowfunc/</link>
