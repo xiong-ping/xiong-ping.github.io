@@ -12,19 +12,20 @@
         <pubDate>Thu, 19 Nov 2020 15:14:26 +0800</pubDate>
         
         <guid>http://xpgreat.com/p/%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BBexploring-text-datasets-by-visualizing-relevant-words/</guid>
-        <description>&lt;p&gt;在做机器学习使用新数据集时，我们首先要知道它的特点，一个可以快速可靠地深入了解所选文档的内容，并区分它们类别的工具十分重要。 在这篇论文，作者从文本集合中提取“相关词”，以概括属于某个类别（或在unlabeled数据集下为聚类的组）的文档的内容，并在词云中可视化它们。 作者比较了三种提取相关单词的方法，并使用两个数据集验证了模型的可用性。论文链接：https://arxiv.org/pdf/1707.05261.pdf，论文代码：https://github.com/cod3licious/textcatvis&lt;/p&gt;
+        <description>&lt;p&gt;在做机器学习使用新数据集时，我们首先要知道它的特点，一个可以快速可靠地深入了解所选文档的内容，并区分它们类别的工具十分重要。 在这篇论文，作者从文本集合中提取“相关词”，以概括属于某个类别（或在unlabeled数据集下为聚类的组）的文档的内容，并在词云中可视化它们。 作者比较了三种提取相关单词的方法，并使用两个数据集验证了模型的可用性。&lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/pdf/1707.05261.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;论文链接&lt;/a&gt;，&lt;a class=&#34;link&#34; href=&#34;https://github.com/cod3licious/textcatvis&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;论文代码&lt;/a&gt;。&lt;/p&gt;
 &lt;h2 id=&#34;目标&#34;&gt;目标&lt;/h2&gt;
 &lt;p&gt;提供一个文件数据集，输出一组词云，展示最能够区分每个文件类别的词。这里的数据集可以是标注的或是未标注的，对未标注的数据集作者先进行了聚类。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;http://xpgreat.com/media/image-20201119154330899.png&#34; alt=&#34;image-20201119154330899&#34;  /&gt;&lt;/p&gt;
 &lt;p&gt;上图是作者论文中的图片，五个词云分别表示最能代表论文五个部分（Abstract, Introduction, Methods, Results, Discussion，即文件类别）的词。&lt;/p&gt;
 &lt;h2 id=&#34;方法&#34;&gt;方法&lt;/h2&gt;
 &lt;h3 id=&#34;数据预处理和特征提取&#34;&gt;数据预处理和特征提取&lt;/h3&gt;
-&lt;p&gt;首先对所有文件进行1.小写化 2. 删除非字母数字的字符。然后逐段用tfidf转换为bag-of-words（BOW）特征向量\(\mathbf x_k \in \mathbf R^T \forall k \in {1,\dots,N}\)，其中\(k\)是文件编号，\(T\)是该文件包含的词汇数（vocabulary，即去重词数），\(N\)是文件数。表示文件\(k\)的特征向量里对应单词\(t_i\)的值\(\mathbf x_{ki} = tf(t_i) idf(t_i)\)。&lt;/p&gt;
+&lt;p&gt;首先对所有文件进行1.小写化 2. 删除非字母数字的字符。然后逐段用tfidf转换为bag-of-words（BOW）特征向量\(\mathbf x_k \in \mathbf R^T \forall k \in \{1,\dots,N\}\)，其中\(k\)是文件编号，\(T\)是该文件包含的词汇数（vocabulary，即去重词数），\(N\)是文件数。表示文件\(k\)的特征向量里对应单词\(t_i\)的值\(\mathbf x_{ki} = tf(t_i) idf(t_i)\)。&lt;/p&gt;
 &lt;h4 id=&#34;tf-idf&#34;&gt;TF-IDF&lt;/h4&gt;
 &lt;p&gt;Term Frequency-Inverse Document Frequency，词频-逆文件频率，是一种用于资讯检索与资讯探勘的常用加权技术。TF-IDF是一种统计方法，用以评估一单词对于一个文件集或一个语料库中的其中一份文件的重要程度。字词的重要性随着它在文件中出现的次数成正比增加，但同时会随着它在语料库中出现的频率成反比下降。即&lt;strong&gt;一个词语在一篇文件中出现次数越多, 同时在所有文档中出现次数越少, 越能够代表该文件&lt;/strong&gt;。一般做归一化处理，公式如下：&lt;/p&gt;
 &lt;p&gt;$$
-tf(t_i)=\frac{在某一文件中词t_i出现的次数}{该文件中所有的词数目} \&lt;br&gt;
-idf(t_i)=\log(\frac{数据集的文件总数}{包含词t_i的文件数})=\log\frac{|N|}{|{k\in N:t_i\in k}|}
+tf(t_i)=\frac{在某一文件中词t_i出现的次数}{该文件中所有的词数目} \\ \ \\ idf(t_i)=\log(\frac{数据集的文件总数}{包含词t_i的文件数})=\log\frac{|N|}{|\{k\in N:t_i\in k\}|}
 $$&lt;/p&gt;
 &lt;p&gt;有时为了保证\(idf\)分母不为零，可以在分母上加一。&lt;/p&gt;
 &lt;h3 id=&#34;未标注数据集聚类&#34;&gt;未标注数据集聚类&lt;/h3&gt;
@@ -63,20 +64,18 @@ $$&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;http://xpgreat.com/media/image-20201119213025858.png&#34; alt=&#34;image-20201119213025858&#34;  /&gt;&lt;/p&gt;
 &lt;p&gt;SVM有一个重要性质：&lt;strong&gt;训练完成后，大部分的训练样本都不需要保留，最终模型仅与支持向量有关。&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;算法如下：&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;输入&lt;/strong&gt;：训练数据集 \(T={(\mathbf x_1,y_1),(\mathbf x_2,y_2),\dots,(\mathbf x_n,y_n)}\)其中，\(\mathbf x_i \in \mathbf R^n, y_i \in {1,-1},i = 1,2,\dots,n\)；&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;输入&lt;/strong&gt;：训练数据集 \(T=\{(\mathbf x_1,y_1),(\mathbf x_2,y_2),\dots,(\mathbf x_n,y_n)\}\)其中，\(\mathbf x_i \in \mathbf R^n, y_i \in \{1,-1\},i = 1,2,\dots,n\)；&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;输出&lt;/strong&gt;：分离超平面和分类决策函数&lt;/p&gt;
 &lt;p&gt;（1）选择惩罚参数\(C &amp;gt; 0\) ，构造并求解凸二次规划问题&lt;/p&gt;
 &lt;p&gt;$$
-\min_\alpha \frac{1}{2}\sum_{i=1}^N\sum_{j=1}^N\alpha_i\alpha_jy_iy_j(\mathbf x_i\mathbf x_j) - \sum_{i=1}^N\alpha_i\&lt;br&gt;
-s.t.\ \sum_{i=1}^N\alpha_iy_i=0\&lt;br&gt;
-0\le \alpha_i\le C, i=1,2,\dots,N
+\min_\alpha \frac{1}{2}\sum_{i=1}^N\sum_{j=1}^N\alpha_i\alpha_jy_iy_j(\mathbf x_i\mathbf x_j) - \sum_{i=1}^N\alpha_i\\ s.t.\ \sum_{i=1}^N\alpha_iy_i=0\\0\le \alpha_i\le C, i=1,2,\dots,N
 $$&lt;/p&gt;
-&lt;p&gt;得到最优解\(\mathbf\alpha^&lt;em&gt;=(\alpha_1^&lt;/em&gt;,\alpha_2^&lt;em&gt;,\dots,\alpha_N^&lt;/em&gt;)^T\)&lt;/p&gt;
+&lt;p&gt;得到最优解\(\mathbf\alpha^*=(\alpha_1^*,\alpha_2^*,\dots,\alpha_N^*)^T\)&lt;/p&gt;
 &lt;p&gt;（2）计算&lt;/p&gt;
 &lt;p&gt;$$
 \mathbf {\omega} ^* = \sum_{i=1}^N\alpha_i^*y_i\mathbf x_i
 $$&lt;/p&gt;
-&lt;p&gt;选择\(\mathbf \alpha^&lt;em&gt;\)的一个分量\(\mathbf \alpha_j^&lt;/em&gt;\)满足条件\(0&amp;lt;\mathbf \alpha_j^* &amp;lt; C\)，计算&lt;/p&gt;
+&lt;p&gt;选择\(\mathbf \alpha^*\)的一个分量\(\mathbf \alpha_j^*\)满足条件\(0&amp;lt;\mathbf \alpha_j^* &amp;lt; C\)，计算&lt;/p&gt;
 &lt;p&gt;$$
 b^* = y_j - \sum_{i=1}^N\alpha_i^*y_i(\mathbf x_i\mathbf x_j)
 $$&lt;/p&gt;
@@ -86,26 +85,24 @@ $$&lt;/p&gt;
 $$&lt;/p&gt;
 &lt;p&gt;分类决策函数：&lt;/p&gt;
 &lt;p&gt;$$
-f(\mathbf x) = sign(\mathbf\omega^&lt;em&gt;\mathbf x +b^&lt;/em&gt;)
+f(\mathbf x) = sign(\mathbf\omega^*\mathbf x +b^*)
 $$&lt;/p&gt;
 &lt;h4 id=&#34;词-文件数量法distinctive-words&#34;&gt;词-文件数量法（Distinctive words）&lt;/h4&gt;
 &lt;p&gt;作者引入了两个概念：TPR（True Positive Rate，真阳性率）和FPR（假阳性率）。定义分别为&lt;/p&gt;
 &lt;p&gt;$$
-TPR_c(t_i) = \frac{类别为c且t_i的tfidf值大于0的文件数}{类别为c的文件数}=\frac {|{k:y_k=c\ \and \ \mathbf x_{ki} &amp;gt; 0}|}{|{k:y_k=c}|}\&lt;br&gt;
-FPR_c(t_i) = mean({TPR_l(t_i):l\ne c})+std({TPR_l(t_i):l\ne c})
+TPR_c(t_i) = \frac{类别为c且t_i的tfidf值大于0的文件数}{类别为c的文件数} = \frac {|\{k:y_k=c\ \land \ \mathbf x_{ki} &amp;gt; 0\}|}{|\{k:y_k=c\}|} \\ FPR_c(t_i) = mean(\{TPR_l(t_i):l\ne c\})+std(\{TPR_l(t_i):l\ne c\})
 $$&lt;/p&gt;
 &lt;p&gt;最终目的是找出在目标类中出现频繁（TPR高），且在非目标类中出现不频繁（FPR低）的词，需要一个度量这一性质的函数。一种直接的方法是直接算差值：&lt;/p&gt;
 &lt;p&gt;$$
-r_c_diff(t_i) = \max {TPR_c(t_i)-FPR_c(t_i),0}
+r_c\_diff(t_i) = \max \ \{TPR_c(t_i)-FPR_c(t_i),0\}
 $$&lt;/p&gt;
 &lt;p&gt;这种方法存在一个问题，即只考虑了两个率的绝对差值，未考虑相对差，即如果1. TPR=0.9，FPR=0.8；2. TPR=0.2，FPR=0.1，这种量度会认为他们一样重要，但显然前者对于后者，TPR和FPR相差过近。因此引入基于除法的算法：&lt;/p&gt;
 &lt;p&gt;$$
-r_c_quot(t_i) = \frac{\min{\max{z_c(t_i),1},4} -1}{3} \&lt;br&gt;
-where\ z_c(t_i) = \frac{TPR_c(t_i)}{\max{FPR_c(t_i),\epsilon}}, \epsilon是一个极小值，用来避免除数为零
+r_c\_quot(t_i) = \frac{\min\{\max\{z_c(t_i),1\},4\} -1}{3} \\ where\ z_c(t_i) = \frac{TPR_c(t_i)}{\max\{FPR_c(t_i),\epsilon\}}, \epsilon是一个极小值，用来避免除数为零
 $$&lt;/p&gt;
 &lt;p&gt;综合二者，得到既考虑相对又考虑绝对差异的度量：&lt;/p&gt;
 &lt;p&gt;$$
-r_c_dist(t_i) = 0.5(r_c_diff(t_i)+r_c_quot(t_i))
+r_c\_dist(t_i) = 0.5(r_c\_diff(t_i)+r_c\_quot(t_i))
 $$&lt;/p&gt;
 &lt;p&gt;rc-TPR-FPR关系图：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;http://xpgreat.com/media/image-20201119232608223.png&#34; alt=&#34;image-20201119232608223&#34;  /&gt;&lt;/p&gt;
