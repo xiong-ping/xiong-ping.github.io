@@ -135,7 +135,7 @@ $$</p>
 <p>在优化分类器时，作者选择了SVM，并提出，也可以用其他的线性分类器比如逻辑回归，甚至DNN。作者强调，只有在分类器精确度相当高的时候，这个方法找出来的相关词汇才有意义，所以分类器的精确度比简便更加重要。</p>
 <h5 id="layerwise-relevance-propagationlrp">Layerwise relevance propagation（LRP）</h5>
 <p>是一个计算相关性，并将相关性逐层向后传播的过程。首先将网络模型看成一个拓扑图结构，在计算一个节点 a 和输入的节点之间的相关性时，将 a 点的数值作为相关性，并且计算与 a 点相连的上一层节点在生成 a 点时所占的权重，将 a 的相关性逐层向后传播，直到输入层。作者用下图的例子告诉了我们：</p>
-<p><!-- raw HTML omitted --></p>
+<p><img src="/media/image-20201119212624565.png" alt="image-20201119212624565"></p>
 <p>如果要计算 \(v_1\) 和 \(u_1\) 之间的相关性，首先计算 \(v_1\)和 \(z_1\), \(z_2\) 之间的相关性，再将 \(v_1\) 和\(z_1\), \(z_2\) 的相关性传递到 \(u_1\), 从而求得 \(v_1\) 和 \(u_1\) 之间的相关性。</p>
 <h5 id="support-vector-machine-svm支持向量机">Support vector machine （SVM，支持向量机）</h5>
 <p>是一种二分类模型，它的基本模型是定义在特征空间上的<strong>间隔最大</strong>的<strong>线性分类器</strong>，间隔最大使它有别于感知机；SVM还包括<strong>核技巧</strong>，这使它成为实质上的非线性分类器。SVM的的学习策略就是间隔最大化，可形式化为一个求解凸二次规划的问题，也等价于正则化的合页损失函数的最小化问题。SVM的的学习算法就是求解凸二次规划的最优化算法。</p>
@@ -188,7 +188,7 @@ $$</p>
 r_c_dist(t_i) = 0.5(r_c_diff(t_i)+r_c_quot(t_i))
 $$</p>
 <p>rc-TPR-FPR关系图：</p>
-<p><!-- raw HTML omitted --></p>
+<p><img src="/media/image-20201119232608223.png" alt="image-20201119232608223"></p>
 <h2 id="结论">结论</h2>
 <p>作者用scientific publications（标记的，主题、格式分类）和New York Times article（未标记的，寻找热度主题）两个数据集验证了算法的可行性。该方法快速且可靠，更重要的是，即使许多cluster仅包含很少的样本，也有可能可以识别出relevant words，而用分类算法很难达到这个效果。</p>
 <h2 id="参考">参考</h2>
