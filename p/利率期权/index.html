@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='利率期权(interest-rate option)是一项关于利率变化的权利。买方支付一定金额的期权费后，就可以获得这项权利：在到期日按预先约定的利率，按一定的期限借入或贷出一定金额的货币。这样当市场利率向不利方向变化时，买方可固定其利率水平；当市场利率向有利方向变化时，买方可获得利率变化的好处。利率期权的卖方向买方收取期权费，同时承担相应的责任。
+'><title>利率期权</title>
+
+<link rel='canonical' href='http://xpgreat.com/p/%E5%88%A9%E7%8E%87%E6%9C%9F%E6%9D%83/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='利率期权'>
+<meta property='og:description' content='利率期权(interest-rate option)是一项关于利率变化的权利。买方支付一定金额的期权费后，就可以获得这项权利：在到期日按预先约定的利率，按一定的期限借入或贷出一定金额的货币。这样当市场利率向不利方向变化时，买方可固定其利率水平；当市场利率向有利方向变化时，买方可获得利率变化的好处。利率期权的卖方向买方收取期权费，同时承担相应的责任。
+'>
+<meta property='og:url' content='http://xpgreat.com/p/%E5%88%A9%E7%8E%87%E6%9C%9F%E6%9D%83/'>
+<meta property='og:site_name' content='XP&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='风险管理' /><meta property='article:tag' content='期权' /><meta property='article:published_time' content='2018-12-25T11:02:13&#43;01:00'/><meta property='article:modified_time' content='2018-12-25T11:02:13&#43;01:00'/>
+<meta name="twitter:title" content="利率期权">
+<meta name="twitter:description" content="利率期权(interest-rate option)是一项关于利率变化的权利。买方支付一定金额的期权费后，就可以获得这项权利：在到期日按预先约定的利率，按一定的期限借入或贷出一定金额的货币。这样当市场利率向不利方向变化时，买方可固定其利率水平；当市场利率向有利方向变化时，买方可获得利率变化的好处。利率期权的卖方向买方收取期权费，同时承担相应的责任。
+">
+    </head>
+    <body class="">
+        <div class="container flex on-phone--column align-items--flex-start extended article-page with-toolbar">
+            <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            <figure class="site-avatar">
+                
+
+                
+                    
+                    <img src="/img/head_hu7a5a8ce21e62abecbc7926aff8bd098a_4354_300x300_resize_q75_box.jpg" width="300"
+                        height="300" class="site-logo" loading="lazy" alt="Avatar">
+                
+
+                <span class="emoji">✈</span>
+            </figure>
+        
+        <h1 class="site-name"><a href="http://xpgreat.com/">XP&#39;s Blog</a></h1>
+        <h2 class="site-description">积跬步 以至千里</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="https://util.xpgreat.com">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z"></path>
+                      <line x1="10" y1="18" x2="23" y2="5"></line>
+                      <line x1="10" y1="18" x2="3" y2="9"></line>
+                    </svg>
+                <span>Utils</span>
+            </a>
+        </li>
+    </ol>
+</aside>
+            <main class="main full-width">
+    <div id="article-toolbar">
+        <a href="http://xpgreat.com/" class="back-home">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+            <span>Back</span>
+        </a>
+    </div>
+
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            
+                <a href="/categories/%E9%87%91%E8%9E%8D/">金融</a>
+            
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/p/%E5%88%A9%E7%8E%87%E6%9C%9F%E6%9D%83/">利率期权</a>
+    </h2>
+
+    <footer class="article-time">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <time class="article-time--published">Dec 25, 2018</time>
+    </footer></div>
+</header>
+
+    <section class="article-content">
+    <p>利率期权(interest-rate option)是一项关于利率变化的权利。买方支付一定金额的期权费后，就可以获得这项权利：在到期日按预先约定的利率，按一定的期限借入或贷出一定金额的货币。这样当市场利率向不利方向变化时，买方可固定其利率水平；当市场利率向有利方向变化时，买方可获得利率变化的好处。利率期权的卖方向买方收取期权费，同时承担相应的责任。</p>
+<h2 id="put--call">put &amp; call</h2>
+<p><strong>put</strong>：约定在到期日买方有按预定利率贷出一定金额的货币的权利，如果到期日利率下跌，买方可以获得到期日利率和预定利率之间的差值作为获利；如果到期日利率上涨，高于预定利率，这时行权则不值得，不会行权。</p>
+<p><strong>call</strong>：约定在到期日买方有按预定利率借入一定金额的货币的权利，如果到期日利率上涨，买方可以获得到期日利率和预定利率之间的差值作为获利；如果到期日利率下跌，低于预定利率，这时行权则不值得，不会行权。</p>
+<h2 id="利率封顶interest-rate-cap">利率封顶（Interest Rate Cap）</h2>
+<p>又称利率上限。客户同银行达成一项协议，指定某一种市场参考利率，同时确定一个利率上限水平。在此基础之上，利率封顶的卖出方向买入方承诺：在规定的期限内，如果市场参考利率（一般参考LIBOR(伦敦同业拆借利率),美国的联邦基金利率(Federal Funds Rate)）高于协定的利率上限水平，卖方向买方支付市场利率高于利率上限的差额部分；如果市场参考利率低于或等于协定的利率上限水平，则卖方无任何支付义务。买方由于获得了上述权利，必须向卖方支付一定数额的期权费。</p>
+<p>例子：发行一份浮动利率票据（Floating Rate Note, FRN），购入一份利率call。到期时市场参考利率如果低于预定利率，call不执行，利率是浮动的；如果市场参考利率高于预定利率，执行call，call的获利与市场参考利率上升的部分对冲，以达到将利率封顶的目的。</p>
+<p>可以用于控制利率上升的风险，比如某公司现有金额为美元1000万，期限6个月，以LIBOR计息的浮动债务，公司既希望在市场利率降低时能享有低利率的好处，又想避免市场利率上涨时利息成本增加的风险。这时，公司支付一定的期权费，向银行买入6个月，协定利率为5%的利率封顶。6个月后，如果LIBOR上升为6%（利率大于等于5%），公司选择行使该期权，即银行向公司支付市场利率和协议利率的差价（6%-5%=1%），公司有效地固定了其债务利息；如果LIBOR利率低于5%，公司可选择不实施该权利，而以较低的市场利率支付债务利息。这样，对于买方，有效地控制了利率上升的风险，而卖方则收取一笔期权费。</p>
+<p>利率封顶的期权费与利率上限水平和协议期限有关。相对而言，利率上限水平越高，期权费率越低；期限越短，期权费率也越低。</p>
+<h2 id="利率封底-interest-rate-floor">利率封底 （Interest Rate Floor）</h2>
+<p>又称利率下限，与利率封顶相反，利率封底是客户与银行达成一项协议，指定某一种市场参考利率，同时确定一个利率下限水平。在此基础之上，利率封底的卖出方向买入方承诺：在规定的期限内，如果市场参考利率低于协定的利率下限水平，卖方向买方支付市场利率低于利率下限的差额部分；如果市场参考利率高于或等于协定的利率下限水平，则卖方无任何支付义务。买方由于获得了上述权利，必须向卖方支付一定数额的期权手续费。</p>
+<p>例子：购入一份浮动利率票据，购入一份利率put。到期时市场参考利率如果高于预定利率，put不执行，利率是浮动的；如果市场参考利率低于预定利率，执行put，put的获利与市场参考利率低于预期的部分对冲，以达到将利率封底的目的。</p>
+<h2 id="利率两头封interest-rate-collar">利率两头封（Interest Rate Collar）</h2>
+<p>又称利率上下限，是将利率封顶和利率封底两种金融工具合成的产品。具体地说，购买一项利率两头封，就是在买进一项Cap的同时，卖出一项Floor，以收入的期权费来部分抵销需要支出的期权费，达到既规避利率风险又降低费用成本的目的（自筹资金，self-financing）。卖出一项利率两头封，则是指在卖出一项Cap的同时，买入一项Floor。若Cap和Floor的预定利率相同，可以完全消除市场利率变化的影响，然而也没有获利空间，所以没有意义。Cap和Floor的预定利率不同时，可以在一定范围内从市场利率的浮动获利。当借款人预计市场利率会上涨时，可以考虑购买一项利率两头封。</p>
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%E9%A3%8E%E9%99%A9%E7%AE%A1%E7%90%86/">风险管理</a>
+        
+            <a href="/tags/%E6%9C%9F%E6%9D%83/">期权</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-ND 4.0</span>
+    </section>
+    </footer>
+
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title"></h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="">
+    <a href="/p/%E6%9C%9F%E6%9D%83%E7%9A%84%E9%A3%8E%E9%99%A9%E6%8C%87%E6%A0%87/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">期权的风险指标</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/%E5%B8%83%E8%8E%B1%E5%85%8B-%E8%88%92%E5%B0%94%E6%96%AF%E6%9C%9F%E6%9D%83%E5%AE%9A%E4%BB%B7%E6%A8%A1%E5%9E%8B/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">布莱克-舒尔斯期权定价模型</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/%E5%94%AE%E5%87%BA-%E8%B4%AD%E8%BF%9B%E5%B9%B3%E4%BB%B7%E7%90%86%E8%AE%BA/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">售出-购进平价理论</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/%E6%8A%95%E8%B5%84%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%B5%84%E6%9C%AC%E7%BB%93%E6%9E%84%E6%97%A0%E5%85%B3%E6%80%A7/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">投资对象的资本结构无关性</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">&copy; 2020 XP&#39;s Blog</section>
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="1.1.0">Stack</a></b> designed by
+        <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true" style="display:none">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+            </main>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"
+    integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin="anonymous"></script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<link rel="stylesheet" href="/css/highlight/light.min.css" media="(prefers-color-scheme: light)">
+<link rel="stylesheet" href="/css/highlight/dark.min.css" media="(prefers-color-scheme: dark)">
+
+    </body>
+</html>

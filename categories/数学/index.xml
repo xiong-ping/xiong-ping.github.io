@@ -9,37 +9,19 @@
     <lastBuildDate>Tue, 14 May 2019 10:48:15 +0200</lastBuildDate><atom:link href="http://xpgreat.com/categories/%E6%95%B0%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>递归神经网络</title>
-      <link>http://xpgreat.com/post/rnn_lstm_gru/</link>
+      <link>http://xpgreat.com/p/%E9%80%92%E5%BD%92%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</link>
       <pubDate>Tue, 14 May 2019 10:48:15 +0200</pubDate>
       
-      <guid>http://xpgreat.com/post/rnn_lstm_gru/</guid>
-      <description>&lt;p&gt;递归神经网络是神经网络的一种，与其他神经网络不同点在于，它可以很好地处理序列数据，即前面的数据的输入与后面的输出是有关系的，比如一句话的语义理解。本文介绍了递归神经网络及其两个变种——LSTM和GRU，目的是梳理一下自己所理解的RRN，也希望能够给初次接触RRN的同学一点帮助。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>递归神经网络</title>
-      <link>http://xpgreat.com/rnn_lstm_gru/</link>
-      <pubDate>Tue, 14 May 2019 10:48:15 +0200</pubDate>
-      
-      <guid>http://xpgreat.com/rnn_lstm_gru/</guid>
+      <guid>http://xpgreat.com/p/%E9%80%92%E5%BD%92%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</guid>
       <description>&lt;p&gt;递归神经网络是神经网络的一种，与其他神经网络不同点在于，它可以很好地处理序列数据，即前面的数据的输入与后面的输出是有关系的，比如一句话的语义理解。本文介绍了递归神经网络及其两个变种——LSTM和GRU，目的是梳理一下自己所理解的RRN，也希望能够给初次接触RRN的同学一点帮助。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>机器学习中的矩阵求导</title>
-      <link>http://xpgreat.com/linalg_in_ml/</link>
+      <link>http://xpgreat.com/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E7%9F%A9%E9%98%B5%E6%B1%82%E5%AF%BC/</link>
       <pubDate>Thu, 17 Jan 2019 21:47:14 +0100</pubDate>
       
-      <guid>http://xpgreat.com/linalg_in_ml/</guid>
-      <description>&lt;p&gt;在学习机器学习的算法时，推导过程中往往会涉及矩阵或向量求导以及一些其他的线性代数的知识。比如在推导LDA算法的时候，就是把Fisher&amp;rsquo;s Criterion求导后置零得到的结果。另外在优化的时候经常会使用到梯度下降法，这与矩阵向量求导也是分不开的。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>机器学习中的矩阵求导</title>
-      <link>http://xpgreat.com/post/linalg_in_ml/</link>
-      <pubDate>Thu, 17 Jan 2019 21:47:14 +0100</pubDate>
-      
-      <guid>http://xpgreat.com/post/linalg_in_ml/</guid>
+      <guid>http://xpgreat.com/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E7%9F%A9%E9%98%B5%E6%B1%82%E5%AF%BC/</guid>
       <description>&lt;p&gt;在学习机器学习的算法时，推导过程中往往会涉及矩阵或向量求导以及一些其他的线性代数的知识。比如在推导LDA算法的时候，就是把Fisher&amp;rsquo;s Criterion求导后置零得到的结果。另外在优化的时候经常会使用到梯度下降法，这与矩阵向量求导也是分不开的。&lt;/p&gt;</description>
     </item>
     

@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='售出-购进平价理论（Put-Call Parity）指在无套利原则下（Non-Arbitrage），欧式看涨期权（Call Option）和欧式看跌期权（Put Option）定价之间存在的基本关系。
+'><title>售出-购进平价理论</title>
+
+<link rel='canonical' href='http://xpgreat.com/p/%E5%94%AE%E5%87%BA-%E8%B4%AD%E8%BF%9B%E5%B9%B3%E4%BB%B7%E7%90%86%E8%AE%BA/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='售出-购进平价理论'>
+<meta property='og:description' content='售出-购进平价理论（Put-Call Parity）指在无套利原则下（Non-Arbitrage），欧式看涨期权（Call Option）和欧式看跌期权（Put Option）定价之间存在的基本关系。
+'>
+<meta property='og:url' content='http://xpgreat.com/p/%E5%94%AE%E5%87%BA-%E8%B4%AD%E8%BF%9B%E5%B9%B3%E4%BB%B7%E7%90%86%E8%AE%BA/'>
+<meta property='og:site_name' content='XP&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='风险管理' /><meta property='article:tag' content='期权' /><meta property='article:published_time' content='2018-12-07T21:48:39&#43;01:00'/><meta property='article:modified_time' content='2018-12-07T21:48:39&#43;01:00'/>
+<meta name="twitter:title" content="售出-购进平价理论">
+<meta name="twitter:description" content="售出-购进平价理论（Put-Call Parity）指在无套利原则下（Non-Arbitrage），欧式看涨期权（Call Option）和欧式看跌期权（Put Option）定价之间存在的基本关系。
+">
+    </head>
+    <body class="">
+        <div class="container flex on-phone--column align-items--flex-start extended article-page with-toolbar">
+            <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            <figure class="site-avatar">
+                
+
+                
+                    
+                    <img src="/img/head_hu7a5a8ce21e62abecbc7926aff8bd098a_4354_300x300_resize_q75_box.jpg" width="300"
+                        height="300" class="site-logo" loading="lazy" alt="Avatar">
+                
+
+                <span class="emoji">✈</span>
+            </figure>
+        
+        <h1 class="site-name"><a href="http://xpgreat.com/">XP&#39;s Blog</a></h1>
+        <h2 class="site-description">积跬步 以至千里</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="https://util.xpgreat.com">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z"></path>
+                      <line x1="10" y1="18" x2="23" y2="5"></line>
+                      <line x1="10" y1="18" x2="3" y2="9"></line>
+                    </svg>
+                <span>Utils</span>
+            </a>
+        </li>
+    </ol>
+</aside>
+            <main class="main full-width">
+    <div id="article-toolbar">
+        <a href="http://xpgreat.com/" class="back-home">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+            <span>Back</span>
+        </a>
+    </div>
+
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            
+                <a href="/categories/%E9%87%91%E8%9E%8D/">金融</a>
+            
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/p/%E5%94%AE%E5%87%BA-%E8%B4%AD%E8%BF%9B%E5%B9%B3%E4%BB%B7%E7%90%86%E8%AE%BA/">售出-购进平价理论</a>
+    </h2>
+
+    <footer class="article-time">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <time class="article-time--published">Dec 07, 2018</time>
+    </footer></div>
+</header>
+
+    <section class="article-content">
+    <p>售出-购进平价理论（Put-Call Parity）指在无套利原则下（Non-Arbitrage），欧式看涨期权（Call Option）和欧式看跌期权（Put Option）定价之间存在的基本关系。</p>
+<h2 id="看涨看跌期权">看涨/看跌期权</h2>
+<p>看涨期权，Call Option，也被称为买进期权，买方期权，买权，延买期权或“敲进”（Knock In），是指期权的购买者拥有在期权合约规定有效期内按照<strong>执行价格</strong><em>购买</em> 一定数量的<strong>标的物</strong>的权利。</p>
+<p>看跌期权，Put Option，也被称为认沽期权、卖出期权、出售期权、卖权选择权、卖方期权、卖权、延卖期权或“敲出”（Knock Out），是指期权的购买者拥有在期权合约规定有效期内按照<strong>执行价格</strong><em>卖出</em> 一定数量的<strong>标的物</strong>的权利。</p>
+<p>举个例子，买家以20元购买了卖家的看<strong>涨</strong>期权，约定在一年后执行，执行价格为1500元，标的物是一吨铜。一年后铜的价格<strong>涨</strong>至2000元一吨，买家行使期权，以执行价格1500从卖家购买一吨铜（价值2000），获利2000-1500-20*K（K为贴现系数），卖家亏损2000-1500-20*K。如果一年后铜的价格<strong>跌</strong>至1300元一吨， 买家不行使期权，亏损20*K，卖家获利20*K。</p>
+<p>改动一下，买家以20元购买了卖家的看<strong>跌</strong>期权，约定在一年后执行，执行价格为1500元，标的物是一吨铜。一年后铜的价格<strong>跌</strong>至1300元一吨，买家行使期权，以执行价格1500向卖家售出一吨铜（价值1300），获利1500-1300-20*K（K为贴现系数），卖家亏损1500-1300-20*K。如果一年后铜的价格<strong>涨</strong>至2000元一吨， 买家不行使期权，亏损20*K，卖家获利20*K。</p>
+<p>推广可得，在期权行使时间看涨期权的获利/亏损可以表示为：</p>
+<p>$$
+\max (0, S_T - E) - q^np
+$$</p>
+<p>其中，\(S_T\)是现价，\(E\)是执行价格，\(q\)是利率，\(p\)是购买权力费用，\(n = T-t\)是执行时间。</p>
+<p>看跌期权的获利/亏损则为：</p>
+<p>$$
+\max (0, E - S_T) - q^np
+$$</p>
+<p>由此可见，期权买方有权利无义务，风险有限，最大损失是权利金，对于看涨期权，理论获利无上限，对于看跌期权，获利是有限的。而期权卖方有义务无权利，获利是有限的，而对于看涨期权，风险无限，对于看跌期权，风险有限。</p>
+<p>另外，期权分为美式期权和欧式期权，区别在于美式期权可以在到期日前任何时间行使权力，而欧式期权只能在到期日行使权力。但欧式期权可以在任何时间转让期权。</p>
+<h2 id="售出-购进平价理论">售出-购进平价理论</h2>
+<p>考虑两个投资组合：</p>
+<ol>
+<li>
+<p>买入一份欧式看涨期权，卖出一份欧式看跌期权，执行价格\(E\)，无股息。</p>
+</li>
+<li>
+<p>买入一单位标的物股权，借入\(\frac{E}{q}\)债券。</p>
+</li>
+</ol>
+<p>对于1，如果到期标的物价格下跌，不行使看涨期权，看跌期权买家行使权力，需要以执行价格\(E(&gt;S_T)\)买入；如果价格上涨，行使看涨期权，看跌期权买家不行使权力，以执行价格\(E(&lt;S_T)\)买入，两个情况结果一致，相当于支付价值\(S_T-E\)。</p>
+<p>对于2，期权到期（\(T\)）时，一单位标的物股权和债券的支付价值也为\(S_T - q\frac{E}{q} = S_T - E\)。</p>
+<p>基于无套利原则，在\(T\)时两个投资组合的支付价值一致，在之前的每个时间的价值也应该是一致的。所以在初始状态\(t\)时，有：</p>
+<p>$$
+c-p=S_t-\frac{E}{q}
+$$</p>
+<p>其中\(c\)，\(p\)分别表示看跌/看涨期权的现价，\(S_t\)标的物的现价，\(E\)执行价格，\(q\)利率。</p>
+<h2 id="美式期权的提前行权">美式期权的提前行权</h2>
+<p>美式期权可以在到期日前任何时间行使权力。根据售出-购进平价理论有：</p>
+<p>$$
+c=p+S_t-\frac{E}{q^n} \geq S_t-\frac{E}{q^n} \geq S_t-E
+$$</p>
+<p>因为现价永远大于执行价格，所以提前行使期权不值得。美式看涨期权基本不可能提前行权。这样可以得出美式看涨期权的定价和欧式一致。</p>
+<p>而：</p>
+<p>$$
+p=c-S_t+\frac{E}{q^n} \ ? \  E - S_t
+$$</p>
+<p>大小关系未知，所以美式看跌期权有可能提前行权。</p>
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%E9%A3%8E%E9%99%A9%E7%AE%A1%E7%90%86/">风险管理</a>
+        
+            <a href="/tags/%E6%9C%9F%E6%9D%83/">期权</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-ND 4.0</span>
+    </section>
+    </footer>
+
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+    integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+    integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+    crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+    integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+    onload="renderMathInElement(document.querySelector(`.article-content`));"></script>
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title"></h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="">
+    <a href="/p/%E5%88%A9%E7%8E%87%E6%9C%9F%E6%9D%83/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">利率期权</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/%E6%9C%9F%E6%9D%83%E7%9A%84%E9%A3%8E%E9%99%A9%E6%8C%87%E6%A0%87/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">期权的风险指标</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/%E5%B8%83%E8%8E%B1%E5%85%8B-%E8%88%92%E5%B0%94%E6%96%AF%E6%9C%9F%E6%9D%83%E5%AE%9A%E4%BB%B7%E6%A8%A1%E5%9E%8B/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">布莱克-舒尔斯期权定价模型</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/%E6%8A%95%E8%B5%84%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%B5%84%E6%9C%AC%E7%BB%93%E6%9E%84%E6%97%A0%E5%85%B3%E6%80%A7/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">投资对象的资本结构无关性</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">&copy; 2020 XP&#39;s Blog</section>
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="1.1.0">Stack</a></b> designed by
+        <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true" style="display:none">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+            </main>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"
+    integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin="anonymous"></script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<link rel="stylesheet" href="/css/highlight/light.min.css" media="(prefers-color-scheme: light)">
+<link rel="stylesheet" href="/css/highlight/dark.min.css" media="(prefers-color-scheme: dark)">
+
+    </body>
+</html>

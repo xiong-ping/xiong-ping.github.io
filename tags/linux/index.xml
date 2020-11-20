@@ -9,38 +9,42 @@
     <lastBuildDate>Tue, 16 Jul 2019 16:21:51 +0200</lastBuildDate><atom:link href="http://xpgreat.com/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>让程序在后台稳定运行的方法</title>
-      <link>http://xpgreat.com/keep_running_after-disconnect/</link>
+      <link>http://xpgreat.com/p/%E8%AE%A9%E7%A8%8B%E5%BA%8F%E5%9C%A8%E5%90%8E%E5%8F%B0%E7%A8%B3%E5%AE%9A%E8%BF%90%E8%A1%8C%E7%9A%84%E6%96%B9%E6%B3%95/</link>
       <pubDate>Tue, 16 Jul 2019 16:21:51 +0200</pubDate>
       
-      <guid>http://xpgreat.com/keep_running_after-disconnect/</guid>
-      <description>&lt;p&gt;在使用SSH链接远程虚拟机的时候经常会出现网络连接不稳定而导致前台运行的代码终止运行的情况，怎样能让程序稳定地在后台运行，不受断线的影响？IBM Developer上的这篇文章很有帮助，转载方便以后查阅。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>让程序在后台稳定运行的方法</title>
-      <link>http://xpgreat.com/post/keep_running_after-disconnect/</link>
-      <pubDate>Tue, 16 Jul 2019 16:21:51 +0200</pubDate>
-      
-      <guid>http://xpgreat.com/post/keep_running_after-disconnect/</guid>
+      <guid>http://xpgreat.com/p/%E8%AE%A9%E7%A8%8B%E5%BA%8F%E5%9C%A8%E5%90%8E%E5%8F%B0%E7%A8%B3%E5%AE%9A%E8%BF%90%E8%A1%8C%E7%9A%84%E6%96%B9%E6%B3%95/</guid>
       <description>&lt;p&gt;在使用SSH链接远程虚拟机的时候经常会出现网络连接不稳定而导致前台运行的代码终止运行的情况，怎样能让程序稳定地在后台运行，不受断线的影响？IBM Developer上的这篇文章很有帮助，转载方便以后查阅。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Linux下压缩命令</title>
-      <link>http://xpgreat.com/linux_compress/</link>
+      <link>http://xpgreat.com/p/linux%E4%B8%8B%E5%8E%8B%E7%BC%A9%E5%91%BD%E4%BB%A4/</link>
       <pubDate>Sun, 16 Dec 2018 13:30:23 +0100</pubDate>
       
-      <guid>http://xpgreat.com/linux_compress/</guid>
-      <description>&lt;p&gt;Linux下压缩解压缩命令的归纳。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Linux下压缩命令</title>
-      <link>http://xpgreat.com/post/linux_compress/</link>
-      <pubDate>Sun, 16 Dec 2018 13:30:23 +0100</pubDate>
-      
-      <guid>http://xpgreat.com/post/linux_compress/</guid>
-      <description>&lt;p&gt;Linux下压缩解压缩命令的归纳。&lt;/p&gt;</description>
+      <guid>http://xpgreat.com/p/linux%E4%B8%8B%E5%8E%8B%E7%BC%A9%E5%91%BD%E4%BB%A4/</guid>
+      <description>Linux下压缩解压缩命令的归纳。
+.tar 解包：tar xvf FileName.tar
+打包：tar cvf FileName.tar DirName
+（注：tar是打包，不是压缩！）
+.gz 解压1：gunzip FileName.gz
+解压2：gzip -d FileName.gz
+压缩：gzip FileName
+.tar.gz 和 .tgz 解压：tar zxvf FileName.tar.gz
+压缩：tar zcvf FileName.tar.gz DirName
+.bz2 解压1：bzip2 -d FileName.bz2
+解压2：bunzip2 FileName.bz2
+压缩：bzip2 -z FileName
+.tar.bz2 解压：tar jxvf FileName.tar.bz2
+压缩：tar jcvf FileName.tar.bz2 DirName
+.bz 解压1：bzip2 -d FileName.bz
+解压2：bunzip2 FileName.bz
+压缩：未知
+.tar.bz 解压：tar jxvf FileName.tar.bz
+压缩：未知
+.Z 解压：uncompress FileName.Z
+压缩：compress FileName
+.tar.Z 解压：tar Zxvf FileName.tar.Z
+压缩：tar Zcvf FileName.tar.Z DirName</description>
     </item>
     
   </channel>

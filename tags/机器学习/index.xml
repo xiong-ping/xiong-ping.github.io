@@ -9,127 +9,64 @@
     <lastBuildDate>Thu, 19 Nov 2020 15:14:26 +0800</lastBuildDate><atom:link href="http://xpgreat.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>论文解读：Exploring text datasets by visualizing relevant words</title>
-      <link>http://xpgreat.com/explore_text_dataset/</link>
+      <link>http://xpgreat.com/p/%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BBexploring-text-datasets-by-visualizing-relevant-words/</link>
       <pubDate>Thu, 19 Nov 2020 15:14:26 +0800</pubDate>
       
-      <guid>http://xpgreat.com/explore_text_dataset/</guid>
-      <description>&lt;p&gt;在做机器学习使用新数据集时，我们首先要知道它的特点，一个可以快速可靠地深入了解所选文档的内容，并区分它们类别的工具十分重要。 在这篇论文，作者从文本集合中提取“相关词”，以概括属于某个类别（或在unlabeled数据集下为聚类的组）的文档的内容，并在词云中可视化它们。 作者比较了三种提取相关单词的方法，并使用两个数据集验证了模型的可用性。论文链接：https://arxiv.org/pdf/1707.05261.pdf，论文代码：https://github.com/cod3licious/textcatvis&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>论文解读：Exploring text datasets by visualizing relevant words</title>
-      <link>http://xpgreat.com/post/explore_text_dataset/</link>
-      <pubDate>Thu, 19 Nov 2020 15:14:26 +0800</pubDate>
-      
-      <guid>http://xpgreat.com/post/explore_text_dataset/</guid>
+      <guid>http://xpgreat.com/p/%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BBexploring-text-datasets-by-visualizing-relevant-words/</guid>
       <description>&lt;p&gt;在做机器学习使用新数据集时，我们首先要知道它的特点，一个可以快速可靠地深入了解所选文档的内容，并区分它们类别的工具十分重要。 在这篇论文，作者从文本集合中提取“相关词”，以概括属于某个类别（或在unlabeled数据集下为聚类的组）的文档的内容，并在词云中可视化它们。 作者比较了三种提取相关单词的方法，并使用两个数据集验证了模型的可用性。论文链接：https://arxiv.org/pdf/1707.05261.pdf，论文代码：https://github.com/cod3licious/textcatvis&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>机器学习的工作流程</title>
-      <link>http://xpgreat.com/post/workflow_ml/</link>
+      <link>http://xpgreat.com/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B/</link>
       <pubDate>Sun, 15 Mar 2020 16:25:12 +0800</pubDate>
       
-      <guid>http://xpgreat.com/post/workflow_ml/</guid>
-      <description>&lt;p&gt;最近在阅读François Chollet写的Deep Learning with Python. 书中有很多经验性的技巧和归纳，其中4.5写的Machine Learning的工作流程归纳的很好，看完深有启发，摘录于此。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>机器学习的工作流程</title>
-      <link>http://xpgreat.com/workflow_ml/</link>
-      <pubDate>Sun, 15 Mar 2020 16:25:12 +0800</pubDate>
-      
-      <guid>http://xpgreat.com/workflow_ml/</guid>
+      <guid>http://xpgreat.com/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B/</guid>
       <description>&lt;p&gt;最近在阅读François Chollet写的Deep Learning with Python. 书中有很多经验性的技巧和归纳，其中4.5写的Machine Learning的工作流程归纳的很好，看完深有启发，摘录于此。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>安装TensorFlow时踩的一个小坑</title>
-      <link>http://xpgreat.com/post/tip_inst_tf/</link>
+      <link>http://xpgreat.com/p/%E5%AE%89%E8%A3%85tensorflow%E6%97%B6%E8%B8%A9%E7%9A%84%E4%B8%80%E4%B8%AA%E5%B0%8F%E5%9D%91/</link>
       <pubDate>Sun, 15 Mar 2020 15:22:49 +0800</pubDate>
       
-      <guid>http://xpgreat.com/post/tip_inst_tf/</guid>
-      <description>&lt;p&gt;不记得之前安装的是什么版本，这次（2020/3）让&lt;code&gt;pip&lt;/code&gt;自动安装选择的是&lt;code&gt;2.1.0&lt;/code&gt;，但这个版本安装后使用&lt;code&gt;import tensorflow&lt;/code&gt;会报错，如下：&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>安装TensorFlow时踩的一个小坑</title>
-      <link>http://xpgreat.com/tip_inst_tf/</link>
-      <pubDate>Sun, 15 Mar 2020 15:22:49 +0800</pubDate>
-      
-      <guid>http://xpgreat.com/tip_inst_tf/</guid>
+      <guid>http://xpgreat.com/p/%E5%AE%89%E8%A3%85tensorflow%E6%97%B6%E8%B8%A9%E7%9A%84%E4%B8%80%E4%B8%AA%E5%B0%8F%E5%9D%91/</guid>
       <description>&lt;p&gt;不记得之前安装的是什么版本，这次（2020/3）让&lt;code&gt;pip&lt;/code&gt;自动安装选择的是&lt;code&gt;2.1.0&lt;/code&gt;，但这个版本安装后使用&lt;code&gt;import tensorflow&lt;/code&gt;会报错，如下：&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>中短期电价预测模型简介</title>
-      <link>http://xpgreat.com/epf_models/</link>
+      <link>http://xpgreat.com/p/%E4%B8%AD%E7%9F%AD%E6%9C%9F%E7%94%B5%E4%BB%B7%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%AE%80%E4%BB%8B/</link>
       <pubDate>Sat, 25 May 2019 17:35:01 +0200</pubDate>
       
-      <guid>http://xpgreat.com/epf_models/</guid>
-      <description>&lt;p&gt;从1981年的智利电力体制改革之后，英美等国先后进行了电力工业重组，这些努力导致了电力工业的市场化，促成了电力市场的形成，实现了资源的合理分配和社会效益的最大化。准确的电力价格对发电商、用户、监管者具有重要的意义。本文将常用的电价预测（EPF, Electricity Price Forecasting）模型进行了分类，并加以简介。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>中短期电价预测模型简介</title>
-      <link>http://xpgreat.com/post/epf_models/</link>
-      <pubDate>Sat, 25 May 2019 17:35:01 +0200</pubDate>
-      
-      <guid>http://xpgreat.com/post/epf_models/</guid>
+      <guid>http://xpgreat.com/p/%E4%B8%AD%E7%9F%AD%E6%9C%9F%E7%94%B5%E4%BB%B7%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%AE%80%E4%BB%8B/</guid>
       <description>&lt;p&gt;从1981年的智利电力体制改革之后，英美等国先后进行了电力工业重组，这些努力导致了电力工业的市场化，促成了电力市场的形成，实现了资源的合理分配和社会效益的最大化。准确的电力价格对发电商、用户、监管者具有重要的意义。本文将常用的电价预测（EPF, Electricity Price Forecasting）模型进行了分类，并加以简介。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>递归神经网络</title>
-      <link>http://xpgreat.com/post/rnn_lstm_gru/</link>
+      <link>http://xpgreat.com/p/%E9%80%92%E5%BD%92%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</link>
       <pubDate>Tue, 14 May 2019 10:48:15 +0200</pubDate>
       
-      <guid>http://xpgreat.com/post/rnn_lstm_gru/</guid>
-      <description>&lt;p&gt;递归神经网络是神经网络的一种，与其他神经网络不同点在于，它可以很好地处理序列数据，即前面的数据的输入与后面的输出是有关系的，比如一句话的语义理解。本文介绍了递归神经网络及其两个变种——LSTM和GRU，目的是梳理一下自己所理解的RRN，也希望能够给初次接触RRN的同学一点帮助。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>递归神经网络</title>
-      <link>http://xpgreat.com/rnn_lstm_gru/</link>
-      <pubDate>Tue, 14 May 2019 10:48:15 +0200</pubDate>
-      
-      <guid>http://xpgreat.com/rnn_lstm_gru/</guid>
+      <guid>http://xpgreat.com/p/%E9%80%92%E5%BD%92%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</guid>
       <description>&lt;p&gt;递归神经网络是神经网络的一种，与其他神经网络不同点在于，它可以很好地处理序列数据，即前面的数据的输入与后面的输出是有关系的，比如一句话的语义理解。本文介绍了递归神经网络及其两个变种——LSTM和GRU，目的是梳理一下自己所理解的RRN，也希望能够给初次接触RRN的同学一点帮助。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>机器学习中的矩阵求导</title>
-      <link>http://xpgreat.com/linalg_in_ml/</link>
+      <link>http://xpgreat.com/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E7%9F%A9%E9%98%B5%E6%B1%82%E5%AF%BC/</link>
       <pubDate>Thu, 17 Jan 2019 21:47:14 +0100</pubDate>
       
-      <guid>http://xpgreat.com/linalg_in_ml/</guid>
-      <description>&lt;p&gt;在学习机器学习的算法时，推导过程中往往会涉及矩阵或向量求导以及一些其他的线性代数的知识。比如在推导LDA算法的时候，就是把Fisher&amp;rsquo;s Criterion求导后置零得到的结果。另外在优化的时候经常会使用到梯度下降法，这与矩阵向量求导也是分不开的。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>机器学习中的矩阵求导</title>
-      <link>http://xpgreat.com/post/linalg_in_ml/</link>
-      <pubDate>Thu, 17 Jan 2019 21:47:14 +0100</pubDate>
-      
-      <guid>http://xpgreat.com/post/linalg_in_ml/</guid>
+      <guid>http://xpgreat.com/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E7%9F%A9%E9%98%B5%E6%B1%82%E5%AF%BC/</guid>
       <description>&lt;p&gt;在学习机器学习的算法时，推导过程中往往会涉及矩阵或向量求导以及一些其他的线性代数的知识。比如在推导LDA算法的时候，就是把Fisher&amp;rsquo;s Criterion求导后置零得到的结果。另外在优化的时候经常会使用到梯度下降法，这与矩阵向量求导也是分不开的。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>认知算法小结</title>
-      <link>http://xpgreat.com/ca_short_summary/</link>
+      <link>http://xpgreat.com/p/%E8%AE%A4%E7%9F%A5%E7%AE%97%E6%B3%95%E5%B0%8F%E7%BB%93/</link>
       <pubDate>Fri, 28 Dec 2018 20:57:51 +0100</pubDate>
       
-      <guid>http://xpgreat.com/ca_short_summary/</guid>
-      <description>&lt;p&gt;在认知算法课里学习了一些算法，比如NCC，感知算法，LDA等等，小结一下。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>认知算法小结</title>
-      <link>http://xpgreat.com/post/ca_short_summary/</link>
-      <pubDate>Fri, 28 Dec 2018 20:57:51 +0100</pubDate>
-      
-      <guid>http://xpgreat.com/post/ca_short_summary/</guid>
+      <guid>http://xpgreat.com/p/%E8%AE%A4%E7%9F%A5%E7%AE%97%E6%B3%95%E5%B0%8F%E7%BB%93/</guid>
       <description>&lt;p&gt;在认知算法课里学习了一些算法，比如NCC，感知算法，LDA等等，小结一下。&lt;/p&gt;</description>
     </item>
     

@@ -9,74 +9,51 @@
     <lastBuildDate>Thu, 17 Jan 2019 17:28:35 +0100</lastBuildDate><atom:link href="http://xpgreat.com/categories/%E6%9D%82%E8%B0%88/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>使用MathJax时的注意事项</title>
-      <link>http://xpgreat.com/mathjax_tips/</link>
+      <link>http://xpgreat.com/p/%E4%BD%BF%E7%94%A8mathjax%E6%97%B6%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</link>
       <pubDate>Thu, 17 Jan 2019 17:28:35 +0100</pubDate>
       
-      <guid>http://xpgreat.com/mathjax_tips/</guid>
-      <description>&lt;p&gt;记录一些在使用MathJax写公式时踩过的坑，持续更新。本来放在另一篇里的，内容越来越多，单独成篇。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>使用MathJax时的注意事项</title>
-      <link>http://xpgreat.com/post/mathjax_tips/</link>
-      <pubDate>Thu, 17 Jan 2019 17:28:35 +0100</pubDate>
-      
-      <guid>http://xpgreat.com/post/mathjax_tips/</guid>
-      <description>&lt;p&gt;记录一些在使用MathJax写公式时踩过的坑，持续更新。本来放在另一篇里的，内容越来越多，单独成篇。&lt;/p&gt;</description>
+      <guid>http://xpgreat.com/p/%E4%BD%BF%E7%94%A8mathjax%E6%97%B6%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</guid>
+      <description>记录一些在使用MathJax写公式时踩过的坑，持续更新。本来放在另一篇里的，内容越来越多，单独成篇。
+用$ $无法输入行内公式 MathJax默认禁用了这种方式，你可以使用\\( 你的公式 \\)的方法，也可以参考它的default.js自行配置（在295行）。行间公式默认可以用\\[ 你的公式 \\]或者传统的TeX写法$$ 你的公式 $$。
+输入下标出错 x_{abc}这样使用的时候会莫名其妙的报错，试了一下把_转义：x\_{abc}，就能用了。
+公式不能换行 因为md解析的时候把\\解析成了一个\，解决方法是用四根\\\\ 换行（最后要加一个半角空格）。（也是醉了）
+公式对齐 直接上代码：
+\begin{aligned} &amp;amp;\nabla_{\mathbf x}A\mathbf x = A \\\\ &amp;amp;\frac{\partial \mathbf x^T \mathbf a}{\partial \mathbf x} = \frac{\partial \mathbf a^T \mathbf x}{\partial \mathbf x} = \mathbf a \\\\ \end{aligned} 效果： $$ \begin{aligned} &amp;amp;\nabla_{\mathbf x}A\mathbf x = A \\ &amp;amp;\frac{\partial \mathbf x^T \mathbf a}{\partial \mathbf x} = \frac{\partial \mathbf a^T \mathbf x}{\partial \mathbf x} = \mathbf a \\ \end{aligned} $$</description>
     </item>
     
     <item>
       <title>Hugo和WordPress比较</title>
-      <link>http://xpgreat.com/hugo_wp/</link>
+      <link>http://xpgreat.com/p/hugo%E5%92%8Cwordpress%E6%AF%94%E8%BE%83/</link>
       <pubDate>Wed, 05 Dec 2018 17:38:52 +0100</pubDate>
       
-      <guid>http://xpgreat.com/hugo_wp/</guid>
-      <description>&lt;p&gt;对比以前搭建WordPress博客的经历，Hugo有这样的一些不同：&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Hugo和WordPress比较</title>
-      <link>http://xpgreat.com/post/hugo_wp/</link>
-      <pubDate>Wed, 05 Dec 2018 17:38:52 +0100</pubDate>
-      
-      <guid>http://xpgreat.com/post/hugo_wp/</guid>
-      <description>&lt;p&gt;对比以前搭建WordPress博客的经历，Hugo有这样的一些不同：&lt;/p&gt;</description>
+      <guid>http://xpgreat.com/p/hugo%E5%92%8Cwordpress%E6%AF%94%E8%BE%83/</guid>
+      <description>对比以前搭建WordPress博客的经历，Hugo有这样的一些不同：
+  Hugo生成的是静态页面，所以没有内置的评论、搜索、登陆等等一系列的需要后台的功能。
+  没有WordPress上那么多五花八门的插件。
+  主题偏少，但足够。
+  使用起来有些门槛，比如必须会markdown，最好有一点HTML、 CSS的知识。但比起WordPress，学习起来快很多。
+  备份起来比WordPress简单（？），WordPress得用插件。
+  管理简单，因为只有基本的功能。
+  所以如果要搭建个人博客，Hugo十分足够。如果是喜欢图形化的编辑，喜欢尝试各种各样的主题插件（喜新厌旧），需要能方便的互动的，推荐WordPress。如果搭建组织网站，比如社团网站，需要多人、多层管理维护的，上WordPress，不用考虑Hugo了。</description>
     </item>
     
     <item>
       <title>使用Hugo的一些注意事项</title>
-      <link>http://xpgreat.com/post/tips_hugo/</link>
+      <link>http://xpgreat.com/p/%E4%BD%BF%E7%94%A8hugo%E7%9A%84%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</link>
       <pubDate>Wed, 05 Dec 2018 16:32:54 +0100</pubDate>
       
-      <guid>http://xpgreat.com/post/tips_hugo/</guid>
-      <description>&lt;p&gt;一些在使用Hugo时发现的小技巧或问题及解决方法，会持续更新。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>使用Hugo的一些注意事项</title>
-      <link>http://xpgreat.com/tips_hugo/</link>
-      <pubDate>Wed, 05 Dec 2018 16:32:54 +0100</pubDate>
-      
-      <guid>http://xpgreat.com/tips_hugo/</guid>
+      <guid>http://xpgreat.com/p/%E4%BD%BF%E7%94%A8hugo%E7%9A%84%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</guid>
       <description>&lt;p&gt;一些在使用Hugo时发现的小技巧或问题及解决方法，会持续更新。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>博客第一步</title>
-      <link>http://xpgreat.com/blog_building/</link>
+      <link>http://xpgreat.com/p/%E5%8D%9A%E5%AE%A2%E7%AC%AC%E4%B8%80%E6%AD%A5/</link>
       <pubDate>Mon, 03 Dec 2018 19:58:50 +0100</pubDate>
       
-      <guid>http://xpgreat.com/blog_building/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;是一个用Go编写的静态站点生成器，由于具有丰富的主题资源和惊人的生成速度而备受青睐。博文采用&lt;code&gt;Markdown&lt;/code&gt;这一轻量的标记语言编写，速度快，美观。本博客即是基于Hugo搭建，下面讲述一下我的建站历程。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>博客第一步</title>
-      <link>http://xpgreat.com/post/blog_building/</link>
-      <pubDate>Mon, 03 Dec 2018 19:58:50 +0100</pubDate>
-      
-      <guid>http://xpgreat.com/post/blog_building/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;是一个用Go编写的静态站点生成器，由于具有丰富的主题资源和惊人的生成速度而备受青睐。博文采用&lt;code&gt;Markdown&lt;/code&gt;这一轻量的标记语言编写，速度快，美观。本博客即是基于Hugo搭建，下面讲述一下我的建站历程。&lt;/p&gt;</description>
+      <guid>http://xpgreat.com/p/%E5%8D%9A%E5%AE%A2%E7%AC%AC%E4%B8%80%E6%AD%A5/</guid>
+      <description>&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://gohugo.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Hugo&lt;/a&gt;是一个用Go编写的静态站点生成器，由于具有丰富的主题资源和惊人的生成速度而备受青睐。博文采用&lt;code&gt;Markdown&lt;/code&gt;这一轻量的标记语言编写，速度快，美观。本博客即是基于Hugo搭建，下面讲述一下我的建站历程。&lt;/p&gt;</description>
     </item>
     
   </channel>

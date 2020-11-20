@@ -9,19 +9,10 @@
     <lastBuildDate>Sun, 15 Mar 2020 16:25:12 +0800</lastBuildDate><atom:link href="http://xpgreat.com/tags/%E6%8A%80%E5%B7%A7/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>机器学习的工作流程</title>
-      <link>http://xpgreat.com/post/workflow_ml/</link>
+      <link>http://xpgreat.com/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B/</link>
       <pubDate>Sun, 15 Mar 2020 16:25:12 +0800</pubDate>
       
-      <guid>http://xpgreat.com/post/workflow_ml/</guid>
-      <description>&lt;p&gt;最近在阅读François Chollet写的Deep Learning with Python. 书中有很多经验性的技巧和归纳，其中4.5写的Machine Learning的工作流程归纳的很好，看完深有启发，摘录于此。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>机器学习的工作流程</title>
-      <link>http://xpgreat.com/workflow_ml/</link>
-      <pubDate>Sun, 15 Mar 2020 16:25:12 +0800</pubDate>
-      
-      <guid>http://xpgreat.com/workflow_ml/</guid>
+      <guid>http://xpgreat.com/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B/</guid>
       <description>&lt;p&gt;最近在阅读François Chollet写的Deep Learning with Python. 书中有很多经验性的技巧和归纳，其中4.5写的Machine Learning的工作流程归纳的很好，看完深有启发，摘录于此。&lt;/p&gt;</description>
     </item>
     
