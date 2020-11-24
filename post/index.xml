@@ -6,7 +6,17 @@
     <description>Recent content in Posts on XP&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 19 Nov 2020 15:14:26 +0800</lastBuildDate><atom:link href="http://xpgreat.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 24 Nov 2020 11:22:02 +0800</lastBuildDate><atom:link href="http://xpgreat.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>利用sklearn构建tfidf向量</title>
+      <link>http://xpgreat.com/p/%E5%88%A9%E7%94%A8sklearn%E6%9E%84%E5%BB%BAtfidf%E5%90%91%E9%87%8F/</link>
+      <pubDate>Tue, 24 Nov 2020 11:22:02 +0800</pubDate>
+      
+      <guid>http://xpgreat.com/p/%E5%88%A9%E7%94%A8sklearn%E6%9E%84%E5%BB%BAtfidf%E5%90%91%E9%87%8F/</guid>
+      <description>在自然语言处理中，第一步需要面对的就是词向量特征的提取。语言的特征提取在sklearn模块中有相当完善的方法和模块，本文先利用CountVectorizer提取词汇，再用TfidfTransformer计算TFIDF向量。之所以选择CountVectorizer而不自行写一个代码，是因为在使用时维度很容易超过10w，产生的bag-of-words向量特别稀疏，需要耗费极大的内存，而sklearn实现了一个稀疏矩阵的存储形式，可以极大的加速和降低消耗。
+构建Bag-of-words词汇矩阵 from sklearn.feature_extraction.text import CountVectorizer #测试用字符串list s_l = [&amp;#39;Relevant words for each class or cluster are identified by computing a relevancy score rc for every word ti based on the documents in the class&amp;#39;, &amp;#39;or cluster and then selecting the highest scoring&amp;#39;, &amp;#39;words. These scores can be computed either by-89&amp;#39;, &amp;#39;aggregating the raw tf-idf features of all documents&amp;#39;, &amp;#39;in the group (Section 2.3.1), by aggregating these&amp;#39;, &amp;#39;features weighted by some classifier’s parameters&amp;#39;, &amp;#39;(Section 2.</description>
+    </item>
+    
     <item>
       <title>论文解读：Exploring text datasets by visualizing relevant words</title>
       <link>http://xpgreat.com/p/%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BBexploring-text-datasets-by-visualizing-relevant-words/</link>

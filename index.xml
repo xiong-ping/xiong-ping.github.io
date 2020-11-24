@@ -6,7 +6,126 @@
         <description>Recent content on XP&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-CN</language>
-        <lastBuildDate>Thu, 19 Nov 2020 15:14:26 +0800</lastBuildDate><atom:link href="http://xpgreat.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 24 Nov 2020 11:22:02 +0800</lastBuildDate><atom:link href="http://xpgreat.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>利用sklearn构建tfidf向量</title>
+        <link>http://xpgreat.com/p/%E5%88%A9%E7%94%A8sklearn%E6%9E%84%E5%BB%BAtfidf%E5%90%91%E9%87%8F/</link>
+        <pubDate>Tue, 24 Nov 2020 11:22:02 +0800</pubDate>
+        
+        <guid>http://xpgreat.com/p/%E5%88%A9%E7%94%A8sklearn%E6%9E%84%E5%BB%BAtfidf%E5%90%91%E9%87%8F/</guid>
+        <description>&lt;p&gt;在自然语言处理中，第一步需要面对的就是词向量特征的提取。语言的特征提取在sklearn模块中有相当完善的方法和模块，本文先利用CountVectorizer提取词汇，再用TfidfTransformer计算TFIDF向量。之所以选择CountVectorizer而不自行写一个代码，是因为在使用时维度很容易超过10w，产生的bag-of-words向量特别稀疏，需要耗费极大的内存，而sklearn实现了一个稀疏矩阵的存储形式，可以极大的加速和降低消耗。&lt;/p&gt;
+&lt;h2 id=&#34;构建bag-of-words词汇矩阵&#34;&gt;构建Bag-of-words词汇矩阵&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;kn&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;sklearn.feature_extraction.text&lt;/span&gt; &lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;CountVectorizer&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;#测试用字符串list&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;s_l&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Relevant words for each class or cluster are identified by computing a relevancy score rc for every word ti based on the documents in the class&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;span class=&#34;s1&#34;&gt;&amp;#39;or cluster and then selecting the highest scoring&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;span class=&#34;s1&#34;&gt;&amp;#39;words. These scores can be computed either by-89&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;span class=&#34;s1&#34;&gt;&amp;#39;aggregating the raw tf-idf features of all documents&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;span class=&#34;s1&#34;&gt;&amp;#39;in the group (Section 2.3.1), by aggregating these&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;span class=&#34;s1&#34;&gt;&amp;#39;features weighted by some classifier’s parameters&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;span class=&#34;s1&#34;&gt;&amp;#39;(Section 2.3.2), or directly by computing a score&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;span class=&#34;s1&#34;&gt;&amp;#39;for each word depending on the number of documents it occurs in from this class relative to other&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;span class=&#34;s1&#34;&gt;&amp;#39;classes (Section 2.3.3).&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;#初始化CountVectorizer，token_pattern后可以自定义提取单词的规则，不写则默认取纯字母单词，这里取的是字母、数字和-的组合&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;count_vect&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;CountVectorizer&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;token_pattern&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;[a-zA-Z0-9\-]+&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;#这里传入的参数必须是iteratable的，比如这里的list&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;X_train_counts&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;count_vect&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;fit_transform&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;s_l&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;n&#34;&gt;X_train_counts&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;输出：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-plain&#34; data-lang=&#34;plain&#34;&gt;&amp;lt;9x62 sparse matrix of type &amp;#39;&amp;lt;class &amp;#39;numpy.int64&amp;#39;&amp;gt;&amp;#39;
+	with 95 stored elements in Compressed Sparse Row format&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;显示出这里的&lt;code&gt;X_train_counts&lt;/code&gt;是一个&lt;code&gt;9*62&lt;/code&gt;的稀疏矩阵。&lt;/p&gt;
+&lt;p&gt;稀疏化显示&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;n&#34;&gt;X_train_counts&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;todense&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;输出：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-plain&#34; data-lang=&#34;plain&#34;&gt;matrix([[0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 2, 0, 0, 1, 0, 1, 0, 0,
+         1, 1, 0, 1, 0, 2, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1,
+         0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 1, 1],
+        [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
+         0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
+         0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0,
+         0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+         0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1],
+        [0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+         1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0,
+         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+        [1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+         0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+         0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0,
+         0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0,
+         0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
+        [0, 2, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1,
+         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
+         0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0,
+         1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0,
+         1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0],
+        [0, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0,
+         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+         0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]],
+       dtype=int64)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;查看词汇&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;n&#34;&gt;count_vect&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;vocabulary_&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;输出：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-plain&#34; data-lang=&#34;plain&#34;&gt;{&amp;#39;relevant&amp;#39;: 44,
+ &amp;#39;words&amp;#39;: 61,
+ &amp;#39;for&amp;#39;: 26,
+ &amp;#39;each&amp;#39;: 22,
+...
+ &amp;#39;occurs&amp;#39;: 34,
+ &amp;#39;from&amp;#39;: 27,
+ &amp;#39;this&amp;#39;: 56,
+ &amp;#39;relative&amp;#39;: 42,
+ &amp;#39;to&amp;#39;: 58,
+ &amp;#39;other&amp;#39;: 38,
+ &amp;#39;classes&amp;#39;: 14}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;左边是单词，右边是索引，可以用&lt;code&gt;count_vect.vocabulary_.get(&#39;relative&#39;)&lt;/code&gt;这种形式来查找索引号，&lt;code&gt;list(filter(lambda x: x[1] == 6, count_vect.vocabulary_.items()))[0][0]&lt;/code&gt;获取索引为6的word，其实&lt;code&gt;count_vect.vocabulary_.items()&lt;/code&gt;本质上就是字典。&lt;/p&gt;
+&lt;h2 id=&#34;构建tfidf向量矩阵&#34;&gt;构建tfidf向量矩阵&lt;/h2&gt;
+&lt;p&gt;Term Frequency-Inverse Document Frequency，词频-逆文件频率，是一种用于资讯检索与资讯探勘的常用加权技术。TF-IDF是一种统计方法，用以评估一单词对于一个文件集或一个语料库中的其中一份文件的重要程度。字词的重要性随着它在文件中出现的次数成正比增加，但同时会随着它在语料库中出现的频率成反比下降。即&lt;strong&gt;一个词语在一篇文件中出现次数越多, 同时在所有文档中出现次数越少, 越能够代表该文件&lt;/strong&gt;。一般做归一化处理，公式如下：&lt;/p&gt;
+&lt;p&gt;$$
+tf(t_i)=\frac{在某一文件中词t_i出现的次数}{该文件中所有的词数目} \\ \ \\ idf(t_i)=\log(\frac{数据集的文件总数}{包含词t_i的文件数})=\log\frac{|N|}{|\{k\in N:t_i\in k\}|}
+$$&lt;/p&gt;
+&lt;p&gt;有时为了保证\(idf\)分母不为零，可以在分母上加一。&lt;/p&gt;
+&lt;p&gt;使用sklearn的TfidfTransformer实现，非常方便。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;kn&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;sklearn.feature_extraction.text&lt;/span&gt; &lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;TfidfTransformer&lt;/span&gt;
+
+&lt;span class=&#34;n&#34;&gt;tf_idf_transformer&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;TfidfTransformer&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;tf_idf_matrix&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;tf_idf_transformer&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;fit_transform&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;X_train_counts&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;#传入bag-of-words矩阵即可&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;输出：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-plain&#34; data-lang=&#34;plain&#34;&gt;matrix([[0.        , 0.        , 0.        , 0.17690932, 0.        ,
+         0.        , 0.        , 0.20945535, 0.20945535, 0.        ,
+         0.13590618, 0.        , 0.        , 0.35381864, 0.        ,
+         0.        , 0.17690932, 0.        , 0.17690932, 0.        ,
+         0.        , 0.15381755, 0.17690932, 0.        , 0.20945535,
+         0.        , 0.35381864, 0.        , 0.        , 0.        ,
+         0.20945535, 0.15381755, 0.        , 0.        , 0.        ,
+         0.        , 0.17690932, 0.15381755, 0.        , 0.        ,
+         0.        , 0.20945535, 0.        , 0.20945535, 0.20945535,
+         0.        , 0.17690932, 0.        , 0.        , 0.        ,
+         0.        , 0.        , 0.        , 0.24254304, 0.        ,
+         0.        , 0.        , 0.20945535, 0.        , 0.        ,
+         0.17690932, 0.17690932],
+        ...
+        [0.        , 0.35681845, 0.7136369 , 0.        , 0.        ,
+         0.        , 0.        , 0.        , 0.        , 0.        ,
+         0.        , 0.        , 0.        , 0.        , 0.48588431,
+         0.        , 0.        , 0.        , 0.        , 0.        ,
+         0.        , 0.        , 0.        , 0.        , 0.        ,
+         0.        , 0.        , 0.        , 0.        , 0.        ,
+         0.        , 0.        , 0.        , 0.        , 0.        ,
+         0.        , 0.        , 0.        , 0.        , 0.        ,
+         0.        , 0.        , 0.        , 0.        , 0.        ,
+         0.        , 0.        , 0.        , 0.        , 0.35681845,
+         0.        , 0.        , 0.        , 0.        , 0.        ,
+         0.        , 0.        , 0.        , 0.        , 0.        ,
+         0.        , 0.        ]])
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+        </item>
+        <item>
         <title>论文解读：Exploring text datasets by visualizing relevant words</title>
         <link>http://xpgreat.com/p/%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BBexploring-text-datasets-by-visualizing-relevant-words/</link>
         <pubDate>Thu, 19 Nov 2020 15:14:26 +0800</pubDate>
