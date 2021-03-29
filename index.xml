@@ -6,7 +6,75 @@
         <description>Recent content on XP&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-CN</language>
-        <lastBuildDate>Tue, 24 Nov 2020 11:22:02 +0800</lastBuildDate><atom:link href="http://xpgreat.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 29 Mar 2021 10:39:10 +0200</lastBuildDate><atom:link href="http://xpgreat.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>在AWS搭建分布式Hadoop集群指南</title>
+        <link>http://xpgreat.com/p/%E5%9C%A8aws%E6%90%AD%E5%BB%BA%E5%88%86%E5%B8%83%E5%BC%8Fhadoop%E9%9B%86%E7%BE%A4%E6%8C%87%E5%8D%97/</link>
+        <pubDate>Mon, 29 Mar 2021 10:39:10 +0200</pubDate>
+        
+        <guid>http://xpgreat.com/p/%E5%9C%A8aws%E6%90%AD%E5%BB%BA%E5%88%86%E5%B8%83%E5%BC%8Fhadoop%E9%9B%86%E7%BE%A4%E6%8C%87%E5%8D%97/</guid>
+        <description>&lt;p&gt;搭建一个Hadoop环境是学习大数据技术的第一步，这个环境可以是单机的，也可以是伪集群的，但最贴近实际生产环境的还是真集群的版本。本文提供一个基于AWS搭建Hadoop的简要指南，基于AWS EC2 Ubuntu 20。&lt;/p&gt;
+&lt;h1 id=&#34;置顶--要点和troubleshooting持续更新&#34;&gt;置顶&amp;ndash;要点和troubleshooting（持续更新）&lt;/h1&gt;
+&lt;h4 id=&#34;配置ssh权限时要有耐心这直接决定了你的集群能不能互相通讯用aws的时候最好用私有ip配置否则重启后公有ip会改变又要重新配置一遍&#34;&gt;配置ssh权限时要有耐心，这直接决定了你的集群能不能互相通讯。用AWS的时候最好用私有ip配置，否则重启后公有ip会改变，又要重新配置一遍。&lt;/h4&gt;
+&lt;h4 id=&#34;重要的配置文件在hadoop_homeetchadoop下&#34;&gt;重要的配置文件（在&lt;code&gt;$HADOOP_HOME/etc/hadoop/&lt;/code&gt;下）：&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;core-site.xml&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;yarn-site.xml&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mapred-site.xml&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;hdfs-site.xml&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;hadoop-env.sh&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;hadoop30后web端端口改成了9870不是原来的50070&#34;&gt;Hadoop3.0后web端端口改成了&lt;strong&gt;9870&lt;/strong&gt;，不是原来的50070！！！！！！&lt;/h4&gt;
+&lt;h4 id=&#34;error无法创建-javaioioexception-cannot-create-directory-usrlocalhadoopdatahdfsnamenodecurrent&#34;&gt;ERROR:无法创建 java.io.IOException: Cannot create directory /usr/local/hadoop/data/hdfs/namenode/current&lt;/h4&gt;
+&lt;p&gt;解决方法：改权限
+sudo chmod -R a+w /usr/local/hadoop/&lt;/p&gt;
+&lt;h4 id=&#34;error-java_home-is-not-set-and-could-not-be-found&#34;&gt;ERROR: JAVA_HOME is not set and could not be found.&lt;/h4&gt;
+&lt;p&gt;针对这个错误，网上好多都说了java的路径设置有问题，但没有指出具体的修改方法，其实是hadoop里面hadoop-env.sh文件里面的java路径设置不对，hadoop-env.sh在hadoop/etc/hadoop目录下，具体的修改办法如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo vim hadoop/etc/hadoop/hdoop-env.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;将语句      &lt;code&gt;export JAVA_HOME=$JAVA_HOME&lt;/code&gt;
+修改为      &lt;code&gt;export JAVA_HOME=/usr/java/jdk1.8.0_101&lt;/code&gt;&lt;/p&gt;
+&lt;h4 id=&#34;error-找不到或无法加载主类orgapachehadoopmapreducev2appmrappmaster&#34;&gt;ERROR: 找不到或无法加载主类org.apache.hadoop.mapreduce.v2.app.MRAppMaster&lt;/h4&gt;
+&lt;p&gt;在命令行下输入&lt;code&gt;hadoop classpath&lt;/code&gt;，并将返回的地址复制。
+编辑&lt;code&gt;yarn-site.xml&lt;/code&gt;, 添加如下内容&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;configuration&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;property&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;name&amp;gt;&lt;/span&gt;yarn.application.classpath&lt;span class=&#34;nt&#34;&gt;&amp;lt;/name&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;value&amp;gt;&lt;/span&gt;输入刚才返回的Hadoop classpath路径&lt;span class=&#34;nt&#34;&gt;&amp;lt;/value&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;/property&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;/configuration&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在所有的Master和Slave节点进行如上设置，设置完毕后重启Hadoop集群。&lt;/p&gt;
+&lt;h1 id=&#34;初始化通用环境&#34;&gt;初始化通用环境&lt;/h1&gt;
+&lt;p&gt;先启动一个实例，安装通用的Java和Hadoop，然后利用AWS的映像功能克隆出其他的集群成员。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo apt-get update -y
+sudo apt-get upgrade -y
+sudo apt install default-jre &lt;span class=&#34;c1&#34;&gt;#可以先java看一下提示，换成最新版&lt;/span&gt;
+wget https://apache.mirror.digionline.de/hadoop/common/hadoop-3.2.2/hadoop-3.2.2.tar.gz &lt;span class=&#34;c1&#34;&gt;#改成最新版&lt;/span&gt;
+sudo tar zxvf hadoop-* -C /usr/local
+sudo mv /usr/local/hadoop-* /usr/local/hadoop​
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;添加环境变量&lt;code&gt;sudo vim ~/.bashrc​&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;JAVA_HOME&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/usr/lib/jvm/java-11-openjdk-amd64 
+&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;PATH&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$PATH&lt;/span&gt;:&lt;span class=&#34;nv&#34;&gt;$JAVA_HOME&lt;/span&gt;/bin  
+&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;HADOOP_HOME&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/usr/local/hadoop 
+&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;PATH&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$PATH&lt;/span&gt;:&lt;span class=&#34;nv&#34;&gt;$HADOOP_HOME&lt;/span&gt;/bin 
+&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;HADOOP_CONF_DIR&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/usr/local/hadoop/etc/hadoop​
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;更新环境变量&lt;code&gt;source ~/.bashrc&lt;/code&gt;，测试能否用java和hadoop。&lt;/p&gt;
+&lt;p&gt;上面的搞定后，克隆两个实例。&lt;/p&gt;
+&lt;h1 id=&#34;配置ssh&#34;&gt;配置SSH&lt;/h1&gt;
+&lt;p&gt;在每个实例上创建key：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;ssh-keygen -f ~/.ssh/id_rsa -t rsa -P &lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
+cat ~/.ssh/id_rsa.pub &amp;gt;&amp;gt; ~/.ssh/authorized_keys​
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在NameNode上的&lt;code&gt;~/.ssh/config&lt;/code&gt;写入：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;Host namenode 
+	HostName &amp;lt;private IP or public DNS of namenode instance&amp;gt; 
+	User ubuntu 
+Host datanode1  
+	HostName &amp;lt;private IP or public DNS of datanode1 instance&amp;gt;  
+	User ubuntu 
+Host datanode2  
+	HostName &amp;lt;private IP or public DNS of datanode2 instance&amp;gt;  
+	User ubuntu
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;把datanode的公钥拷贝到namenode的&lt;code&gt;~/.ssh/authorized_keys&lt;/code&gt;里，换行粘贴就行。&lt;/p&gt;</description>
+        </item>
+        <item>
         <title>利用sklearn构建tfidf向量</title>
         <link>http://xpgreat.com/p/%E5%88%A9%E7%94%A8sklearn%E6%9E%84%E5%BB%BAtfidf%E5%90%91%E9%87%8F/</link>
         <pubDate>Tue, 24 Nov 2020 11:22:02 +0800</pubDate>
