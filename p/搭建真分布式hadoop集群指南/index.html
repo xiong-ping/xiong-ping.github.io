@@ -231,7 +231,7 @@ Host datanode2 
 <div class="highlight"><pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;configuration&gt;</span>
   <span class="nt">&lt;property&gt;</span>
     <span class="nt">&lt;name&gt;</span>fs.defaultFS<span class="nt">&lt;/name&gt;</span>
-    <span class="nt">&lt;value&gt;</span>hdfs://<span class="nt">&lt;namenode</span> <span class="err">public</span> <span class="err">dns</span> <span class="err">name</span> <span class="err">or</span> <span class="err">private</span> <span class="err">IP</span><span class="nt">&gt;</span>:9000<span class="nt">&lt;/value&gt;</span>
+    <span class="nt">&lt;value&gt;</span>hdfs://[namenode public dns name or private IP]:9000<span class="nt">&lt;/value&gt;</span>
   <span class="nt">&lt;/property&gt;</span>
 <span class="nt">&lt;/configuration&gt;</span>​
 </code></pre></div><p>在<code>yarn-site.xml</code>中插入：</p>
@@ -245,14 +245,14 @@ Host datanode2 
   <span class="nt">&lt;/property&gt;</span>
   <span class="nt">&lt;property&gt;</span>
     <span class="nt">&lt;name&gt;</span>yarn.resourcemanager.hostname<span class="nt">&lt;/name&gt;</span>
-    <span class="nt">&lt;value&gt;&lt;namenode</span> <span class="err">public</span> <span class="err">dns</span> <span class="err">name</span> <span class="err">or</span> <span class="err">private</span> <span class="err">IP</span><span class="nt">&gt;&lt;/value&gt;</span>
+    <span class="nt">&lt;value&gt;</span>[namenode public dns name or private IP]<span class="nt">&lt;/value&gt;</span>
   <span class="nt">&lt;/property&gt;</span>
 <span class="nt">&lt;/configuration&gt;</span>​
 </code></pre></div><p>在<code>mapred-site.xml</code>中插入，并确认54311端口开放：</p>
 <div class="highlight"><pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;configuration&gt;</span>
   <span class="nt">&lt;property&gt;</span>
     <span class="nt">&lt;name&gt;</span>mapreduce.jobtracker.address<span class="nt">&lt;/name&gt;</span>
-    <span class="nt">&lt;value&gt;&lt;namenode</span> <span class="err">public</span> <span class="err">dns</span> <span class="err">name</span> <span class="err">or</span> <span class="err">private</span> <span class="err">IP</span><span class="nt">&gt;</span>:54311<span class="nt">&lt;/value&gt;</span>
+    <span class="nt">&lt;value&gt;</span>[namenode public dns name or private IP]:54311<span class="nt">&lt;/value&gt;</span>
   <span class="nt">&lt;/property&gt;</span>
   <span class="nt">&lt;property&gt;</span>
     <span class="nt">&lt;name&gt;</span>mapreduce.framework.name<span class="nt">&lt;/name&gt;</span>
