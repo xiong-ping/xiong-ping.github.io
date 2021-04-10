@@ -1,83 +1,20 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Linux下压缩解压缩命令的归纳。
-.tar 解包：tar xvf FileName.tar
-打包：tar cvf FileName.tar DirName
-（注：tar是打包，不是压缩！）
-.gz 解压1：gunzip FileName.gz
-解压2：gzip -d FileName.gz
-压缩：gzip FileName
-.tar.gz 和 .tgz 解压：tar zxvf FileName.tar.gz
-压缩：tar zcvf FileName.tar.gz DirName
-.bz2 解压1：bzip2 -d FileName.bz2
-解压2：bunzip2 FileName.bz2
-压缩：bzip2 -z FileName
-.tar.bz2 解压：tar jxvf FileName.tar.bz2
-压缩：tar jcvf FileName.tar.bz2 DirName
-.bz 解压1：bzip2 -d FileName.bz
-解压2：bunzip2 FileName.bz
-压缩：未知
-.tar.bz 解压：tar jxvf FileName.tar.bz
-压缩：未知
-.Z 解压：uncompress FileName.Z
-压缩：compress FileName
-.tar.Z 解压：tar Zxvf FileName.tar.Z
-压缩：tar Zcvf FileName.tar.Z DirName'><title>Linux下压缩命令</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='先放方法：用任务监视器定位到AMPlibraryagent的路径，然后使用OneDrive的“应用管理”，停止响应AMPlibraryagent的请求。
+'><title>AMPlibraryagent异常访问Onedrive下载</title>
 
-<link rel='canonical' href='http://xpgreat.com/p/linux%E4%B8%8B%E5%8E%8B%E7%BC%A9%E5%91%BD%E4%BB%A4/'>
+<link rel='canonical' href='http://xpgreat.com/p/amplibraryagent%E5%BC%82%E5%B8%B8%E8%AE%BF%E9%97%AEonedrive%E4%B8%8B%E8%BD%BD/'>
 
-<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='Linux下压缩命令'>
-<meta property='og:description' content='Linux下压缩解压缩命令的归纳。
-.tar 解包：tar xvf FileName.tar
-打包：tar cvf FileName.tar DirName
-（注：tar是打包，不是压缩！）
-.gz 解压1：gunzip FileName.gz
-解压2：gzip -d FileName.gz
-压缩：gzip FileName
-.tar.gz 和 .tgz 解压：tar zxvf FileName.tar.gz
-压缩：tar zcvf FileName.tar.gz DirName
-.bz2 解压1：bzip2 -d FileName.bz2
-解压2：bunzip2 FileName.bz2
-压缩：bzip2 -z FileName
-.tar.bz2 解压：tar jxvf FileName.tar.bz2
-压缩：tar jcvf FileName.tar.bz2 DirName
-.bz 解压1：bzip2 -d FileName.bz
-解压2：bunzip2 FileName.bz
-压缩：未知
-.tar.bz 解压：tar jxvf FileName.tar.bz
-压缩：未知
-.Z 解压：uncompress FileName.Z
-压缩：compress FileName
-.tar.Z 解压：tar Zxvf FileName.tar.Z
-压缩：tar Zcvf FileName.tar.Z DirName'>
-<meta property='og:url' content='http://xpgreat.com/p/linux%E4%B8%8B%E5%8E%8B%E7%BC%A9%E5%91%BD%E4%BB%A4/'>
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='AMPlibraryagent异常访问Onedrive下载'>
+<meta property='og:description' content='先放方法：用任务监视器定位到AMPlibraryagent的路径，然后使用OneDrive的“应用管理”，停止响应AMPlibraryagent的请求。
+'>
+<meta property='og:url' content='http://xpgreat.com/p/amplibraryagent%E5%BC%82%E5%B8%B8%E8%AE%BF%E9%97%AEonedrive%E4%B8%8B%E8%BD%BD/'>
 <meta property='og:site_name' content='XP&#39;s Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Linux' /><meta property='article:published_time' content='2018-12-16T13:30:23&#43;01:00'/><meta property='article:modified_time' content='2018-12-16T13:30:23&#43;01:00'/>
-<meta name="twitter:title" content="Linux下压缩命令">
-<meta name="twitter:description" content="Linux下压缩解压缩命令的归纳。
-.tar 解包：tar xvf FileName.tar
-打包：tar cvf FileName.tar DirName
-（注：tar是打包，不是压缩！）
-.gz 解压1：gunzip FileName.gz
-解压2：gzip -d FileName.gz
-压缩：gzip FileName
-.tar.gz 和 .tgz 解压：tar zxvf FileName.tar.gz
-压缩：tar zcvf FileName.tar.gz DirName
-.bz2 解压1：bzip2 -d FileName.bz2
-解压2：bunzip2 FileName.bz2
-压缩：bzip2 -z FileName
-.tar.bz2 解压：tar jxvf FileName.tar.bz2
-压缩：tar jcvf FileName.tar.bz2 DirName
-.bz 解压1：bzip2 -d FileName.bz
-解压2：bunzip2 FileName.bz
-压缩：未知
-.tar.bz 解压：tar jxvf FileName.tar.bz
-压缩：未知
-.Z 解压：uncompress FileName.Z
-压缩：compress FileName
-.tar.Z 解压：tar Zxvf FileName.tar.Z
-压缩：tar Zcvf FileName.tar.Z DirName">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2021-04-10T11:19:05&#43;02:00'/><meta property='article:modified_time' content='2021-04-10T11:19:05&#43;02:00'/>
+<meta name="twitter:title" content="AMPlibraryagent异常访问Onedrive下载">
+<meta name="twitter:description" content="先放方法：用任务监视器定位到AMPlibraryagent的路径，然后使用OneDrive的“应用管理”，停止响应AMPlibraryagent的请求。
+">
     </head>
     <body class="">
         <div class="container flex on-phone--column align-items--flex-start extended article-page with-toolbar">
@@ -224,7 +161,7 @@
     
 
     <h2 class="article-title">
-        <a href="/p/linux%E4%B8%8B%E5%8E%8B%E7%BC%A9%E5%91%BD%E4%BB%A4/">Linux下压缩命令</a>
+        <a href="/p/amplibraryagent%E5%BC%82%E5%B8%B8%E8%AE%BF%E9%97%AEonedrive%E4%B8%8B%E8%BD%BD/">AMPlibraryagent异常访问Onedrive下载</a>
     </h2>
 
     <footer class="article-time">
@@ -236,68 +173,27 @@
 
 
 
-        <time class="article-time--published">Dec 16, 2018</time>
+        <time class="article-time--published">Apr 10, 2021</time>
     </footer></div>
 </header>
 
     <section class="article-content">
-    <p>Linux下压缩解压缩命令的归纳。</p>
-<h4 id="tar">.tar</h4>
-<p>解包：<code>tar xvf FileName.tar</code></p>
-<p>打包：<code>tar cvf FileName.tar DirName</code></p>
-<p>（注：tar是打包，不是压缩！）</p>
-<h4 id="gz">.gz</h4>
-<p>解压1：<code>gunzip FileName.gz</code></p>
-<p>解压2：<code>gzip -d FileName.gz</code></p>
-<p>压缩：<code>gzip FileName</code></p>
-<h4 id="targz-和-tgz">.tar.gz 和 .tgz</h4>
-<p>解压：<code>tar zxvf FileName.tar.gz</code></p>
-<p>压缩：<code>tar zcvf FileName.tar.gz DirName</code></p>
-<h4 id="bz2">.bz2</h4>
-<p>解压1：<code>bzip2 -d FileName.bz2</code></p>
-<p>解压2：<code>bunzip2 FileName.bz2</code></p>
-<p>压缩：<code>bzip2 -z FileName</code></p>
-<h4 id="tarbz2">.tar.bz2</h4>
-<p>解压：<code>tar jxvf FileName.tar.bz2</code></p>
-<p>压缩：<code>tar jcvf FileName.tar.bz2 DirName</code></p>
-<h4 id="bz">.bz</h4>
-<p>解压1：<code>bzip2 -d FileName.bz</code></p>
-<p>解压2：<code>bunzip2 FileName.bz</code></p>
-<p>压缩：未知</p>
-<h4 id="tarbz">.tar.bz</h4>
-<p>解压：<code>tar jxvf FileName.tar.bz</code></p>
-<p>压缩：未知</p>
-<h4 id="z">.Z</h4>
-<p>解压：<code>uncompress FileName.Z</code></p>
-<p>压缩：<code>compress FileName</code></p>
-<h4 id="tarz">.tar.Z</h4>
-<p>解压：<code>tar Zxvf FileName.tar.Z</code></p>
-<p>压缩：<code>tar Zcvf FileName.tar.Z DirName</code></p>
-<h4 id="zip">.zip</h4>
-<p>解压：<code>unzip FileName.zip</code></p>
-<p>压缩：<code>zip FileName.zip DirName</code></p>
-<h4 id="rar">.rar</h4>
-<p>解压：<code>rar x FileName.rar</code></p>
-<p>压缩：<code>rar a FileName.rar DirName</code></p>
-<h4 id="lha">.lha</h4>
-<p>解压：<code>lha -e FileName.lha</code></p>
-<p>压缩：<code>lha -a FileName.lha FileName</code></p>
-<h4 id="rpm">.rpm</h4>
-<p>解包：<code>rpm2cpio FileName.rpm | cpio -div</code></p>
-<h4 id="deb">.deb</h4>
-<p>解包：<code>ar p FileName.deb data.tar.gz | tar zxf -</code></p>
-<h4 id="用sex">用sEx</h4>
-<p>解压：<code>sEx x FileName.*</code></p>
-<p>压缩：<code>sEx a FileName.* FileName</code></p>
-
+    <p>先放方法：用任务监视器定位到AMPlibraryagent的路径，然后使用OneDrive的“应用管理”，停止响应AMPlibraryagent的请求。</p>
+<p>今天在正常使用MacBook时，偶然发现OneDrive经常会异常同步，反复释放空间无果。查看OneDrive的日志发现，是一个名叫AMPlibraryagent的应用请求的。查询得知，AMPLibraryAgent（The media library agent for Music.app and TV.app）是Apple Music和Apple TV的相关进程，属于系统进程，从它下手的可能性不大。</p>
+<p>尝试很多方法后，终于发现可以通过onedrive设置里面的“管理应用”来停止响应特定应用的请求<a class="link" href="https://www.reddit.com/r/mac/comments/kcsayt/disable_amplibraryagent/"  target="_blank" rel="noopener"
+    >🔗</a>。于是有了如下步骤：</p>
+<ol>
+<li>任务监视器定位到AMPlibraryagent的路径。</li>
+<li>Onedrive &gt; 首选项 &gt; 应用管理 &gt; +</li>
+<li>弹出的Finder里 Cmd + Shift + G, 输入AMPlibraryagent的路径，选择它和AMPArtworkAgent，停止OneDrive对他们的响应。</li>
+<li>ok</li>
+</ol>
 </section>
 
 
     <footer class="article-footer">
     
     <section class="article-tags">
-        
-            <a href="/tags/linux/">LINUX</a>
         
     </section>
 
@@ -328,12 +224,12 @@
                 
                     
 <article class="">
-    <a href="/p/amplibraryagent%E5%BC%82%E5%B8%B8%E8%AE%BF%E9%97%AEonedrive%E4%B8%8B%E8%BD%BD/">
+    <a href="/p/%E5%9C%A8jupyer-notebook%E9%87%8C%E5%AE%89%E8%A3%85%E5%8C%85/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">AMPlibraryagent异常访问Onedrive下载</h2>
+            <h2 class="article-title">在Jupyer Notebook里安装包</h2>
         </div>
     </a>
 </article>
