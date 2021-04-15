@@ -6,7 +6,65 @@
         <description>Recent content on XP&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-CN</language>
-        <lastBuildDate>Sat, 10 Apr 2021 11:19:05 +0200</lastBuildDate><atom:link href="http://xpgreat.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 12 Apr 2021 17:48:40 +0200</lastBuildDate><atom:link href="http://xpgreat.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[论文解读]买方/卖方分析师对基金经理决策的影响</title>
+        <link>http://xpgreat.com/p/%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB%E4%B9%B0%E6%96%B9/%E5%8D%96%E6%96%B9%E5%88%86%E6%9E%90%E5%B8%88%E5%AF%B9%E5%9F%BA%E9%87%91%E7%BB%8F%E7%90%86%E5%86%B3%E7%AD%96%E7%9A%84%E5%BD%B1%E5%93%8D/</link>
+        <pubDate>Mon, 12 Apr 2021 17:48:40 +0200</pubDate>
+        
+        <guid>http://xpgreat.com/p/%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB%E4%B9%B0%E6%96%B9/%E5%8D%96%E6%96%B9%E5%88%86%E6%9E%90%E5%B8%88%E5%AF%B9%E5%9F%BA%E9%87%91%E7%BB%8F%E7%90%86%E5%86%B3%E7%AD%96%E7%9A%84%E5%BD%B1%E5%93%8D/</guid>
+        <description>&lt;p&gt;在基金经理决策时，他所依赖的信息源主要是分析师，分析师分为三种：卖方分析师（Sell-side Analyst, SSA）、买方分析师（Buy-side Analyst, BSA）和独立第三方分析师（Independent Third-party Analyst, ITA）。基金经理如何权衡这三个来源的信息，决策时使用的权重有什么影响，分析师本身的一些特征（例如经验、偏差、准确度）会对决策结果带来什么影响？Yingmei Cheng et al. 在2006年发表的名为“
+Buy-Side Analysts, Sell-Side Analysts, and Investment Decisions of Money Manager”的论文对此作了详细的理论和实证分析。&lt;/p&gt;
+&lt;h1 id=&#34;三种分析师&#34;&gt;三种分析师&lt;/h1&gt;
+&lt;p&gt;金融分析师应用公开信息和个人的信源，对股票等投资标的物的价格、前景、相关指标进行预测，进而为投资人提供投资建议。SSA为证券经纪商（brokerage firm）工作，为经纪人和他们的客户服务，他们的研究报告和投资建议通常也为大众开放。这些研报也被广泛认为是有投资参考价值的（eg., Elton, Gruber, and Grossman (1986), Stickel(1995), Womack (1996)），但是由于SSA与卖方的关系，他们的研报中可能会存在有利于卖方的偏差（bias）。对于SSA来说，存在两种主要的激励来源：一是对职业道德和名望的追求会促使他们提供客观无偏的报告，事实上很多基金经理会根据分析师过往的表现来决定是否使用他的报告；二是SSA与卖方的利益关系会促使他们提供更乐观的报告以吸引更多的投资，卖方经纪商甚至可能会因此给他们提供额外的报酬。&lt;/p&gt;
+&lt;p&gt;BSA为资产管理公司工作，通常是各种基金公司，他们为公司内的基金经理提供内部的预测和推荐。与SSA不同，由于BSA供职于买方，他们的收入与买方是否盈利挂钩，所以他们会尽力给出有利于买方的研报，即更符合真实情况的报告，也就意味着不存在偏差（bias）的问题。然而由于是内部报告，BSA的成本比SSA要高昂的多，且成本会随着要求的精度的上升而迅速上升。&lt;/p&gt;
+&lt;p&gt;ITA是独立第三方分析师，他们不供职于买方或卖方，而是生产研报，以一次性的价格卖给基金经理。通常情况下ITA的报告在基金经理决策时只占很小的部分(4%)。&lt;/p&gt;
+&lt;h1 id=&#34;bsassa占比的最优平衡问题&#34;&gt;BSA、SSA占比的最优平衡问题&lt;/h1&gt;
+&lt;h2 id=&#34;定义&#34;&gt;定义&lt;/h2&gt;
+&lt;p&gt;对于一个基金经理来说，他们做出一个投资决策\(y\)带来的收益与该股票真实价格\(v\)挂钩，该过程对他带来的效用（utility）是&lt;/p&gt;
+&lt;p&gt;$$
+U(y,b) = -\alpha (y-v)^2
+$$&lt;/p&gt;
+&lt;p&gt;其中\(\alpha &amp;gt; 0\)是一个比例因子，它的大小表达了基金经理对决策与真实的偏差的敏感度，比如管理的基金规模（economy of scale）越大，敏感度就越高，\(\alpha\)也越大。真实价格\(\widetilde v \sim N(0, \sigma_0^2)\)其中\(\sigma_0^2 \rightarrow +\infinity \)，也就是说真实价格近似服从一个均值为零且方差无穷大的正态分布，故基金经理不可能依靠自己的先验知识来进行预测。所以基金经理必须完全依靠分析师来进行投资决策。SSA做出的预测可以写为：&lt;/p&gt;
+&lt;p&gt;$$
+\widetilde S_{SSA} = B + (\widetilde v + {\widetilde e}_{SSA})
+$$&lt;/p&gt;
+&lt;p&gt;其中\(\widetilde e_{SSA} \sim N(0, \sigma_{SSA}^2)\)，代表SSA的信号（即预测）的噪音（signal&amp;rsquo;s noise），其方差越大，意味着预测越不可信，所以可以定义\(p = 1 / \sigma_{SSA}^2\)来描述信号的精度，\(p\)越大，信号中包含的真实情况的信息越多。\(B\)代表SSA的bias，可以假设\(B&amp;gt;0\)，因为SSA通常只会加入积极的偏差（optimistic bias），虽然理论上也可以是消极的，但推理和实证研究都表明偏差为正。正如上面提到的，SSA不一定会在每一次都有偏，所以引入一个偏差概率\(\theta\)，\(P(B=b) = \theta, P(B=0) = 1-\theta \)。*（对于一个SSA来说偏差一直保持不变？B应该是一个大于等于零的随机变量。有待思考）* 于是\(B\)的方差\(\Sigma_B^2 = \theta (1-\theta)b^2\) （二元分布）。偏差不能太大，否则SSA的信息会被视为无用，假设\(0 &amp;lt; b \le = \sqrt{1/(2\theta (1-\theta) p)} \)。总的来说，\(p\)越大，\(b\)和\(\Sigma_B^2\)越小，则SSA的报告质量越高。&lt;/p&gt;
+&lt;p&gt;BSA做出的预测可以写为：&lt;/p&gt;
+&lt;p&gt;$$
+\widetilde S_{BSA} = \widetilde v + {\widetilde e}_{BSA}
+$$&lt;/p&gt;
+&lt;p&gt;与SSA类似地，\(\widetilde e_{BSA} \sim N(0, \sigma_{BSA}^2)\)，\(q = 1 / \sigma_{BSA}^2\)。注意到BSA是不含偏差的。此外，由于BSA是基金公司内部的分析师，所以存在成本，且成本与报告质量有关，记为\(C(q)\)，是一个关于\(q\)的凸增函数，即\(C&#39;(q)&amp;gt;0, C&#39;&#39;(q) &amp;gt; 0\)。&lt;/p&gt;
+&lt;h2 id=&#34;成本平衡与分析师权重&#34;&gt;成本平衡与分析师权重&lt;/h2&gt;
+&lt;p&gt;基于上面的定义，可以写出基金经理在权衡SSA和BSA时的核心优化问题：&lt;/p&gt;
+&lt;p&gt;$$
+\max_y E[- \alpha (y - \widetilde v)^2 | \widetilde S_{SSA} = S_{SSA}, \widetilde S_{BSA} = S_{BSA}]
+$$&lt;/p&gt;
+&lt;p&gt;经证明可得，均衡点的\(y^* = w^*S_{BSA} + (1 - w^*)(S_{SSA} - \theta b)\)，其中\(w^* = \frac{q}{p+q}\)。&lt;/p&gt;
+&lt;p&gt;将\(y^*, w^*\)代回效用函数，减掉BSA带来的成本，求导得到最优\(q\)应满足的一阶条件：&lt;/p&gt;
+&lt;p&gt;$$
+\alpha \left[ \frac{1}{(p+q)^2} + \frac{2p^2b^2\theta (1-\theta)}{(p+q)^3} \right] - C&#39;(q) = 0
+$$&lt;/p&gt;
+&lt;p&gt;进一步推导可得，\(q^*\)在\(\alpha , b, \Sigma_B^2\)增加，或\(p\)减少时，增加。相应的，\(w^* = \frac{q}{p+q} = 1-\frac{p}{p+q}\)也增加。&lt;/p&gt;
+&lt;h1 id=&#34;6条假说&#34;&gt;6条假说&lt;/h1&gt;
+&lt;p&gt;由上面的模型推导，作者提出了6条假说，并用实际数据加以了验证：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;H1: BSA的权重随着&lt;strong&gt;SSA的信号质量降低&lt;/strong&gt;而增加。\(p\)&lt;/li&gt;
+&lt;li&gt;H2: BSA的权重随着&lt;strong&gt;SSA的偏差增加&lt;/strong&gt;而增加。\(b\)&lt;/li&gt;
+&lt;li&gt;H3: BSA的权重随着&lt;strong&gt;SSA的偏差的不确定性增加&lt;/strong&gt;而增加。\(\Sigma_B^2\)&lt;/li&gt;
+&lt;li&gt;H4: BSA的权重随着&lt;strong&gt;BSA的信号质量增加&lt;/strong&gt;而增加。\(q\)&lt;/li&gt;
+&lt;li&gt;H5: BSA的权重随着&lt;strong&gt;资产管理规模的增加&lt;/strong&gt;而增加。\(\alpha\)&lt;/li&gt;
+&lt;li&gt;H6: BSA的权重随着&lt;strong&gt;代理人问题（agency problem）的严重程度减少&lt;/strong&gt;而增加。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;对于绝大多数基金内的股票，都有多个SSA来cover，同时这些基金也有自己的BSA团队。我们可以认为，SSA的信号就是所有cover
+该股的SSA的报告所包含的信息（&lt;em&gt;不考虑有相关性的其他股票的信息？&lt;/em&gt;）。进一步，如果cover的SSA数量越多，可以认为SSA信号所包含的信息越多（如果有herding的情况不一定对），也就是SSA信号的质量越高。作者使用了cover到某一股票的SSA数量作为SSA信号质量\(p\)的一个度量，如果没有SSAcover该股票，则\(p=0\)，基金经理只能全部依赖于BSA。于是有了假设1，BSA的权重随着SSA的信号质量降低而增加。&lt;/p&gt;
+&lt;p&gt;为了衡量SSA的偏差，作者取所有相关的SSA的平均预测的误差作为它的度量，尽管不同的SSA有着不同的偏差，但平均预测的误差可以反映出总体的偏差的大小。作者用股价做了归一化，消除了股价的绝对高低带来的偏差的不可比的问题。由此作者提出第二个假设：BSA的权重随着SSA的偏差增加而增加。&lt;/p&gt;
+&lt;p&gt;由上面对偏差的估计的讨论可以得出，我们可以用SSA的平均预测的误差的方差作为SSA的偏差的不确定性的一个度量。而平均预测的误差的方差也正是平均预测的方差，故作者用它来衡量偏差的不确定性。作者提出假设3: BSA的权重随着SSA的偏差的不确定性增加而增加。&lt;/p&gt;
+&lt;p&gt;BSA的信号的质量直接影响到基金经理的权重选择。影响其质量的一个重要因素，且该因素不会影响到SSA，是BSA的经验。一般的我们可以假定，BSA的经验越丰富，给出的信号质量越高。于是有了假设4: BSA的权重随着BSA的信号质量增加而增加。&lt;/p&gt;
+&lt;p&gt;基金的规模也会影响基金经理的选择，在上面的效用函数中，\(\alpha\)越大，基金经理越希望获得与实际相近的预测，也就会更多的参考BSA的无偏的报告。一个用来衡量\(\alpha\)的变量则是基金或管理资金的规模。即假设5: BSA的权重随着资产管理规模的增加而增加。&lt;/p&gt;
+&lt;p&gt;最后，基金经理和客户间的代理人问题也会产生影响。为了减轻代理人问题，可以给基金经理performance的激励，他们的\(\alpha\)会增大，会提高BSA的占比以追求更准确的预测。所以作者提出第六个假设：BSA的权重随着代理人问题（agency problem）的严重程度减少而增加。&lt;/p&gt;
+&lt;h1 id=&#34;实证研究&#34;&gt;实证研究&lt;/h1&gt;</description>
+        </item>
+        <item>
         <title>AMPlibraryagent异常访问Onedrive下载</title>
         <link>http://xpgreat.com/p/amplibraryagent%E5%BC%82%E5%B8%B8%E8%AE%BF%E9%97%AEonedrive%E4%B8%8B%E8%BD%BD/</link>
         <pubDate>Sat, 10 Apr 2021 11:19:05 +0200</pubDate>
@@ -45,10 +103,10 @@ wget https://apache.mirror.digionline.de/hadoop/common/hadoop-3.2.2/hadoop-3.2.2
 sudo tar zxvf hadoop-* -C /usr/local
 sudo mv /usr/local/hadoop-* /usr/local/hadoop​
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;添加环境变量&lt;code&gt;sudo vim ~/.bashrc​&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;JAVA_HOME&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/usr/lib/jvm/java-11-openjdk-amd64 
-&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;PATH&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$PATH&lt;/span&gt;:&lt;span class=&#34;nv&#34;&gt;$JAVA_HOME&lt;/span&gt;/bin  
-&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;HADOOP_HOME&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/usr/local/hadoop 
-&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;PATH&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$PATH&lt;/span&gt;:&lt;span class=&#34;nv&#34;&gt;$HADOOP_HOME&lt;/span&gt;/bin 
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;JAVA_HOME&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/usr/lib/jvm/java-11-openjdk-amd64
+&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;PATH&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$PATH&lt;/span&gt;:&lt;span class=&#34;nv&#34;&gt;$JAVA_HOME&lt;/span&gt;/bin
+&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;HADOOP_HOME&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/usr/local/hadoop
+&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;PATH&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$PATH&lt;/span&gt;:&lt;span class=&#34;nv&#34;&gt;$HADOOP_HOME&lt;/span&gt;/bin
 &lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;HADOOP_CONF_DIR&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/usr/local/hadoop/etc/hadoop​
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;更新环境变量&lt;code&gt;source ~/.bashrc&lt;/code&gt;，测试能否用java和hadoop。&lt;/p&gt;
 &lt;p&gt;上面的搞定后，克隆两个实例。&lt;/p&gt;
@@ -57,14 +115,14 @@ sudo mv /usr/local/hadoop-* /usr/local/hadoop​
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;ssh-keygen -f ~/.ssh/id_rsa -t rsa -P &lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
 cat ~/.ssh/id_rsa.pub &amp;gt;&amp;gt; ~/.ssh/authorized_keys​
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在NameNode上的&lt;code&gt;~/.ssh/config&lt;/code&gt;写入：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;Host namenode 
-	HostName &amp;lt;private IP or public DNS of namenode instance&amp;gt; 
-	User ubuntu 
-Host datanode1  
-	HostName &amp;lt;private IP or public DNS of datanode1 instance&amp;gt;  
-	User ubuntu 
-Host datanode2  
-	HostName &amp;lt;private IP or public DNS of datanode2 instance&amp;gt;  
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;Host namenode
+	HostName &amp;lt;private IP or public DNS of namenode instance&amp;gt;
+	User ubuntu
+Host datanode1 
+	HostName &amp;lt;private IP or public DNS of datanode1 instance&amp;gt; 
+	User ubuntu
+Host datanode2 
+	HostName &amp;lt;private IP or public DNS of datanode2 instance&amp;gt; 
 	User ubuntu
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;把datanode的公钥拷贝到namenode的&lt;code&gt;~/.ssh/authorized_keys&lt;/code&gt;里，换行粘贴就行。&lt;/p&gt;
 &lt;h1 id=&#34;配置hadoop&#34;&gt;配置Hadoop&lt;/h1&gt;

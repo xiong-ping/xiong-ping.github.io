@@ -6,7 +6,16 @@
     <description>Recent content in 技巧 on XP&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 15 Mar 2020 16:25:12 +0800</lastBuildDate><atom:link href="http://xpgreat.com/tags/%E6%8A%80%E5%B7%A7/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 10 Apr 2021 11:19:05 +0200</lastBuildDate><atom:link href="http://xpgreat.com/tags/%E6%8A%80%E5%B7%A7/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AMPlibraryagent异常访问Onedrive下载</title>
+      <link>http://xpgreat.com/p/amplibraryagent%E5%BC%82%E5%B8%B8%E8%AE%BF%E9%97%AEonedrive%E4%B8%8B%E8%BD%BD/</link>
+      <pubDate>Sat, 10 Apr 2021 11:19:05 +0200</pubDate>
+      
+      <guid>http://xpgreat.com/p/amplibraryagent%E5%BC%82%E5%B8%B8%E8%AE%BF%E9%97%AEonedrive%E4%B8%8B%E8%BD%BD/</guid>
+      <description>&lt;p&gt;先放方法：用任务监视器定位到AMPlibraryagent的路径，然后使用OneDrive的“应用管理”，停止响应AMPlibraryagent的请求。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>机器学习的工作流程</title>
       <link>http://xpgreat.com/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B/</link>
@@ -14,6 +23,105 @@
       
       <guid>http://xpgreat.com/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B/</guid>
       <description>&lt;p&gt;最近在阅读François Chollet写的Deep Learning with Python. 书中有很多经验性的技巧和归纳，其中4.5写的Machine Learning的工作流程归纳的很好，看完深有启发，摘录于此。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>安装TensorFlow时踩的一个小坑</title>
+      <link>http://xpgreat.com/p/%E5%AE%89%E8%A3%85tensorflow%E6%97%B6%E8%B8%A9%E7%9A%84%E4%B8%80%E4%B8%AA%E5%B0%8F%E5%9D%91/</link>
+      <pubDate>Sun, 15 Mar 2020 15:22:49 +0800</pubDate>
+      
+      <guid>http://xpgreat.com/p/%E5%AE%89%E8%A3%85tensorflow%E6%97%B6%E8%B8%A9%E7%9A%84%E4%B8%80%E4%B8%AA%E5%B0%8F%E5%9D%91/</guid>
+      <description>&lt;p&gt;不记得之前安装的是什么版本，这次（2020/3）让&lt;code&gt;pip&lt;/code&gt;自动安装选择的是&lt;code&gt;2.1.0&lt;/code&gt;，但这个版本安装后使用&lt;code&gt;import tensorflow&lt;/code&gt;会报错，如下：&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>在Jupyer Notebook里安装包</title>
+      <link>http://xpgreat.com/p/%E5%9C%A8jupyer-notebook%E9%87%8C%E5%AE%89%E8%A3%85%E5%8C%85/</link>
+      <pubDate>Mon, 09 Dec 2019 22:01:11 +0100</pubDate>
+      
+      <guid>http://xpgreat.com/p/%E5%9C%A8jupyer-notebook%E9%87%8C%E5%AE%89%E8%A3%85%E5%8C%85/</guid>
+      <description>&lt;p&gt;一个方便的小技巧，可以很快的安装缺失的包。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>让程序在后台稳定运行的方法</title>
+      <link>http://xpgreat.com/p/%E8%AE%A9%E7%A8%8B%E5%BA%8F%E5%9C%A8%E5%90%8E%E5%8F%B0%E7%A8%B3%E5%AE%9A%E8%BF%90%E8%A1%8C%E7%9A%84%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Tue, 16 Jul 2019 16:21:51 +0200</pubDate>
+      
+      <guid>http://xpgreat.com/p/%E8%AE%A9%E7%A8%8B%E5%BA%8F%E5%9C%A8%E5%90%8E%E5%8F%B0%E7%A8%B3%E5%AE%9A%E8%BF%90%E8%A1%8C%E7%9A%84%E6%96%B9%E6%B3%95/</guid>
+      <description>&lt;p&gt;在使用SSH链接远程虚拟机的时候经常会出现网络连接不稳定而导致前台运行的代码终止运行的情况，怎样能让程序稳定地在后台运行，不受断线的影响？IBM Developer上的这篇文章很有帮助，转载方便以后查阅。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>使用MathJax时的注意事项</title>
+      <link>http://xpgreat.com/p/%E4%BD%BF%E7%94%A8mathjax%E6%97%B6%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</link>
+      <pubDate>Thu, 17 Jan 2019 17:28:35 +0100</pubDate>
+      
+      <guid>http://xpgreat.com/p/%E4%BD%BF%E7%94%A8mathjax%E6%97%B6%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</guid>
+      <description>记录一些在使用MathJax写公式时踩过的坑，持续更新。本来放在另一篇里的，内容越来越多，单独成篇。
+用$ $无法输入行内公式 MathJax默认禁用了这种方式，你可以使用\\( 你的公式 \\)的方法，也可以参考它的default.js自行配置（在295行）。行间公式默认可以用\\[ 你的公式 \\]或者传统的TeX写法$$ 你的公式 $$。
+输入下标出错 x_{abc}这样使用的时候会莫名其妙的报错，试了一下把_转义：x\_{abc}，就能用了。
+公式不能换行 因为md解析的时候把\\解析成了一个\，解决方法是用四根\\\\ 换行（最后要加一个半角空格）。（也是醉了）
+公式对齐 直接上代码：
+\begin{aligned} &amp;amp;\nabla_{\mathbf x}A\mathbf x = A \\\\ &amp;amp;\frac{\partial \mathbf x^T \mathbf a}{\partial \mathbf x} = \frac{\partial \mathbf a^T \mathbf x}{\partial \mathbf x} = \mathbf a \\\\ \end{aligned} 效果： $$ \begin{aligned} &amp;amp;\nabla_{\mathbf x}A\mathbf x = A \\ &amp;amp;\frac{\partial \mathbf x^T \mathbf a}{\partial \mathbf x} = \frac{\partial \mathbf a^T \mathbf x}{\partial \mathbf x} = \mathbf a \\ \end{aligned} $$</description>
+    </item>
+    
+    <item>
+      <title>Linux下压缩命令</title>
+      <link>http://xpgreat.com/p/linux%E4%B8%8B%E5%8E%8B%E7%BC%A9%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Sun, 16 Dec 2018 13:30:23 +0100</pubDate>
+      
+      <guid>http://xpgreat.com/p/linux%E4%B8%8B%E5%8E%8B%E7%BC%A9%E5%91%BD%E4%BB%A4/</guid>
+      <description>Linux下压缩解压缩命令的归纳。
+.tar 解包：tar xvf FileName.tar
+打包：tar cvf FileName.tar DirName
+（注：tar是打包，不是压缩！）
+.gz 解压1：gunzip FileName.gz
+解压2：gzip -d FileName.gz
+压缩：gzip FileName
+.tar.gz 和 .tgz 解压：tar zxvf FileName.tar.gz
+压缩：tar zcvf FileName.tar.gz DirName
+.bz2 解压1：bzip2 -d FileName.bz2
+解压2：bunzip2 FileName.bz2
+压缩：bzip2 -z FileName
+.tar.bz2 解压：tar jxvf FileName.tar.bz2
+压缩：tar jcvf FileName.tar.bz2 DirName
+.bz 解压1：bzip2 -d FileName.bz
+解压2：bunzip2 FileName.bz
+压缩：未知
+.tar.bz 解压：tar jxvf FileName.tar.bz
+压缩：未知
+.Z 解压：uncompress FileName.Z
+压缩：compress FileName
+.tar.Z 解压：tar Zxvf FileName.tar.Z
+压缩：tar Zcvf FileName.tar.Z DirName</description>
+    </item>
+    
+    <item>
+      <title>在Hugo博客中加入代码高亮</title>
+      <link>http://xpgreat.com/p/%E5%9C%A8hugo%E5%8D%9A%E5%AE%A2%E4%B8%AD%E5%8A%A0%E5%85%A5%E4%BB%A3%E7%A0%81%E9%AB%98%E4%BA%AE/</link>
+      <pubDate>Wed, 05 Dec 2018 19:31:24 +0100</pubDate>
+      
+      <guid>http://xpgreat.com/p/%E5%9C%A8hugo%E5%8D%9A%E5%AE%A2%E4%B8%AD%E5%8A%A0%E5%85%A5%E4%BB%A3%E7%A0%81%E9%AB%98%E4%BA%AE/</guid>
+      <description>&lt;p&gt;相信自己搭建博客的人中有一大半都是玩代码的，所以代码高亮可以说是博客的必备功能。本文提供一个在基于Hugo的博客上使用&lt;code&gt;highlight.js&lt;/code&gt;的代码高亮方案。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Markdown里图片并列显示</title>
+      <link>http://xpgreat.com/p/markdown%E9%87%8C%E5%9B%BE%E7%89%87%E5%B9%B6%E5%88%97%E6%98%BE%E7%A4%BA/</link>
+      <pubDate>Wed, 05 Dec 2018 17:42:53 +0100</pubDate>
+      
+      <guid>http://xpgreat.com/p/markdown%E9%87%8C%E5%9B%BE%E7%89%87%E5%B9%B6%E5%88%97%E6%98%BE%E7%A4%BA/</guid>
+      <description>&lt;p&gt;在编辑博文的时候，有时会想把两张图片并列在一起显示，参考了网上内容，分享一下。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>使用Hugo的一些注意事项</title>
+      <link>http://xpgreat.com/p/%E4%BD%BF%E7%94%A8hugo%E7%9A%84%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</link>
+      <pubDate>Wed, 05 Dec 2018 16:32:54 +0100</pubDate>
+      
+      <guid>http://xpgreat.com/p/%E4%BD%BF%E7%94%A8hugo%E7%9A%84%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</guid>
+      <description>&lt;p&gt;一些在使用Hugo时发现的小技巧或问题及解决方法，会持续更新。&lt;/p&gt;</description>
     </item>
     
   </channel>
