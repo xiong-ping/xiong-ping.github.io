@@ -62,7 +62,13 @@ $$&lt;/p&gt;
 &lt;p&gt;BSA的信号的质量直接影响到基金经理的权重选择。影响其质量的一个重要因素，且该因素不会影响到SSA，是BSA的经验。一般的我们可以假定，BSA的经验越丰富，给出的信号质量越高。于是有了假设4: BSA的权重随着BSA的信号质量增加而增加。&lt;/p&gt;
 &lt;p&gt;基金的规模也会影响基金经理的选择，在上面的效用函数中，\(\alpha\)越大，基金经理越希望获得与实际相近的预测，也就会更多的参考BSA的无偏的报告。一个用来衡量\(\alpha\)的变量则是基金或管理资金的规模。即假设5: BSA的权重随着资产管理规模的增加而增加。&lt;/p&gt;
 &lt;p&gt;最后，基金经理和客户间的代理人问题也会产生影响。为了减轻代理人问题，可以给基金经理performance的激励，他们的\(\alpha\)会增大，会提高BSA的占比以追求更准确的预测。所以作者提出第六个假设：BSA的权重随着代理人问题（agency problem）的严重程度减少而增加。&lt;/p&gt;
-&lt;h1 id=&#34;实证研究&#34;&gt;实证研究&lt;/h1&gt;</description>
+&lt;h1 id=&#34;实证研究&#34;&gt;实证研究&lt;/h1&gt;
+&lt;p&gt;为了验证上述的六个假设，作者使用了Thomson Financial/Nelson Information&amp;rsquo;s Directory of Fund Managers作为数据源，提取出了2000—2002年三年的数据，在每年中都有超过1800个来自全球的组织的数据，他们一共管理超过2万亿美元的资产。该数据集每年发布一版，主要聚焦于复杂的机构投资者（而不是小投资者），所以他们提供误导性数据以短期获利的动机比较低。作者选择的样本是seperate account，即brokerage和financial advisor为高净值、pension和其他机构投资者提供分离的账户，每个投资人都在自己的账户中独立拥有相同的股票set，而不是像一般的open-end的共同基金一样所有投资者拥有一个池子里的一部分。该数据集主要包括基金portfolio的特点、投资风格、benchmark、return。另外，它还提供了关于基金经理和基金BSA的特点信息，包括他们的经验和费用结构。数据集的统计特征如图所示：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://xpgreat.com/img/ssa_bsa_1.png&#34; alt=&#34;统计特征表&#34;  /&gt;&lt;/p&gt;
+&lt;p&gt;其中对于股票的资本规模、风险、PE，作者用S&amp;amp;P500为参照。Equity Turnover（股票周转率）表示了基金成分股票交易的频率，即该基金的管理的积极性。Sector Emphasis（行业重点）表示基金是否更改其行业重点。在后面的研究中，作者将Value和Growth &amp;amp; Value合并成一类Value-typed。&lt;/p&gt;
+&lt;p&gt;这个数据集最大的特点就是，它提供了基金经理决策的来源信息（后四行），In-house对应BSA，Street Analyst对应SSA，Other对应ITA。从数据中可以归纳出至少三种BSA有利于基金经理的渠道：1. 在很少SSA cover到某个股票时（例如小盘股），BSA可以提供分析报告，此时BSA填补了SSA的空白（fill the void）；2. 基金经理不信任SSA，转而使用BSA的报告，此时BSA替换了（replace/substitute）SSA；3. BSA可能使用SSA的报告作为参考来发表自己的报告，此时BSA报告辅助了（complement）SSA的报告。值得注意的是，BSA的平均和中位占比远高于SSA，证明了BSA对基金经理的重要性。&lt;/p&gt;
+&lt;p&gt;最后一行描述了基金公司整体的决策过程，分为三类：1. 集中制（centralized），基金公司可以集中公司内所有的BSA，他们生产的研报所有基金经理都可以使用，以增加整个公司的研究资源的使用效率；2. 多委员会制（multi commitee），基金公司内由多个不同的委员会分别负责投资的各个方面（例如研究、投资组合审查），但是数据表明，单个公司的多个基金仍然依赖一个委员会进行投资决策，因此这些基金使用BSA的方法也是一样的；3. 相对独立（relative autonomous），同公司内的不同基金经理的使用BSA和SSA的方式不同，使用这种决策过程的公司占比仅10%～12%，除去其中仅管理一个基金的公司后占比不到8%。&lt;/p&gt;
+&lt;p&gt;接下来，作者从什么影响BSA/SSA占比，和BSA/SSA占比对收益的影响两个方面入手，展开了回归分析，以证明上面的六个假说。此外，作者还对分析的鲁棒性做了测试，以证明上述分析的可靠性，篇幅比较长在这就不做展示了，请参阅原论文。&lt;/p&gt;</description>
         </item>
         <item>
         <title>AMPlibraryagent异常访问Onedrive下载</title>
