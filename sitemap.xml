@@ -3,27 +3,42 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://xpgreat.com/p/%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB%E4%B9%B0%E6%96%B9/%E5%8D%96%E6%96%B9%E5%88%86%E6%9E%90%E5%B8%88%E5%AF%B9%E5%9F%BA%E9%87%91%E7%BB%8F%E7%90%86%E5%86%B3%E7%AD%96%E7%9A%84%E5%BD%B1%E5%93%8D/</loc>
-    <lastmod>2021-04-12T17:48:40+02:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://xpgreat.com/categories/</loc>
-    <lastmod>2021-04-12T17:48:40+02:00</lastmod>
+    <lastmod>2021-06-10T11:00:00+02:00</lastmod>
   </url>
   
   <url>
     <loc>http://xpgreat.com/post/</loc>
-    <lastmod>2021-04-12T17:48:40+02:00</lastmod>
+    <lastmod>2021-06-10T11:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://xpgreat.com/tags/python/</loc>
+    <lastmod>2021-06-10T11:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://xpgreat.com/p/python%E8%B0%83%E7%94%A8%E4%BD%9C%E4%B8%BA%E5%8F%82%E6%95%B0%E7%9A%84%E5%87%BD%E6%95%B0%E7%9A%84%E6%96%B9%E6%B3%95/</loc>
+    <lastmod>2021-06-10T11:00:00+02:00</lastmod>
   </url>
   
   <url>
     <loc>http://xpgreat.com/tags/</loc>
-    <lastmod>2021-04-12T17:48:40+02:00</lastmod>
+    <lastmod>2021-06-10T11:00:00+02:00</lastmod>
   </url>
   
   <url>
     <loc>http://xpgreat.com/</loc>
+    <lastmod>2021-06-10T11:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://xpgreat.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/</loc>
+    <lastmod>2021-06-10T11:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://xpgreat.com/p/%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB%E4%B9%B0%E6%96%B9/%E5%8D%96%E6%96%B9%E5%88%86%E6%9E%90%E5%B8%88%E5%AF%B9%E5%9F%BA%E9%87%91%E7%BB%8F%E7%90%86%E5%86%B3%E7%AD%96%E7%9A%84%E5%BD%B1%E5%93%8D/</loc>
     <lastmod>2021-04-12T17:48:40+02:00</lastmod>
   </url>
   
@@ -49,11 +64,6 @@
   
   <url>
     <loc>http://xpgreat.com/tags/%E6%8A%80%E5%B7%A7/</loc>
-    <lastmod>2021-04-10T11:19:05+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://xpgreat.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/</loc>
     <lastmod>2021-04-10T11:19:05+02:00</lastmod>
   </url>
   
