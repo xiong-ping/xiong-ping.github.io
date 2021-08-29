@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MCMC on XP&#39;s Blog</title>
+    <link>http://xpgreat.com/tags/mcmc/</link>
+    <description>Recent content in MCMC on XP&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 17 Aug 2021 20:34:54 +0200</lastBuildDate><atom:link href="http://xpgreat.com/tags/mcmc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hamiltonian Monte Carlo算法</title>
+      <link>http://xpgreat.com/p/hamiltonian-monte-carlo%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Tue, 17 Aug 2021 20:34:54 +0200</pubDate>
+      
+      <guid>http://xpgreat.com/p/hamiltonian-monte-carlo%E7%AE%97%E6%B3%95/</guid>
+      <description>&lt;p&gt;MCMC（Markov-Chain Monte-Carlo）算法用于生成给定分布的样本。在很多时候，我们想计算一个复杂分布的函数期望值，但用解析的，求解积分的方法，是极其困难的，对于有些分布甚至是不可能的。所以我们使用一些采样方法，例如Gibbs sampling，Metropolis-Hasting算法。本文介绍Hamiltonian Monte-Carlo算法。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

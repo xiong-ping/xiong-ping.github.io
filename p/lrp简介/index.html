@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='机器学习的可解释性一直以来都是一个大问题，模型中的海量权重和连接关系让机器学习一直被视为黑盒模型。为了解决这个问题，Explainable AI （XAI）是一个前沿的研究方向。关于可解释性的研究，推荐这篇综述。本文简要介绍解释深度神经网络（DNN）的算法LRP（Layerwise Relevance Propagation）。
+'><title>LRP简介</title>
+
+<link rel='canonical' href='http://xpgreat.com/p/lrp%E7%AE%80%E4%BB%8B/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='LRP简介'>
+<meta property='og:description' content='机器学习的可解释性一直以来都是一个大问题，模型中的海量权重和连接关系让机器学习一直被视为黑盒模型。为了解决这个问题，Explainable AI （XAI）是一个前沿的研究方向。关于可解释性的研究，推荐这篇综述。本文简要介绍解释深度神经网络（DNN）的算法LRP（Layerwise Relevance Propagation）。
+'>
+<meta property='og:url' content='http://xpgreat.com/p/lrp%E7%AE%80%E4%BB%8B/'>
+<meta property='og:site_name' content='XP&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='机器学习' /><meta property='article:tag' content='XAI' /><meta property='article:published_time' content='2021-08-29T10:56:18&#43;02:00'/><meta property='article:modified_time' content='2021-08-29T10:56:18&#43;02:00'/>
+<meta name="twitter:title" content="LRP简介">
+<meta name="twitter:description" content="机器学习的可解释性一直以来都是一个大问题，模型中的海量权重和连接关系让机器学习一直被视为黑盒模型。为了解决这个问题，Explainable AI （XAI）是一个前沿的研究方向。关于可解释性的研究，推荐这篇综述。本文简要介绍解释深度神经网络（DNN）的算法LRP（Layerwise Relevance Propagation）。
+">
+    </head>
+    <body class="">
+        <div class="container flex on-phone--column align-items--flex-start extended article-page with-toolbar">
+            <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            <figure class="site-avatar">
+                
+
+                
+                    
+                    <img src="/img/head_hu7a5a8ce21e62abecbc7926aff8bd098a_4354_300x300_resize_q75_box.jpg" width="300"
+                        height="300" class="site-logo" loading="lazy" alt="Avatar">
+                
+
+                <span class="emoji">✈</span>
+            </figure>
+        
+        <h1 class="site-name"><a href="http://xpgreat.com/">XP&#39;s Blog</a></h1>
+        <h2 class="site-description">积跬步 以至千里</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="https://util.xpgreat.com">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z"></path>
+                      <line x1="10" y1="18" x2="23" y2="5"></line>
+                      <line x1="10" y1="18" x2="3" y2="9"></line>
+                    </svg>
+                <span>Utils</span>
+            </a>
+        </li>
+    </ol>
+</aside>
+            <main class="main full-width">
+    <div id="article-toolbar">
+        <a href="http://xpgreat.com/" class="back-home">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+            <span>Back</span>
+        </a>
+    </div>
+
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            
+                <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">计算机</a>
+            
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/p/lrp%E7%AE%80%E4%BB%8B/">LRP简介</a>
+    </h2>
+
+    <footer class="article-time">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <time class="article-time--published">Aug 29, 2021</time>
+    </footer></div>
+</header>
+
+    <section class="article-content">
+    <p>机器学习的可解释性一直以来都是一个大问题，模型中的海量权重和连接关系让机器学习一直被视为黑盒模型。为了解决这个问题，Explainable AI （XAI）是一个前沿的研究方向。关于可解释性的研究，推荐这篇<a class="link" href="https://ieeexplore.ieee.org/document/9369420"  target="_blank" rel="noopener"
+    >综述</a>。本文简要介绍解释深度神经网络（DNN）的算法LRP（Layerwise Relevance Propagation）。</p>
+<h1 id="深度泰勒分解deep-taylor-decomposition">深度泰勒分解（Deep Taylor Decomposition）</h1>
+<p>在介绍LRP之前，首先需要简单了解一下<a class="link" href="https://www.sciencedirect.com/science/article/pii/S0031320316303582"  target="_blank" rel="noopener"
+    >深度泰勒分解</a>的思想方法。只要学过高数的都知道一种近似计算函数值的方法，即泰勒公式：</p>
+<p>$$
+f(x) = \sum_0^{+\infin} \frac{f^{(n)}(a)}{n!}(x-a)^n \\= f(a) + \frac{f'(a)}{1!}(x-a) + \frac{f''(a)}{2!}(x-a)^2 + &hellip;
+$$</p>
+<p>类似的，我们可以对一个深度神经网络进行泰勒分解，假定\(f(x)\)是神经网络学习到的预测函数，对它进行一阶泰勒展开，并假设参照点的函数值为0，则：</p>
+<p>$$
+f(x) \approx \sum_1^D \frac{\partial f}{\partial x_{(d)}}(x_0)(x_{(d)}-x_{0(d)})
+$$</p>
+<p>其中\(d\)是向量\(x\)的对应维度的值。上面的式子可以看做梯度乘以与零点的差，可以用它来构造可解释性heatmap。</p>
+<p><img src="/media/dtd_img.jpeg" alt=""  /></p>
+<p>所以想要解释模型的预测结果，需要结合模型的属性和输入的数据，在DTD中是将模型梯度和输入数据相乘，而在LRP中是通过模型的权重（也就是各层的梯度）和模型中间结果来计算加权平均，从最后一层传导到输入层，得到模型的解释。</p>
+<h1 id="lrp">LRP</h1>
+<p>LRP包括两步，第一步是传统的使用神经网络向后传播计算预测值，在这个过程中保存下所有的中间值；第二步是把神经网络反过来，从后向前依层计算各层的Relevance score，最终传导到最初的输入层，而输入层对应的Relevance score则可以被用来解释模型的预测结果，可以用来绘制heat map、高亮文本等等。LRP的算法过程可以表示如下：</p>
+<p><img src="/media/lrp.png" alt=""  /></p>
+<p>其中<code>relprop</code>使用\(l-1\)层的中间值\(a^{(l-1)}\)、后一层的relevance score \(R^(l)\)和\(l\)层的权重（记为\(f_l\)）。一般有三种方式进行传播：</p>
+<ul>
+<li>LRP-0: 最简单的方式</li>
+</ul>
+<p>$$
+R_j = \sum_k \frac{a_j w_{jk}}{\sum_{0,i} a_i w_{ik}} R_k
+$$</p>
+<ul>
+<li>LRP-\(\epsilon\): 分母上加入了一个微小值</li>
+</ul>
+<p>$$
+R_j = \sum_k \frac{a_j w_{jk}}{\epsilon + \sum_{0,i} a_i w_{ik}} R_k
+$$</p>
+<ul>
+<li>LRP-\(\gamma\): 计算权重时多加/减一部分正项，以达到偏向正向影响或负向影响的效果</li>
+</ul>
+<p>$$
+R_j = \sum_k \frac{a_j (w_{jk}+\gamma w_{jk}^+)}{\sum_{0,i} a_i (w_{ik}+\gamma w_{ik}^+)} R_k
+$$</p>
+<p>注意这里面sum的下标\(0,i\)的意思是前一层所有的neuron\(i\)加上\(w_{0k}\)的bias项，\(a_0 = 1\)。LRP的过程可以表示如下图：
+<img src="/media/lrp_illu.png" alt=""  /></p>
+<p>LRP的理论证明可以参考这篇<a class="link" href="https://ieeexplore.ieee.org/document/9369420"  target="_blank" rel="noopener"
+    >综述</a>的第五章，LRP的本质上等价于特殊情况下的DTD。值得注意的是，上面的三种表达中，LRP-\(\gamma\)和LRP-\(\epsilon\)基于深度整流网络（deep rectifier network），而对于其他类型的激活函数，LRP的表达则更为复杂。</p>
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+        
+            <a href="/tags/xai/">XAI</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-ND 4.0</span>
+    </section>
+    </footer>
+
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">相关文章</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="">
+    <a href="/p/gnn-%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%AE%80%E4%BB%8B/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">GNN 图神经网络简介</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/%E5%AE%89%E8%A3%85tensorflow%E6%97%B6%E8%B8%A9%E7%9A%84%E4%B8%80%E4%B8%AA%E5%B0%8F%E5%9D%91/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">安装TensorFlow时踩的一个小坑</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/hamiltonian-monte-carlo%E7%AE%97%E6%B3%95/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Hamiltonian Monte Carlo算法</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/python%E8%B0%83%E7%94%A8%E4%BD%9C%E4%B8%BA%E5%8F%82%E6%95%B0%E7%9A%84%E5%87%BD%E6%95%B0%E7%9A%84%E6%96%B9%E6%B3%95/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Python调用作为参数的函数的方法</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/amplibraryagent%E5%BC%82%E5%B8%B8%E8%AE%BF%E9%97%AEonedrive%E4%B8%8B%E8%BD%BD/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">AMPlibraryagent异常访问Onedrive下载</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+
+    
+        
+    <script src="https://utteranc.es/client.js" 
+        repo="xpingbug/xpingbug.github.io"
+        issue-term="pathname"
+        theme="preferred-color-scheme" 
+        
+        crossorigin="anonymous" 
+        async>
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">&copy; 2021 XP&#39;s Blog</section>
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="1.1.0">Stack</a></b> designed by
+        <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true" style="display:none">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+            </main>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"
+    integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin="anonymous"></script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<link rel="stylesheet" href="/css/highlight/light.min.css" media="(prefers-color-scheme: light)">
+<link rel="stylesheet" href="/css/highlight/dark.min.css" media="(prefers-color-scheme: dark)">
+
+    </body>
+</html>

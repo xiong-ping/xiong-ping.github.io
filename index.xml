@@ -6,7 +6,101 @@
         <description>Recent content on XP&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-CN</language>
-        <lastBuildDate>Thu, 10 Jun 2021 11:00:00 +0200</lastBuildDate><atom:link href="http://xpgreat.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 29 Aug 2021 10:56:18 +0200</lastBuildDate><atom:link href="http://xpgreat.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>LRP简介</title>
+        <link>http://xpgreat.com/p/lrp%E7%AE%80%E4%BB%8B/</link>
+        <pubDate>Sun, 29 Aug 2021 10:56:18 +0200</pubDate>
+        
+        <guid>http://xpgreat.com/p/lrp%E7%AE%80%E4%BB%8B/</guid>
+        <description>&lt;p&gt;机器学习的可解释性一直以来都是一个大问题，模型中的海量权重和连接关系让机器学习一直被视为黑盒模型。为了解决这个问题，Explainable AI （XAI）是一个前沿的研究方向。关于可解释性的研究，推荐这篇&lt;a class=&#34;link&#34; href=&#34;https://ieeexplore.ieee.org/document/9369420&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;综述&lt;/a&gt;。本文简要介绍解释深度神经网络（DNN）的算法LRP（Layerwise Relevance Propagation）。&lt;/p&gt;
+&lt;h1 id=&#34;深度泰勒分解deep-taylor-decomposition&#34;&gt;深度泰勒分解（Deep Taylor Decomposition）&lt;/h1&gt;
+&lt;p&gt;在介绍LRP之前，首先需要简单了解一下&lt;a class=&#34;link&#34; href=&#34;https://www.sciencedirect.com/science/article/pii/S0031320316303582&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;深度泰勒分解&lt;/a&gt;的思想方法。只要学过高数的都知道一种近似计算函数值的方法，即泰勒公式：&lt;/p&gt;
+&lt;p&gt;$$
+f(x) = \sum_0^{+\infin} \frac{f^{(n)}(a)}{n!}(x-a)^n \\= f(a) + \frac{f&#39;(a)}{1!}(x-a) + \frac{f&#39;&#39;(a)}{2!}(x-a)^2 + &amp;hellip;
+$$&lt;/p&gt;
+&lt;p&gt;类似的，我们可以对一个深度神经网络进行泰勒分解，假定\(f(x)\)是神经网络学习到的预测函数，对它进行一阶泰勒展开，并假设参照点的函数值为0，则：&lt;/p&gt;
+&lt;p&gt;$$
+f(x) \approx \sum_1^D \frac{\partial f}{\partial x_{(d)}}(x_0)(x_{(d)}-x_{0(d)})
+$$&lt;/p&gt;
+&lt;p&gt;其中\(d\)是向量\(x\)的对应维度的值。上面的式子可以看做梯度乘以与零点的差，可以用它来构造可解释性heatmap。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://xpgreat.com/media/dtd_img.jpeg&#34; alt=&#34;&#34;  /&gt;&lt;/p&gt;
+&lt;p&gt;所以想要解释模型的预测结果，需要结合模型的属性和输入的数据，在DTD中是将模型梯度和输入数据相乘，而在LRP中是通过模型的权重（也就是各层的梯度）和模型中间结果来计算加权平均，从最后一层传导到输入层，得到模型的解释。&lt;/p&gt;
+&lt;h1 id=&#34;lrp&#34;&gt;LRP&lt;/h1&gt;
+&lt;p&gt;LRP包括两步，第一步是传统的使用神经网络向后传播计算预测值，在这个过程中保存下所有的中间值；第二步是把神经网络反过来，从后向前依层计算各层的Relevance score，最终传导到最初的输入层，而输入层对应的Relevance score则可以被用来解释模型的预测结果，可以用来绘制heat map、高亮文本等等。LRP的算法过程可以表示如下：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://xpgreat.com/media/lrp.png&#34; alt=&#34;&#34;  /&gt;&lt;/p&gt;
+&lt;p&gt;其中&lt;code&gt;relprop&lt;/code&gt;使用\(l-1\)层的中间值\(a^{(l-1)}\)、后一层的relevance score \(R^(l)\)和\(l\)层的权重（记为\(f_l\)）。一般有三种方式进行传播：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;LRP-0: 最简单的方式&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+R_j = \sum_k \frac{a_j w_{jk}}{\sum_{0,i} a_i w_{ik}} R_k
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;LRP-\(\epsilon\): 分母上加入了一个微小值&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+R_j = \sum_k \frac{a_j w_{jk}}{\epsilon + \sum_{0,i} a_i w_{ik}} R_k
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;LRP-\(\gamma\): 计算权重时多加/减一部分正项，以达到偏向正向影响或负向影响的效果&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+R_j = \sum_k \frac{a_j (w_{jk}+\gamma w_{jk}^+)}{\sum_{0,i} a_i (w_{ik}+\gamma w_{ik}^+)} R_k
+$$&lt;/p&gt;
+&lt;p&gt;注意这里面sum的下标\(0,i\)的意思是前一层所有的neuron\(i\)加上\(w_{0k}\)的bias项，\(a_0 = 1\)。LRP的过程可以表示如下图：
+&lt;img src=&#34;http://xpgreat.com/media/lrp_illu.png&#34; alt=&#34;&#34;  /&gt;&lt;/p&gt;
+&lt;p&gt;LRP的理论证明可以参考这篇&lt;a class=&#34;link&#34; href=&#34;https://ieeexplore.ieee.org/document/9369420&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;综述&lt;/a&gt;的第五章，LRP的本质上等价于特殊情况下的DTD。值得注意的是，上面的三种表达中，LRP-\(\gamma\)和LRP-\(\epsilon\)基于深度整流网络（deep rectifier network），而对于其他类型的激活函数，LRP的表达则更为复杂。&lt;/p&gt;</description>
+        </item>
+        <item>
+        <title>GNN 图神经网络简介</title>
+        <link>http://xpgreat.com/p/gnn-%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%AE%80%E4%BB%8B/</link>
+        <pubDate>Fri, 27 Aug 2021 23:40:00 +0200</pubDate>
+        
+        <guid>http://xpgreat.com/p/gnn-%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%AE%80%E4%BB%8B/</guid>
+        <description>&lt;p&gt;图神经网络是是一种基于图结构的广义神经网络。其实传统的神经网络也是可以处理图数据，只需要进行前期合理的embedding即可，那么为什么还需要GNN呢？GNN其实属于一种embedding算法，它通过在整张图上&lt;strong&gt;传递、转换、聚合&lt;/strong&gt;节点的特征信息，从而生成单节点的embedding。本文简要介绍GNN，力求通俗易懂，需要更详细的研究GNN的话，推荐一篇2019年的综述&lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/1901.00596&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;A Comprehensive Survey on Graph Neural Networks&lt;/a&gt;。&lt;/p&gt;
+&lt;h1 id=&#34;基本概念&#34;&gt;基本概念&lt;/h1&gt;
+&lt;h2 id=&#34;图&#34;&gt;图&lt;/h2&gt;
+&lt;p&gt;图是由节点（node，或顶点vertex）和边（edge）构成的一种数据结构，节点可以看作是对象，边可以看作是对象之间的关系。进一步的，每个节点可以有自己的信息，边也可以加上权重和方向以表示关系的不同。所以，最基本的图可以表示为\(V,E\)，其中\(V\)是vertex的集合，\(E\)是edge的集合。简单起见，先不考虑V自身的信息和E的权重和方向。&lt;/p&gt;
+&lt;p&gt;图的表示一般有两种方式：一种是表示为节点对:\((a, b)\)，表示\(a, b\)之间有一条边（暂时不考虑方向）。容易发现，这种表示在边很多的时候会重复存储很多节点信息，可能带来空间的浪费。另一种方式是表示为邻接矩阵（adjacency matrix），即矩阵的横轴和纵轴分别代表边的两端，如果位置\((a, b)\的值\(\Lambda_{a, b} = 1\，即\(a, b\)之间有一条边。使用邻接矩阵的好处是在边很多的时候可以节省空间，可以方便的加上边的权重信息（对应位置的值为2，3等等），也可以利用矩阵的结构，方便的进行并行运算（对机器学习来说非常重要）。但也会存在一个问题，即图很稀疏的时候（边很少），会存在大量的0值，浪费空间，所幸常用的库都做了sparse matrix的各种实现，既节省空间，又保持了矩阵的形式。&lt;/p&gt;
+&lt;p&gt;一个节点的邻居可以表示为\(N(a)\)，是与该节点之间存在边的所有节点的集合。一个节点的度（degree）是这个节点邻居的个数，即\(card(N(a))\).&lt;/p&gt;
+&lt;h2 id=&#34;神经网络&#34;&gt;神经网络&lt;/h2&gt;
+&lt;p&gt;神经网络可以看成是多层的加权求和运算，在各个层之间加入激活函数（一般是非线性函数，以提高模型的表示能力），可以写成：&lt;/p&gt;
+&lt;p&gt;$$
+X_1 = activiation(W_0X_0) \\&lt;br&gt;
+X_2 = activiation(W_1X_1) \\&lt;br&gt;
+&amp;hellip;\\&lt;br&gt;
+X_n = activiation(W_{n-1}X_{n-1}) \\&lt;br&gt;
+Y = output_transformation(W_nX_n)
+$$&lt;/p&gt;
+&lt;p&gt;可以使用训练数据集来训练神经网络，也就是获得一组能反应训练集的特征的权重\(W_{0~n)\)，这样可以用于预测。为优化权重使用梯度下降算法。此外还有很多tricks，比如dropout。&lt;/p&gt;
+&lt;h1 id=&#34;gnn&#34;&gt;GNN&lt;/h1&gt;
+&lt;p&gt;GNN可以看作是对每一个节点分别使用&lt;strong&gt;同一个&lt;/strong&gt;神经网络来获得这个节点的输出值。在神经网络的每一层里，用该节点自身的邻居的状态来更新该节点的状态，最终状态则是每个节点的输出值。如果用于图的分类问题，可以对全部节点的输出值进行聚合，得到最终的结果。&lt;/p&gt;
+&lt;p&gt;对每一层的运算过程我们可以抽象成两步：聚集（aggregate）和合并（combine）。对于一个有\(n\)个节点的图，我们将图的邻接矩阵记为\(\Lambda\in \mathbb N^{n \times n}\)，\(t\)层的各个节点的状态记为\(H \in \mathbb N^{n \times d_t}\)，每个节点的状态可能有多个维度，则这两步可以写成：&lt;/p&gt;
+&lt;p&gt;$$
+aggregation: Z_t = \Lambda H_{t-1}
+combine: H_t = \mathcal C_t(Z_t)
+$$&lt;/p&gt;
+&lt;p&gt;其中\(\mathcal C_t\)是一个合并方程，对\(Z_t\)的每一行用一个权重矩阵\(W_t \in \mathbb N^{d_{t-1} \times d_t}\)相乘，将状态矩阵转化到新的维度\(H_t \in \mathbb N^{n \times d_t}\)。将所有的步骤合并起来，并在最后加入一个readout function，整个网络可以写成：&lt;/p&gt;
+&lt;p&gt;$$
+f(\Lambda, H_0) = g(H_T(\Lambda, H_{T-1}(\Lambda, H_{T-2}(\Lambda, &amp;hellip; H_1(\Lambda, H_0)))))
+$$&lt;/p&gt;
+&lt;p&gt;输入一个邻接矩阵和初始状态，输出一个预测值，当然也可以去掉readout一步，获得每个节点的状态\(H_T\)作为输出。&lt;/p&gt;</description>
+        </item>
+        <item>
+        <title>Hamiltonian Monte Carlo算法</title>
+        <link>http://xpgreat.com/p/hamiltonian-monte-carlo%E7%AE%97%E6%B3%95/</link>
+        <pubDate>Tue, 17 Aug 2021 20:34:54 +0200</pubDate>
+        
+        <guid>http://xpgreat.com/p/hamiltonian-monte-carlo%E7%AE%97%E6%B3%95/</guid>
+        <description>&lt;p&gt;MCMC（Markov-Chain Monte-Carlo）算法用于生成给定分布的样本。在很多时候，我们想计算一个复杂分布的函数期望值，但用解析的，求解积分的方法，是极其困难的，对于有些分布甚至是不可能的。所以我们使用一些采样方法，例如Gibbs sampling，Metropolis-Hasting算法。本文介绍Hamiltonian Monte-Carlo算法。&lt;/p&gt;
+&lt;h1 id=&#34;目标和问题&#34;&gt;目标和问题&lt;/h1&gt;
+&lt;p&gt;给定一个分布\(\pi(x)\)，计算期望：\(\mathbb E_\pi[f]=\int f(q)\pi(q)dq\)，而直接计算积分是不可行的。因此我们计算期望的一个近似：\(\mathbb E_\pi[f] \approx \frac{1}{N}\sum_i f(x_i)\)&lt;/p&gt;</description>
+        </item>
+        <item>
         <title>Python调用作为参数的函数的方法</title>
         <link>http://xpgreat.com/p/python%E8%B0%83%E7%94%A8%E4%BD%9C%E4%B8%BA%E5%8F%82%E6%95%B0%E7%9A%84%E5%87%BD%E6%95%B0%E7%9A%84%E6%96%B9%E6%B3%95/</link>
         <pubDate>Thu, 10 Jun 2021 11:00:00 +0200</pubDate>

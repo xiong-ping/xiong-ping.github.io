@@ -6,7 +6,16 @@
     <description>Recent content in 算法 on XP&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 24 Nov 2020 11:22:02 +0800</lastBuildDate><atom:link href="http://xpgreat.com/tags/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 17 Aug 2021 20:34:54 +0200</lastBuildDate><atom:link href="http://xpgreat.com/tags/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hamiltonian Monte Carlo算法</title>
+      <link>http://xpgreat.com/p/hamiltonian-monte-carlo%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Tue, 17 Aug 2021 20:34:54 +0200</pubDate>
+      
+      <guid>http://xpgreat.com/p/hamiltonian-monte-carlo%E7%AE%97%E6%B3%95/</guid>
+      <description>&lt;p&gt;MCMC（Markov-Chain Monte-Carlo）算法用于生成给定分布的样本。在很多时候，我们想计算一个复杂分布的函数期望值，但用解析的，求解积分的方法，是极其困难的，对于有些分布甚至是不可能的。所以我们使用一些采样方法，例如Gibbs sampling，Metropolis-Hasting算法。本文介绍Hamiltonian Monte-Carlo算法。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>利用sklearn构建tfidf向量</title>
       <link>http://xpgreat.com/p/%E5%88%A9%E7%94%A8sklearn%E6%9E%84%E5%BB%BAtfidf%E5%90%91%E9%87%8F/</link>

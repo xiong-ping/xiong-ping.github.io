@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>XAI on XP&#39;s Blog</title>
+    <link>http://xpgreat.com/tags/xai/</link>
+    <description>Recent content in XAI on XP&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 29 Aug 2021 10:56:18 +0200</lastBuildDate><atom:link href="http://xpgreat.com/tags/xai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LRP简介</title>
+      <link>http://xpgreat.com/p/lrp%E7%AE%80%E4%BB%8B/</link>
+      <pubDate>Sun, 29 Aug 2021 10:56:18 +0200</pubDate>
+      
+      <guid>http://xpgreat.com/p/lrp%E7%AE%80%E4%BB%8B/</guid>
+      <description>&lt;p&gt;机器学习的可解释性一直以来都是一个大问题，模型中的海量权重和连接关系让机器学习一直被视为黑盒模型。为了解决这个问题，Explainable AI （XAI）是一个前沿的研究方向。关于可解释性的研究，推荐这篇&lt;a class=&#34;link&#34; href=&#34;https://ieeexplore.ieee.org/document/9369420&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;综述&lt;/a&gt;。本文简要介绍解释深度神经网络（DNN）的算法LRP（Layerwise Relevance Propagation）。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
