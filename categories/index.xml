@@ -2,44 +2,44 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on XP&#39;s Blog</title>
-    <link>https://www.xpgreat.com/categories/</link>
+    <link>https://blog.xpgreat.com/categories/</link>
     <description>Recent content in Categories on XP&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 29 Aug 2021 10:56:18 +0200</lastBuildDate><atom:link href="https://www.xpgreat.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 29 Aug 2021 10:56:18 +0200</lastBuildDate><atom:link href="https://blog.xpgreat.com/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>计算机</title>
-      <link>https://www.xpgreat.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/</link>
+      <link>https://blog.xpgreat.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/</link>
       <pubDate>Sun, 29 Aug 2021 10:56:18 +0200</pubDate>
       
-      <guid>https://www.xpgreat.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/</guid>
+      <guid>https://blog.xpgreat.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/</guid>
       <description></description>
     </item>
     
     <item>
       <title>数据科学</title>
-      <link>https://www.xpgreat.com/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/</link>
+      <link>https://blog.xpgreat.com/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/</link>
       <pubDate>Tue, 17 Aug 2021 20:34:54 +0200</pubDate>
       
-      <guid>https://www.xpgreat.com/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/</guid>
+      <guid>https://blog.xpgreat.com/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/</guid>
       <description></description>
     </item>
     
     <item>
       <title>金融</title>
-      <link>https://www.xpgreat.com/categories/%E9%87%91%E8%9E%8D/</link>
+      <link>https://blog.xpgreat.com/categories/%E9%87%91%E8%9E%8D/</link>
       <pubDate>Mon, 12 Apr 2021 17:48:40 +0200</pubDate>
       
-      <guid>https://www.xpgreat.com/categories/%E9%87%91%E8%9E%8D/</guid>
+      <guid>https://blog.xpgreat.com/categories/%E9%87%91%E8%9E%8D/</guid>
       <description></description>
     </item>
     
     <item>
       <title>杂谈</title>
-      <link>https://www.xpgreat.com/categories/%E6%9D%82%E8%B0%88/</link>
+      <link>https://blog.xpgreat.com/categories/%E6%9D%82%E8%B0%88/</link>
       <pubDate>Wed, 08 May 2019 22:13:27 +0200</pubDate>
       
-      <guid>https://www.xpgreat.com/categories/%E6%9D%82%E8%B0%88/</guid>
+      <guid>https://blog.xpgreat.com/categories/%E6%9D%82%E8%B0%88/</guid>
       <description></description>
     </item>
     

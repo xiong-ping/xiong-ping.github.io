@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>GNN on XP&#39;s Blog</title>
-    <link>https://www.xpgreat.com/tags/gnn/</link>
+    <link>https://blog.xpgreat.com/tags/gnn/</link>
     <description>Recent content in GNN on XP&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 27 Aug 2021 23:40:00 +0200</lastBuildDate><atom:link href="https://www.xpgreat.com/tags/gnn/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 27 Aug 2021 23:40:00 +0200</lastBuildDate><atom:link href="https://blog.xpgreat.com/tags/gnn/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>GNN 图神经网络简介</title>
-      <link>https://www.xpgreat.com/p/gnn/</link>
+      <link>https://blog.xpgreat.com/p/gnn/</link>
       <pubDate>Fri, 27 Aug 2021 23:40:00 +0200</pubDate>
       
-      <guid>https://www.xpgreat.com/p/gnn/</guid>
+      <guid>https://blog.xpgreat.com/p/gnn/</guid>
       <description>&lt;p&gt;图神经网络是是一种基于图结构的广义神经网络。其实传统的神经网络也是可以处理图数据，只需要进行前期合理的embedding即可，那么为什么还需要GNN呢？GNN其实属于一种embedding算法，它通过在整张图上&lt;strong&gt;传递、转换、聚合&lt;/strong&gt;节点的特征信息，从而生成单节点的embedding。本文简要介绍GNN，力求通俗易懂，需要更详细的研究GNN的话，推荐一篇2019年的综述&lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/1901.00596&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;A Comprehensive Survey on Graph Neural Networks&lt;/a&gt;。&lt;/p&gt;</description>
     </item>

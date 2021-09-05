@@ -2,37 +2,37 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>论文 on XP&#39;s Blog</title>
-    <link>https://www.xpgreat.com/tags/%E8%AE%BA%E6%96%87/</link>
+    <link>https://blog.xpgreat.com/tags/%E8%AE%BA%E6%96%87/</link>
     <description>Recent content in 论文 on XP&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 12 Apr 2021 17:48:40 +0200</lastBuildDate><atom:link href="https://www.xpgreat.com/tags/%E8%AE%BA%E6%96%87/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 12 Apr 2021 17:48:40 +0200</lastBuildDate><atom:link href="https://blog.xpgreat.com/tags/%E8%AE%BA%E6%96%87/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[论文解读]买方/卖方分析师对基金经理决策的影响</title>
-      <link>https://www.xpgreat.com/p/ssa_bsa/</link>
+      <link>https://blog.xpgreat.com/p/ssa_bsa/</link>
       <pubDate>Mon, 12 Apr 2021 17:48:40 +0200</pubDate>
       
-      <guid>https://www.xpgreat.com/p/ssa_bsa/</guid>
+      <guid>https://blog.xpgreat.com/p/ssa_bsa/</guid>
       <description>&lt;p&gt;在基金经理决策时，他所依赖的信息源主要是分析师，分析师分为三种：卖方分析师（Sell-side Analyst, SSA）、买方分析师（Buy-side Analyst, BSA）和独立第三方分析师（Independent Third-party Analyst, ITA）。基金经理如何权衡这三个来源的信息，决策时使用的权重有什么影响，分析师本身的一些特征（例如经验、偏差、准确度）会对决策结果带来什么影响？Yingmei Cheng et al. 在2006年发表的名为“
 Buy-Side Analysts, Sell-Side Analysts, and Investment Decisions of Money Manager”的论文对此作了详细的理论和实证分析。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>利用sklearn构建tfidf向量</title>
-      <link>https://www.xpgreat.com/p/tfidf_python/</link>
+      <link>https://blog.xpgreat.com/p/tfidf_python/</link>
       <pubDate>Tue, 24 Nov 2020 11:22:02 +0800</pubDate>
       
-      <guid>https://www.xpgreat.com/p/tfidf_python/</guid>
+      <guid>https://blog.xpgreat.com/p/tfidf_python/</guid>
       <description>在自然语言处理中，第一步需要面对的就是词向量特征的提取。语言的特征提取在sklearn模块中有相当完善的方法和模块，本文先利用CountVectorizer提取词汇，再用TfidfTransformer计算TFIDF向量。之所以选择CountVectorizer而不自行写一个代码，是因为在使用时维度很容易超过10w，产生的bag-of-words向量特别稀疏，需要耗费极大的内存，而sklearn实现了一个稀疏矩阵的存储形式，可以极大的加速和降低消耗。
 构建Bag-of-words词汇矩阵 from sklearn.feature_extraction.text import CountVectorizer #测试用字符串list s_l = [&amp;#39;Relevant words for each class or cluster are identified by computing a relevancy score rc for every word ti based on the documents in the class&amp;#39;, &amp;#39;or cluster and then selecting the highest scoring&amp;#39;, &amp;#39;words. These scores can be computed either by-89&amp;#39;, &amp;#39;aggregating the raw tf-idf features of all documents&amp;#39;, &amp;#39;in the group (Section 2.3.1), by aggregating these&amp;#39;, &amp;#39;features weighted by some classifier’s parameters&amp;#39;, &amp;#39;(Section 2.</description>
     </item>
     
     <item>
       <title>论文解读：Exploring text datasets by visualizing relevant words</title>
-      <link>https://www.xpgreat.com/p/explore_text_dataset/</link>
+      <link>https://blog.xpgreat.com/p/explore_text_dataset/</link>
       <pubDate>Thu, 19 Nov 2020 15:14:26 +0800</pubDate>
       
-      <guid>https://www.xpgreat.com/p/explore_text_dataset/</guid>
+      <guid>https://blog.xpgreat.com/p/explore_text_dataset/</guid>
       <description>&lt;p&gt;在做机器学习使用新数据集时，我们首先要知道它的特点，一个可以快速可靠地深入了解所选文档的内容，并区分它们类别的工具十分重要。 在这篇论文，作者从文本集合中提取“相关词”，以概括属于某个类别（或在unlabeled数据集下为聚类的组）的文档的内容，并在词云中可视化它们。 作者比较了三种提取相关单词的方法，并使用两个数据集验证了模型的可用性。&lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/pdf/1707.05261.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;论文链接&lt;/a&gt;，&lt;a class=&#34;link&#34; href=&#34;https://github.com/cod3licious/textcatvis&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;论文代码&lt;/a&gt;。&lt;/p&gt;</description>
@@ -40,19 +40,19 @@ Buy-Side Analysts, Sell-Side Analysts, and Investment Decisions of Money Manager
     
     <item>
       <title>中短期电价预测模型简介</title>
-      <link>https://www.xpgreat.com/p/epf_models/</link>
+      <link>https://blog.xpgreat.com/p/epf_models/</link>
       <pubDate>Sat, 25 May 2019 17:35:01 +0200</pubDate>
       
-      <guid>https://www.xpgreat.com/p/epf_models/</guid>
+      <guid>https://blog.xpgreat.com/p/epf_models/</guid>
       <description>&lt;p&gt;从1981年的智利电力体制改革之后，英美等国先后进行了电力工业重组，这些努力导致了电力工业的市场化，促成了电力市场的形成，实现了资源的合理分配和社会效益的最大化。准确的电力价格对发电商、用户、监管者具有重要的意义。本文将常用的电价预测（EPF, Electricity Price Forecasting）模型进行了分类，并加以简介。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>英文论文写作句型</title>
-      <link>https://www.xpgreat.com/p/eng_thesis_voc/</link>
+      <link>https://blog.xpgreat.com/p/eng_thesis_voc/</link>
       <pubDate>Wed, 08 May 2019 22:13:27 +0200</pubDate>
       
-      <guid>https://www.xpgreat.com/p/eng_thesis_voc/</guid>
+      <guid>https://blog.xpgreat.com/p/eng_thesis_voc/</guid>
       <description>&lt;p&gt;最近终于开始写毕业论文了，要求用英语，从网上搜集了一下英语论文的句型，整理后发布到博客，方便查阅。&lt;/p&gt;</description>
     </item>
     
