@@ -192,7 +192,9 @@ $$</p>
 $$</p>
 <h2 id="推导过程">推导过程</h2>
 <p>最基础的出发点是，对矩阵或者向量求导，就是对其中的每一个元素关于每一个自变量中的元素进行求导，最后写成一个矩阵的形式，所以落脚点在单个元素上。</p>
-<h4 id="公式1">公式1</h4>
+<ol>
+<li>公式1</li>
+</ol>
 <p>容易看出\(A\mathbf x\)是一个向量，对其中一个元素进行求导，注意下标，求和符号内只有一项包含\(x_k\)，其他的可以直接舍弃：</p>
 <p>$$
 \begin{aligned}
@@ -201,19 +203,25 @@ $$</p>
 \end{aligned}
 $$</p>
 <p>所以可得在求导结果矩阵中每一行每一列的元素都等于\(A\)在这个位置上的元素，q.e.d.</p>
-<h4 id="公式2">公式2</h4>
+<ol start="2">
+<li>公式2</li>
+</ol>
 <p>\(\mathbf x^T \mathbf a\)和\(\mathbf a^T \mathbf x\)都是标量。证明过程和1相似：</p>
 <p>$$
 \frac{\partial}{\partial x_i} \mathbf x^T \mathbf a = \frac{\partial}{\partial x_i} \sum_{j=1}^{n} x_ja_j = a_i \\
 \frac{\partial}{\partial x_i} \mathbf a^T \mathbf x = \frac{\partial}{\partial x_i} \sum_{j=1}^{n} a_jx_j = a_i
 $$</p>
 <p>这个公式是最基本的，但极其重要和常用。</p>
-<h4 id="公式3">公式3</h4>
+<ol start="3">
+<li>公式3</li>
+</ol>
 <p>证明过程也十分简单：</p>
 <p>$$
 \frac{\partial \mathbf ||x||^2}{\partial x_i} = \frac{\partial}{\partial x_i} \sum_j x_j^2 = \frac{\partial}{\partial x_i} x_i^2 = 2x_i
 $$</p>
-<h4 id="公式4">公式4</h4>
+<ol start="4">
+<li>公式4</li>
+</ol>
 <p>可以看出结果是一个标量。应用前面所说的<strong>变量多次出现的求导方法</strong>，先把后面的\(A \mathbf x\)看成整体，对前一个\(\mathbf x\)求导，运用公式2，可得：</p>
 <p>$$
 \frac{\partial \mathbf x^T (A \mathbf x')}{\partial \mathbf x} = A \mathbf x'
@@ -561,18 +569,7 @@ $$</p>
     </li>
     <li><a href="#变量多次出现的求导方法">变量多次出现的求导方法</a></li>
     <li><a href="#最常用的四个矩阵向量求导公式">最常用的四个矩阵向量求导公式</a></li>
-    <li><a href="#推导过程">推导过程</a>
-      <ol>
-        <li>
-          <ol>
-            <li><a href="#公式1">公式1</a></li>
-            <li><a href="#公式2">公式2</a></li>
-            <li><a href="#公式3">公式3</a></li>
-            <li><a href="#公式4">公式4</a></li>
-          </ol>
-        </li>
-      </ol>
-    </li>
+    <li><a href="#推导过程">推导过程</a></li>
     <li><a href="#应用举例">应用举例</a></li>
     <li><a href="#另请参阅">另请参阅</a></li>
   </ol>

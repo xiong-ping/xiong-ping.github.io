@@ -173,12 +173,12 @@ $$&lt;/p&gt;
         <guid>https://blog.xpgreat.com/p/ssa_bsa/</guid>
         <description>&lt;p&gt;在基金经理决策时，他所依赖的信息源主要是分析师，分析师分为三种：卖方分析师（Sell-side Analyst, SSA）、买方分析师（Buy-side Analyst, BSA）和独立第三方分析师（Independent Third-party Analyst, ITA）。基金经理如何权衡这三个来源的信息，决策时使用的权重有什么影响，分析师本身的一些特征（例如经验、偏差、准确度）会对决策结果带来什么影响？Yingmei Cheng et al. 在2006年发表的名为“
 Buy-Side Analysts, Sell-Side Analysts, and Investment Decisions of Money Manager”的论文对此作了详细的理论和实证分析。&lt;/p&gt;
-&lt;h1 id=&#34;三种分析师&#34;&gt;三种分析师&lt;/h1&gt;
+&lt;h2 id=&#34;三种分析师&#34;&gt;三种分析师&lt;/h2&gt;
 &lt;p&gt;金融分析师应用公开信息和个人的信源，对股票等投资标的物的价格、前景、相关指标进行预测，进而为投资人提供投资建议。SSA为证券经纪商（brokerage firm）工作，为经纪人和他们的客户服务，他们的研究报告和投资建议通常也为大众开放。这些研报也被广泛认为是有投资参考价值的（eg., Elton, Gruber, and Grossman (1986), Stickel(1995), Womack (1996)），但是由于SSA与卖方的关系，他们的研报中可能会存在有利于卖方的偏差（bias）。对于SSA来说，存在两种主要的激励来源：一是对职业道德和名望的追求会促使他们提供客观无偏的报告，事实上很多基金经理会根据分析师过往的表现来决定是否使用他的报告；二是SSA与卖方的利益关系会促使他们提供更乐观的报告以吸引更多的投资，卖方经纪商甚至可能会因此给他们提供额外的报酬。&lt;/p&gt;
 &lt;p&gt;BSA为资产管理公司工作，通常是各种基金公司，他们为公司内的基金经理提供内部的预测和推荐。与SSA不同，由于BSA供职于买方，他们的收入与买方是否盈利挂钩，所以他们会尽力给出有利于买方的研报，即更符合真实情况的报告，也就意味着不存在偏差（bias）的问题。然而由于是内部报告，BSA的成本比SSA要高昂的多，且成本会随着要求的精度的上升而迅速上升。&lt;/p&gt;
 &lt;p&gt;ITA是独立第三方分析师，他们不供职于买方或卖方，而是生产研报，以一次性的价格卖给基金经理。通常情况下ITA的报告在基金经理决策时只占很小的部分(4%)。&lt;/p&gt;
-&lt;h1 id=&#34;bsassa占比的最优平衡问题&#34;&gt;BSA、SSA占比的最优平衡问题&lt;/h1&gt;
-&lt;h2 id=&#34;定义&#34;&gt;定义&lt;/h2&gt;
+&lt;h2 id=&#34;bsassa占比的最优平衡问题&#34;&gt;BSA、SSA占比的最优平衡问题&lt;/h2&gt;
+&lt;h3 id=&#34;定义&#34;&gt;定义&lt;/h3&gt;
 &lt;p&gt;对于一个基金经理来说，他们做出一个投资决策\(y\)带来的收益与该股票真实价格\(v\)挂钩，该过程对他带来的效用（utility）是&lt;/p&gt;
 &lt;p&gt;$$
 U(y,b) = -\alpha (y-v)^2
@@ -193,7 +193,7 @@ $$&lt;/p&gt;
 \widetilde S_{BSA} = \widetilde v + {\widetilde e}_{BSA}
 $$&lt;/p&gt;
 &lt;p&gt;与SSA类似地，\(\widetilde e_{BSA} \sim N(0, \sigma_{BSA}^2)\)，\(q = 1 / \sigma_{BSA}^2\)。注意到BSA是不含偏差的。此外，由于BSA是基金公司内部的分析师，所以存在成本，且成本与报告质量有关，记为\(C(q)\)，是一个关于\(q\)的凸增函数，即\(C&#39;(q)&amp;gt;0, C&#39;&#39;(q) &amp;gt; 0\)。&lt;/p&gt;
-&lt;h2 id=&#34;成本平衡与分析师权重&#34;&gt;成本平衡与分析师权重&lt;/h2&gt;
+&lt;h3 id=&#34;成本平衡与分析师权重&#34;&gt;成本平衡与分析师权重&lt;/h3&gt;
 &lt;p&gt;基于上面的定义，可以写出基金经理在权衡SSA和BSA时的核心优化问题：&lt;/p&gt;
 &lt;p&gt;$$
 \max_y E[- \alpha (y - \widetilde v)^2 | \widetilde S_{SSA} = S_{SSA}, \widetilde S_{BSA} = S_{BSA}]
@@ -204,7 +204,7 @@ $$&lt;/p&gt;
 \alpha \left[ \frac{1}{(p+q)^2} + \frac{2p^2b^2\theta (1-\theta)}{(p+q)^3} \right] - C&#39;(q) = 0
 $$&lt;/p&gt;
 &lt;p&gt;进一步推导可得，\(q^*\)在\(\alpha , b, \Sigma_B^2\)增加，或\(p\)减少时，增加。相应的，\(w^* = \frac{q}{p+q} = 1-\frac{p}{p+q}\)也增加。&lt;/p&gt;
-&lt;h1 id=&#34;6条假说&#34;&gt;6条假说&lt;/h1&gt;
+&lt;h2 id=&#34;6条假说&#34;&gt;6条假说&lt;/h2&gt;
 &lt;p&gt;由上面的模型推导，作者提出了6条假说，并用实际数据加以了验证：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;H1: BSA的权重随着&lt;strong&gt;SSA的信号质量降低&lt;/strong&gt;而增加。\(p\)&lt;/li&gt;
@@ -221,7 +221,7 @@ $$&lt;/p&gt;
 &lt;p&gt;BSA的信号的质量直接影响到基金经理的权重选择。影响其质量的一个重要因素，且该因素不会影响到SSA，是BSA的经验。一般的我们可以假定，BSA的经验越丰富，给出的信号质量越高。于是有了假设4: BSA的权重随着BSA的信号质量增加而增加。&lt;/p&gt;
 &lt;p&gt;基金的规模也会影响基金经理的选择，在上面的效用函数中，\(\alpha\)越大，基金经理越希望获得与实际相近的预测，也就会更多的参考BSA的无偏的报告。一个用来衡量\(\alpha\)的变量则是基金或管理资金的规模。即假设5: BSA的权重随着资产管理规模的增加而增加。&lt;/p&gt;
 &lt;p&gt;最后，基金经理和客户间的代理人问题也会产生影响。为了减轻代理人问题，可以给基金经理performance的激励，他们的\(\alpha\)会增大，会提高BSA的占比以追求更准确的预测。所以作者提出第六个假设：BSA的权重随着代理人问题（agency problem）的严重程度减少而增加。&lt;/p&gt;
-&lt;h1 id=&#34;实证研究&#34;&gt;实证研究&lt;/h1&gt;
+&lt;h2 id=&#34;实证研究&#34;&gt;实证研究&lt;/h2&gt;
 &lt;p&gt;为了验证上述的六个假设，作者使用了Thomson Financial/Nelson Information&amp;rsquo;s Directory of Fund Managers作为数据源，提取出了2000—2002年三年的数据，在每年中都有超过1800个来自全球的组织的数据，他们一共管理超过2万亿美元的资产。该数据集每年发布一版，主要聚焦于复杂的机构投资者（而不是小投资者），所以他们提供误导性数据以短期获利的动机比较低。作者选择的样本是seperate account，即brokerage和financial advisor为高净值、pension和其他机构投资者提供分离的账户，每个投资人都在自己的账户中独立拥有相同的股票set，而不是像一般的open-end的共同基金一样所有投资者拥有一个池子里的一部分。该数据集主要包括基金portfolio的特点、投资风格、benchmark、return。另外，它还提供了关于基金经理和基金BSA的特点信息，包括他们的经验和费用结构。数据集的统计特征如图所示：&lt;/p&gt;
 &lt;p&gt;&lt;figure 
 	&gt;
@@ -272,7 +272,7 @@ $$&lt;/p&gt;
 &lt;li&gt;免费套餐包括EC2每个月750h/台的使用时间，开多台实例的话注意不要超时，可以随用随开，不用就关。&lt;/li&gt;
 &lt;li&gt;关闭后再启动公有IP会变，注意配置问题。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id=&#34;初始化通用环境&#34;&gt;初始化通用环境&lt;/h1&gt;
+&lt;h2 id=&#34;初始化通用环境&#34;&gt;初始化通用环境&lt;/h2&gt;
 &lt;p&gt;先启动一个实例，安装通用的Java和Hadoop，然后利用AWS的映像功能克隆出其他的集群成员。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo apt-get update -y
 sudo apt-get upgrade -y
@@ -288,7 +288,7 @@ sudo mv /usr/local/hadoop-* /usr/local/hadoop​
 &lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;HADOOP_CONF_DIR&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/usr/local/hadoop/etc/hadoop​
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;更新环境变量&lt;code&gt;source ~/.bashrc&lt;/code&gt;，测试能否用java和hadoop。&lt;/p&gt;
 &lt;p&gt;上面的搞定后，克隆两个实例。&lt;/p&gt;
-&lt;h1 id=&#34;配置ssh&#34;&gt;配置SSH&lt;/h1&gt;
+&lt;h2 id=&#34;配置ssh&#34;&gt;配置SSH&lt;/h2&gt;
 &lt;p&gt;在每个实例上创建key：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;ssh-keygen -f ~/.ssh/id_rsa -t rsa -P &lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
 cat ~/.ssh/id_rsa.pub &amp;gt;&amp;gt; ~/.ssh/authorized_keys​
@@ -303,8 +303,8 @@ Host datanode2
 	HostName &amp;lt;private IP or public DNS of datanode2 instance&amp;gt; 
 	User ubuntu
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;把datanode的公钥拷贝到namenode的&lt;code&gt;~/.ssh/authorized_keys&lt;/code&gt;里，换行粘贴就行。&lt;/p&gt;
-&lt;h1 id=&#34;配置hadoop&#34;&gt;配置Hadoop&lt;/h1&gt;
-&lt;h4 id=&#34;在namenode和datanode上执行&#34;&gt;在NameNode和DataNode上执行：&lt;/h4&gt;
+&lt;h2 id=&#34;配置hadoop&#34;&gt;配置Hadoop&lt;/h2&gt;
+&lt;h3 id=&#34;在namenode和datanode上执行&#34;&gt;在NameNode和DataNode上执行：&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$HADOOP_CONF_DIR&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在&lt;code&gt;core-site.xml&lt;/code&gt;中插入，并确认9000端口开放：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;configuration&amp;gt;&lt;/span&gt;
@@ -339,7 +339,7 @@ Host datanode2
   &lt;span class=&#34;nt&#34;&gt;&amp;lt;/property&amp;gt;&lt;/span&gt;
 &lt;span class=&#34;nt&#34;&gt;&amp;lt;/configuration&amp;gt;&lt;/span&gt;​
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在&lt;code&gt;hdoop-env.sh&lt;/code&gt;中将将语句&lt;code&gt;export JAVA_HOME=$JAVA_HOME&lt;/code&gt;修改为&lt;code&gt;export JAVA_HOME=/usr/java/jdk1.8.0_101&lt;/code&gt;&lt;/p&gt;
-&lt;h4 id=&#34;仅在namenode上执行&#34;&gt;仅在NameNode上执行：&lt;/h4&gt;
+&lt;h3 id=&#34;仅在namenode上执行&#34;&gt;仅在NameNode上执行：&lt;/h3&gt;
 &lt;p&gt;修改&lt;code&gt;/etc/hosts&lt;/code&gt;，加入：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&amp;lt;namenode ip&amp;gt; &amp;lt;namenode_hostname&amp;gt;
 &amp;lt;datanode1 ip&amp;gt; &amp;lt;datanode1_hostname&amp;gt;
@@ -363,7 +363,7 @@ Host datanode2
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&amp;lt;datanode1_hostname&amp;gt;
 &amp;lt;datanode2_hostname&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;修改权限：&lt;code&gt;sudo chown -R ubuntu $HADOOP_HOME​&lt;/code&gt;。&lt;/p&gt;
-&lt;h4 id=&#34;仅在datanode上执行&#34;&gt;仅在DataNode上执行：&lt;/h4&gt;
+&lt;h3 id=&#34;仅在datanode上执行&#34;&gt;仅在DataNode上执行：&lt;/h3&gt;
 &lt;p&gt;在&lt;code&gt;$HADOOP_CONF_DIR/hdfs-site.xml&lt;/code&gt;中插入：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;configuration&amp;gt;&lt;/span&gt;
   &lt;span class=&#34;nt&#34;&gt;&amp;lt;property&amp;gt;&lt;/span&gt;
@@ -378,7 +378,7 @@ Host datanode2
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;执行&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo mkdir -p &lt;span class=&#34;nv&#34;&gt;$HADOOP_HOME&lt;/span&gt;/data/hdfs/datanode
 sudo chown -R ubuntu &lt;span class=&#34;nv&#34;&gt;$HADOOP_HOME&lt;/span&gt;​
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;初始化hadoop集群&#34;&gt;初始化Hadoop集群&lt;/h1&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;初始化hadoop集群&#34;&gt;初始化Hadoop集群&lt;/h2&gt;
 &lt;p&gt;在NameNode上执行：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;hdfs namenode -format &lt;span class=&#34;c1&#34;&gt;# 格式化文件系统&lt;/span&gt;
 &lt;span class=&#34;nv&#34;&gt;$HADOOP_HOME&lt;/span&gt;/sbin/start-dfs.sh​ &lt;span class=&#34;c1&#34;&gt;# 启动dfs&lt;/span&gt;
@@ -391,7 +391,7 @@ sudo chown -R ubuntu &lt;span class=&#34;nv&#34;&gt;$HADOOP_HOME&lt;/span&gt;​
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;刷新集群节点：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;hdfs dfsadmin -refreshNodes​
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;成功后可以访问&lt;code&gt;&amp;lt;namenode public DNS or public IP&amp;gt;:9870 &lt;/code&gt;来使用hadoop的web UI，但要确认9870端口是开放的。&lt;/p&gt;
-&lt;h1 id=&#34;优化&#34;&gt;优化&lt;/h1&gt;
+&lt;h2 id=&#34;优化&#34;&gt;优化&lt;/h2&gt;
 &lt;p&gt;对于AWS免费的1G RAM的机器，在&lt;code&gt;yarn-site.xml&lt;/code&gt;中加入：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;property&amp;gt;&lt;/span&gt;
 	&lt;span class=&#34;nt&#34;&gt;&amp;lt;name&amp;gt;&lt;/span&gt;yarn.nodemanager.resource.memory-mb&lt;span class=&#34;nt&#34;&gt;&amp;lt;/name&amp;gt;&lt;/span&gt;
@@ -422,9 +422,15 @@ sudo chown -R ubuntu &lt;span class=&#34;nv&#34;&gt;$HADOOP_HOME&lt;/span&gt;​
 	&lt;span class=&#34;nt&#34;&gt;&amp;lt;name&amp;gt;&lt;/span&gt;mapreduce.reduce.memory.mb&lt;span class=&#34;nt&#34;&gt;&amp;lt;/name&amp;gt;&lt;/span&gt;
 	&lt;span class=&#34;nt&#34;&gt;&amp;lt;value&amp;gt;&lt;/span&gt;128&lt;span class=&#34;nt&#34;&gt;&amp;lt;/value&amp;gt;&lt;/span&gt;
 &lt;span class=&#34;nt&#34;&gt;&amp;lt;/property&amp;gt;&lt;/span&gt;​
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;持续更新--要点和troubleshooting&#34;&gt;持续更新&amp;ndash;要点和troubleshooting&lt;/h2&gt;
-&lt;h4 id=&#34;配置ssh权限时要有耐心这直接决定了你的集群能不能互相通讯用aws的时候最好用私有ip配置否则重启后公有ip会改变又要重新配置一遍&#34;&gt;配置ssh权限时要有耐心，这直接决定了你的集群能不能互相通讯。用AWS的时候最好用私有ip配置，否则重启后公有ip会改变，又要重新配置一遍。&lt;/h4&gt;
-&lt;h4 id=&#34;重要的配置文件在hadoop_homeetchadoop下&#34;&gt;重要的配置文件（在&lt;code&gt;$HADOOP_HOME/etc/hadoop/&lt;/code&gt;下）：&lt;/h4&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;持续更新--要点和troubleshooting&#34;&gt;持续更新&amp;ndash;要点和troubleshooting&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;配置ssh权限时要有耐心，这直接决定了你的集群能不能互相通讯。用AWS的时候最好用私有ip配置，否则重启后公有ip会改变，又要重新配置一遍。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;重要的配置文件（在&lt;code&gt;$HADOOP_HOME/etc/hadoop/&lt;/code&gt;下）：&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;core-site.xml&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;yarn-site.xml&lt;/code&gt;&lt;/li&gt;
@@ -432,8 +438,14 @@ sudo chown -R ubuntu &lt;span class=&#34;nv&#34;&gt;$HADOOP_HOME&lt;/span&gt;​
 &lt;li&gt;&lt;code&gt;hdfs-site.xml&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;hadoop-env.sh&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4 id=&#34;hadoop30后web端端口改成了9870不是原来的50070不要被网上老的教程误导&#34;&gt;Hadoop3.0后web端端口改成了&lt;strong&gt;9870&lt;/strong&gt;，不是原来的50070！！！！！！不要被网上老的教程误导！&lt;/h4&gt;
-&lt;h4 id=&#34;cluster-id-冲突&#34;&gt;cluster ID 冲突&lt;/h4&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;Hadoop3.0后web端端口改成了&lt;strong&gt;9870&lt;/strong&gt;，不是原来的50070！！！！！！不要被网上老的教程误导！&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;cluster ID 冲突&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;nv&#34;&gt;$HADOOP_HOME&lt;/span&gt;/sbin/stop-all.sh
 sudo rm -rf /tmp/hadoop-ubuntu
 sudo rm -rf &lt;span class=&#34;nv&#34;&gt;$HADOOP_HOMEdata&lt;/span&gt;/hdfs/namenode   &lt;span class=&#34;c1&#34;&gt;# directory mentioned in hdfs-site.xml for namenode&lt;/span&gt;
@@ -441,17 +453,25 @@ sudo mkdir -p &lt;span class=&#34;nv&#34;&gt;$HADOOP_HOME&lt;/span&gt;/data/hdfs
 sudo chown -R ubuntu &lt;span class=&#34;nv&#34;&gt;$HADOOP_HOME&lt;/span&gt;
 hdfs namenode -format -force
 &lt;span class=&#34;nv&#34;&gt;$HADOOP_HOME&lt;/span&gt;/sbin/start-all.sh
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;error无法创建-javaioioexception-cannot-create-directory-usrlocalhadoopdatahdfsnamenodecurrent&#34;&gt;ERROR:无法创建 java.io.IOException: Cannot create directory /usr/local/hadoop/data/hdfs/namenode/current&lt;/h4&gt;
-&lt;p&gt;解决方法：改权限
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;ERROR:无法创建 java.io.IOException: Cannot create directory /usr/local/hadoop/data/hdfs/namenode/current
+解决方法：改权限
 sudo chmod -R a+w /usr/local/hadoop/&lt;/p&gt;
-&lt;h4 id=&#34;error-java_home-is-not-set-and-could-not-be-found&#34;&gt;ERROR: JAVA_HOME is not set and could not be found.&lt;/h4&gt;
-&lt;p&gt;针对这个错误，网上好多都说了java的路径设置有问题，但没有指出具体的修改方法，其实是hadoop里面hadoop-env.sh文件里面的java路径设置不对，hadoop-env.sh在hadoop/etc/hadoop目录下，具体的修改办法如下：&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ERROR: JAVA_HOME is not set and could not be found.
+针对这个错误，网上好多都说了java的路径设置有问题，但没有指出具体的修改方法，其实是hadoop里面hadoop-env.sh文件里面的java路径设置不对，hadoop-env.sh在hadoop/etc/hadoop目录下，具体的修改办法如下：&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo vim hadoop/etc/hadoop/hdoop-env.sh
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;将语句      &lt;code&gt;export JAVA_HOME=$JAVA_HOME&lt;/code&gt;
 修改为      &lt;code&gt;export JAVA_HOME=/usr/java/jdk1.8.0_101&lt;/code&gt;&lt;/p&gt;
-&lt;h4 id=&#34;error-找不到或无法加载主类orgapachehadoopmapreducev2appmrappmaster&#34;&gt;ERROR: 找不到或无法加载主类org.apache.hadoop.mapreduce.v2.app.MRAppMaster&lt;/h4&gt;
-&lt;p&gt;在命令行下输入&lt;code&gt;hadoop classpath&lt;/code&gt;，并将返回的地址复制。
-编辑&lt;code&gt;yarn-site.xml&lt;/code&gt;, 添加如下内容&lt;/p&gt;
+&lt;ol start=&#34;7&#34;&gt;
+&lt;li&gt;ERROR: 找不到或无法加载主类org.apache.hadoop.mapreduce.v2.app.MRAppMaster
+在命令行下输入&lt;code&gt;hadoop classpath&lt;/code&gt;，并将返回的地址复制。
+编辑&lt;code&gt;yarn-site.xml&lt;/code&gt;, 添加如下内容&lt;/li&gt;
+&lt;/ol&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;configuration&amp;gt;&lt;/span&gt;
     &lt;span class=&#34;nt&#34;&gt;&amp;lt;property&amp;gt;&lt;/span&gt;
         &lt;span class=&#34;nt&#34;&gt;&amp;lt;name&amp;gt;&lt;/span&gt;yarn.application.classpath&lt;span class=&#34;nt&#34;&gt;&amp;lt;/name&amp;gt;&lt;/span&gt;
@@ -851,7 +871,7 @@ $$&lt;/p&gt;
 &lt;li&gt;优化模型&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;一般的机器学习方面的研究主要关注第6步，但最好按照标准流程来做。&lt;/p&gt;
-&lt;h3 id=&#34;定义问题&#34;&gt;定义问题&lt;/h3&gt;
+&lt;h2 id=&#34;定义问题&#34;&gt;定义问题&lt;/h2&gt;
 &lt;p&gt;首先思考，可用的数据有哪些，希望从这些数据中得到什么信息，希望用这些信息预测什么。需要注意预测的内容必须要从training data中能得到信息的，比如要为影评做情绪分类，必须要有影评和它对应的情绪标签作training data才行。&lt;/p&gt;
 &lt;p&gt;考虑问题的类型：二元分类？多元分类？标量回归？向量回归？多元多标签分类？聚类？&amp;hellip;&amp;hellip;总之明确问题的类型，有助于后面选择模型。&lt;/p&gt;
 &lt;p&gt;明确输入和输出。时刻记住在使用机器学习的时候，存在两个假设：&lt;/p&gt;
@@ -861,9 +881,9 @@ $$&lt;/p&gt;
 &lt;/ol&gt;
 &lt;p&gt;比如如果做一个模型预测股票价格的走势，在仅有历史价格数据的时候是不够的，因为历史价格不包含未来价格的信息。机器学习只能利用training data中存在的模式(pattern)。&lt;/p&gt;
 &lt;p&gt;另外如果这个问题是不平稳的(Nonstationary)，机器学习也不适用。比如做推荐服装的模型，不同季节对不同服装的喜好程度是不同的，如果用八月的数据训练预测九月的情况，模型效果肯定很差。这时则要采取变通，比如使用多年的数据训练，添加月份标签等。&lt;/p&gt;
-&lt;h3 id=&#34;确定衡量模型的标准&#34;&gt;确定衡量模型的标准&lt;/h3&gt;
+&lt;h2 id=&#34;确定衡量模型的标准&#34;&gt;确定衡量模型的标准&lt;/h2&gt;
 &lt;p&gt;考虑清楚问题并估计可以建模之后，需要确定一个衡量标准，来判断模型是否成功。比如预测值的准确度，客户留存度，正确分类的比例等等。需要注意的是很多时候标准是根据问题自定的，这就需要建模者有经验。可以在&lt;a class=&#34;link&#34; href=&#34;kaggle.com&#34; &gt;Kaggle&lt;/a&gt;之类的竞赛网站上拓展视野。&lt;/p&gt;
-&lt;h3 id=&#34;确定评估方式&#34;&gt;确定评估方式&lt;/h3&gt;
+&lt;h2 id=&#34;确定评估方式&#34;&gt;确定评估方式&lt;/h2&gt;
 &lt;p&gt;确定一个评估方式来衡量进度也是很重要的。一般来说有三种方法：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;使用一个hold-out validation set，即将数据集分出一部分专门用来验证模型效果。在有大量数据时可以使用这个方法。&lt;/li&gt;
@@ -871,7 +891,7 @@ $$&lt;/p&gt;
 &lt;li&gt;循环K-fold validation，每次都进行数据随机排列，然后进行完整的k-fold。适用于数据量很小且对精度要求高的情况。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;一般选第一个即可。&lt;/p&gt;
-&lt;h3 id=&#34;建立一个比理论平均更好的简单模型&#34;&gt;建立一个比理论平均更好的简单模型&lt;/h3&gt;
+&lt;h2 id=&#34;建立一个比理论平均更好的简单模型&#34;&gt;建立一个比理论平均更好的简单模型&lt;/h2&gt;
 &lt;p&gt;这一步的目的是较快的找到比理论平均好的简单模型，通常可以进行简单的尝试，比如在MNIST数字分类时用最简单的feed feedforward 模型尝试，得到精确度高于0.1（完全随机分类的平均精度），这样就可以在这个基础上进行下一步的优化了。需要注意的是不是所有时候都能够找得到这样的简单模型的。如果在多次尝试后仍找不到，需要考虑是否是前面的两个假设不成立，即根本不存在输出和输入之间的明确关系，或者这种关系在已有的数据集中不明确。&lt;/p&gt;
 &lt;p&gt;如果顺利找到这种简单模型，下一步需要考虑三个问题：&lt;/p&gt;
 &lt;ol&gt;
@@ -915,7 +935,7 @@ $$&lt;/p&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;扩展模型&#34;&gt;扩展模型&lt;/h3&gt;
+&lt;h2 id=&#34;扩展模型&#34;&gt;扩展模型&lt;/h2&gt;
 &lt;p&gt;这一步将模型扩展，使其过拟合，因为上一步得到的简单模型可能没有足够的层数，没有足够多的神经元等等。机器学习问题其实就是平衡拟合能力和泛化能力的问题，我们的目标是找到二者平衡的一个点。既不能让它欠拟合，也不能让它过拟合。一般的做法是先让模型过拟合，然后再进行细节优化。扩展模型有三个方法：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;增加层数。&lt;/li&gt;
@@ -923,7 +943,7 @@ $$&lt;/p&gt;
 &lt;li&gt;训练更多的epochs。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;如果你发现验证的精度开始下降了，这时候就说明模型已经过拟合，这一步也可以结束了。&lt;/p&gt;
-&lt;h3 id=&#34;优化模型&#34;&gt;优化模型&lt;/h3&gt;
+&lt;h2 id=&#34;优化模型&#34;&gt;优化模型&lt;/h2&gt;
 &lt;p&gt;最复杂也最耗时的一步，大部分研究的重点。大致逻辑是对模型做小修小改，把数据放进去跑，看模型验证精度的变化，直到优化到不能再优化为止。一般可以尝试的方向有：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;加入Dropout。&lt;/li&gt;
@@ -1798,7 +1818,9 @@ $$&lt;/p&gt;
 $$&lt;/p&gt;
 &lt;h2 id=&#34;推导过程&#34;&gt;推导过程&lt;/h2&gt;
 &lt;p&gt;最基础的出发点是，对矩阵或者向量求导，就是对其中的每一个元素关于每一个自变量中的元素进行求导，最后写成一个矩阵的形式，所以落脚点在单个元素上。&lt;/p&gt;
-&lt;h4 id=&#34;公式1&#34;&gt;公式1&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;公式1&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;容易看出\(A\mathbf x\)是一个向量，对其中一个元素进行求导，注意下标，求和符号内只有一项包含\(x_k\)，其他的可以直接舍弃：&lt;/p&gt;
 &lt;p&gt;$$
 \begin{aligned}
@@ -1807,19 +1829,25 @@ $$&lt;/p&gt;
 \end{aligned}
 $$&lt;/p&gt;
 &lt;p&gt;所以可得在求导结果矩阵中每一行每一列的元素都等于\(A\)在这个位置上的元素，q.e.d.&lt;/p&gt;
-&lt;h4 id=&#34;公式2&#34;&gt;公式2&lt;/h4&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;公式2&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;\(\mathbf x^T \mathbf a\)和\(\mathbf a^T \mathbf x\)都是标量。证明过程和1相似：&lt;/p&gt;
 &lt;p&gt;$$
 \frac{\partial}{\partial x_i} \mathbf x^T \mathbf a = \frac{\partial}{\partial x_i} \sum_{j=1}^{n} x_ja_j = a_i \\
 \frac{\partial}{\partial x_i} \mathbf a^T \mathbf x = \frac{\partial}{\partial x_i} \sum_{j=1}^{n} a_jx_j = a_i
 $$&lt;/p&gt;
 &lt;p&gt;这个公式是最基本的，但极其重要和常用。&lt;/p&gt;
-&lt;h4 id=&#34;公式3&#34;&gt;公式3&lt;/h4&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;公式3&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;证明过程也十分简单：&lt;/p&gt;
 &lt;p&gt;$$
 \frac{\partial \mathbf ||x||^2}{\partial x_i} = \frac{\partial}{\partial x_i} \sum_j x_j^2 = \frac{\partial}{\partial x_i} x_i^2 = 2x_i
 $$&lt;/p&gt;
-&lt;h4 id=&#34;公式4&#34;&gt;公式4&lt;/h4&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;公式4&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;可以看出结果是一个标量。应用前面所说的&lt;strong&gt;变量多次出现的求导方法&lt;/strong&gt;，先把后面的\(A \mathbf x\)看成整体，对前一个\(\mathbf x\)求导，运用公式2，可得：&lt;/p&gt;
 &lt;p&gt;$$
 \frac{\partial \mathbf x^T (A \mathbf x&#39;)}{\partial \mathbf x} = A \mathbf x&#39;
@@ -2191,9 +2219,9 @@ $$&lt;/p&gt;
 &lt;p&gt;区分点在于投资者可利用的信息对预测价格有没有用。此假说发布后，许多学者进行了实证分析，发现发达国家的证券市场大致符合弱式效率市场。&lt;/p&gt;
 &lt;h2 id=&#34;随机过程&#34;&gt;随机过程&lt;/h2&gt;
 &lt;p&gt;随机过程是指某变量的值以某种不确定的方式随时间变化的过程。根据变量是否连续和时间是否连续分为4种：连续变量在连续时间的随机过程、连续变量在离散时间的随机过程、离散变量在连续时间的随机过程，和离散变量在离散时间的随机过程。严格来说，证券价格的变化应该属于离散变量在离散时间的随机过程，然而在时间间隔很小的时候，我们可以近似的把它看作连续变量在连续时间的随机过程。&lt;/p&gt;
-&lt;h2 id=&#34;马尔可夫过程&#34;&gt;马尔可夫过程&lt;/h2&gt;
+&lt;h3 id=&#34;马尔可夫过程&#34;&gt;马尔可夫过程&lt;/h3&gt;
 &lt;p&gt;随机过程，在这个过程中只有变量的当前值才与其将来值有关系，过去的值与未来的预测无关。&lt;/p&gt;
-&lt;h2 id=&#34;布朗运动&#34;&gt;布朗运动&lt;/h2&gt;
+&lt;h3 id=&#34;布朗运动&#34;&gt;布朗运动&lt;/h3&gt;
 &lt;p&gt;又称维纳过程。由英国的植物学家罗伯特·布朗发现并命名，维纳（Wiener）给出的其随机过程的定义。&lt;/p&gt;
 &lt;h4 id=&#34;标准布朗运动&#34;&gt;标准布朗运动&lt;/h4&gt;
 &lt;p&gt;设\(\Delta t\)代表一个小的时间间隔长度，\(\Delta z\)代表变量\(z\)在\(\Delta t\)时间内的变化，遵循标准布朗运动的\(\Delta z\)具有两个特征：&lt;/p&gt;
@@ -2217,7 +2245,7 @@ $$&lt;/p&gt;
 dx = adt + bdz = adt + b\varepsilon \sqrt{dt}
 $$&lt;/p&gt;
 &lt;p&gt;其中\(dz\)遵循标准布朗运动。&lt;/p&gt;
-&lt;h4 id=&#34;伊藤过程&#34;&gt;伊藤过程&lt;/h4&gt;
+&lt;h3 id=&#34;伊藤过程&#34;&gt;伊藤过程&lt;/h3&gt;
 &lt;p&gt;将普通布朗运动中的\(a\)和\(b\)当作随时间\(t\)和状态\(x\)的函数，可以得到伊藤过程（Ito Process）：&lt;/p&gt;
 &lt;p&gt;$$
 dx = a(x,t)dt + b(x,t)dz
@@ -2236,7 +2264,7 @@ $$&lt;/p&gt;
 &lt;p&gt;$$
 \frac{dS}{S} = \mu \Delta t + \varepsilon \sigma \sqrt{\Delta t} \sim N(\mu \Delta t, \sigma \sqrt{\Delta t})
 $$&lt;/p&gt;
-&lt;h2 id=&#34;伊藤引理&#34;&gt;伊藤引理&lt;/h2&gt;
+&lt;h3 id=&#34;伊藤引理&#34;&gt;伊藤引理&lt;/h3&gt;
 &lt;p&gt;伊藤进一步推导出（过程查论文吧）：若变量\(x\)遵循伊藤过程，则变量\(x\)和\(t\)的函数\(G\)遵循下列过程：&lt;/p&gt;
 &lt;p&gt;$$
 dG = (\frac{\partial G}{\partial x}a + \frac{\partial G}{\partial t} + \frac{\partial^2 G}{2\partial x^2}b^2)dt + \frac{\partial G}{\partial x}bdz

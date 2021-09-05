@@ -132,7 +132,7 @@
 <li>免费套餐包括EC2每个月750h/台的使用时间，开多台实例的话注意不要超时，可以随用随开，不用就关。</li>
 <li>关闭后再启动公有IP会变，注意配置问题。</li>
 </ul>
-<h1 id="初始化通用环境">初始化通用环境</h1>
+<h2 id="初始化通用环境">初始化通用环境</h2>
 <p>先启动一个实例，安装通用的Java和Hadoop，然后利用AWS的映像功能克隆出其他的集群成员。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">sudo apt-get update -y
 sudo apt-get upgrade -y
@@ -148,7 +148,7 @@ sudo mv /usr/local/hadoop-* /usr/local/hadoop​
 <span class="nb">export</span> <span class="nv">HADOOP_CONF_DIR</span><span class="o">=</span>/usr/local/hadoop/etc/hadoop​
 </code></pre></div><p>更新环境变量<code>source ~/.bashrc</code>，测试能否用java和hadoop。</p>
 <p>上面的搞定后，克隆两个实例。</p>
-<h1 id="配置ssh">配置SSH</h1>
+<h2 id="配置ssh">配置SSH</h2>
 <p>在每个实例上创建key：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">ssh-keygen -f ~/.ssh/id_rsa -t rsa -P <span class="s2">&#34;&#34;</span>
 cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys​
@@ -163,8 +163,8 @@ Host datanode2
 	HostName &lt;private IP or public DNS of datanode2 instance&gt; 
 	User ubuntu
 </code></pre></div><p>把datanode的公钥拷贝到namenode的<code>~/.ssh/authorized_keys</code>里，换行粘贴就行。</p>
-<h1 id="配置hadoop">配置Hadoop</h1>
-<h4 id="在namenode和datanode上执行">在NameNode和DataNode上执行：</h4>
+<h2 id="配置hadoop">配置Hadoop</h2>
+<h3 id="在namenode和datanode上执行">在NameNode和DataNode上执行：</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">cd</span> <span class="nv">$HADOOP_CONF_DIR</span>
 </code></pre></div><p>在<code>core-site.xml</code>中插入，并确认9000端口开放：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;configuration&gt;</span>
@@ -199,7 +199,7 @@ Host datanode2
   <span class="nt">&lt;/property&gt;</span>
 <span class="nt">&lt;/configuration&gt;</span>​
 </code></pre></div><p>在<code>hdoop-env.sh</code>中将将语句<code>export JAVA_HOME=$JAVA_HOME</code>修改为<code>export JAVA_HOME=/usr/java/jdk1.8.0_101</code></p>
-<h4 id="仅在namenode上执行">仅在NameNode上执行：</h4>
+<h3 id="仅在namenode上执行">仅在NameNode上执行：</h3>
 <p>修改<code>/etc/hosts</code>，加入：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">&lt;namenode ip&gt; &lt;namenode_hostname&gt;
 &lt;datanode1 ip&gt; &lt;datanode1_hostname&gt;
@@ -223,7 +223,7 @@ Host datanode2
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">&lt;datanode1_hostname&gt;
 &lt;datanode2_hostname&gt;
 </code></pre></div><p>修改权限：<code>sudo chown -R ubuntu $HADOOP_HOME​</code>。</p>
-<h4 id="仅在datanode上执行">仅在DataNode上执行：</h4>
+<h3 id="仅在datanode上执行">仅在DataNode上执行：</h3>
 <p>在<code>$HADOOP_CONF_DIR/hdfs-site.xml</code>中插入：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;configuration&gt;</span>
   <span class="nt">&lt;property&gt;</span>
@@ -238,7 +238,7 @@ Host datanode2
 </code></pre></div><p>执行</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">sudo mkdir -p <span class="nv">$HADOOP_HOME</span>/data/hdfs/datanode
 sudo chown -R ubuntu <span class="nv">$HADOOP_HOME</span>​
-</code></pre></div><h1 id="初始化hadoop集群">初始化Hadoop集群</h1>
+</code></pre></div><h2 id="初始化hadoop集群">初始化Hadoop集群</h2>
 <p>在NameNode上执行：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">hdfs namenode -format <span class="c1"># 格式化文件系统</span>
 <span class="nv">$HADOOP_HOME</span>/sbin/start-dfs.sh​ <span class="c1"># 启动dfs</span>
@@ -251,7 +251,7 @@ sudo chown -R ubuntu <span class="nv">$HADOOP_HOME</span>​
 </code></pre></div><p>刷新集群节点：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">hdfs dfsadmin -refreshNodes​
 </code></pre></div><p>成功后可以访问<code>&lt;namenode public DNS or public IP&gt;:9870 </code>来使用hadoop的web UI，但要确认9870端口是开放的。</p>
-<h1 id="优化">优化</h1>
+<h2 id="优化">优化</h2>
 <p>对于AWS免费的1G RAM的机器，在<code>yarn-site.xml</code>中加入：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;property&gt;</span>
 	<span class="nt">&lt;name&gt;</span>yarn.nodemanager.resource.memory-mb<span class="nt">&lt;/name&gt;</span>
@@ -282,9 +282,15 @@ sudo chown -R ubuntu <span class="nv">$HADOOP_HOME</span>​
 	<span class="nt">&lt;name&gt;</span>mapreduce.reduce.memory.mb<span class="nt">&lt;/name&gt;</span>
 	<span class="nt">&lt;value&gt;</span>128<span class="nt">&lt;/value&gt;</span>
 <span class="nt">&lt;/property&gt;</span>​
-</code></pre></div><h2 id="持续更新--要点和troubleshooting">持续更新&ndash;要点和troubleshooting</h2>
-<h4 id="配置ssh权限时要有耐心这直接决定了你的集群能不能互相通讯用aws的时候最好用私有ip配置否则重启后公有ip会改变又要重新配置一遍">配置ssh权限时要有耐心，这直接决定了你的集群能不能互相通讯。用AWS的时候最好用私有ip配置，否则重启后公有ip会改变，又要重新配置一遍。</h4>
-<h4 id="重要的配置文件在hadoop_homeetchadoop下">重要的配置文件（在<code>$HADOOP_HOME/etc/hadoop/</code>下）：</h4>
+</code></pre></div><h3 id="持续更新--要点和troubleshooting">持续更新&ndash;要点和troubleshooting</h3>
+<ol>
+<li>
+<p>配置ssh权限时要有耐心，这直接决定了你的集群能不能互相通讯。用AWS的时候最好用私有ip配置，否则重启后公有ip会改变，又要重新配置一遍。</p>
+</li>
+<li>
+<p>重要的配置文件（在<code>$HADOOP_HOME/etc/hadoop/</code>下）：</p>
+</li>
+</ol>
 <ul>
 <li><code>core-site.xml</code></li>
 <li><code>yarn-site.xml</code></li>
@@ -292,8 +298,14 @@ sudo chown -R ubuntu <span class="nv">$HADOOP_HOME</span>​
 <li><code>hdfs-site.xml</code></li>
 <li><code>hadoop-env.sh</code></li>
 </ul>
-<h4 id="hadoop30后web端端口改成了9870不是原来的50070不要被网上老的教程误导">Hadoop3.0后web端端口改成了<strong>9870</strong>，不是原来的50070！！！！！！不要被网上老的教程误导！</h4>
-<h4 id="cluster-id-冲突">cluster ID 冲突</h4>
+<ol start="3">
+<li>
+<p>Hadoop3.0后web端端口改成了<strong>9870</strong>，不是原来的50070！！！！！！不要被网上老的教程误导！</p>
+</li>
+<li>
+<p>cluster ID 冲突</p>
+</li>
+</ol>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="nv">$HADOOP_HOME</span>/sbin/stop-all.sh
 sudo rm -rf /tmp/hadoop-ubuntu
 sudo rm -rf <span class="nv">$HADOOP_HOMEdata</span>/hdfs/namenode   <span class="c1"># directory mentioned in hdfs-site.xml for namenode</span>
@@ -301,17 +313,25 @@ sudo mkdir -p <span class="nv">$HADOOP_HOME</span>/data/hdfs/namenode
 sudo chown -R ubuntu <span class="nv">$HADOOP_HOME</span>
 hdfs namenode -format -force
 <span class="nv">$HADOOP_HOME</span>/sbin/start-all.sh
-</code></pre></div><h4 id="error无法创建-javaioioexception-cannot-create-directory-usrlocalhadoopdatahdfsnamenodecurrent">ERROR:无法创建 java.io.IOException: Cannot create directory /usr/local/hadoop/data/hdfs/namenode/current</h4>
-<p>解决方法：改权限
+</code></pre></div><ol start="5">
+<li>
+<p>ERROR:无法创建 java.io.IOException: Cannot create directory /usr/local/hadoop/data/hdfs/namenode/current
+解决方法：改权限
 sudo chmod -R a+w /usr/local/hadoop/</p>
-<h4 id="error-java_home-is-not-set-and-could-not-be-found">ERROR: JAVA_HOME is not set and could not be found.</h4>
-<p>针对这个错误，网上好多都说了java的路径设置有问题，但没有指出具体的修改方法，其实是hadoop里面hadoop-env.sh文件里面的java路径设置不对，hadoop-env.sh在hadoop/etc/hadoop目录下，具体的修改办法如下：</p>
+</li>
+<li>
+<p>ERROR: JAVA_HOME is not set and could not be found.
+针对这个错误，网上好多都说了java的路径设置有问题，但没有指出具体的修改方法，其实是hadoop里面hadoop-env.sh文件里面的java路径设置不对，hadoop-env.sh在hadoop/etc/hadoop目录下，具体的修改办法如下：</p>
+</li>
+</ol>
 <pre tabindex="0"><code>sudo vim hadoop/etc/hadoop/hdoop-env.sh
 </code></pre><p>将语句      <code>export JAVA_HOME=$JAVA_HOME</code>
 修改为      <code>export JAVA_HOME=/usr/java/jdk1.8.0_101</code></p>
-<h4 id="error-找不到或无法加载主类orgapachehadoopmapreducev2appmrappmaster">ERROR: 找不到或无法加载主类org.apache.hadoop.mapreduce.v2.app.MRAppMaster</h4>
-<p>在命令行下输入<code>hadoop classpath</code>，并将返回的地址复制。
-编辑<code>yarn-site.xml</code>, 添加如下内容</p>
+<ol start="7">
+<li>ERROR: 找不到或无法加载主类org.apache.hadoop.mapreduce.v2.app.MRAppMaster
+在命令行下输入<code>hadoop classpath</code>，并将返回的地址复制。
+编辑<code>yarn-site.xml</code>, 添加如下内容</li>
+</ol>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;configuration&gt;</span>
     <span class="nt">&lt;property&gt;</span>
         <span class="nt">&lt;name&gt;</span>yarn.application.classpath<span class="nt">&lt;/name&gt;</span>
@@ -589,33 +609,19 @@ sudo chmod -R a+w /usr/local/hadoop/</p>
                 <div class="widget--toc">
                     <nav id="TableOfContents">
   <ol>
-    <li>
+    <li><a href="#初始化通用环境">初始化通用环境</a></li>
+    <li><a href="#配置ssh">配置SSH</a></li>
+    <li><a href="#配置hadoop">配置Hadoop</a>
       <ol>
-        <li>
-          <ol>
-            <li><a href="#在namenode和datanode上执行">在NameNode和DataNode上执行：</a></li>
-            <li><a href="#仅在namenode上执行">仅在NameNode上执行：</a></li>
-            <li><a href="#仅在datanode上执行">仅在DataNode上执行：</a></li>
-          </ol>
-        </li>
+        <li><a href="#在namenode和datanode上执行">在NameNode和DataNode上执行：</a></li>
+        <li><a href="#仅在namenode上执行">仅在NameNode上执行：</a></li>
+        <li><a href="#仅在datanode上执行">仅在DataNode上执行：</a></li>
       </ol>
     </li>
-  </ol>
-
-  <ol>
-    <li><a href="#持续更新--要点和troubleshooting">持续更新&ndash;要点和troubleshooting</a>
+    <li><a href="#初始化hadoop集群">初始化Hadoop集群</a></li>
+    <li><a href="#优化">优化</a>
       <ol>
-        <li>
-          <ol>
-            <li><a href="#配置ssh权限时要有耐心这直接决定了你的集群能不能互相通讯用aws的时候最好用私有ip配置否则重启后公有ip会改变又要重新配置一遍">配置ssh权限时要有耐心，这直接决定了你的集群能不能互相通讯。用AWS的时候最好用私有ip配置，否则重启后公有ip会改变，又要重新配置一遍。</a></li>
-            <li><a href="#重要的配置文件在hadoop_homeetchadoop下">重要的配置文件（在<code>$HADOOP_HOME/etc/hadoop/</code>下）：</a></li>
-            <li><a href="#hadoop30后web端端口改成了9870不是原来的50070不要被网上老的教程误导">Hadoop3.0后web端端口改成了<strong>9870</strong>，不是原来的50070！！！！！！不要被网上老的教程误导！</a></li>
-            <li><a href="#cluster-id-冲突">cluster ID 冲突</a></li>
-            <li><a href="#error无法创建-javaioioexception-cannot-create-directory-usrlocalhadoopdatahdfsnamenodecurrent">ERROR:无法创建 java.io.IOException: Cannot create directory /usr/local/hadoop/data/hdfs/namenode/current</a></li>
-            <li><a href="#error-java_home-is-not-set-and-could-not-be-found">ERROR: JAVA_HOME is not set and could not be found.</a></li>
-            <li><a href="#error-找不到或无法加载主类orgapachehadoopmapreducev2appmrappmaster">ERROR: 找不到或无法加载主类org.apache.hadoop.mapreduce.v2.app.MRAppMaster</a></li>
-          </ol>
-        </li>
+        <li><a href="#持续更新--要点和troubleshooting">持续更新&ndash;要点和troubleshooting</a></li>
       </ol>
     </li>
   </ol>
