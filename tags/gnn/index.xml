@@ -9,10 +9,10 @@
     <lastBuildDate>Fri, 27 Aug 2021 23:40:00 +0200</lastBuildDate><atom:link href="http://xpgreat.com/tags/gnn/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>GNN 图神经网络简介</title>
-      <link>http://xpgreat.com/p/gnn-%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%AE%80%E4%BB%8B/</link>
+      <link>http://xpgreat.com/p/gnn/</link>
       <pubDate>Fri, 27 Aug 2021 23:40:00 +0200</pubDate>
       
-      <guid>http://xpgreat.com/p/gnn-%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%AE%80%E4%BB%8B/</guid>
+      <guid>http://xpgreat.com/p/gnn/</guid>
       <description>&lt;p&gt;图神经网络是是一种基于图结构的广义神经网络。其实传统的神经网络也是可以处理图数据，只需要进行前期合理的embedding即可，那么为什么还需要GNN呢？GNN其实属于一种embedding算法，它通过在整张图上&lt;strong&gt;传递、转换、聚合&lt;/strong&gt;节点的特征信息，从而生成单节点的embedding。本文简要介绍GNN，力求通俗易懂，需要更详细的研究GNN的话，推荐一篇2019年的综述&lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/1901.00596&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;A Comprehensive Survey on Graph Neural Networks&lt;/a&gt;。&lt;/p&gt;</description>
     </item>

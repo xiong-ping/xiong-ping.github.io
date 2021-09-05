@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='在自然语言处理中，第一步需要面对的就是词向量特征的提取。语言的特征提取在sklearn模块中有相当完善的方法和模块，本文先利用CountVectorizer提取词汇，再用TfidfTransformer计算TFIDF向量。之所以选择CountVectorizer而不自行写一个代码，是因为在使用时维度很容易超过10w，产生的bag-of-words向量特别稀疏，需要耗费极大的内存，而sklearn实现了一个稀疏矩阵的存储形式，可以极大的加速和降低消耗。
+构建Bag-of-words词汇矩阵 from sklearn.feature_extraction.text import CountVectorizer #测试用字符串list s_l = [&amp;#39;Relevant words for each class or cluster are identified by computing a relevancy score rc for every word ti based on the documents in the class&amp;#39;, &amp;#39;or cluster and then selecting the highest scoring&amp;#39;, &amp;#39;words. These scores can be computed either by-89&amp;#39;, &amp;#39;aggregating the raw tf-idf features of all documents&amp;#39;, &amp;#39;in the group (Section 2.3.1), by aggregating these&amp;#39;, &amp;#39;features weighted by some classifier’s parameters&amp;#39;, &amp;#39;(Section 2.'><title>利用sklearn构建tfidf向量</title>
+
+<link rel='canonical' href='http://xpgreat.com/p/tfidf_python/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='利用sklearn构建tfidf向量'>
+<meta property='og:description' content='在自然语言处理中，第一步需要面对的就是词向量特征的提取。语言的特征提取在sklearn模块中有相当完善的方法和模块，本文先利用CountVectorizer提取词汇，再用TfidfTransformer计算TFIDF向量。之所以选择CountVectorizer而不自行写一个代码，是因为在使用时维度很容易超过10w，产生的bag-of-words向量特别稀疏，需要耗费极大的内存，而sklearn实现了一个稀疏矩阵的存储形式，可以极大的加速和降低消耗。
+构建Bag-of-words词汇矩阵 from sklearn.feature_extraction.text import CountVectorizer #测试用字符串list s_l = [&amp;#39;Relevant words for each class or cluster are identified by computing a relevancy score rc for every word ti based on the documents in the class&amp;#39;, &amp;#39;or cluster and then selecting the highest scoring&amp;#39;, &amp;#39;words. These scores can be computed either by-89&amp;#39;, &amp;#39;aggregating the raw tf-idf features of all documents&amp;#39;, &amp;#39;in the group (Section 2.3.1), by aggregating these&amp;#39;, &amp;#39;features weighted by some classifier’s parameters&amp;#39;, &amp;#39;(Section 2.'>
+<meta property='og:url' content='http://xpgreat.com/p/tfidf_python/'>
+<meta property='og:site_name' content='XP&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='NLP' /><meta property='article:tag' content='算法' /><meta property='article:tag' content='机器学习' /><meta property='article:tag' content='论文' /><meta property='article:published_time' content='2020-11-24T11:22:02&#43;08:00'/><meta property='article:modified_time' content='2020-11-24T11:22:02&#43;08:00'/>
+<meta name="twitter:title" content="利用sklearn构建tfidf向量">
+<meta name="twitter:description" content="在自然语言处理中，第一步需要面对的就是词向量特征的提取。语言的特征提取在sklearn模块中有相当完善的方法和模块，本文先利用CountVectorizer提取词汇，再用TfidfTransformer计算TFIDF向量。之所以选择CountVectorizer而不自行写一个代码，是因为在使用时维度很容易超过10w，产生的bag-of-words向量特别稀疏，需要耗费极大的内存，而sklearn实现了一个稀疏矩阵的存储形式，可以极大的加速和降低消耗。
+构建Bag-of-words词汇矩阵 from sklearn.feature_extraction.text import CountVectorizer #测试用字符串list s_l = [&amp;#39;Relevant words for each class or cluster are identified by computing a relevancy score rc for every word ti based on the documents in the class&amp;#39;, &amp;#39;or cluster and then selecting the highest scoring&amp;#39;, &amp;#39;words. These scores can be computed either by-89&amp;#39;, &amp;#39;aggregating the raw tf-idf features of all documents&amp;#39;, &amp;#39;in the group (Section 2.3.1), by aggregating these&amp;#39;, &amp;#39;features weighted by some classifier’s parameters&amp;#39;, &amp;#39;(Section 2.">
+    </head>
+    <body class="">
+        <div class="container flex on-phone--column align-items--flex-start extended article-page with-toolbar">
+            <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            <figure class="site-avatar">
+                
+
+                
+                    
+                    <img src="/img/head_hu7a5a8ce21e62abecbc7926aff8bd098a_4354_300x300_resize_q75_box.jpg" width="300"
+                        height="300" class="site-logo" loading="lazy" alt="Avatar">
+                
+
+                <span class="emoji">✈</span>
+            </figure>
+        
+        <h1 class="site-name"><a href="http://xpgreat.com/">XP&#39;s Blog</a></h1>
+        <h2 class="site-description">积跬步 以至千里</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="https://util.xpgreat.com">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z"></path>
+                      <line x1="10" y1="18" x2="23" y2="5"></line>
+                      <line x1="10" y1="18" x2="3" y2="9"></line>
+                    </svg>
+                <span>Utils</span>
+            </a>
+        </li>
+    </ol>
+</aside>
+            <main class="main full-width">
+    <div id="article-toolbar">
+        <a href="http://xpgreat.com/" class="back-home">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+            <span>Back</span>
+        </a>
+    </div>
+
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            
+                <a href="/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/">数据科学</a>
+            
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/p/tfidf_python/">利用sklearn构建tfidf向量</a>
+    </h2>
+
+    <footer class="article-time">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <time class="article-time--published">Nov 24, 2020</time>
+    </footer></div>
+</header>
+
+    <section class="article-content">
+    <p>在自然语言处理中，第一步需要面对的就是词向量特征的提取。语言的特征提取在sklearn模块中有相当完善的方法和模块，本文先利用CountVectorizer提取词汇，再用TfidfTransformer计算TFIDF向量。之所以选择CountVectorizer而不自行写一个代码，是因为在使用时维度很容易超过10w，产生的bag-of-words向量特别稀疏，需要耗费极大的内存，而sklearn实现了一个稀疏矩阵的存储形式，可以极大的加速和降低消耗。</p>
+<h2 id="构建bag-of-words词汇矩阵">构建Bag-of-words词汇矩阵</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">CountVectorizer</span>
+
+<span class="c1">#测试用字符串list</span>
+<span class="n">s_l</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Relevant words for each class or cluster are identified by computing a relevancy score rc for every word ti based on the documents in the class&#39;</span><span class="p">,</span>
+<span class="s1">&#39;or cluster and then selecting the highest scoring&#39;</span><span class="p">,</span>
+<span class="s1">&#39;words. These scores can be computed either by-89&#39;</span><span class="p">,</span>
+<span class="s1">&#39;aggregating the raw tf-idf features of all documents&#39;</span><span class="p">,</span>
+<span class="s1">&#39;in the group (Section 2.3.1), by aggregating these&#39;</span><span class="p">,</span>
+<span class="s1">&#39;features weighted by some classifier’s parameters&#39;</span><span class="p">,</span>
+<span class="s1">&#39;(Section 2.3.2), or directly by computing a score&#39;</span><span class="p">,</span>
+<span class="s1">&#39;for each word depending on the number of documents it occurs in from this class relative to other&#39;</span><span class="p">,</span>
+<span class="s1">&#39;classes (Section 2.3.3).&#39;</span><span class="p">]</span>
+
+<span class="c1">#初始化CountVectorizer，token_pattern后可以自定义提取单词的规则，不写则默认取纯字母单词，这里取的是字母、数字和-的组合</span>
+<span class="n">count_vect</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">(</span><span class="n">token_pattern</span> <span class="o">=</span> <span class="s1">&#39;[a-zA-Z0-9\-]+&#39;</span><span class="p">)</span>
+
+<span class="c1">#这里传入的参数必须是iteratable的，比如这里的list</span>
+<span class="n">X_train_counts</span> <span class="o">=</span> <span class="n">count_vect</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">s_l</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">X_train_counts</span>
+</code></pre></div><p>输出：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain">&lt;9x62 sparse matrix of type &#39;&lt;class &#39;numpy.int64&#39;&gt;&#39;
+	with 95 stored elements in Compressed Sparse Row format&gt;
+</code></pre></div><p>显示出这里的<code>X_train_counts</code>是一个<code>9*62</code>的稀疏矩阵。</p>
+<p>稀疏化显示</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">X_train_counts</span><span class="o">.</span><span class="n">todense</span><span class="p">()</span>
+</code></pre></div><p>输出：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain">matrix([[0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 2, 0, 0, 1, 0, 1, 0, 0,
+         1, 1, 0, 1, 0, 2, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1,
+         0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 1, 1],
+        [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
+         0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
+         0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0,
+         0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+         0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1],
+        [0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+         1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0,
+         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+        [1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+         0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+         0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0,
+         0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0,
+         0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
+        [0, 2, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1,
+         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
+         0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0,
+         1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0,
+         1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0],
+        [0, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0,
+         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+         0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]],
+       dtype=int64)
+</code></pre></div><p>查看词汇</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">count_vect</span><span class="o">.</span><span class="n">vocabulary_</span>
+</code></pre></div><p>输出：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain">{&#39;relevant&#39;: 44,
+ &#39;words&#39;: 61,
+ &#39;for&#39;: 26,
+ &#39;each&#39;: 22,
+...
+ &#39;occurs&#39;: 34,
+ &#39;from&#39;: 27,
+ &#39;this&#39;: 56,
+ &#39;relative&#39;: 42,
+ &#39;to&#39;: 58,
+ &#39;other&#39;: 38,
+ &#39;classes&#39;: 14}
+</code></pre></div><p>左边是单词，右边是索引，可以用<code>count_vect.vocabulary_.get('relative')</code>这种形式来查找索引号，<code>list(filter(lambda x: x[1] == 6, count_vect.vocabulary_.items()))[0][0]</code>获取索引为6的word，其实<code>count_vect.vocabulary_.items()</code>本质上就是字典。</p>
+<h2 id="构建tfidf向量矩阵">构建tfidf向量矩阵</h2>
+<p>Term Frequency-Inverse Document Frequency，词频-逆文件频率，是一种用于资讯检索与资讯探勘的常用加权技术。TF-IDF是一种统计方法，用以评估一单词对于一个文件集或一个语料库中的其中一份文件的重要程度。字词的重要性随着它在文件中出现的次数成正比增加，但同时会随着它在语料库中出现的频率成反比下降。即<strong>一个词语在一篇文件中出现次数越多, 同时在所有文档中出现次数越少, 越能够代表该文件</strong>。一般做归一化处理，公式如下：</p>
+<p>$$
+tf(t_i)=\frac{在某一文件中词t_i出现的次数}{该文件中所有的词数目} \\ \ \\ idf(t_i)=\log(\frac{数据集的文件总数}{包含词t_i的文件数})=\log\frac{|N|}{|\{k\in N:t_i\in k\}|}
+$$</p>
+<p>有时为了保证\(idf\)分母不为零，可以在分母上加一。</p>
+<p>使用sklearn的TfidfTransformer实现，非常方便。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfTransformer</span>
+
+<span class="n">tf_idf_transformer</span> <span class="o">=</span> <span class="n">TfidfTransformer</span><span class="p">()</span>
+<span class="n">tf_idf_matrix</span> <span class="o">=</span> <span class="n">tf_idf_transformer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train_counts</span><span class="p">)</span> <span class="c1">#传入bag-of-words矩阵即可</span>
+</code></pre></div><p>输出：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain">matrix([[0.        , 0.        , 0.        , 0.17690932, 0.        ,
+         0.        , 0.        , 0.20945535, 0.20945535, 0.        ,
+         0.13590618, 0.        , 0.        , 0.35381864, 0.        ,
+         0.        , 0.17690932, 0.        , 0.17690932, 0.        ,
+         0.        , 0.15381755, 0.17690932, 0.        , 0.20945535,
+         0.        , 0.35381864, 0.        , 0.        , 0.        ,
+         0.20945535, 0.15381755, 0.        , 0.        , 0.        ,
+         0.        , 0.17690932, 0.15381755, 0.        , 0.        ,
+         0.        , 0.20945535, 0.        , 0.20945535, 0.20945535,
+         0.        , 0.17690932, 0.        , 0.        , 0.        ,
+         0.        , 0.        , 0.        , 0.24254304, 0.        ,
+         0.        , 0.        , 0.20945535, 0.        , 0.        ,
+         0.17690932, 0.17690932],
+        ...
+        [0.        , 0.35681845, 0.7136369 , 0.        , 0.        ,
+         0.        , 0.        , 0.        , 0.        , 0.        ,
+         0.        , 0.        , 0.        , 0.        , 0.48588431,
+         0.        , 0.        , 0.        , 0.        , 0.        ,
+         0.        , 0.        , 0.        , 0.        , 0.        ,
+         0.        , 0.        , 0.        , 0.        , 0.        ,
+         0.        , 0.        , 0.        , 0.        , 0.        ,
+         0.        , 0.        , 0.        , 0.        , 0.        ,
+         0.        , 0.        , 0.        , 0.        , 0.        ,
+         0.        , 0.        , 0.        , 0.        , 0.35681845,
+         0.        , 0.        , 0.        , 0.        , 0.        ,
+         0.        , 0.        , 0.        , 0.        , 0.        ,
+         0.        , 0.        ]])
+</code></pre></div>
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/nlp/">NLP</a>
+        
+            <a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+        
+            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+        
+            <a href="/tags/%E8%AE%BA%E6%96%87/">论文</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-ND 4.0</span>
+    </section>
+    </footer>
+
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+    integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+    integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+    crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+    integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+    onload="renderMathInElement(document.querySelector(`.article-content`));"></script>
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">相关文章</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="">
+    <a href="/p/explore_text_dataset/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">论文解读：Exploring text datasets by visualizing relevant words</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/epf_models/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">中短期电价预测模型简介</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/rnn_lstm_gru/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">递归神经网络</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/ca_short_summary/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">认知算法小结</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/hmc/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Hamiltonian Monte Carlo算法</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+
+    
+        
+    <script src="https://utteranc.es/client.js" 
+        repo="xiong-ping/xiong-ping.github.io"
+        issue-term="pathname"
+        theme="preferred-color-scheme" 
+        
+        crossorigin="anonymous" 
+        async>
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">&copy; 2021 XP&#39;s Blog</section>
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="1.1.0">Stack</a></b> designed by
+        <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true" style="display:none">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+            </main>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"
+    integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin="anonymous"></script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<link rel="stylesheet" href="/css/highlight/light.min.css" media="(prefers-color-scheme: light)">
+<link rel="stylesheet" href="/css/highlight/dark.min.css" media="(prefers-color-scheme: dark)">
+
+    </body>
+</html>

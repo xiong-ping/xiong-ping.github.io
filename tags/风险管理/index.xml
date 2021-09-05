@@ -9,37 +9,37 @@
     <lastBuildDate>Tue, 25 Dec 2018 11:02:13 +0100</lastBuildDate><atom:link href="http://xpgreat.com/tags/%E9%A3%8E%E9%99%A9%E7%AE%A1%E7%90%86/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>利率期权</title>
-      <link>http://xpgreat.com/p/%E5%88%A9%E7%8E%87%E6%9C%9F%E6%9D%83/</link>
+      <link>http://xpgreat.com/p/intrest_option/</link>
       <pubDate>Tue, 25 Dec 2018 11:02:13 +0100</pubDate>
       
-      <guid>http://xpgreat.com/p/%E5%88%A9%E7%8E%87%E6%9C%9F%E6%9D%83/</guid>
+      <guid>http://xpgreat.com/p/intrest_option/</guid>
       <description>&lt;p&gt;利率期权(interest-rate option)是一项关于利率变化的权利。买方支付一定金额的期权费后，就可以获得这项权利：在到期日按预先约定的利率，按一定的期限借入或贷出一定金额的货币。这样当市场利率向不利方向变化时，买方可固定其利率水平；当市场利率向有利方向变化时，买方可获得利率变化的好处。利率期权的卖方向买方收取期权费，同时承担相应的责任。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>期权的风险指标</title>
-      <link>http://xpgreat.com/p/%E6%9C%9F%E6%9D%83%E7%9A%84%E9%A3%8E%E9%99%A9%E6%8C%87%E6%A0%87/</link>
+      <link>http://xpgreat.com/p/finance_greeks/</link>
       <pubDate>Mon, 24 Dec 2018 17:06:00 +0100</pubDate>
       
-      <guid>http://xpgreat.com/p/%E6%9C%9F%E6%9D%83%E7%9A%84%E9%A3%8E%E9%99%A9%E6%8C%87%E6%A0%87/</guid>
+      <guid>http://xpgreat.com/p/finance_greeks/</guid>
       <description>&lt;p&gt;期权的风险指标通常用希腊字母来表示，包括：Delta值(\(\Delta\))、Gamma值(\(\Gamma\))、Omega值(\(\Omega\))、Theta值(\(\theta\))、Vega值、Rho(\(\rho\))值等。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>布莱克-舒尔斯期权定价模型</title>
-      <link>http://xpgreat.com/p/%E5%B8%83%E8%8E%B1%E5%85%8B-%E8%88%92%E5%B0%94%E6%96%AF%E6%9C%9F%E6%9D%83%E5%AE%9A%E4%BB%B7%E6%A8%A1%E5%9E%8B/</link>
+      <link>http://xpgreat.com/p/bs_model/</link>
       <pubDate>Tue, 11 Dec 2018 22:05:54 +0100</pubDate>
       
-      <guid>http://xpgreat.com/p/%E5%B8%83%E8%8E%B1%E5%85%8B-%E8%88%92%E5%B0%94%E6%96%AF%E6%9C%9F%E6%9D%83%E5%AE%9A%E4%BB%B7%E6%A8%A1%E5%9E%8B/</guid>
+      <guid>http://xpgreat.com/p/bs_model/</guid>
       <description>&lt;p&gt;在Risikomanagement课上讲到了布莱克-舒尔斯期权定价模型（Black-Scholes Option Pricing Model），但只是给出了公式，没有推导。在网上查找之后终于大致弄懂，把推导过程尽可能的详细的写一写。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>售出-购进平价理论</title>
-      <link>http://xpgreat.com/p/%E5%94%AE%E5%87%BA-%E8%B4%AD%E8%BF%9B%E5%B9%B3%E4%BB%B7%E7%90%86%E8%AE%BA/</link>
+      <link>http://xpgreat.com/p/put_call_parity/</link>
       <pubDate>Fri, 07 Dec 2018 21:48:39 +0100</pubDate>
       
-      <guid>http://xpgreat.com/p/%E5%94%AE%E5%87%BA-%E8%B4%AD%E8%BF%9B%E5%B9%B3%E4%BB%B7%E7%90%86%E8%AE%BA/</guid>
+      <guid>http://xpgreat.com/p/put_call_parity/</guid>
       <description>&lt;p&gt;售出-购进平价理论（Put-Call Parity）指在无套利原则下（Non-Arbitrage），欧式看涨期权（Call Option）和欧式看跌期权（Put Option）定价之间存在的基本关系。&lt;/p&gt;</description>
     </item>
     

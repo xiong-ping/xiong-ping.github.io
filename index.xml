@@ -8,10 +8,10 @@
         <language>zh-CN</language>
         <lastBuildDate>Sun, 29 Aug 2021 10:56:18 +0200</lastBuildDate><atom:link href="http://xpgreat.com/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>LRP简介</title>
-        <link>http://xpgreat.com/p/lrp%E7%AE%80%E4%BB%8B/</link>
+        <link>http://xpgreat.com/p/lrp/</link>
         <pubDate>Sun, 29 Aug 2021 10:56:18 +0200</pubDate>
         
-        <guid>http://xpgreat.com/p/lrp%E7%AE%80%E4%BB%8B/</guid>
+        <guid>http://xpgreat.com/p/lrp/</guid>
         <description>&lt;p&gt;机器学习的可解释性一直以来都是一个大问题，模型中的海量权重和连接关系让机器学习一直被视为黑盒模型。为了解决这个问题，Explainable AI （XAI）是一个前沿的研究方向。关于可解释性的研究，推荐这篇&lt;a class=&#34;link&#34; href=&#34;https://ieeexplore.ieee.org/document/9369420&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;综述&lt;/a&gt;。本文简要介绍解释深度神经网络（DNN）的算法LRP（Layerwise Relevance Propagation）。&lt;/p&gt;
 &lt;h1 id=&#34;深度泰勒分解deep-taylor-decomposition&#34;&gt;深度泰勒分解（Deep Taylor Decomposition）&lt;/h1&gt;
@@ -56,10 +56,10 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>GNN 图神经网络简介</title>
-        <link>http://xpgreat.com/p/gnn-%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%AE%80%E4%BB%8B/</link>
+        <link>http://xpgreat.com/p/gnn/</link>
         <pubDate>Fri, 27 Aug 2021 23:40:00 +0200</pubDate>
         
-        <guid>http://xpgreat.com/p/gnn-%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%AE%80%E4%BB%8B/</guid>
+        <guid>http://xpgreat.com/p/gnn/</guid>
         <description>&lt;p&gt;图神经网络是是一种基于图结构的广义神经网络。其实传统的神经网络也是可以处理图数据，只需要进行前期合理的embedding即可，那么为什么还需要GNN呢？GNN其实属于一种embedding算法，它通过在整张图上&lt;strong&gt;传递、转换、聚合&lt;/strong&gt;节点的特征信息，从而生成单节点的embedding。本文简要介绍GNN，力求通俗易懂，需要更详细的研究GNN的话，推荐一篇2019年的综述&lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/1901.00596&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;A Comprehensive Survey on Graph Neural Networks&lt;/a&gt;。&lt;/p&gt;
 &lt;h1 id=&#34;基本概念&#34;&gt;基本概念&lt;/h1&gt;
@@ -92,26 +92,26 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>Hamiltonian Monte Carlo算法</title>
-        <link>http://xpgreat.com/p/hamiltonian-monte-carlo%E7%AE%97%E6%B3%95/</link>
+        <link>http://xpgreat.com/p/hmc/</link>
         <pubDate>Tue, 17 Aug 2021 20:34:54 +0200</pubDate>
         
-        <guid>http://xpgreat.com/p/hamiltonian-monte-carlo%E7%AE%97%E6%B3%95/</guid>
+        <guid>http://xpgreat.com/p/hmc/</guid>
         <description>&lt;p&gt;MCMC（Markov-Chain Monte-Carlo）算法用于生成给定分布的样本。在很多时候，我们想计算一个复杂分布的函数期望值，但用解析的，求解积分的方法，是极其困难的，对于有些分布甚至是不可能的。所以我们使用一些采样方法，例如Gibbs sampling，Metropolis-Hasting算法。本文介绍Hamiltonian Monte-Carlo算法。&lt;/p&gt;
 &lt;h1 id=&#34;目标和问题&#34;&gt;目标和问题&lt;/h1&gt;
 &lt;p&gt;给定一个分布\(\pi(x)\)，计算期望：\(\mathbb E_\pi[f]=\int f(q)\pi(q)dq\)，而直接计算积分是不可行的。因此我们计算期望的一个近似：\(\mathbb E_\pi[f] \approx \frac{1}{N}\sum_i f(x_i)\)&lt;/p&gt;</description>
         </item>
         <item>
         <title>Python调用作为参数的函数的方法</title>
-        <link>http://xpgreat.com/p/python%E8%B0%83%E7%94%A8%E4%BD%9C%E4%B8%BA%E5%8F%82%E6%95%B0%E7%9A%84%E5%87%BD%E6%95%B0%E7%9A%84%E6%96%B9%E6%B3%95/</link>
+        <link>http://xpgreat.com/p/function_parameter_dict/</link>
         <pubDate>Thu, 10 Jun 2021 11:00:00 +0200</pubDate>
         
-        <guid>http://xpgreat.com/p/python%E8%B0%83%E7%94%A8%E4%BD%9C%E4%B8%BA%E5%8F%82%E6%95%B0%E7%9A%84%E5%87%BD%E6%95%B0%E7%9A%84%E6%96%B9%E6%B3%95/</guid>
+        <guid>http://xpgreat.com/p/function_parameter_dict/</guid>
         <description>&lt;p&gt;今天在做project的时候遇到一个需求，简单来说是给定一个未知的函数&lt;code&gt;func&lt;/code&gt;和他的参数范围，需要用这些参数重复调用该函数，记录返回值。此时遇到的问题是不知道&lt;code&gt;func&lt;/code&gt;有多少参数和传入参数的顺序，查阅文档后发现可以用参数字典给函数传参，现记录于此。&lt;/p&gt;
 &lt;h1 id=&#34;问题&#34;&gt;问题&lt;/h1&gt;
 &lt;p&gt;给定一个函数&lt;code&gt;func&lt;/code&gt;，参数名列表&lt;code&gt;param_names&lt;/code&gt;，参数列表&lt;code&gt;params&lt;/code&gt;，多次调用该函数并记录返回值。&lt;/p&gt;
 &lt;h1 id=&#34;解决方法&#34;&gt;解决方法&lt;/h1&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;func&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
-  &lt;span class=&#34;k&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;func&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+  &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 
 &lt;span class=&#34;n&#34;&gt;param_names&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;a&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;b&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;c&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
 &lt;span class=&#34;n&#34;&gt;params&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;
@@ -129,15 +129,15 @@ $$&lt;/p&gt;
 &lt;span class=&#34;mi&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;6&lt;/span&gt;
 &lt;span class=&#34;mi&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;9&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;使用itertoolsproduct快速循环生成参数表&#34;&gt;使用itertools.product快速循环生成参数表&lt;/h1&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;n&#34;&gt;params&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;itertools&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;product&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;list&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;params&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;values&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()))&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;n&#34;&gt;params&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;itertools&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;product&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;list&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;params&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;values&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()))&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这里的&lt;code&gt;params&lt;/code&gt;是一个字典，key是参数名字，value是参数可选范围，比如&lt;code&gt;&amp;quot;param1&amp;quot; :[0, 1, 2]&lt;/code&gt;。&lt;code&gt;itertools.product&lt;/code&gt;可以接受多个list，需要用&lt;code&gt;*list&lt;/code&gt;的形式解包传入参数。&lt;/p&gt;</description>
         </item>
         <item>
         <title>[论文解读]买方/卖方分析师对基金经理决策的影响</title>
-        <link>http://xpgreat.com/p/%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB%E4%B9%B0%E6%96%B9/%E5%8D%96%E6%96%B9%E5%88%86%E6%9E%90%E5%B8%88%E5%AF%B9%E5%9F%BA%E9%87%91%E7%BB%8F%E7%90%86%E5%86%B3%E7%AD%96%E7%9A%84%E5%BD%B1%E5%93%8D/</link>
+        <link>http://xpgreat.com/p/ssa_bsa/</link>
         <pubDate>Mon, 12 Apr 2021 17:48:40 +0200</pubDate>
         
-        <guid>http://xpgreat.com/p/%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB%E4%B9%B0%E6%96%B9/%E5%8D%96%E6%96%B9%E5%88%86%E6%9E%90%E5%B8%88%E5%AF%B9%E5%9F%BA%E9%87%91%E7%BB%8F%E7%90%86%E5%86%B3%E7%AD%96%E7%9A%84%E5%BD%B1%E5%93%8D/</guid>
+        <guid>http://xpgreat.com/p/ssa_bsa/</guid>
         <description>&lt;p&gt;在基金经理决策时，他所依赖的信息源主要是分析师，分析师分为三种：卖方分析师（Sell-side Analyst, SSA）、买方分析师（Buy-side Analyst, BSA）和独立第三方分析师（Independent Third-party Analyst, ITA）。基金经理如何权衡这三个来源的信息，决策时使用的权重有什么影响，分析师本身的一些特征（例如经验、偏差、准确度）会对决策结果带来什么影响？Yingmei Cheng et al. 在2006年发表的名为“
 Buy-Side Analysts, Sell-Side Analysts, and Investment Decisions of Money Manager”的论文对此作了详细的理论和实证分析。&lt;/p&gt;
 &lt;h1 id=&#34;三种分析师&#34;&gt;三种分析师&lt;/h1&gt;
@@ -198,10 +198,10 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>AMPlibraryagent异常访问Onedrive下载</title>
-        <link>http://xpgreat.com/p/amplibraryagent%E5%BC%82%E5%B8%B8%E8%AE%BF%E9%97%AEonedrive%E4%B8%8B%E8%BD%BD/</link>
+        <link>http://xpgreat.com/p/amp_onedrive/</link>
         <pubDate>Sat, 10 Apr 2021 11:19:05 +0200</pubDate>
         
-        <guid>http://xpgreat.com/p/amplibraryagent%E5%BC%82%E5%B8%B8%E8%AE%BF%E9%97%AEonedrive%E4%B8%8B%E8%BD%BD/</guid>
+        <guid>http://xpgreat.com/p/amp_onedrive/</guid>
         <description>&lt;p&gt;先放方法：用任务监视器定位到AMPlibraryagent的路径，然后使用OneDrive的“应用管理”，停止响应AMPlibraryagent的请求。&lt;/p&gt;
 &lt;p&gt;今天在正常使用MacBook时，偶然发现OneDrive经常会异常同步，反复释放空间无果。查看OneDrive的日志发现，是一个名叫AMPlibraryagent的应用请求的。查询得知，AMPLibraryAgent（The media library agent for Music.app and TV.app）是Apple Music和Apple TV的相关进程，属于系统进程，从它下手的可能性不大。&lt;/p&gt;
 &lt;p&gt;尝试很多方法后，终于发现可以通过onedrive设置里面的“管理应用”来停止响应特定应用的请求&lt;a class=&#34;link&#34; href=&#34;https://www.reddit.com/r/mac/comments/kcsayt/disable_amplibraryagent/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -215,10 +215,10 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>搭建真分布式Hadoop集群指南</title>
-        <link>http://xpgreat.com/p/%E6%90%AD%E5%BB%BA%E7%9C%9F%E5%88%86%E5%B8%83%E5%BC%8Fhadoop%E9%9B%86%E7%BE%A4%E6%8C%87%E5%8D%97/</link>
+        <link>http://xpgreat.com/p/hadoop_aws/</link>
         <pubDate>Mon, 29 Mar 2021 10:39:10 +0200</pubDate>
         
-        <guid>http://xpgreat.com/p/%E6%90%AD%E5%BB%BA%E7%9C%9F%E5%88%86%E5%B8%83%E5%BC%8Fhadoop%E9%9B%86%E7%BE%A4%E6%8C%87%E5%8D%97/</guid>
+        <guid>http://xpgreat.com/p/hadoop_aws/</guid>
         <description>&lt;p&gt;搭建一个Hadoop环境是学习大数据技术的第一步，这个环境可以是单机的，也可以是伪集群的，但最贴近实际生产环境的还是真集群的版本。本文提供一个基于AWS搭建Hadoop的简要指南，基于AWS EC2 Ubuntu 20。如果你也用的是AWS的免费套餐，几个注意的地方：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;小心流量使用情况，免费的仅包括了15G，请设置使用提醒。&lt;/li&gt;
@@ -228,14 +228,14 @@ $$&lt;/p&gt;
 &lt;/ul&gt;
 &lt;h1 id=&#34;初始化通用环境&#34;&gt;初始化通用环境&lt;/h1&gt;
 &lt;p&gt;先启动一个实例，安装通用的Java和Hadoop，然后利用AWS的映像功能克隆出其他的集群成员。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo apt-get update -y
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo apt-get update -y
 sudo apt-get upgrade -y
 sudo apt install default-jre &lt;span class=&#34;c1&#34;&gt;#可以先java看一下提示，换成最新版&lt;/span&gt;
 wget https://apache.mirror.digionline.de/hadoop/common/hadoop-3.2.2/hadoop-3.2.2.tar.gz &lt;span class=&#34;c1&#34;&gt;#改成最新版&lt;/span&gt;
 sudo tar zxvf hadoop-* -C /usr/local
 sudo mv /usr/local/hadoop-* /usr/local/hadoop​
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;添加环境变量&lt;code&gt;sudo vim ~/.bashrc​&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;JAVA_HOME&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/usr/lib/jvm/java-11-openjdk-amd64
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;JAVA_HOME&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/usr/lib/jvm/java-11-openjdk-amd64
 &lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;PATH&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$PATH&lt;/span&gt;:&lt;span class=&#34;nv&#34;&gt;$JAVA_HOME&lt;/span&gt;/bin
 &lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;HADOOP_HOME&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/usr/local/hadoop
 &lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;PATH&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$PATH&lt;/span&gt;:&lt;span class=&#34;nv&#34;&gt;$HADOOP_HOME&lt;/span&gt;/bin
@@ -244,10 +244,10 @@ sudo mv /usr/local/hadoop-* /usr/local/hadoop​
 &lt;p&gt;上面的搞定后，克隆两个实例。&lt;/p&gt;
 &lt;h1 id=&#34;配置ssh&#34;&gt;配置SSH&lt;/h1&gt;
 &lt;p&gt;在每个实例上创建key：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;ssh-keygen -f ~/.ssh/id_rsa -t rsa -P &lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;ssh-keygen -f ~/.ssh/id_rsa -t rsa -P &lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
 cat ~/.ssh/id_rsa.pub &amp;gt;&amp;gt; ~/.ssh/authorized_keys​
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在NameNode上的&lt;code&gt;~/.ssh/config&lt;/code&gt;写入：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;Host namenode
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;Host namenode
 	HostName &amp;lt;private IP or public DNS of namenode instance&amp;gt;
 	User ubuntu
 Host datanode1 
@@ -259,16 +259,16 @@ Host datanode2
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;把datanode的公钥拷贝到namenode的&lt;code&gt;~/.ssh/authorized_keys&lt;/code&gt;里，换行粘贴就行。&lt;/p&gt;
 &lt;h1 id=&#34;配置hadoop&#34;&gt;配置Hadoop&lt;/h1&gt;
 &lt;h4 id=&#34;在namenode和datanode上执行&#34;&gt;在NameNode和DataNode上执行：&lt;/h4&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$HADOOP_CONF_DIR&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$HADOOP_CONF_DIR&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在&lt;code&gt;core-site.xml&lt;/code&gt;中插入，并确认9000端口开放：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;configuration&amp;gt;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;configuration&amp;gt;&lt;/span&gt;
   &lt;span class=&#34;nt&#34;&gt;&amp;lt;property&amp;gt;&lt;/span&gt;
     &lt;span class=&#34;nt&#34;&gt;&amp;lt;name&amp;gt;&lt;/span&gt;fs.defaultFS&lt;span class=&#34;nt&#34;&gt;&amp;lt;/name&amp;gt;&lt;/span&gt;
     &lt;span class=&#34;nt&#34;&gt;&amp;lt;value&amp;gt;&lt;/span&gt;hdfs://[namenode public dns name or private IP]:9000&lt;span class=&#34;nt&#34;&gt;&amp;lt;/value&amp;gt;&lt;/span&gt;
   &lt;span class=&#34;nt&#34;&gt;&amp;lt;/property&amp;gt;&lt;/span&gt;
 &lt;span class=&#34;nt&#34;&gt;&amp;lt;/configuration&amp;gt;&lt;/span&gt;​
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在&lt;code&gt;yarn-site.xml&lt;/code&gt;中插入：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;configuration&amp;gt;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;configuration&amp;gt;&lt;/span&gt;
 
 &lt;span class=&#34;c&#34;&gt;&amp;lt;!-- Site specific YARN configuration properties --&amp;gt;&lt;/span&gt;
 
@@ -282,7 +282,7 @@ Host datanode2
   &lt;span class=&#34;nt&#34;&gt;&amp;lt;/property&amp;gt;&lt;/span&gt;
 &lt;span class=&#34;nt&#34;&gt;&amp;lt;/configuration&amp;gt;&lt;/span&gt;​
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在&lt;code&gt;mapred-site.xml&lt;/code&gt;中插入，并确认54311端口开放：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;configuration&amp;gt;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;configuration&amp;gt;&lt;/span&gt;
   &lt;span class=&#34;nt&#34;&gt;&amp;lt;property&amp;gt;&lt;/span&gt;
     &lt;span class=&#34;nt&#34;&gt;&amp;lt;name&amp;gt;&lt;/span&gt;mapreduce.jobtracker.address&lt;span class=&#34;nt&#34;&gt;&amp;lt;/name&amp;gt;&lt;/span&gt;
     &lt;span class=&#34;nt&#34;&gt;&amp;lt;value&amp;gt;&lt;/span&gt;[namenode public dns name or private IP]:54311&lt;span class=&#34;nt&#34;&gt;&amp;lt;/value&amp;gt;&lt;/span&gt;
@@ -295,12 +295,12 @@ Host datanode2
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在&lt;code&gt;hdoop-env.sh&lt;/code&gt;中将将语句&lt;code&gt;export JAVA_HOME=$JAVA_HOME&lt;/code&gt;修改为&lt;code&gt;export JAVA_HOME=/usr/java/jdk1.8.0_101&lt;/code&gt;&lt;/p&gt;
 &lt;h4 id=&#34;仅在namenode上执行&#34;&gt;仅在NameNode上执行：&lt;/h4&gt;
 &lt;p&gt;修改&lt;code&gt;/etc/hosts&lt;/code&gt;，加入：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&amp;lt;namenode ip&amp;gt; &amp;lt;namenode_hostname&amp;gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&amp;lt;namenode ip&amp;gt; &amp;lt;namenode_hostname&amp;gt;
 &amp;lt;datanode1 ip&amp;gt; &amp;lt;datanode1_hostname&amp;gt;
 &amp;lt;datanode2 ip&amp;gt; &amp;lt;datanode2_hostname&amp;gt;
 127.0.0.1 localhost
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在&lt;code&gt;hdfs-site.xml&lt;/code&gt;插入：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;configuration&amp;gt;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;configuration&amp;gt;&lt;/span&gt;
   &lt;span class=&#34;nt&#34;&gt;&amp;lt;property&amp;gt;&lt;/span&gt;
     &lt;span class=&#34;nt&#34;&gt;&amp;lt;name&amp;gt;&lt;/span&gt;dfs.replication&lt;span class=&#34;nt&#34;&gt;&amp;lt;/name&amp;gt;&lt;/span&gt;
     &lt;span class=&#34;nt&#34;&gt;&amp;lt;value&amp;gt;&lt;/span&gt;3&lt;span class=&#34;nt&#34;&gt;&amp;lt;/value&amp;gt;&lt;/span&gt;
@@ -312,14 +312,14 @@ Host datanode2
 &lt;span class=&#34;nt&#34;&gt;&amp;lt;/configuration&amp;gt;&lt;/span&gt;​
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;新建文件路径：&lt;code&gt;sudo mkdir -p $HADOOP_HOME/data/hdfs/namenode​&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;在&lt;code&gt;HADOOP_CONF_DIR&lt;/code&gt;创建一个名称为&lt;code&gt;masters&lt;/code&gt;的文件，写入&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&amp;lt;namenode_hostname&amp;gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&amp;lt;namenode_hostname&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;创建一个名称为&lt;code&gt;workers&lt;/code&gt;的文件，写入&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&amp;lt;datanode1_hostname&amp;gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&amp;lt;datanode1_hostname&amp;gt;
 &amp;lt;datanode2_hostname&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;修改权限：&lt;code&gt;sudo chown -R ubuntu $HADOOP_HOME​&lt;/code&gt;。&lt;/p&gt;
 &lt;h4 id=&#34;仅在datanode上执行&#34;&gt;仅在DataNode上执行：&lt;/h4&gt;
 &lt;p&gt;在&lt;code&gt;$HADOOP_CONF_DIR/hdfs-site.xml&lt;/code&gt;中插入：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;configuration&amp;gt;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;configuration&amp;gt;&lt;/span&gt;
   &lt;span class=&#34;nt&#34;&gt;&amp;lt;property&amp;gt;&lt;/span&gt;
     &lt;span class=&#34;nt&#34;&gt;&amp;lt;name&amp;gt;&lt;/span&gt;dfs.replication&lt;span class=&#34;nt&#34;&gt;&amp;lt;/name&amp;gt;&lt;/span&gt;
     &lt;span class=&#34;nt&#34;&gt;&amp;lt;value&amp;gt;&lt;/span&gt;3&lt;span class=&#34;nt&#34;&gt;&amp;lt;/value&amp;gt;&lt;/span&gt;
@@ -330,24 +330,24 @@ Host datanode2
   &lt;span class=&#34;nt&#34;&gt;&amp;lt;/property&amp;gt;&lt;/span&gt;
 &lt;span class=&#34;nt&#34;&gt;&amp;lt;/configuration&amp;gt;&lt;/span&gt;​
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;执行&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo mkdir -p &lt;span class=&#34;nv&#34;&gt;$HADOOP_HOME&lt;/span&gt;/data/hdfs/datanode
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo mkdir -p &lt;span class=&#34;nv&#34;&gt;$HADOOP_HOME&lt;/span&gt;/data/hdfs/datanode
 sudo chown -R ubuntu &lt;span class=&#34;nv&#34;&gt;$HADOOP_HOME&lt;/span&gt;​
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;初始化hadoop集群&#34;&gt;初始化Hadoop集群&lt;/h1&gt;
 &lt;p&gt;在NameNode上执行：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;hdfs namenode -format &lt;span class=&#34;c1&#34;&gt;# 格式化文件系统&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;hdfs namenode -format &lt;span class=&#34;c1&#34;&gt;# 格式化文件系统&lt;/span&gt;
 &lt;span class=&#34;nv&#34;&gt;$HADOOP_HOME&lt;/span&gt;/sbin/start-dfs.sh​ &lt;span class=&#34;c1&#34;&gt;# 启动dfs&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;没问题后初始化yarn：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;nv&#34;&gt;$HADOOP_HOME&lt;/span&gt;/sbin/start-yarn.sh​
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;nv&#34;&gt;$HADOOP_HOME&lt;/span&gt;/sbin/start-yarn.sh​
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;执行完后运行&lt;code&gt;jps&lt;/code&gt;查看运行情况，确认服务都起来了。&lt;/p&gt;
 &lt;p&gt;一切顺利的话之后都可以通过&lt;code&gt;$HADOOP_HOME/sbin/start-all.sh​&lt;/code&gt;和&lt;code&gt;$HADOOP_HOME/sbin/start-all.sh​&lt;/code&gt;一键启停集群。&lt;/p&gt;
 &lt;p&gt;获取集群slave的状态报告：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;hdfs dfsadmin -report
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;hdfs dfsadmin -report
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;刷新集群节点：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;hdfs dfsadmin -refreshNodes​
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;hdfs dfsadmin -refreshNodes​
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;成功后可以访问&lt;code&gt;&amp;lt;namenode public DNS or public IP&amp;gt;:9870 &lt;/code&gt;来使用hadoop的web UI，但要确认9870端口是开放的。&lt;/p&gt;
 &lt;h1 id=&#34;优化&#34;&gt;优化&lt;/h1&gt;
 &lt;p&gt;对于AWS免费的1G RAM的机器，在&lt;code&gt;yarn-site.xml&lt;/code&gt;中加入：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;property&amp;gt;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;property&amp;gt;&lt;/span&gt;
 	&lt;span class=&#34;nt&#34;&gt;&amp;lt;name&amp;gt;&lt;/span&gt;yarn.nodemanager.resource.memory-mb&lt;span class=&#34;nt&#34;&gt;&amp;lt;/name&amp;gt;&lt;/span&gt;
 	&lt;span class=&#34;nt&#34;&gt;&amp;lt;value&amp;gt;&lt;/span&gt;768&lt;span class=&#34;nt&#34;&gt;&amp;lt;/value&amp;gt;&lt;/span&gt;
 &lt;span class=&#34;nt&#34;&gt;&amp;lt;/property&amp;gt;&lt;/span&gt;
@@ -364,7 +364,7 @@ sudo chown -R ubuntu &lt;span class=&#34;nv&#34;&gt;$HADOOP_HOME&lt;/span&gt;​
 	&lt;span class=&#34;nt&#34;&gt;&amp;lt;value&amp;gt;&lt;/span&gt;false&lt;span class=&#34;nt&#34;&gt;&amp;lt;/value&amp;gt;&lt;/span&gt;
 &lt;span class=&#34;nt&#34;&gt;&amp;lt;/property&amp;gt;&lt;/span&gt;​
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在&lt;code&gt;mapred-site.xml&lt;/code&gt;中配置：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;property&amp;gt;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;property&amp;gt;&lt;/span&gt;
 	&lt;span class=&#34;nt&#34;&gt;&amp;lt;name&amp;gt;&lt;/span&gt;yarn.app.mapreduce.am.resource.mb&lt;span class=&#34;nt&#34;&gt;&amp;lt;/name&amp;gt;&lt;/span&gt;
 	&lt;span class=&#34;nt&#34;&gt;&amp;lt;value&amp;gt;&lt;/span&gt;256&lt;span class=&#34;nt&#34;&gt;&amp;lt;/value&amp;gt;&lt;/span&gt;
 &lt;span class=&#34;nt&#34;&gt;&amp;lt;/property&amp;gt;&lt;/span&gt;
@@ -388,7 +388,7 @@ sudo chown -R ubuntu &lt;span class=&#34;nv&#34;&gt;$HADOOP_HOME&lt;/span&gt;​
 &lt;/ul&gt;
 &lt;h4 id=&#34;hadoop30后web端端口改成了9870不是原来的50070不要被网上老的教程误导&#34;&gt;Hadoop3.0后web端端口改成了&lt;strong&gt;9870&lt;/strong&gt;，不是原来的50070！！！！！！不要被网上老的教程误导！&lt;/h4&gt;
 &lt;h4 id=&#34;cluster-id-冲突&#34;&gt;cluster ID 冲突&lt;/h4&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;nv&#34;&gt;$HADOOP_HOME&lt;/span&gt;/sbin/stop-all.sh
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;nv&#34;&gt;$HADOOP_HOME&lt;/span&gt;/sbin/stop-all.sh
 sudo rm -rf /tmp/hadoop-ubuntu
 sudo rm -rf &lt;span class=&#34;nv&#34;&gt;$HADOOP_HOMEdata&lt;/span&gt;/hdfs/namenode   &lt;span class=&#34;c1&#34;&gt;# directory mentioned in hdfs-site.xml for namenode&lt;/span&gt;
 sudo mkdir -p &lt;span class=&#34;nv&#34;&gt;$HADOOP_HOME&lt;/span&gt;/data/hdfs/namenode
@@ -400,13 +400,13 @@ hdfs namenode -format -force
 sudo chmod -R a+w /usr/local/hadoop/&lt;/p&gt;
 &lt;h4 id=&#34;error-java_home-is-not-set-and-could-not-be-found&#34;&gt;ERROR: JAVA_HOME is not set and could not be found.&lt;/h4&gt;
 &lt;p&gt;针对这个错误，网上好多都说了java的路径设置有问题，但没有指出具体的修改方法，其实是hadoop里面hadoop-env.sh文件里面的java路径设置不对，hadoop-env.sh在hadoop/etc/hadoop目录下，具体的修改办法如下：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;sudo vim hadoop/etc/hadoop/hdoop-env.sh
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo vim hadoop/etc/hadoop/hdoop-env.sh
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;将语句      &lt;code&gt;export JAVA_HOME=$JAVA_HOME&lt;/code&gt;
 修改为      &lt;code&gt;export JAVA_HOME=/usr/java/jdk1.8.0_101&lt;/code&gt;&lt;/p&gt;
 &lt;h4 id=&#34;error-找不到或无法加载主类orgapachehadoopmapreducev2appmrappmaster&#34;&gt;ERROR: 找不到或无法加载主类org.apache.hadoop.mapreduce.v2.app.MRAppMaster&lt;/h4&gt;
 &lt;p&gt;在命令行下输入&lt;code&gt;hadoop classpath&lt;/code&gt;，并将返回的地址复制。
 编辑&lt;code&gt;yarn-site.xml&lt;/code&gt;, 添加如下内容&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;configuration&amp;gt;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;configuration&amp;gt;&lt;/span&gt;
     &lt;span class=&#34;nt&#34;&gt;&amp;lt;property&amp;gt;&lt;/span&gt;
         &lt;span class=&#34;nt&#34;&gt;&amp;lt;name&amp;gt;&lt;/span&gt;yarn.application.classpath&lt;span class=&#34;nt&#34;&gt;&amp;lt;/name&amp;gt;&lt;/span&gt;
         &lt;span class=&#34;nt&#34;&gt;&amp;lt;value&amp;gt;&lt;/span&gt;输入刚才返回的Hadoop classpath路径&lt;span class=&#34;nt&#34;&gt;&amp;lt;/value&amp;gt;&lt;/span&gt;
@@ -416,13 +416,13 @@ sudo chmod -R a+w /usr/local/hadoop/&lt;/p&gt;
         </item>
         <item>
         <title>利用sklearn构建tfidf向量</title>
-        <link>http://xpgreat.com/p/%E5%88%A9%E7%94%A8sklearn%E6%9E%84%E5%BB%BAtfidf%E5%90%91%E9%87%8F/</link>
+        <link>http://xpgreat.com/p/tfidf_python/</link>
         <pubDate>Tue, 24 Nov 2020 11:22:02 +0800</pubDate>
         
-        <guid>http://xpgreat.com/p/%E5%88%A9%E7%94%A8sklearn%E6%9E%84%E5%BB%BAtfidf%E5%90%91%E9%87%8F/</guid>
+        <guid>http://xpgreat.com/p/tfidf_python/</guid>
         <description>&lt;p&gt;在自然语言处理中，第一步需要面对的就是词向量特征的提取。语言的特征提取在sklearn模块中有相当完善的方法和模块，本文先利用CountVectorizer提取词汇，再用TfidfTransformer计算TFIDF向量。之所以选择CountVectorizer而不自行写一个代码，是因为在使用时维度很容易超过10w，产生的bag-of-words向量特别稀疏，需要耗费极大的内存，而sklearn实现了一个稀疏矩阵的存储形式，可以极大的加速和降低消耗。&lt;/p&gt;
 &lt;h2 id=&#34;构建bag-of-words词汇矩阵&#34;&gt;构建Bag-of-words词汇矩阵&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;kn&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;sklearn.feature_extraction.text&lt;/span&gt; &lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;CountVectorizer&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;kn&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;sklearn.feature_extraction.text&lt;/span&gt; &lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;CountVectorizer&lt;/span&gt;
 
 &lt;span class=&#34;c1&#34;&gt;#测试用字符串list&lt;/span&gt;
 &lt;span class=&#34;n&#34;&gt;s_l&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Relevant words for each class or cluster are identified by computing a relevancy score rc for every word ti based on the documents in the class&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
@@ -440,15 +440,15 @@ sudo chmod -R a+w /usr/local/hadoop/&lt;/p&gt;
 
 &lt;span class=&#34;c1&#34;&gt;#这里传入的参数必须是iteratable的，比如这里的list&lt;/span&gt;
 &lt;span class=&#34;n&#34;&gt;X_train_counts&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;count_vect&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;fit_transform&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;s_l&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;n&#34;&gt;X_train_counts&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;n&#34;&gt;X_train_counts&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;输出：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-plain&#34; data-lang=&#34;plain&#34;&gt;&amp;lt;9x62 sparse matrix of type &amp;#39;&amp;lt;class &amp;#39;numpy.int64&amp;#39;&amp;gt;&amp;#39;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-plain&#34; data-lang=&#34;plain&#34;&gt;&amp;lt;9x62 sparse matrix of type &amp;#39;&amp;lt;class &amp;#39;numpy.int64&amp;#39;&amp;gt;&amp;#39;
 	with 95 stored elements in Compressed Sparse Row format&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;显示出这里的&lt;code&gt;X_train_counts&lt;/code&gt;是一个&lt;code&gt;9*62&lt;/code&gt;的稀疏矩阵。&lt;/p&gt;
 &lt;p&gt;稀疏化显示&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;n&#34;&gt;X_train_counts&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;todense&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;n&#34;&gt;X_train_counts&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;todense&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;输出：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-plain&#34; data-lang=&#34;plain&#34;&gt;matrix([[0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 2, 0, 0, 1, 0, 1, 0, 0,
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-plain&#34; data-lang=&#34;plain&#34;&gt;matrix([[0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 2, 0, 0, 1, 0, 1, 0, 0,
          1, 1, 0, 1, 0, 2, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1,
          0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 1, 1],
         [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
@@ -477,9 +477,9 @@ sudo chmod -R a+w /usr/local/hadoop/&lt;/p&gt;
          0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]],
        dtype=int64)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;查看词汇&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;n&#34;&gt;count_vect&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;vocabulary_&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;n&#34;&gt;count_vect&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;vocabulary_&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;输出：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-plain&#34; data-lang=&#34;plain&#34;&gt;{&amp;#39;relevant&amp;#39;: 44,
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-plain&#34; data-lang=&#34;plain&#34;&gt;{&amp;#39;relevant&amp;#39;: 44,
  &amp;#39;words&amp;#39;: 61,
  &amp;#39;for&amp;#39;: 26,
  &amp;#39;each&amp;#39;: 22,
@@ -499,12 +499,12 @@ tf(t_i)=\frac{在某一文件中词t_i出现的次数}{该文件中所有的词�
 $$&lt;/p&gt;
 &lt;p&gt;有时为了保证\(idf\)分母不为零，可以在分母上加一。&lt;/p&gt;
 &lt;p&gt;使用sklearn的TfidfTransformer实现，非常方便。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;kn&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;sklearn.feature_extraction.text&lt;/span&gt; &lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;TfidfTransformer&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;kn&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;sklearn.feature_extraction.text&lt;/span&gt; &lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;TfidfTransformer&lt;/span&gt;
 
 &lt;span class=&#34;n&#34;&gt;tf_idf_transformer&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;TfidfTransformer&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
 &lt;span class=&#34;n&#34;&gt;tf_idf_matrix&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;tf_idf_transformer&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;fit_transform&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;X_train_counts&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;#传入bag-of-words矩阵即可&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;输出：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-plain&#34; data-lang=&#34;plain&#34;&gt;matrix([[0.        , 0.        , 0.        , 0.17690932, 0.        ,
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-plain&#34; data-lang=&#34;plain&#34;&gt;matrix([[0.        , 0.        , 0.        , 0.17690932, 0.        ,
          0.        , 0.        , 0.20945535, 0.20945535, 0.        ,
          0.13590618, 0.        , 0.        , 0.35381864, 0.        ,
          0.        , 0.17690932, 0.        , 0.17690932, 0.        ,
@@ -535,10 +535,10 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>论文解读：Exploring text datasets by visualizing relevant words</title>
-        <link>http://xpgreat.com/p/%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BBexploring-text-datasets-by-visualizing-relevant-words/</link>
+        <link>http://xpgreat.com/p/explore_text_dataset/</link>
         <pubDate>Thu, 19 Nov 2020 15:14:26 +0800</pubDate>
         
-        <guid>http://xpgreat.com/p/%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BBexploring-text-datasets-by-visualizing-relevant-words/</guid>
+        <guid>http://xpgreat.com/p/explore_text_dataset/</guid>
         <description>&lt;p&gt;在做机器学习使用新数据集时，我们首先要知道它的特点，一个可以快速可靠地深入了解所选文档的内容，并区分它们类别的工具十分重要。 在这篇论文，作者从文本集合中提取“相关词”，以概括属于某个类别（或在unlabeled数据集下为聚类的组）的文档的内容，并在词云中可视化它们。 作者比较了三种提取相关单词的方法，并使用两个数据集验证了模型的可用性。&lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/pdf/1707.05261.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;论文链接&lt;/a&gt;，&lt;a class=&#34;link&#34; href=&#34;https://github.com/cod3licious/textcatvis&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;论文代码&lt;/a&gt;。&lt;/p&gt;
@@ -636,27 +636,29 @@ $$&lt;/p&gt;
 &lt;h2 id=&#34;结论&#34;&gt;结论&lt;/h2&gt;
 &lt;p&gt;作者用scientific publications（标记的，主题、格式分类）和New York Times article（未标记的，寻找热度主题）两个数据集验证了算法的可行性。该方法快速且可靠，更重要的是，即使许多cluster仅包含很少的样本，也有可能可以识别出relevant words，而用分类算法很难达到这个效果。&lt;/p&gt;
 &lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/31886934&#34;&gt;https://zhuanlan.zhihu.com/p/31886934&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.sohu.com/a/150681957_114778&#34;&gt;https://www.sohu.com/a/150681957_114778&lt;/a&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://zhuanlan.zhihu.com/p/31886934&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://zhuanlan.zhihu.com/p/31886934&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.sohu.com/a/150681957_114778&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.sohu.com/a/150681957_114778&lt;/a&gt;&lt;/p&gt;</description>
         </item>
         <item>
         <title>Hive窗口函数总结</title>
-        <link>http://xpgreat.com/p/hive%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0%E6%80%BB%E7%BB%93/</link>
+        <link>http://xpgreat.com/p/hive_windowfunc/</link>
         <pubDate>Thu, 29 Oct 2020 11:01:26 +0800</pubDate>
         
-        <guid>http://xpgreat.com/p/hive%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0%E6%80%BB%E7%BB%93/</guid>
+        <guid>http://xpgreat.com/p/hive_windowfunc/</guid>
         <description>&lt;p&gt;窗口函数是对Hive的一项增强，用来更方便地分析离线数据。窗口函数的使用场景非常之多，包括去重、排名、分组求和等等。本文希望尽可能全面的归纳窗口函数的用法，以便日后的查阅。&lt;/p&gt;
 &lt;h2 id=&#34;窗口函数&#34;&gt;窗口函数&lt;/h2&gt;
 &lt;h3 id=&#34;基本用法模式&#34;&gt;基本用法模式&lt;/h3&gt;
 &lt;p&gt;&lt;code&gt;&amp;lt;FUNCTION&amp;gt;(&amp;lt;params&amp;gt;) OVER (&amp;lt;window&amp;gt;)&lt;/code&gt;, 表示对window内的元素进行function操作，这里的window可以理解为分组，例如&lt;code&gt;partition by col1 order by col2 desc &lt;/code&gt;，即”相同的col1分为一组，按照每一行对应的col2的值倒序排序“。function即对每一组采取的操作，比如取平均值，这样可以得到对每一个不同的&lt;code&gt;col1&lt;/code&gt;的&lt;code&gt;col2&lt;/code&gt;的平均值的表，即：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;http://xpgreat.com/media/image-20201029113941871.png&#34; alt=&#34;image-20201029113941871&#34;  /&gt;&lt;/p&gt;
 &lt;p&gt;该操作的hive语句：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;k&#34;&gt;SELECT&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;col1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; 
-       &lt;span class=&#34;n&#34;&gt;col2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
-       &lt;span class=&#34;k&#34;&gt;AVG&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;col2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;over&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;partition&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;by&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;col1&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;order&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;by&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;col2&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;desc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;span class=&#34;k&#34;&gt;FROM&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;test_table&lt;/span&gt;
-&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;where&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;...];&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;lead--lag&#34;&gt;Lead &amp;amp; Lag&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;k&#34;&gt;SELECT&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;col1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; 
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;       &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;col2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;       &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;AVG&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;col2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;over&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;partition&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;by&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;col1&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;order&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;by&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;col2&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;desc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;FROM&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;test_table&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;where&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;...];&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;lead--lag&#34;&gt;Lead &amp;amp; Lag&lt;/h3&gt;
 &lt;p&gt;&lt;code&gt;LEAD(col, n, DEFAULT)&lt;/code&gt;: 用于统计窗口内往下第&lt;code&gt;n&lt;/code&gt;行值。&lt;code&gt;col&lt;/code&gt;指定列名，&lt;code&gt;DEFAULT&lt;/code&gt;指定如果往下&lt;code&gt;n&lt;/code&gt;行没有值了的替换值，如不指定则是&lt;code&gt;NULL&lt;/code&gt;。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;LAG(col, n, DEFAULT)&lt;/code&gt;: 用于统计窗口内往上第&lt;code&gt;n&lt;/code&gt;行值。&lt;code&gt;col&lt;/code&gt;指定列名，&lt;code&gt;DEFAULT&lt;/code&gt;指定如果往上&lt;code&gt;n&lt;/code&gt;行没有值了的替换值，如不指定则是&lt;code&gt;NULL&lt;/code&gt;。&lt;/p&gt;
 &lt;h3 id=&#34;firstvalue--lastvalue&#34;&gt;FirstValue &amp;amp; LastValue&lt;/h3&gt;
@@ -723,10 +725,10 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>机器学习的工作流程</title>
-        <link>http://xpgreat.com/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B/</link>
+        <link>http://xpgreat.com/p/workflow_ml/</link>
         <pubDate>Sun, 15 Mar 2020 16:25:12 +0800</pubDate>
         
-        <guid>http://xpgreat.com/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B/</guid>
+        <guid>http://xpgreat.com/p/workflow_ml/</guid>
         <description>&lt;p&gt;最近在阅读François Chollet写的Deep Learning with Python. 书中有很多经验性的技巧和归纳，其中4.5写的Machine Learning的工作流程归纳的很好，看完深有启发，摘录于此。&lt;/p&gt;
 &lt;p&gt;机器学习的标准流程可以分为六个步骤：&lt;/p&gt;
 &lt;ol&gt;
@@ -824,12 +826,12 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>安装TensorFlow时踩的一个小坑</title>
-        <link>http://xpgreat.com/p/%E5%AE%89%E8%A3%85tensorflow%E6%97%B6%E8%B8%A9%E7%9A%84%E4%B8%80%E4%B8%AA%E5%B0%8F%E5%9D%91/</link>
+        <link>http://xpgreat.com/p/tip_inst_tf/</link>
         <pubDate>Sun, 15 Mar 2020 15:22:49 +0800</pubDate>
         
-        <guid>http://xpgreat.com/p/%E5%AE%89%E8%A3%85tensorflow%E6%97%B6%E8%B8%A9%E7%9A%84%E4%B8%80%E4%B8%AA%E5%B0%8F%E5%9D%91/</guid>
+        <guid>http://xpgreat.com/p/tip_inst_tf/</guid>
         <description>&lt;p&gt;不记得之前安装的是什么版本，这次（2020/3）让&lt;code&gt;pip&lt;/code&gt;自动安装选择的是&lt;code&gt;2.1.0&lt;/code&gt;，但这个版本安装后使用&lt;code&gt;import tensorflow&lt;/code&gt;会报错，如下：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;Traceback (most recent call last):
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Traceback (most recent call last):
   File &amp;quot;[...]\lib\site-packages\tensorflow_core\python\pywrap_tensorflow.py&amp;quot;, line 58, in &amp;lt;module&amp;gt;
     from tensorflow.python.pywrap_tensorflow_internal import *
   File &amp;quot;[...]\lib\site-packages\tensorflow_core\python\pywrap_tensorflow_internal.py&amp;quot;, line 28, in &amp;lt;module&amp;gt;
@@ -872,7 +874,8 @@ ImportError: Traceback (most recent call last):
   File &amp;quot;[...]\lib\imp.py&amp;quot;, line 342, in load_dynamic
     return _load(spec)
 ImportError: DLL load failed: 找不到指定的模块。
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;报错十分奇怪，提示缺少DLL，但在网上找到的信息只有需要&lt;code&gt;system32&lt;/code&gt;里的&lt;code&gt;msvc140p.dll&lt;/code&gt;可能是问题所在，如果缺少可以安装&lt;code&gt;Microsoft Visual C++ 2015 Redistributable&lt;/code&gt;解决。在检查后发现这个文件已经存在。尝试 &lt;a href=&#34;https://blog.csdn.net/qq_42580947/article/details/104175457&#34;&gt;https://blog.csdn.net/qq_42580947/article/details/104175457&lt;/a&gt; 上的方法后才解决。问题出在版本上，换成&lt;code&gt;2.0.0&lt;/code&gt;正常运行。&lt;code&gt;pip install tensorflow==2.0.0&lt;/code&gt;。另附上国内比较好用的&lt;code&gt;pip&lt;/code&gt;源：&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;报错十分奇怪，提示缺少DLL，但在网上找到的信息只有需要&lt;code&gt;system32&lt;/code&gt;里的&lt;code&gt;msvc140p.dll&lt;/code&gt;可能是问题所在，如果缺少可以安装&lt;code&gt;Microsoft Visual C++ 2015 Redistributable&lt;/code&gt;解决。在检查后发现这个文件已经存在。尝试 &lt;a class=&#34;link&#34; href=&#34;https://blog.csdn.net/qq_42580947/article/details/104175457&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://blog.csdn.net/qq_42580947/article/details/104175457&lt;/a&gt; 上的方法后才解决。问题出在版本上，换成&lt;code&gt;2.0.0&lt;/code&gt;正常运行。&lt;code&gt;pip install tensorflow==2.0.0&lt;/code&gt;。另附上国内比较好用的&lt;code&gt;pip&lt;/code&gt;源：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;清华大学：https://pypi.tuna.tsinghua.edu.cn/simple/&lt;/p&gt;
@@ -885,26 +888,26 @@ ImportError: DLL load failed: 找不到指定的模块。
         </item>
         <item>
         <title>在Jupyer Notebook里安装包</title>
-        <link>http://xpgreat.com/p/%E5%9C%A8jupyer-notebook%E9%87%8C%E5%AE%89%E8%A3%85%E5%8C%85/</link>
+        <link>http://xpgreat.com/p/jupyter_install_package/</link>
         <pubDate>Mon, 09 Dec 2019 22:01:11 +0100</pubDate>
         
-        <guid>http://xpgreat.com/p/%E5%9C%A8jupyer-notebook%E9%87%8C%E5%AE%89%E8%A3%85%E5%8C%85/</guid>
+        <guid>http://xpgreat.com/p/jupyter_install_package/</guid>
         <description>&lt;p&gt;一个方便的小技巧，可以很快的安装缺失的包。&lt;/p&gt;
 &lt;p&gt;可以使用pip或conda来安装包，注意如果环境不同包是不能通用的，在Windows下启动Anaconda Prompt的时候要注意标题后面括号内的环境是不是所需要的。&lt;/p&gt;
 &lt;p&gt;以numpy为例，使用pip：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;import sys
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;import sys
 !{sys.executable} -m pip install numpy
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;使用conda：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;import sys
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;import sys
 !conda install --yes --prefix {sys.prefix} numpy
 &lt;/code&gt;&lt;/pre&gt;</description>
         </item>
         <item>
         <title>让程序在后台稳定运行的方法</title>
-        <link>http://xpgreat.com/p/%E8%AE%A9%E7%A8%8B%E5%BA%8F%E5%9C%A8%E5%90%8E%E5%8F%B0%E7%A8%B3%E5%AE%9A%E8%BF%90%E8%A1%8C%E7%9A%84%E6%96%B9%E6%B3%95/</link>
+        <link>http://xpgreat.com/p/keep_running_after-disconnect/</link>
         <pubDate>Tue, 16 Jul 2019 16:21:51 +0200</pubDate>
         
-        <guid>http://xpgreat.com/p/%E8%AE%A9%E7%A8%8B%E5%BA%8F%E5%9C%A8%E5%90%8E%E5%8F%B0%E7%A8%B3%E5%AE%9A%E8%BF%90%E8%A1%8C%E7%9A%84%E6%96%B9%E6%B3%95/</guid>
+        <guid>http://xpgreat.com/p/keep_running_after-disconnect/</guid>
         <description>&lt;p&gt;在使用SSH链接远程虚拟机的时候经常会出现网络连接不稳定而导致前台运行的代码终止运行的情况，怎样能让程序稳定地在后台运行，不受断线的影响？IBM Developer上的这篇文章很有帮助，转载方便以后查阅。&lt;/p&gt;
 &lt;p&gt;(转自&lt;a class=&#34;link&#34; href=&#34;https://www.ibm.com/developerworks/cn/linux/l-cn-nohup/index.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Linux 技巧：让进程在后台运行更可靠的几种方法 - 申毅&lt;/a&gt;)&lt;/p&gt;
@@ -918,7 +921,7 @@ ImportError: DLL load failed: 找不到指定的模块。
 &lt;p&gt;&lt;em&gt;在 Unix 的早期版本中，每个终端都会通过 modem 和系统通讯。当用户 logout 时，modem 就会挂断（hang up）电话。 同理，当 modem 断开连接时，就会给终端发送 hangup 信号来通知其关闭所有子进程。&lt;/em&gt;&lt;/p&gt;
 &lt;h4 id=&#34;1-nohup&#34;&gt;1. nohup&lt;/h4&gt;
 &lt;p&gt;nohup 无疑是我们首先想到的办法。顾名思义，nohup 的用途就是让提交的命令忽略 hangup 信号。让我们先来看一下 nohup 的帮助信息：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;NOHUP(1)                        User Commands                        NOHUP(1)
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;NOHUP(1)                        User Commands                        NOHUP(1)
  
 NAME
        nohup - run a command immune to hangups, with output to a non-tty
@@ -936,7 +939,7 @@ DESCRIPTION
               output version information and exit
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;可见，nohup 的使用是十分方便的，只需在要处理的命令前加上 nohup 即可，标准输出和标准错误缺省会被重定向到 nohup.out 文件中。一般我们可在结尾加上**&amp;quot;&amp;amp;&amp;quot;**来将命令同时放入后台运行，也可用&amp;quot;&lt;code&gt;&amp;gt;filename 2&amp;gt;&amp;amp;1&lt;/code&gt;&amp;ldquo;来更改缺省的重定向文件名。&lt;/p&gt;
 &lt;p&gt;nohup 示例&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;[root@pvcent107 ~]# nohup ping www.ibm.com &amp;amp;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;[root@pvcent107 ~]# nohup ping www.ibm.com &amp;amp;
 [1] 3059
 nohup: appending output to `nohup.out&#39;
 [root@pvcent107 ~]# ps -ef |grep 3059
@@ -945,7 +948,7 @@ root      3067   984  0 21:06 pts/3    00:00:00 grep 3059
 [root@pvcent107 ~]#
 &lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;2-setsid&#34;&gt;2. setsid&lt;/h4&gt;
 &lt;p&gt;nohup 无疑能通过忽略 HUP 信号来使我们的进程避免中途被中断，但如果我们换个角度思考，如果我们的进程不属于接受 HUP 信号的终端的子进程，那么自然也就不会受到 HUP 信号的影响了。setsid 就能帮助我们做到这一点。让我们先来看一下 setsid 的帮助信息：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;SETSID(8)                 Linux Programmer’s Manual                 SETSID(8)
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;SETSID(8)                 Linux Programmer’s Manual                 SETSID(8)
  
 NAME
        setsid - run a program in a new session
@@ -957,7 +960,7 @@ DESCRIPTION
        setsid runs a program in a new session.
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;可见 setsid 的使用也是非常方便的，也只需在要处理的命令前加上 setsid 即可。&lt;/p&gt;
 &lt;p&gt;setsid 示例&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;[root@pvcent107 ~]# setsid ping www.ibm.com
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;[root@pvcent107 ~]# setsid ping www.ibm.com
 [root@pvcent107 ~]# ps -ef |grep www.ibm.com
 root     31094     1  0 07:28 ?        00:00:00 ping www.ibm.com
 root     31102 29217  0 07:29 pts/4    00:00:00 grep www.ibm.com
@@ -967,7 +970,7 @@ root     31102 29217  0 07:29 pts/4    00:00:00 grep www.ibm.com
 &lt;p&gt;这里还有一个关于 subshell 的小技巧。我们知道，将一个或多个命名包含在“()”中就能让这些命令在子 shell 中运行中，从而扩展出很多有趣的功能，我们现在要讨论的就是其中之一。&lt;/p&gt;
 &lt;p&gt;当我们将&amp;rdquo;&amp;amp;&amp;ldquo;也放入“()”内之后，我们就会发现所提交的作业并不在作业列表中，也就是说，是无法通过jobs来查看的。让我们来看看为什么这样就能躲过 HUP 信号的影响吧。&lt;/p&gt;
 &lt;p&gt;subshell 示例&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;[root@pvcent107 ~]# (ping www.ibm.com &amp;amp;)
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;[root@pvcent107 ~]# (ping www.ibm.com &amp;amp;)
 [root@pvcent107 ~]# ps -ef |grep www.ibm.com
 root     16270     1  0 14:13 pts/4    00:00:00 ping www.ibm.com
 root     16278 15362  0 14:13 pts/4    00:00:00 grep www.ibm.com
@@ -978,7 +981,7 @@ root     16278 15362  0 14:13 pts/4    00:00:00 grep www.ibm.com
 &lt;p&gt;我们已经知道，如果事先在命令前加上 nohup 或者 setsid 就可以避免 HUP 信号的影响。但是如果我们未加任何处理就已经提交了命令，该如何补救才能让它避免 HUP 信号的影响呢？&lt;/p&gt;
 &lt;h3 id=&#34;解决方法-1&#34;&gt;解决方法：&lt;/h3&gt;
 &lt;p&gt;这时想加 nohup 或者 setsid 已经为时已晚，只能通过作业调度和 disown 来解决这个问题了。让我们来看一下 disown 的帮助信息：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;disown [-ar] [-h] [jobspec ...]
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;disown [-ar] [-h] [jobspec ...]
     Without options, each jobspec is  removed  from  the  table  of
     active  jobs.   If  the -h option is given, each jobspec is not
     removed from the table, but is marked so  that  SIGHUP  is  not
@@ -999,7 +1002,7 @@ root     16278 15362  0 14:13 pts/4    00:00:00 grep www.ibm.com
 &lt;p&gt;但是还有一个问题，这种方法的操作对象是作业，如果我们在运行命令时在结尾加了&amp;rdquo;&amp;amp;&amp;ldquo;来使它成为一个作业并在后台运行，那么就万事大吉了，我们可以通过jobs命令来得到所有作业的列表。但是如果并没有把当前命令作为作业来运行，如何才能得到它的作业号呢？答案就是用 CTRL-z（按住Ctrl键的同时按住z键）了！&lt;/p&gt;
 &lt;p&gt;CTRL-z 的用途就是将当前进程挂起（Suspend），然后我们就可以用jobs命令来查询它的作业号，再用&lt;code&gt;bg jobspec&lt;/code&gt;来将它放入后台并继续运行。需要注意的是，如果挂起会影响当前进程的运行结果，请慎用此方法。&lt;/p&gt;
 &lt;p&gt;disown 示例1（如果提交命令时已经用“&amp;amp;”将命令放入后台运行，则可以直接使用“disown”）&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;[root@pvcent107 build]# cp -r testLargeFile largeFile &amp;amp;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;[root@pvcent107 build]# cp -r testLargeFile largeFile &amp;amp;
 [1] 4825
 [root@pvcent107 build]# jobs
 [1]+  Running                 cp -i -r testLargeFile largeFile &amp;amp;
@@ -1009,7 +1012,7 @@ root      4825   968  1 09:46 pts/4    00:00:00 cp -i -r testLargeFile largeFile
 root      4853   968  0 09:46 pts/4    00:00:00 grep largeFile
 [root@pvcent107 build]# logout
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;disown 示例2（如果提交命令时未使用“&amp;amp;”将命令放入后台运行，可使用 CTRL-z 和“bg”将其放入后台，再使用“disown”）&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;[root@pvcent107 build]# cp -r testLargeFile largeFile2
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;[root@pvcent107 build]# cp -r testLargeFile largeFile2
  
 [1]+  Stopped                 cp -i -r testLargeFile largeFile2
 [root@pvcent107 build]# bg %1
@@ -1028,7 +1031,7 @@ root      5824  5577  0 10:05 pts/3    00:00:00 grep largeFile2
 &lt;p&gt;我们已经知道了如何让进程免受 HUP 信号的影响，但是如果有大量这种命令需要在稳定的后台里运行，如何避免对每条命令都做这样的操作呢？&lt;/p&gt;
 &lt;h3 id=&#34;解决方法-2&#34;&gt;解决方法：&lt;/h3&gt;
 &lt;p&gt;此时最方便的方法就是 screen 了。简单的说，screen 提供了 ANSI/VT100 的终端模拟器，使它能够在一个真实终端下运行多个全屏的伪终端。screen 的参数很多，具有很强大的功能，我们在此仅介绍其常用功能以及简要分析一下为什么使用 screen 能够避免 HUP 信号的影响。我们先看一下 screen 的帮助信息：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;SCREEN(1)                                                           SCREEN(1)
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;SCREEN(1)                                                           SCREEN(1)
  
 NAME
        screen - screen manager with VT100/ANSI terminal emulation
@@ -1055,7 +1058,7 @@ DESCRIPTION
 &lt;li&gt;用快捷键CTRL-a d 来暂时断开当前会话。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;screen 示例&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;[root@pvcent107 ~]# screen -dmS Urumchi
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;[root@pvcent107 ~]# screen -dmS Urumchi
 [root@pvcent107 ~]# screen -list
 There is a screen on:
         12842.Urumchi   (Detached)
@@ -1066,7 +1069,7 @@ There is a screen on:
 &lt;ol&gt;
 &lt;li&gt;未使用 screen 时新进程的进程树&lt;/li&gt;
 &lt;/ol&gt;
-&lt;pre&gt;&lt;code&gt;[root@pvcent107 ~]# ping www.google.com &amp;amp;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;[root@pvcent107 ~]# ping www.google.com &amp;amp;
 [1] 9499
 [root@pvcent107 ~]# pstree -H 9499
 init─┬─Xvnc
@@ -1079,7 +1082,7 @@ init─┬─Xvnc
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;使用了 screen 后新进程的进程树&lt;/li&gt;
 &lt;/ol&gt;
-&lt;pre&gt;&lt;code&gt;[root@pvcent107 ~]# screen -r Urumchi
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;[root@pvcent107 ~]# screen -r Urumchi
 [root@pvcent107 ~]# ping www.ibm.com &amp;amp;
 [1] 9488
 [root@pvcent107 ~]# pstree -H 9488
@@ -1094,10 +1097,10 @@ init─┬─Xvnc
         </item>
         <item>
         <title>投资对象的资本结构无关性</title>
-        <link>http://xpgreat.com/p/%E6%8A%95%E8%B5%84%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%B5%84%E6%9C%AC%E7%BB%93%E6%9E%84%E6%97%A0%E5%85%B3%E6%80%A7/</link>
+        <link>http://xpgreat.com/p/irrelevance_invest/</link>
         <pubDate>Sat, 08 Jun 2019 11:23:53 +0200</pubDate>
         
-        <guid>http://xpgreat.com/p/%E6%8A%95%E8%B5%84%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%B5%84%E6%9C%AC%E7%BB%93%E6%9E%84%E6%97%A0%E5%85%B3%E6%80%A7/</guid>
+        <guid>http://xpgreat.com/p/irrelevance_invest/</guid>
         <description>&lt;p&gt;本文介绍了公司的杠杆效应（Leverage Effect）和Modigliani-Miller定理，以阐述投资对象的资本结构与价值的无关性。&lt;/p&gt;
 &lt;h2 id=&#34;杠杆效应&#34;&gt;杠杆效应&lt;/h2&gt;
 &lt;p&gt;一个公司的资本结构是总资产（Total capital, T) = 股权（Equity, E）+ 债务（Debt, D）。定义：\(r_T\)是总资产回报率，毛利 = \(r_T * (E+D)\)；净利 = 毛利 - 债务利息 = \(r_T * (E+D) - r_D * D := r_E * E\)。则：&lt;/p&gt;
@@ -1133,10 +1136,10 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>中短期电价预测模型简介</title>
-        <link>http://xpgreat.com/p/%E4%B8%AD%E7%9F%AD%E6%9C%9F%E7%94%B5%E4%BB%B7%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%AE%80%E4%BB%8B/</link>
+        <link>http://xpgreat.com/p/epf_models/</link>
         <pubDate>Sat, 25 May 2019 17:35:01 +0200</pubDate>
         
-        <guid>http://xpgreat.com/p/%E4%B8%AD%E7%9F%AD%E6%9C%9F%E7%94%B5%E4%BB%B7%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%AE%80%E4%BB%8B/</guid>
+        <guid>http://xpgreat.com/p/epf_models/</guid>
         <description>&lt;p&gt;从1981年的智利电力体制改革之后，英美等国先后进行了电力工业重组，这些努力导致了电力工业的市场化，促成了电力市场的形成，实现了资源的合理分配和社会效益的最大化。准确的电力价格对发电商、用户、监管者具有重要的意义。本文将常用的电价预测（EPF, Electricity Price Forecasting）模型进行了分类，并加以简介。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;本文主要参考了&lt;a class=&#34;link&#34; href=&#34;https://www.sciencedirect.com/science/article/pii/S0169207014001083&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;’Rafał Weron, Electricity price forecasting: A review of the state-of-the-art with a look into the future, International Journal of Forecasting, Volume 30, Issue 4, 2014, Pages 1030-1081, ISSN 0169-2070‘&lt;/a&gt;&lt;/strong&gt; 写成博文以整理思路。&lt;/p&gt;
@@ -1209,10 +1212,10 @@ Average）模型，它将数据（n阶）差分化，即把\(X_t\)变化成\(X_t
         </item>
         <item>
         <title>递归神经网络</title>
-        <link>http://xpgreat.com/p/%E9%80%92%E5%BD%92%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</link>
+        <link>http://xpgreat.com/p/rnn_lstm_gru/</link>
         <pubDate>Tue, 14 May 2019 10:48:15 +0200</pubDate>
         
-        <guid>http://xpgreat.com/p/%E9%80%92%E5%BD%92%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</guid>
+        <guid>http://xpgreat.com/p/rnn_lstm_gru/</guid>
         <description>&lt;p&gt;递归神经网络是神经网络的一种，与其他神经网络不同点在于，它可以很好地处理序列数据，即前面的数据的输入与后面的输出是有关系的，比如一句话的语义理解。本文介绍了递归神经网络及其两个变种——LSTM和GRU，目的是梳理一下自己所理解的RRN，也希望能够给初次接触RRN的同学一点帮助。&lt;/p&gt;
 &lt;h2 id=&#34;其他神经网络的不足为什么需要rrn&#34;&gt;其他神经网络的不足——为什么需要RRN？&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;http://xpgreat.com/media/1_SL8FESMwzSy6QTrcIzcRYw.png&#34; alt=&#34;&#34;  /&gt;&lt;/p&gt;
@@ -1271,10 +1274,10 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>英文论文写作句型</title>
-        <link>http://xpgreat.com/p/%E8%8B%B1%E6%96%87%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C%E5%8F%A5%E5%9E%8B/</link>
+        <link>http://xpgreat.com/p/eng_thesis_voc/</link>
         <pubDate>Wed, 08 May 2019 22:13:27 +0200</pubDate>
         
-        <guid>http://xpgreat.com/p/%E8%8B%B1%E6%96%87%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C%E5%8F%A5%E5%9E%8B/</guid>
+        <guid>http://xpgreat.com/p/eng_thesis_voc/</guid>
         <description>&lt;p&gt;最近终于开始写毕业论文了，要求用英语，从网上搜集了一下英语论文的句型，整理后发布到博客，方便查阅。&lt;/p&gt;
 &lt;h2 id=&#34;链接&#34;&gt;链接&lt;/h2&gt;
 &lt;ol&gt;
@@ -1488,10 +1491,10 @@ Problem / Issue / Question&lt;/li&gt;
         </item>
         <item>
         <title>机器学习中的矩阵求导</title>
-        <link>http://xpgreat.com/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E7%9F%A9%E9%98%B5%E6%B1%82%E5%AF%BC/</link>
+        <link>http://xpgreat.com/p/linalg_in_ml/</link>
         <pubDate>Thu, 17 Jan 2019 21:47:14 +0100</pubDate>
         
-        <guid>http://xpgreat.com/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E7%9F%A9%E9%98%B5%E6%B1%82%E5%AF%BC/</guid>
+        <guid>http://xpgreat.com/p/linalg_in_ml/</guid>
         <description>&lt;p&gt;在学习机器学习的算法时，推导过程中往往会涉及矩阵或向量求导以及一些其他的线性代数的知识。比如在推导LDA算法的时候，就是把Fisher&amp;rsquo;s Criterion求导后置零得到的结果。另外在优化的时候经常会使用到梯度下降法，这与矩阵向量求导也是分不开的。&lt;/p&gt;
 &lt;h2 id=&#34;记号&#34;&gt;记号&lt;/h2&gt;
 &lt;p&gt;在这篇文章中，向量统一为列向量，用\(\mathbf x\)表示，矩阵用\(X\)大写字母表示，标量用\(x\)表示。求导使用\(\frac{\partial f(\mathbf x)}{\partial \mathbf x}\)表示。&lt;/p&gt;
@@ -1639,10 +1642,10 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>使用MathJax时的注意事项</title>
-        <link>http://xpgreat.com/p/%E4%BD%BF%E7%94%A8mathjax%E6%97%B6%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</link>
+        <link>http://xpgreat.com/p/mathjax_tips/</link>
         <pubDate>Thu, 17 Jan 2019 17:28:35 +0100</pubDate>
         
-        <guid>http://xpgreat.com/p/%E4%BD%BF%E7%94%A8mathjax%E6%97%B6%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</guid>
+        <guid>http://xpgreat.com/p/mathjax_tips/</guid>
         <description>&lt;p&gt;记录一些在使用MathJax写公式时踩过的坑，持续更新。本来放在另一篇里的，内容越来越多，单独成篇。&lt;/p&gt;
 &lt;h2 id=&#34;用-无法输入行内公式&#34;&gt;用$ $无法输入行内公式&lt;/h2&gt;
 &lt;p&gt;MathJax默认禁用了这种方式，你可以使用&lt;code&gt;\\( 你的公式 \\)&lt;/code&gt;的方法，也可以参考它的&lt;a class=&#34;link&#34; href=&#34;https://github.com/mathjax/MathJax/blob/master/config/default.js&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -1653,7 +1656,7 @@ $$&lt;/p&gt;
 &lt;p&gt;因为md解析的时候把&lt;code&gt;\\&lt;/code&gt;解析成了一个&lt;code&gt;\&lt;/code&gt;，解决方法是用四根&lt;code&gt;\\\\ &lt;/code&gt;换行（最后要加一个半角空格）。（&lt;del&gt;也是醉了&lt;/del&gt;）&lt;/p&gt;
 &lt;h2 id=&#34;公式对齐&#34;&gt;公式对齐&lt;/h2&gt;
 &lt;p&gt;直接上代码：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;\begin{aligned}
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;\begin{aligned}
 &amp;amp;\nabla_{\mathbf x}A\mathbf x = A \\\\ 
 &amp;amp;\frac{\partial \mathbf x^T \mathbf a}{\partial \mathbf x} = \frac{\partial \mathbf a^T \mathbf x}{\partial \mathbf x} = \mathbf a \\\\ 
 \end{aligned}
@@ -1665,7 +1668,7 @@ $$
 \end{aligned}
 $$&lt;/p&gt;
 &lt;h2 id=&#34;自定义运算名比如argmax&#34;&gt;自定义运算名，比如argmax&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;\\underset{\mathbf w}{\operatorname{argmax}} \frac{\mathbf w^TS_B\mathbf w}{\mathbf w^TS_B\mathbf w} 
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;\\underset{\mathbf w}{\operatorname{argmax}} \frac{\mathbf w^TS_B\mathbf w}{\mathbf w^TS_B\mathbf w} 
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;效果：&lt;/p&gt;
 &lt;p&gt;$$
 \underset{\mathbf w}{\operatorname{argmax}} \frac{\mathbf w^TS_B\mathbf w}{\mathbf w^TS_B\mathbf w}
@@ -1674,10 +1677,10 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>认知算法小结</title>
-        <link>http://xpgreat.com/p/%E8%AE%A4%E7%9F%A5%E7%AE%97%E6%B3%95%E5%B0%8F%E7%BB%93/</link>
+        <link>http://xpgreat.com/p/ca_short_summary/</link>
         <pubDate>Fri, 28 Dec 2018 20:57:51 +0100</pubDate>
         
-        <guid>http://xpgreat.com/p/%E8%AE%A4%E7%9F%A5%E7%AE%97%E6%B3%95%E5%B0%8F%E7%BB%93/</guid>
+        <guid>http://xpgreat.com/p/ca_short_summary/</guid>
         <description>&lt;p&gt;在认知算法课里学习了一些算法，比如NCC，感知算法，LDA等等，小结一下。&lt;/p&gt;
 &lt;h2 id=&#34;nearest-centroid-classifier&#34;&gt;Nearest Centroid Classifier&lt;/h2&gt;
 &lt;p&gt;NCC. 最简单的一个归类算法。输入多个\((\mathbf x, y)\)，其中\(\mathbf x\)表示特征，\(y\)表示所属类别，比如\( y \in \{ -1,1 \} \)。将每一类的\(\mathbf x\)取平均，得到一个向量，称为原型（Prototype）。预测一个新的\(\mathbf x\)是属于哪一类的时候，计算并比较它与每一类的原型的相似度（距离），归为最相似的那一类中。比如\(y = -1： (0, 1); y = 1: (1, 0)\)，输入\(\mathbf x = (0, 2)\)，计算它与\((0, 1)\)和\((1, 0)\)的距离并比较，容易得出离前者更近，所以归入\(y = -1\)组。&lt;/p&gt;
@@ -1755,10 +1758,10 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>利率期权</title>
-        <link>http://xpgreat.com/p/%E5%88%A9%E7%8E%87%E6%9C%9F%E6%9D%83/</link>
+        <link>http://xpgreat.com/p/intrest_option/</link>
         <pubDate>Tue, 25 Dec 2018 11:02:13 +0100</pubDate>
         
-        <guid>http://xpgreat.com/p/%E5%88%A9%E7%8E%87%E6%9C%9F%E6%9D%83/</guid>
+        <guid>http://xpgreat.com/p/intrest_option/</guid>
         <description>&lt;p&gt;利率期权(interest-rate option)是一项关于利率变化的权利。买方支付一定金额的期权费后，就可以获得这项权利：在到期日按预先约定的利率，按一定的期限借入或贷出一定金额的货币。这样当市场利率向不利方向变化时，买方可固定其利率水平；当市场利率向有利方向变化时，买方可获得利率变化的好处。利率期权的卖方向买方收取期权费，同时承担相应的责任。&lt;/p&gt;
 &lt;h2 id=&#34;put--call&#34;&gt;put &amp;amp; call&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;put&lt;/strong&gt;：约定在到期日买方有按预定利率贷出一定金额的货币的权利，如果到期日利率下跌，买方可以获得到期日利率和预定利率之间的差值作为获利；如果到期日利率上涨，高于预定利率，这时行权则不值得，不会行权。&lt;/p&gt;
@@ -1776,10 +1779,10 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>期权的风险指标</title>
-        <link>http://xpgreat.com/p/%E6%9C%9F%E6%9D%83%E7%9A%84%E9%A3%8E%E9%99%A9%E6%8C%87%E6%A0%87/</link>
+        <link>http://xpgreat.com/p/finance_greeks/</link>
         <pubDate>Mon, 24 Dec 2018 17:06:00 +0100</pubDate>
         
-        <guid>http://xpgreat.com/p/%E6%9C%9F%E6%9D%83%E7%9A%84%E9%A3%8E%E9%99%A9%E6%8C%87%E6%A0%87/</guid>
+        <guid>http://xpgreat.com/p/finance_greeks/</guid>
         <description>&lt;p&gt;期权的风险指标通常用希腊字母来表示，包括：Delta值(\(\Delta\))、Gamma值(\(\Gamma\))、Omega值(\(\Omega\))、Theta值(\(\theta\))、Vega值、Rho(\(\rho\))值等。&lt;/p&gt;
 &lt;p&gt;结合&lt;a class=&#34;link&#34; href=&#34;http://xpgreat.com/post/bs_model/&#34; &gt;布莱克-舒尔斯期权定价模型&lt;/a&gt;的公式来看：&lt;/p&gt;
 &lt;p&gt;$$
@@ -1880,10 +1883,10 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>Linux下压缩命令</title>
-        <link>http://xpgreat.com/p/linux%E4%B8%8B%E5%8E%8B%E7%BC%A9%E5%91%BD%E4%BB%A4/</link>
+        <link>http://xpgreat.com/p/linux_compress/</link>
         <pubDate>Sun, 16 Dec 2018 13:30:23 +0100</pubDate>
         
-        <guid>http://xpgreat.com/p/linux%E4%B8%8B%E5%8E%8B%E7%BC%A9%E5%91%BD%E4%BB%A4/</guid>
+        <guid>http://xpgreat.com/p/linux_compress/</guid>
         <description>&lt;p&gt;Linux下压缩解压缩命令的归纳。&lt;/p&gt;
 &lt;h4 id=&#34;tar&#34;&gt;.tar&lt;/h4&gt;
 &lt;p&gt;解包：&lt;code&gt;tar xvf FileName.tar&lt;/code&gt;&lt;/p&gt;
@@ -1936,10 +1939,10 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>布莱克-舒尔斯期权定价模型</title>
-        <link>http://xpgreat.com/p/%E5%B8%83%E8%8E%B1%E5%85%8B-%E8%88%92%E5%B0%94%E6%96%AF%E6%9C%9F%E6%9D%83%E5%AE%9A%E4%BB%B7%E6%A8%A1%E5%9E%8B/</link>
+        <link>http://xpgreat.com/p/bs_model/</link>
         <pubDate>Tue, 11 Dec 2018 22:05:54 +0100</pubDate>
         
-        <guid>http://xpgreat.com/p/%E5%B8%83%E8%8E%B1%E5%85%8B-%E8%88%92%E5%B0%94%E6%96%AF%E6%9C%9F%E6%9D%83%E5%AE%9A%E4%BB%B7%E6%A8%A1%E5%9E%8B/</guid>
+        <guid>http://xpgreat.com/p/bs_model/</guid>
         <description>&lt;p&gt;在Risikomanagement课上讲到了布莱克-舒尔斯期权定价模型（Black-Scholes Option Pricing Model），但只是给出了公式，没有推导。在网上查找之后终于大致弄懂，把推导过程尽可能的详细的写一写。&lt;/p&gt;
 &lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;
 &lt;p&gt;布莱克-舒尔斯模型（英语：Black-Scholes Model），简称BS模型，又称布莱克-舒尔斯-墨顿模型（Black–Scholes–Merton model），是一种为期权或权证等金融衍生工具定价的数学模型，由美国经济学家迈伦·舒尔斯与费雪·布莱克首先提出，并由罗伯特·C·墨顿修改模型于有派发股利时亦可使用而更完善。由此模型可以推导出布莱克-舒尔斯公式，并由此公式估算出欧式期权的理论价格。此公式问世后带来了期权市场的繁荣。该公式被广泛使用，虽然在很多情况下被使用者进行一定的改动和修正。很多经验测试表明这个公式足够贴近市场价格，然而也有会出现差异的时候，如著名的“波动率的微笑”。&lt;/p&gt;
@@ -2126,10 +2129,10 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>售出-购进平价理论</title>
-        <link>http://xpgreat.com/p/%E5%94%AE%E5%87%BA-%E8%B4%AD%E8%BF%9B%E5%B9%B3%E4%BB%B7%E7%90%86%E8%AE%BA/</link>
+        <link>http://xpgreat.com/p/put_call_parity/</link>
         <pubDate>Fri, 07 Dec 2018 21:48:39 +0100</pubDate>
         
-        <guid>http://xpgreat.com/p/%E5%94%AE%E5%87%BA-%E8%B4%AD%E8%BF%9B%E5%B9%B3%E4%BB%B7%E7%90%86%E8%AE%BA/</guid>
+        <guid>http://xpgreat.com/p/put_call_parity/</guid>
         <description>&lt;p&gt;售出-购进平价理论（Put-Call Parity）指在无套利原则下（Non-Arbitrage），欧式看涨期权（Call Option）和欧式看跌期权（Put Option）定价之间存在的基本关系。&lt;/p&gt;
 &lt;h2 id=&#34;看涨看跌期权&#34;&gt;看涨/看跌期权&lt;/h2&gt;
 &lt;p&gt;看涨期权，Call Option，也被称为买进期权，买方期权，买权，延买期权或“敲进”（Knock In），是指期权的购买者拥有在期权合约规定有效期内按照&lt;strong&gt;执行价格&lt;/strong&gt;&lt;em&gt;购买&lt;/em&gt; 一定数量的&lt;strong&gt;标的物&lt;/strong&gt;的权利。&lt;/p&gt;
@@ -2178,17 +2181,17 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>在Hugo博客中加入代码高亮</title>
-        <link>http://xpgreat.com/p/%E5%9C%A8hugo%E5%8D%9A%E5%AE%A2%E4%B8%AD%E5%8A%A0%E5%85%A5%E4%BB%A3%E7%A0%81%E9%AB%98%E4%BA%AE/</link>
+        <link>http://xpgreat.com/p/hugo_add_highlight/</link>
         <pubDate>Wed, 05 Dec 2018 19:31:24 +0100</pubDate>
         
-        <guid>http://xpgreat.com/p/%E5%9C%A8hugo%E5%8D%9A%E5%AE%A2%E4%B8%AD%E5%8A%A0%E5%85%A5%E4%BB%A3%E7%A0%81%E9%AB%98%E4%BA%AE/</guid>
+        <guid>http://xpgreat.com/p/hugo_add_highlight/</guid>
         <description>&lt;p&gt;相信自己搭建博客的人中有一大半都是玩代码的，所以代码高亮可以说是博客的必备功能。本文提供一个在基于Hugo的博客上使用&lt;code&gt;highlight.js&lt;/code&gt;的代码高亮方案。&lt;/p&gt;
 &lt;h2 id=&#34;实施步骤&#34;&gt;实施步骤&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;在&lt;a class=&#34;link&#34; href=&#34;https://highlightjs.org/download/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;highlight.js的官方网站&lt;/a&gt;上复制HTML的&lt;code&gt;link&lt;/code&gt;和&lt;code&gt;script&lt;/code&gt;标签。例如：&lt;/li&gt;
 &lt;/ol&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css&amp;quot;&amp;gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css&amp;quot;&amp;gt;
 &amp;lt;script src=&amp;quot;//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;
@@ -2200,7 +2203,7 @@ $$&lt;/p&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;使用&#34;&gt;使用&lt;/h2&gt;
 &lt;p&gt;用&lt;!-- raw HTML omitted --&gt;```&lt;!-- raw HTML omitted --&gt;包裹代码块，保险起见，在&lt;!-- raw HTML omitted --&gt;```&lt;!-- raw HTML omitted --&gt;后加上语言名字。例如（不包括方括号内）：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-plaintext&#34; data-lang=&#34;plaintext&#34;&gt;[START HERE]
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-plaintext&#34; data-lang=&#34;plaintext&#34;&gt;[START HERE]
 ```c
 int hash(char * str, int length) { // hash function
     int hash = 0;
@@ -2211,7 +2214,7 @@ int hash(char * str, int length) { // hash function
 }
 ```[END HERE]
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;显示效果如下：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;hash&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;char&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;str&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;length&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// hash function
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;hash&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;char&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;str&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;length&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// hash function
 &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;hash&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
     &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;length&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
         &lt;span class=&#34;n&#34;&gt;hash&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;hash&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;str&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;31&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;MAX_ID&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// maximum of ID?
@@ -2231,30 +2234,30 @@ int hash(char * str, int length) { // hash function
         </item>
         <item>
         <title>Markdown里图片并列显示</title>
-        <link>http://xpgreat.com/p/markdown%E9%87%8C%E5%9B%BE%E7%89%87%E5%B9%B6%E5%88%97%E6%98%BE%E7%A4%BA/</link>
+        <link>http://xpgreat.com/p/md_display_img_parallel/</link>
         <pubDate>Wed, 05 Dec 2018 17:42:53 +0100</pubDate>
         
-        <guid>http://xpgreat.com/p/markdown%E9%87%8C%E5%9B%BE%E7%89%87%E5%B9%B6%E5%88%97%E6%98%BE%E7%A4%BA/</guid>
+        <guid>http://xpgreat.com/p/md_display_img_parallel/</guid>
         <description>&lt;p&gt;在编辑博文的时候，有时会想把两张图片并列在一起显示，参考了网上内容，分享一下。&lt;/p&gt;
 &lt;p&gt;首先记住一点，在markdown里是可以直接写html代码的。这个前提下很自然的有下面的方法：&lt;/p&gt;
 &lt;h2 id=&#34;调整图片宽度高度&#34;&gt;调整图片宽度/高度：&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;img src=&amp;quot;http://xxx.jpg&amp;quot; title=&amp;quot;xxx&amp;quot; width=&amp;quot;100&amp;quot; height=&amp;quot;100&amp;quot;/&amp;gt; 
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&amp;lt;img src=&amp;quot;http://xxx.jpg&amp;quot; title=&amp;quot;xxx&amp;quot; width=&amp;quot;100&amp;quot; height=&amp;quot;100&amp;quot;/&amp;gt; 
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;宽度是 &lt;code&gt;width&lt;/code&gt;，高度是 &lt;code&gt;height&lt;/code&gt;，&lt;code&gt;title&lt;/code&gt; 为图片描述。&lt;/p&gt;
 &lt;h2 id=&#34;单张居中显示&#34;&gt;单张居中显示：&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;center&amp;gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&amp;lt;center&amp;gt;
     &amp;lt;img src=&amp;quot;http://example.com/xxx.png&amp;quot;&amp;gt;
 &amp;lt;/center&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;或者：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;figure&amp;gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&amp;lt;figure&amp;gt;
     &amp;lt;img src=&amp;quot;http://xxx.jpg&amp;quot;&amp;gt;
 &amp;lt;/figure&amp;gt; 
 &lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;两张并排显示&#34;&gt;两张并排显示：&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;figure class=&amp;quot;half&amp;quot;&amp;gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&amp;lt;figure class=&amp;quot;half&amp;quot;&amp;gt;
     &amp;lt;img src=&amp;quot;http://xxx.jpg&amp;quot;&amp;gt;
     &amp;lt;img src=&amp;quot;http://xxx.jpg&amp;quot;&amp;gt;
 &amp;lt;/figure&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;三张并排显示&#34;&gt;三张并排显示：&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;figure class=&amp;quot;third&amp;quot;&amp;gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&amp;lt;figure class=&amp;quot;third&amp;quot;&amp;gt;
     &amp;lt;img src=&amp;quot;http://xxx.jpg&amp;quot;&amp;gt;
     &amp;lt;img src=&amp;quot;http://xxx.jpg&amp;quot;&amp;gt;
     &amp;lt;img src=&amp;quot;http://xxx.jpg&amp;quot;&amp;gt;
@@ -2263,10 +2266,10 @@ int hash(char * str, int length) { // hash function
         </item>
         <item>
         <title>Hugo和WordPress比较</title>
-        <link>http://xpgreat.com/p/hugo%E5%92%8Cwordpress%E6%AF%94%E8%BE%83/</link>
+        <link>http://xpgreat.com/p/hugo_wp/</link>
         <pubDate>Wed, 05 Dec 2018 17:38:52 +0100</pubDate>
         
-        <guid>http://xpgreat.com/p/hugo%E5%92%8Cwordpress%E6%AF%94%E8%BE%83/</guid>
+        <guid>http://xpgreat.com/p/hugo_wp/</guid>
         <description>&lt;p&gt;对比以前搭建WordPress博客的经历，Hugo有这样的一些不同：&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;ul&gt;
@@ -2294,10 +2297,10 @@ int hash(char * str, int length) { // hash function
         </item>
         <item>
         <title>使用Hugo的一些注意事项</title>
-        <link>http://xpgreat.com/p/%E4%BD%BF%E7%94%A8hugo%E7%9A%84%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</link>
+        <link>http://xpgreat.com/p/tips_hugo/</link>
         <pubDate>Wed, 05 Dec 2018 16:32:54 +0100</pubDate>
         
-        <guid>http://xpgreat.com/p/%E4%BD%BF%E7%94%A8hugo%E7%9A%84%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</guid>
+        <guid>http://xpgreat.com/p/tips_hugo/</guid>
         <description>&lt;p&gt;一些在使用Hugo时发现的小技巧或问题及解决方法，会持续更新。&lt;/p&gt;
 &lt;h2 id=&#34;如何插入本地图片&#34;&gt;如何插入本地图片？&lt;/h2&gt;
 &lt;p&gt;一直不知道怎样插入本地图片，查找后得知，在&lt;code&gt;site&lt;/code&gt;目录下的&lt;code&gt;static&lt;/code&gt;目录就是存放静态文件的地方，可以在下面创建一个&lt;code&gt;media&lt;/code&gt;目录，用于保存图片等媒体文件，引用的话，使用&lt;code&gt;/media/123.png&lt;/code&gt;即可。&lt;/p&gt;
@@ -2324,7 +2327,7 @@ int hash(char * str, int length) { // hash function
     &gt;维基百科&lt;/a&gt;。&lt;/p&gt;
 &lt;h2 id=&#34;svg绘图标&#34;&gt;svg绘图标&lt;/h2&gt;
 &lt;p&gt;左边栏的Utils图标代码：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;svg xmlns=&amp;quot;http://www.w3.org/2000/svg&amp;quot; class=&amp;quot;icon icon-tabler icon-tabler-search&amp;quot; width=&amp;quot;24&amp;quot; height=&amp;quot;24&amp;quot; viewBox=&amp;quot;0 0 24 24&amp;quot; stroke-width=&amp;quot;2&amp;quot; stroke=&amp;quot;currentColor&amp;quot; fill=&amp;quot;none&amp;quot; stroke-linecap=&amp;quot;round&amp;quot; stroke-linejoin=&amp;quot;round&amp;quot;&amp;gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&amp;lt;svg xmlns=&amp;quot;http://www.w3.org/2000/svg&amp;quot; class=&amp;quot;icon icon-tabler icon-tabler-search&amp;quot; width=&amp;quot;24&amp;quot; height=&amp;quot;24&amp;quot; viewBox=&amp;quot;0 0 24 24&amp;quot; stroke-width=&amp;quot;2&amp;quot; stroke=&amp;quot;currentColor&amp;quot; fill=&amp;quot;none&amp;quot; stroke-linecap=&amp;quot;round&amp;quot; stroke-linejoin=&amp;quot;round&amp;quot;&amp;gt;
 	&amp;lt;path stroke=&amp;quot;none&amp;quot; d=&amp;quot;M0 0h24v24H0z&amp;quot;&amp;gt;&amp;lt;/path&amp;gt;
 	&amp;lt;line x1=&amp;quot;10&amp;quot; y1=&amp;quot;18&amp;quot; x2=&amp;quot;23&amp;quot; y2=&amp;quot;5&amp;quot;&amp;gt;&amp;lt;/line&amp;gt;
 	&amp;lt;line x1=&amp;quot;10&amp;quot; y1=&amp;quot;18&amp;quot; x2=&amp;quot;3&amp;quot; y2=&amp;quot;9&amp;quot;&amp;gt;&amp;lt;/line&amp;gt;
@@ -2333,41 +2336,41 @@ int hash(char * str, int length) { // hash function
         </item>
         <item>
         <title>博客第一步</title>
-        <link>http://xpgreat.com/p/%E5%8D%9A%E5%AE%A2%E7%AC%AC%E4%B8%80%E6%AD%A5/</link>
+        <link>http://xpgreat.com/p/blog_building/</link>
         <pubDate>Mon, 03 Dec 2018 19:58:50 +0100</pubDate>
         
-        <guid>http://xpgreat.com/p/%E5%8D%9A%E5%AE%A2%E7%AC%AC%E4%B8%80%E6%AD%A5/</guid>
+        <guid>http://xpgreat.com/p/blog_building/</guid>
         <description>&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://gohugo.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Hugo&lt;/a&gt;是一个用Go编写的静态站点生成器，由于具有丰富的主题资源和惊人的生成速度而备受青睐。博文采用&lt;code&gt;Markdown&lt;/code&gt;这一轻量的标记语言编写，速度快，美观。本博客即是基于Hugo搭建，下面讲述一下我的建站历程。&lt;/p&gt;
 &lt;h2 id=&#34;安装hugo&#34;&gt;安装Hugo&lt;/h2&gt;
 &lt;p&gt;如果你是&lt;code&gt;macOS&lt;/code&gt;用户，请使用&lt;code&gt;Homebrew&lt;/code&gt;快速安装&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;brew install hugo
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;brew install hugo
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果你是&lt;code&gt;Windows&lt;/code&gt;用户，请使用&lt;code&gt;Chocolatey&lt;/code&gt;或者&lt;code&gt;Scoop&lt;/code&gt;快速安装，取决于你使用什么包管理&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;choco install hugo -confirm
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;choco install hugo -confirm
 scoop install hugo
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果你是&lt;code&gt;Debian&lt;/code&gt;或&lt;code&gt;Ubuntu&lt;/code&gt;用户，请使用&lt;code&gt;apt&lt;/code&gt;快速安装&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;sudo apt-get install hugo
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo apt-get install hugo
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;基本上使用单行命令都可以成功安装Hugo，具体请移步&lt;a class=&#34;link&#34; href=&#34;https://gohugo.io/getting-started/installing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;这里&lt;/a&gt;。&lt;/p&gt;
 &lt;h2 id=&#34;生成第一篇文章&#34;&gt;生成第一篇文章&lt;/h2&gt;
 &lt;p&gt;使用如下命令新建一个名为“mysite”的网站：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;hugo new site mysite
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;hugo new site mysite
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;接下来，在&lt;a class=&#34;link&#34; href=&#34;https://themes.gohugo.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;这里&lt;/a&gt;找到一个漂亮的网站主题。主题极其之多，找到一个满意的并不难。本博客采用的是&lt;a class=&#34;link&#34; href=&#34;https://github.com/Vimux/Mainroad/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Mainroad&lt;/a&gt;主题。如果对主题的配色之类的不满意，可以通过修改&lt;code&gt;style.css&lt;/code&gt;这一文件来达到想要的效果。&lt;/p&gt;
 &lt;p&gt;以Mainroad为例，将主题&lt;code&gt;clone&lt;/code&gt;到本地的&lt;code&gt;themes&lt;/code&gt;文件夹内：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;cd themes
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cd themes
 git clone https://github.com/Vimux/Mainroad.git
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;code&gt;mysite/content&lt;/code&gt;是用来存放文档的地方，我们在其下建立一个新的&lt;code&gt;Markdown&lt;/code&gt;文件：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;hugo new post/first.md
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;hugo new post/first.md
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;在&lt;code&gt;first.md&lt;/code&gt;中写入一些内容，使用如下命令进行本地预览：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;hugo server -t mainroad -D
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;hugo server -t mainroad -D
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;打开网址 &lt;a class=&#34;link&#34; href=&#34;http://localhost:1313/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;http://localhost:1313/&lt;/a&gt; 即可查看本地生成的静态网站。&lt;/p&gt;
 &lt;h2 id=&#34;适配主题&#34;&gt;适配主题&lt;/h2&gt;
 &lt;p&gt;Hugo的每个主题都会有不同的参数配置，而这些配置被存放在根目录下的&lt;code&gt;config.toml&lt;/code&gt;文件中，以Mainroad为例，&lt;a class=&#34;link&#34; href=&#34;https://github.com/Vimux/Mainroad/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;官方的GitHub&lt;/a&gt;里已经做了说明：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;baseurl = &amp;quot;/&amp;quot;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;baseurl = &amp;quot;/&amp;quot;
 title = &amp;quot;Mainroad&amp;quot;
 languageCode = &amp;quot;en-us&amp;quot;
 paginate = &amp;quot;10&amp;quot; # Number of posts per page
@@ -2422,7 +2425,7 @@ googleAnalytics = &amp;quot;&amp;quot; # Enable Google Analytics by entering you
   email = &amp;quot;example@example.com&amp;quot;
   google_plus = &amp;quot;profileid&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;在每一篇博文前也有一个&lt;code&gt;Header&lt;/code&gt;，官方提供的样例为：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;---
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;---
 title: &amp;quot;Example article title&amp;quot;
 date: &amp;quot;2017-08-21&amp;quot;
 description: &amp;quot;Example article description&amp;quot;
@@ -2441,10 +2444,10 @@ tags:
 menu: main # Optional, add page to a menu. Options: main, side, footer
 ---
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;可以把&lt;code&gt;Header&lt;/code&gt;的内容复制到&lt;code&gt;mysite//archetypes/default.md&lt;/code&gt;中，这样新建新文档的时候才会适应你的主题的结构。如果在写草稿，为了不让它在博客里显示，需要在&lt;code&gt;Header&lt;/code&gt;里加入：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;draft: true
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;draft: true
 &lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;发布网站到github-pages&#34;&gt;发布网站到GitHub Pages&lt;/h2&gt;
 &lt;p&gt;在使用&lt;code&gt;hugo server -D&lt;/code&gt;预览网站无误后可正式发布网站到域名供大家浏览。将要发布的文章内&lt;code&gt;draft&lt;/code&gt;改为&lt;code&gt;false&lt;/code&gt;后执行命令&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;hugo
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;hugo
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;可看到根目录下多出&lt;code&gt;/public&lt;/code&gt;文件夹出来，该文件夹的内容即Hugo生成的整个静态网站。最终我们需要把这些静态网站的文件部署到一个地方，免费且稳定的GitHub Pages是一个很好的选择。具体操作如下：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;在GitHub新建一个Repository命名为Example.github.io，其中Example改成自己的GitHub账户名；&lt;/li&gt;
@@ -2453,7 +2456,7 @@ menu: main # Optional, add page to a menu. Options: main, side, footer
 &lt;li&gt;将/Example.github.io的内容push到远程仓库。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;以上命令可在命令行通过以下语句实现：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;mkdir Example.github.io
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;mkdir Example.github.io
 cd mysite/public
 cp -r . ../../Example.github.io
 cd ../../Example.github.io
@@ -2462,7 +2465,8 @@ git add .
 git commit -m &amp;quot;commit message&amp;quot;
 git remote add origin https://github.com/Example/Example.github.io.git
 git push -u origin master
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;完成以上命令后，等待一分钟左右即可在 &lt;a href=&#34;https://Example.github.io/&#34;&gt;https://Example.github.io/&lt;/a&gt; 访问你的网站。
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;完成以上命令后，等待一分钟左右即可在 &lt;a class=&#34;link&#34; href=&#34;https://Example.github.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://Example.github.io/&lt;/a&gt; 访问你的网站。
 以后每次更新文章后只用将生成的&lt;code&gt;/public&lt;/code&gt;文件夹的静态网站内容复制到&lt;code&gt;/Example.github.io&lt;/code&gt;，然后再&lt;code&gt;push&lt;/code&gt;到远程仓库即可。也可将步骤写为Shell脚本，此处不再赘述。&lt;/p&gt;
 &lt;h2 id=&#34;使用自己的域名&#34;&gt;使用自己的域名&lt;/h2&gt;
 &lt;p&gt;当然，GitHub的域名怎么能满足装*的心理，这时可以将网站设置为自己的域名。购买域名的地方很多，如国外知名网站GoDaddy，简体中文页面、支持支付宝付款、不用备案等都带来了很多方便。关于如何将域名定向到自己的页面，请&lt;a class=&#34;link&#34; href=&#34;https://zhuanlan.zhihu.com/p/34426950&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;

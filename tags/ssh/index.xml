@@ -9,10 +9,10 @@
     <lastBuildDate>Tue, 16 Jul 2019 16:21:51 +0200</lastBuildDate><atom:link href="http://xpgreat.com/tags/ssh/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>让程序在后台稳定运行的方法</title>
-      <link>http://xpgreat.com/p/%E8%AE%A9%E7%A8%8B%E5%BA%8F%E5%9C%A8%E5%90%8E%E5%8F%B0%E7%A8%B3%E5%AE%9A%E8%BF%90%E8%A1%8C%E7%9A%84%E6%96%B9%E6%B3%95/</link>
+      <link>http://xpgreat.com/p/keep_running_after-disconnect/</link>
       <pubDate>Tue, 16 Jul 2019 16:21:51 +0200</pubDate>
       
-      <guid>http://xpgreat.com/p/%E8%AE%A9%E7%A8%8B%E5%BA%8F%E5%9C%A8%E5%90%8E%E5%8F%B0%E7%A8%B3%E5%AE%9A%E8%BF%90%E8%A1%8C%E7%9A%84%E6%96%B9%E6%B3%95/</guid>
+      <guid>http://xpgreat.com/p/keep_running_after-disconnect/</guid>
       <description>&lt;p&gt;在使用SSH链接远程虚拟机的时候经常会出现网络连接不稳定而导致前台运行的代码终止运行的情况，怎样能让程序稳定地在后台运行，不受断线的影响？IBM Developer上的这篇文章很有帮助，转载方便以后查阅。&lt;/p&gt;</description>
     </item>
     

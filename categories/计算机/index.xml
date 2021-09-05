@@ -9,57 +9,57 @@
     <lastBuildDate>Sun, 29 Aug 2021 10:56:18 +0200</lastBuildDate><atom:link href="http://xpgreat.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>LRP简介</title>
-      <link>http://xpgreat.com/p/lrp%E7%AE%80%E4%BB%8B/</link>
+      <link>http://xpgreat.com/p/lrp/</link>
       <pubDate>Sun, 29 Aug 2021 10:56:18 +0200</pubDate>
       
-      <guid>http://xpgreat.com/p/lrp%E7%AE%80%E4%BB%8B/</guid>
+      <guid>http://xpgreat.com/p/lrp/</guid>
       <description>&lt;p&gt;机器学习的可解释性一直以来都是一个大问题，模型中的海量权重和连接关系让机器学习一直被视为黑盒模型。为了解决这个问题，Explainable AI （XAI）是一个前沿的研究方向。关于可解释性的研究，推荐这篇&lt;a class=&#34;link&#34; href=&#34;https://ieeexplore.ieee.org/document/9369420&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;综述&lt;/a&gt;。本文简要介绍解释深度神经网络（DNN）的算法LRP（Layerwise Relevance Propagation）。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>GNN 图神经网络简介</title>
-      <link>http://xpgreat.com/p/gnn-%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%AE%80%E4%BB%8B/</link>
+      <link>http://xpgreat.com/p/gnn/</link>
       <pubDate>Fri, 27 Aug 2021 23:40:00 +0200</pubDate>
       
-      <guid>http://xpgreat.com/p/gnn-%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%AE%80%E4%BB%8B/</guid>
+      <guid>http://xpgreat.com/p/gnn/</guid>
       <description>&lt;p&gt;图神经网络是是一种基于图结构的广义神经网络。其实传统的神经网络也是可以处理图数据，只需要进行前期合理的embedding即可，那么为什么还需要GNN呢？GNN其实属于一种embedding算法，它通过在整张图上&lt;strong&gt;传递、转换、聚合&lt;/strong&gt;节点的特征信息，从而生成单节点的embedding。本文简要介绍GNN，力求通俗易懂，需要更详细的研究GNN的话，推荐一篇2019年的综述&lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/1901.00596&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;A Comprehensive Survey on Graph Neural Networks&lt;/a&gt;。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Hamiltonian Monte Carlo算法</title>
-      <link>http://xpgreat.com/p/hamiltonian-monte-carlo%E7%AE%97%E6%B3%95/</link>
+      <link>http://xpgreat.com/p/hmc/</link>
       <pubDate>Tue, 17 Aug 2021 20:34:54 +0200</pubDate>
       
-      <guid>http://xpgreat.com/p/hamiltonian-monte-carlo%E7%AE%97%E6%B3%95/</guid>
+      <guid>http://xpgreat.com/p/hmc/</guid>
       <description>&lt;p&gt;MCMC（Markov-Chain Monte-Carlo）算法用于生成给定分布的样本。在很多时候，我们想计算一个复杂分布的函数期望值，但用解析的，求解积分的方法，是极其困难的，对于有些分布甚至是不可能的。所以我们使用一些采样方法，例如Gibbs sampling，Metropolis-Hasting算法。本文介绍Hamiltonian Monte-Carlo算法。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Python调用作为参数的函数的方法</title>
-      <link>http://xpgreat.com/p/python%E8%B0%83%E7%94%A8%E4%BD%9C%E4%B8%BA%E5%8F%82%E6%95%B0%E7%9A%84%E5%87%BD%E6%95%B0%E7%9A%84%E6%96%B9%E6%B3%95/</link>
+      <link>http://xpgreat.com/p/function_parameter_dict/</link>
       <pubDate>Thu, 10 Jun 2021 11:00:00 +0200</pubDate>
       
-      <guid>http://xpgreat.com/p/python%E8%B0%83%E7%94%A8%E4%BD%9C%E4%B8%BA%E5%8F%82%E6%95%B0%E7%9A%84%E5%87%BD%E6%95%B0%E7%9A%84%E6%96%B9%E6%B3%95/</guid>
+      <guid>http://xpgreat.com/p/function_parameter_dict/</guid>
       <description>&lt;p&gt;今天在做project的时候遇到一个需求，简单来说是给定一个未知的函数&lt;code&gt;func&lt;/code&gt;和他的参数范围，需要用这些参数重复调用该函数，记录返回值。此时遇到的问题是不知道&lt;code&gt;func&lt;/code&gt;有多少参数和传入参数的顺序，查阅文档后发现可以用参数字典给函数传参，现记录于此。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>AMPlibraryagent异常访问Onedrive下载</title>
-      <link>http://xpgreat.com/p/amplibraryagent%E5%BC%82%E5%B8%B8%E8%AE%BF%E9%97%AEonedrive%E4%B8%8B%E8%BD%BD/</link>
+      <link>http://xpgreat.com/p/amp_onedrive/</link>
       <pubDate>Sat, 10 Apr 2021 11:19:05 +0200</pubDate>
       
-      <guid>http://xpgreat.com/p/amplibraryagent%E5%BC%82%E5%B8%B8%E8%AE%BF%E9%97%AEonedrive%E4%B8%8B%E8%BD%BD/</guid>
+      <guid>http://xpgreat.com/p/amp_onedrive/</guid>
       <description>&lt;p&gt;先放方法：用任务监视器定位到AMPlibraryagent的路径，然后使用OneDrive的“应用管理”，停止响应AMPlibraryagent的请求。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>搭建真分布式Hadoop集群指南</title>
-      <link>http://xpgreat.com/p/%E6%90%AD%E5%BB%BA%E7%9C%9F%E5%88%86%E5%B8%83%E5%BC%8Fhadoop%E9%9B%86%E7%BE%A4%E6%8C%87%E5%8D%97/</link>
+      <link>http://xpgreat.com/p/hadoop_aws/</link>
       <pubDate>Mon, 29 Mar 2021 10:39:10 +0200</pubDate>
       
-      <guid>http://xpgreat.com/p/%E6%90%AD%E5%BB%BA%E7%9C%9F%E5%88%86%E5%B8%83%E5%BC%8Fhadoop%E9%9B%86%E7%BE%A4%E6%8C%87%E5%8D%97/</guid>
+      <guid>http://xpgreat.com/p/hadoop_aws/</guid>
       <description>&lt;p&gt;搭建一个Hadoop环境是学习大数据技术的第一步，这个环境可以是单机的，也可以是伪集群的，但最贴近实际生产环境的还是真集群的版本。本文提供一个基于AWS搭建Hadoop的简要指南，基于AWS EC2 Ubuntu 20。如果你也用的是AWS的免费套餐，几个注意的地方：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;小心流量使用情况，免费的仅包括了15G，请设置使用提醒。&lt;/li&gt;
@@ -71,46 +71,46 @@
     
     <item>
       <title>Hive窗口函数总结</title>
-      <link>http://xpgreat.com/p/hive%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0%E6%80%BB%E7%BB%93/</link>
+      <link>http://xpgreat.com/p/hive_windowfunc/</link>
       <pubDate>Thu, 29 Oct 2020 11:01:26 +0800</pubDate>
       
-      <guid>http://xpgreat.com/p/hive%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0%E6%80%BB%E7%BB%93/</guid>
+      <guid>http://xpgreat.com/p/hive_windowfunc/</guid>
       <description>&lt;p&gt;窗口函数是对Hive的一项增强，用来更方便地分析离线数据。窗口函数的使用场景非常之多，包括去重、排名、分组求和等等。本文希望尽可能全面的归纳窗口函数的用法，以便日后的查阅。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>安装TensorFlow时踩的一个小坑</title>
-      <link>http://xpgreat.com/p/%E5%AE%89%E8%A3%85tensorflow%E6%97%B6%E8%B8%A9%E7%9A%84%E4%B8%80%E4%B8%AA%E5%B0%8F%E5%9D%91/</link>
+      <link>http://xpgreat.com/p/tip_inst_tf/</link>
       <pubDate>Sun, 15 Mar 2020 15:22:49 +0800</pubDate>
       
-      <guid>http://xpgreat.com/p/%E5%AE%89%E8%A3%85tensorflow%E6%97%B6%E8%B8%A9%E7%9A%84%E4%B8%80%E4%B8%AA%E5%B0%8F%E5%9D%91/</guid>
+      <guid>http://xpgreat.com/p/tip_inst_tf/</guid>
       <description>&lt;p&gt;不记得之前安装的是什么版本，这次（2020/3）让&lt;code&gt;pip&lt;/code&gt;自动安装选择的是&lt;code&gt;2.1.0&lt;/code&gt;，但这个版本安装后使用&lt;code&gt;import tensorflow&lt;/code&gt;会报错，如下：&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>在Jupyer Notebook里安装包</title>
-      <link>http://xpgreat.com/p/%E5%9C%A8jupyer-notebook%E9%87%8C%E5%AE%89%E8%A3%85%E5%8C%85/</link>
+      <link>http://xpgreat.com/p/jupyter_install_package/</link>
       <pubDate>Mon, 09 Dec 2019 22:01:11 +0100</pubDate>
       
-      <guid>http://xpgreat.com/p/%E5%9C%A8jupyer-notebook%E9%87%8C%E5%AE%89%E8%A3%85%E5%8C%85/</guid>
+      <guid>http://xpgreat.com/p/jupyter_install_package/</guid>
       <description>&lt;p&gt;一个方便的小技巧，可以很快的安装缺失的包。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>让程序在后台稳定运行的方法</title>
-      <link>http://xpgreat.com/p/%E8%AE%A9%E7%A8%8B%E5%BA%8F%E5%9C%A8%E5%90%8E%E5%8F%B0%E7%A8%B3%E5%AE%9A%E8%BF%90%E8%A1%8C%E7%9A%84%E6%96%B9%E6%B3%95/</link>
+      <link>http://xpgreat.com/p/keep_running_after-disconnect/</link>
       <pubDate>Tue, 16 Jul 2019 16:21:51 +0200</pubDate>
       
-      <guid>http://xpgreat.com/p/%E8%AE%A9%E7%A8%8B%E5%BA%8F%E5%9C%A8%E5%90%8E%E5%8F%B0%E7%A8%B3%E5%AE%9A%E8%BF%90%E8%A1%8C%E7%9A%84%E6%96%B9%E6%B3%95/</guid>
+      <guid>http://xpgreat.com/p/keep_running_after-disconnect/</guid>
       <description>&lt;p&gt;在使用SSH链接远程虚拟机的时候经常会出现网络连接不稳定而导致前台运行的代码终止运行的情况，怎样能让程序稳定地在后台运行，不受断线的影响？IBM Developer上的这篇文章很有帮助，转载方便以后查阅。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>使用MathJax时的注意事项</title>
-      <link>http://xpgreat.com/p/%E4%BD%BF%E7%94%A8mathjax%E6%97%B6%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</link>
+      <link>http://xpgreat.com/p/mathjax_tips/</link>
       <pubDate>Thu, 17 Jan 2019 17:28:35 +0100</pubDate>
       
-      <guid>http://xpgreat.com/p/%E4%BD%BF%E7%94%A8mathjax%E6%97%B6%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</guid>
+      <guid>http://xpgreat.com/p/mathjax_tips/</guid>
       <description>记录一些在使用MathJax写公式时踩过的坑，持续更新。本来放在另一篇里的，内容越来越多，单独成篇。
 用$ $无法输入行内公式 MathJax默认禁用了这种方式，你可以使用\\( 你的公式 \\)的方法，也可以参考它的default.js自行配置（在295行）。行间公式默认可以用\\[ 你的公式 \\]或者传统的TeX写法$$ 你的公式 $$。
 输入下标出错 x_{abc}这样使用的时候会莫名其妙的报错，试了一下把_转义：x\_{abc}，就能用了。
@@ -121,10 +121,10 @@
     
     <item>
       <title>Linux下压缩命令</title>
-      <link>http://xpgreat.com/p/linux%E4%B8%8B%E5%8E%8B%E7%BC%A9%E5%91%BD%E4%BB%A4/</link>
+      <link>http://xpgreat.com/p/linux_compress/</link>
       <pubDate>Sun, 16 Dec 2018 13:30:23 +0100</pubDate>
       
-      <guid>http://xpgreat.com/p/linux%E4%B8%8B%E5%8E%8B%E7%BC%A9%E5%91%BD%E4%BB%A4/</guid>
+      <guid>http://xpgreat.com/p/linux_compress/</guid>
       <description>Linux下压缩解压缩命令的归纳。
 .tar 解包：tar xvf FileName.tar
 打包：tar cvf FileName.tar DirName
@@ -152,28 +152,28 @@
     
     <item>
       <title>在Hugo博客中加入代码高亮</title>
-      <link>http://xpgreat.com/p/%E5%9C%A8hugo%E5%8D%9A%E5%AE%A2%E4%B8%AD%E5%8A%A0%E5%85%A5%E4%BB%A3%E7%A0%81%E9%AB%98%E4%BA%AE/</link>
+      <link>http://xpgreat.com/p/hugo_add_highlight/</link>
       <pubDate>Wed, 05 Dec 2018 19:31:24 +0100</pubDate>
       
-      <guid>http://xpgreat.com/p/%E5%9C%A8hugo%E5%8D%9A%E5%AE%A2%E4%B8%AD%E5%8A%A0%E5%85%A5%E4%BB%A3%E7%A0%81%E9%AB%98%E4%BA%AE/</guid>
+      <guid>http://xpgreat.com/p/hugo_add_highlight/</guid>
       <description>&lt;p&gt;相信自己搭建博客的人中有一大半都是玩代码的，所以代码高亮可以说是博客的必备功能。本文提供一个在基于Hugo的博客上使用&lt;code&gt;highlight.js&lt;/code&gt;的代码高亮方案。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Markdown里图片并列显示</title>
-      <link>http://xpgreat.com/p/markdown%E9%87%8C%E5%9B%BE%E7%89%87%E5%B9%B6%E5%88%97%E6%98%BE%E7%A4%BA/</link>
+      <link>http://xpgreat.com/p/md_display_img_parallel/</link>
       <pubDate>Wed, 05 Dec 2018 17:42:53 +0100</pubDate>
       
-      <guid>http://xpgreat.com/p/markdown%E9%87%8C%E5%9B%BE%E7%89%87%E5%B9%B6%E5%88%97%E6%98%BE%E7%A4%BA/</guid>
+      <guid>http://xpgreat.com/p/md_display_img_parallel/</guid>
       <description>&lt;p&gt;在编辑博文的时候，有时会想把两张图片并列在一起显示，参考了网上内容，分享一下。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Hugo和WordPress比较</title>
-      <link>http://xpgreat.com/p/hugo%E5%92%8Cwordpress%E6%AF%94%E8%BE%83/</link>
+      <link>http://xpgreat.com/p/hugo_wp/</link>
       <pubDate>Wed, 05 Dec 2018 17:38:52 +0100</pubDate>
       
-      <guid>http://xpgreat.com/p/hugo%E5%92%8Cwordpress%E6%AF%94%E8%BE%83/</guid>
+      <guid>http://xpgreat.com/p/hugo_wp/</guid>
       <description>对比以前搭建WordPress博客的经历，Hugo有这样的一些不同：
   Hugo生成的是静态页面，所以没有内置的评论、搜索、登陆等等一系列的需要后台的功能。
   没有WordPress上那么多五花八门的插件。
@@ -186,19 +186,19 @@
     
     <item>
       <title>使用Hugo的一些注意事项</title>
-      <link>http://xpgreat.com/p/%E4%BD%BF%E7%94%A8hugo%E7%9A%84%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</link>
+      <link>http://xpgreat.com/p/tips_hugo/</link>
       <pubDate>Wed, 05 Dec 2018 16:32:54 +0100</pubDate>
       
-      <guid>http://xpgreat.com/p/%E4%BD%BF%E7%94%A8hugo%E7%9A%84%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</guid>
+      <guid>http://xpgreat.com/p/tips_hugo/</guid>
       <description>&lt;p&gt;一些在使用Hugo时发现的小技巧或问题及解决方法，会持续更新。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>博客第一步</title>
-      <link>http://xpgreat.com/p/%E5%8D%9A%E5%AE%A2%E7%AC%AC%E4%B8%80%E6%AD%A5/</link>
+      <link>http://xpgreat.com/p/blog_building/</link>
       <pubDate>Mon, 03 Dec 2018 19:58:50 +0100</pubDate>
       
-      <guid>http://xpgreat.com/p/%E5%8D%9A%E5%AE%A2%E7%AC%AC%E4%B8%80%E6%AD%A5/</guid>
+      <guid>http://xpgreat.com/p/blog_building/</guid>
       <description>&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://gohugo.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Hugo&lt;/a&gt;是一个用Go编写的静态站点生成器，由于具有丰富的主题资源和惊人的生成速度而备受青睐。博文采用&lt;code&gt;Markdown&lt;/code&gt;这一轻量的标记语言编写，速度快，美观。本博客即是基于Hugo搭建，下面讲述一下我的建站历程。&lt;/p&gt;</description>
     </item>

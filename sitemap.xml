@@ -1,334 +1,202 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>http://xpgreat.com/categories/</loc>
     <lastmod>2021-08-29T10:56:18+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://xpgreat.com/p/lrp%E7%AE%80%E4%BB%8B/</loc>
+  </url><url>
+    <loc>http://xpgreat.com/p/lrp/</loc>
     <lastmod>2021-08-29T10:56:18+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://xpgreat.com/post/</loc>
     <lastmod>2021-08-29T10:56:18+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://xpgreat.com/tags/</loc>
     <lastmod>2021-08-29T10:56:18+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://xpgreat.com/tags/xai/</loc>
     <lastmod>2021-08-29T10:56:18+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://xpgreat.com/</loc>
     <lastmod>2021-08-29T10:56:18+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://xpgreat.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2021-08-29T10:56:18+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://xpgreat.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/</loc>
     <lastmod>2021-08-29T10:56:18+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://xpgreat.com/tags/gnn/</loc>
     <lastmod>2021-08-27T23:40:00+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://xpgreat.com/p/gnn-%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%AE%80%E4%BB%8B/</loc>
+  </url><url>
+    <loc>http://xpgreat.com/p/gnn/</loc>
     <lastmod>2021-08-27T23:40:00+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://xpgreat.com/p/hamiltonian-monte-carlo%E7%AE%97%E6%B3%95/</loc>
+  </url><url>
+    <loc>http://xpgreat.com/p/hmc/</loc>
     <lastmod>2021-08-17T20:34:54+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://xpgreat.com/tags/mcmc/</loc>
     <lastmod>2021-08-17T20:34:54+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://xpgreat.com/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/</loc>
     <lastmod>2021-08-17T20:34:54+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://xpgreat.com/tags/%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2021-08-17T20:34:54+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://xpgreat.com/tags/python/</loc>
     <lastmod>2021-06-10T11:00:00+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://xpgreat.com/p/python%E8%B0%83%E7%94%A8%E4%BD%9C%E4%B8%BA%E5%8F%82%E6%95%B0%E7%9A%84%E5%87%BD%E6%95%B0%E7%9A%84%E6%96%B9%E6%B3%95/</loc>
+  </url><url>
+    <loc>http://xpgreat.com/p/function_parameter_dict/</loc>
     <lastmod>2021-06-10T11:00:00+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://xpgreat.com/p/%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB%E4%B9%B0%E6%96%B9/%E5%8D%96%E6%96%B9%E5%88%86%E6%9E%90%E5%B8%88%E5%AF%B9%E5%9F%BA%E9%87%91%E7%BB%8F%E7%90%86%E5%86%B3%E7%AD%96%E7%9A%84%E5%BD%B1%E5%93%8D/</loc>
+  </url><url>
+    <loc>http://xpgreat.com/p/ssa_bsa/</loc>
     <lastmod>2021-04-12T17:48:40+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://xpgreat.com/tags/%E6%8A%95%E8%B5%84/</loc>
     <lastmod>2021-04-12T17:48:40+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://xpgreat.com/tags/%E8%AE%BA%E6%96%87/</loc>
     <lastmod>2021-04-12T17:48:40+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://xpgreat.com/categories/%E9%87%91%E8%9E%8D/</loc>
     <lastmod>2021-04-12T17:48:40+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://xpgreat.com/p/amplibraryagent%E5%BC%82%E5%B8%B8%E8%AE%BF%E9%97%AEonedrive%E4%B8%8B%E8%BD%BD/</loc>
+  </url><url>
+    <loc>http://xpgreat.com/p/amp_onedrive/</loc>
     <lastmod>2021-04-10T11:19:05+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://xpgreat.com/tags/%E6%8A%80%E5%B7%A7/</loc>
     <lastmod>2021-04-10T11:19:05+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://xpgreat.com/tags/aws/</loc>
     <lastmod>2021-03-29T10:39:10+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://xpgreat.com/tags/hadoop/</loc>
     <lastmod>2021-03-29T10:39:10+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://xpgreat.com/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/</loc>
     <lastmod>2021-03-29T10:39:10+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://xpgreat.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/</loc>
     <lastmod>2021-03-29T10:39:10+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://xpgreat.com/p/%E6%90%AD%E5%BB%BA%E7%9C%9F%E5%88%86%E5%B8%83%E5%BC%8Fhadoop%E9%9B%86%E7%BE%A4%E6%8C%87%E5%8D%97/</loc>
+  </url><url>
+    <loc>http://xpgreat.com/p/hadoop_aws/</loc>
     <lastmod>2021-03-29T10:39:10+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://xpgreat.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
     <lastmod>2021-03-29T10:39:10+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://xpgreat.com/tags/nlp/</loc>
     <lastmod>2020-11-24T11:22:02+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://xpgreat.com/p/%E5%88%A9%E7%94%A8sklearn%E6%9E%84%E5%BB%BAtfidf%E5%90%91%E9%87%8F/</loc>
+  </url><url>
+    <loc>http://xpgreat.com/p/tfidf_python/</loc>
     <lastmod>2020-11-24T11:22:02+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://xpgreat.com/p/%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BBexploring-text-datasets-by-visualizing-relevant-words/</loc>
+  </url><url>
+    <loc>http://xpgreat.com/p/explore_text_dataset/</loc>
     <lastmod>2020-11-19T15:14:26+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://xpgreat.com/tags/hive/</loc>
     <lastmod>2020-10-29T11:01:26+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://xpgreat.com/p/hive%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0%E6%80%BB%E7%BB%93/</loc>
+  </url><url>
+    <loc>http://xpgreat.com/p/hive_windowfunc/</loc>
     <lastmod>2020-10-29T11:01:26+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://xpgreat.com/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B/</loc>
+  </url><url>
+    <loc>http://xpgreat.com/p/workflow_ml/</loc>
     <lastmod>2020-03-15T16:25:12+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://xpgreat.com/tags/tensorflow/</loc>
     <lastmod>2020-03-15T15:22:49+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://xpgreat.com/p/%E5%AE%89%E8%A3%85tensorflow%E6%97%B6%E8%B8%A9%E7%9A%84%E4%B8%80%E4%B8%AA%E5%B0%8F%E5%9D%91/</loc>
+  </url><url>
+    <loc>http://xpgreat.com/p/tip_inst_tf/</loc>
     <lastmod>2020-03-15T15:22:49+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://xpgreat.com/p/%E5%9C%A8jupyer-notebook%E9%87%8C%E5%AE%89%E8%A3%85%E5%8C%85/</loc>
+  </url><url>
+    <loc>http://xpgreat.com/p/jupyter_install_package/</loc>
     <lastmod>2019-12-09T22:01:11+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://xpgreat.com/tags/ssh/</loc>
     <lastmod>2019-07-16T16:21:51+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://xpgreat.com/p/%E8%AE%A9%E7%A8%8B%E5%BA%8F%E5%9C%A8%E5%90%8E%E5%8F%B0%E7%A8%B3%E5%AE%9A%E8%BF%90%E8%A1%8C%E7%9A%84%E6%96%B9%E6%B3%95/</loc>
+  </url><url>
+    <loc>http://xpgreat.com/p/keep_running_after-disconnect/</loc>
     <lastmod>2019-07-16T16:21:51+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://xpgreat.com/p/%E6%8A%95%E8%B5%84%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%B5%84%E6%9C%AC%E7%BB%93%E6%9E%84%E6%97%A0%E5%85%B3%E6%80%A7/</loc>
+  </url><url>
+    <loc>http://xpgreat.com/p/irrelevance_invest/</loc>
     <lastmod>2019-06-08T11:23:53+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://xpgreat.com/archives/</loc>
     <lastmod>2019-05-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://xpgreat.com/p/%E4%B8%AD%E7%9F%AD%E6%9C%9F%E7%94%B5%E4%BB%B7%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%AE%80%E4%BB%8B/</loc>
+  </url><url>
+    <loc>http://xpgreat.com/p/epf_models/</loc>
     <lastmod>2019-05-25T17:35:01+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://xpgreat.com/p/%E9%80%92%E5%BD%92%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</loc>
+  </url><url>
+    <loc>http://xpgreat.com/p/rnn_lstm_gru/</loc>
     <lastmod>2019-05-14T10:48:15+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://xpgreat.com/categories/%E6%9D%82%E8%B0%88/</loc>
     <lastmod>2019-05-08T22:13:27+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://xpgreat.com/p/%E8%8B%B1%E6%96%87%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C%E5%8F%A5%E5%9E%8B/</loc>
+  </url><url>
+    <loc>http://xpgreat.com/p/eng_thesis_voc/</loc>
     <lastmod>2019-05-08T22:13:27+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://xpgreat.com/tags/%E8%8B%B1%E8%AF%AD/</loc>
     <lastmod>2019-05-08T22:13:27+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://xpgreat.com/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E7%9F%A9%E9%98%B5%E6%B1%82%E5%AF%BC/</loc>
+  </url><url>
+    <loc>http://xpgreat.com/p/linalg_in_ml/</loc>
     <lastmod>2019-01-17T21:47:14+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://xpgreat.com/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/</loc>
     <lastmod>2019-01-17T21:47:14+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://xpgreat.com/p/%E4%BD%BF%E7%94%A8mathjax%E6%97%B6%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</loc>
+  </url><url>
+    <loc>http://xpgreat.com/p/mathjax_tips/</loc>
     <lastmod>2019-01-17T17:28:35+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://xpgreat.com/tags/%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2019-01-17T17:28:35+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://xpgreat.com/p/%E8%AE%A4%E7%9F%A5%E7%AE%97%E6%B3%95%E5%B0%8F%E7%BB%93/</loc>
+  </url><url>
+    <loc>http://xpgreat.com/p/ca_short_summary/</loc>
     <lastmod>2018-12-28T20:57:51+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://xpgreat.com/p/%E5%88%A9%E7%8E%87%E6%9C%9F%E6%9D%83/</loc>
+  </url><url>
+    <loc>http://xpgreat.com/p/intrest_option/</loc>
     <lastmod>2018-12-25T11:02:13+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://xpgreat.com/tags/%E6%9C%9F%E6%9D%83/</loc>
     <lastmod>2018-12-25T11:02:13+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://xpgreat.com/tags/%E9%A3%8E%E9%99%A9%E7%AE%A1%E7%90%86/</loc>
     <lastmod>2018-12-25T11:02:13+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://xpgreat.com/p/%E6%9C%9F%E6%9D%83%E7%9A%84%E9%A3%8E%E9%99%A9%E6%8C%87%E6%A0%87/</loc>
+  </url><url>
+    <loc>http://xpgreat.com/p/finance_greeks/</loc>
     <lastmod>2018-12-24T17:06:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://xpgreat.com/p/linux%E4%B8%8B%E5%8E%8B%E7%BC%A9%E5%91%BD%E4%BB%A4/</loc>
+  </url><url>
+    <loc>http://xpgreat.com/p/linux_compress/</loc>
     <lastmod>2018-12-16T13:30:23+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://xpgreat.com/p/%E5%B8%83%E8%8E%B1%E5%85%8B-%E8%88%92%E5%B0%94%E6%96%AF%E6%9C%9F%E6%9D%83%E5%AE%9A%E4%BB%B7%E6%A8%A1%E5%9E%8B/</loc>
+  </url><url>
+    <loc>http://xpgreat.com/p/bs_model/</loc>
     <lastmod>2018-12-11T22:05:54+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://xpgreat.com/p/%E5%94%AE%E5%87%BA-%E8%B4%AD%E8%BF%9B%E5%B9%B3%E4%BB%B7%E7%90%86%E8%AE%BA/</loc>
+  </url><url>
+    <loc>http://xpgreat.com/p/put_call_parity/</loc>
     <lastmod>2018-12-07T21:48:39+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://xpgreat.com/p/%E5%9C%A8hugo%E5%8D%9A%E5%AE%A2%E4%B8%AD%E5%8A%A0%E5%85%A5%E4%BB%A3%E7%A0%81%E9%AB%98%E4%BA%AE/</loc>
+  </url><url>
+    <loc>http://xpgreat.com/p/hugo_add_highlight/</loc>
     <lastmod>2018-12-05T19:31:24+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://xpgreat.com/tags/html/</loc>
     <lastmod>2018-12-05T17:42:53+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://xpgreat.com/p/markdown%E9%87%8C%E5%9B%BE%E7%89%87%E5%B9%B6%E5%88%97%E6%98%BE%E7%A4%BA/</loc>
+  </url><url>
+    <loc>http://xpgreat.com/p/md_display_img_parallel/</loc>
     <lastmod>2018-12-05T17:42:53+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://xpgreat.com/p/hugo%E5%92%8Cwordpress%E6%AF%94%E8%BE%83/</loc>
+  </url><url>
+    <loc>http://xpgreat.com/p/hugo_wp/</loc>
     <lastmod>2018-12-05T17:38:52+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://xpgreat.com/p/%E4%BD%BF%E7%94%A8hugo%E7%9A%84%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</loc>
+  </url><url>
+    <loc>http://xpgreat.com/p/tips_hugo/</loc>
     <lastmod>2018-12-05T16:32:54+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://xpgreat.com/p/%E5%8D%9A%E5%AE%A2%E7%AC%AC%E4%B8%80%E6%AD%A5/</loc>
+  </url><url>
+    <loc>http://xpgreat.com/p/blog_building/</loc>
     <lastmod>2018-12-03T19:58:50+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://xpgreat.com/about/</loc>
     <lastmod>2020-10-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://xpgreat.com/search/</loc>
   </url>
-  
 </urlset>
