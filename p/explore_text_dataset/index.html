@@ -1,133 +1,66 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='在做机器学习使用新数据集时，我们首先要知道它的特点，一个可以快速可靠地深入了解所选文档的内容，并区分它们类别的工具十分重要。 在这篇论文，作者从文本集合中提取“相关词”，以概括属于某个类别（或在unlabeled数据集下为聚类的组）的文档的内容，并在词云中可视化它们。 作者比较了三种提取相关单词的方法，并使用两个数据集验证了模型的可用性。论文链接，论文代码。
 '><title>论文解读：Exploring text datasets by visualizing relevant words</title>
 
-<link rel='canonical' href='https://xpgreat.com/p/explore_text_dataset/'>
+<link rel='canonical' href='http://xpgreat.com/p/explore_text_dataset/'>
 
 <link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='论文解读：Exploring text datasets by visualizing relevant words'>
 <meta property='og:description' content='在做机器学习使用新数据集时，我们首先要知道它的特点，一个可以快速可靠地深入了解所选文档的内容，并区分它们类别的工具十分重要。 在这篇论文，作者从文本集合中提取“相关词”，以概括属于某个类别（或在unlabeled数据集下为聚类的组）的文档的内容，并在词云中可视化它们。 作者比较了三种提取相关单词的方法，并使用两个数据集验证了模型的可用性。论文链接，论文代码。
 '>
-<meta property='og:url' content='https://xpgreat.com/p/explore_text_dataset/'>
+<meta property='og:url' content='http://xpgreat.com/p/explore_text_dataset/'>
 <meta property='og:site_name' content='XP&#39;s Blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='算法' /><meta property='article:tag' content='机器学习' /><meta property='article:tag' content='NLP' /><meta property='article:tag' content='论文' /><meta property='article:published_time' content='2020-11-19T15:14:26&#43;08:00'/><meta property='article:modified_time' content='2020-11-19T15:14:26&#43;08:00'/>
 <meta name="twitter:title" content="论文解读：Exploring text datasets by visualizing relevant words">
 <meta name="twitter:description" content="在做机器学习使用新数据集时，我们首先要知道它的特点，一个可以快速可靠地深入了解所选文档的内容，并区分它们类别的工具十分重要。 在这篇论文，作者从文本集合中提取“相关词”，以概括属于某个类别（或在unlabeled数据集下为聚类的组）的文档的内容，并在词云中可视化它们。 作者比较了三种提取相关单词的方法，并使用两个数据集验证了模型的可用性。论文链接，论文代码。
 ">
     </head>
-    <body class="">
-        <div class="container flex on-phone--column align-items--flex-start extended article-page with-toolbar">
-            <aside class="sidebar left-sidebar sticky">
-    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
-        <span class="hamburger-box">
-            <span class="hamburger-inner"></span>
-        </span>
-    </button>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
 
-    <header class="site-info">
-        
-            <figure class="site-avatar">
-                
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
 
-                
-                    
-                    <img src="/img/head_hu7a5a8ce21e62abecbc7926aff8bd098a_4354_300x300_resize_q75_box.jpg" width="300"
-                        height="300" class="site-logo" loading="lazy" alt="Avatar">
-                
-
-                
-            </figure>
-        
-        <h1 class="site-name"><a href="https://xpgreat.com/">XP&#39;s Blog</a></h1>
-        <h2 class="site-description">积跬步 以至千里</h2>
-    </header>
-
-    <ol class="menu" id="main-menu">
-        
-        
-        
-
-        <li >
-            <a href='/'>
-                
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <polyline points="5 12 3 12 12 3 21 12 19 12" />
-  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
-  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
-</svg>
-
-
-
-                
-                <span>Home</span>
-            </a>
-        </li>
-        
-        
-
-        <li >
-            <a href='/about'>
-                
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="12" cy="7" r="4" />
-  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-</svg>
-
-
-
-                
-                <span>About</span>
-            </a>
-        </li>
-        
-        
-
-        <li >
-            <a href='/archives'>
-                
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <rect x="3" y="4" width="18" height="4" rx="2" />
-  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
-  <line x1="10" y1="12" x2="14" y2="12" />
-</svg>
-
-
-
-                
-                <span>Archives</span>
-            </a>
-        </li>
-        
-        <li>
-            <a href="https://util.xpgreat.com">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                      <path stroke="none" d="M0 0h24v24H0z"></path>
-                      <line x1="10" y1="18" x2="23" y2="5"></line>
-                      <line x1="10" y1="18" x2="3" y2="9"></line>
-                    </svg>
-                <span>Utils</span>
-            </a>
-        </li>
-    </ol>
-</aside>
-            <main class="main full-width">
-    <div id="article-toolbar">
-        <a href="https://xpgreat.com/" class="back-home">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        extended
+    
+">
+    
+        <div id="article-toolbar">
+            <a href="http://xpgreat.com" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <polyline points="15 6 9 12 15 18" />
 </svg>
 
 
 
-            <span>Back</span>
-        </a>
-    </div>
-
+                <span>Back</span>
+            </a>
+        </div>
+    
+<main class="main full-width">
     <article class="main-article">
     <header class="article-header">
 
@@ -135,9 +68,9 @@
     
     <header class="article-category">
         
-            
-                <a href="/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/">数据科学</a>
-            
+            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/" >
+                数据科学
+            </a>
         
     </header>
     
@@ -146,8 +79,28 @@
         <a href="/p/explore_text_dataset/">论文解读：Exploring text datasets by visualizing relevant words</a>
     </h2>
 
+    
+
+    
     <footer class="article-time">
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Nov 19, 2020</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <circle cx="12" cy="12" r="9" />
   <polyline points="12 7 12 12 15 15" />
@@ -155,8 +108,14 @@
 
 
 
-        <time class="article-time--published">Nov 19, 2020</time>
-    </footer></div>
+                <time class="article-time--reading">
+                    2 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+</div>
 </header>
 
     <section class="article-content">
@@ -165,7 +124,20 @@
     >论文代码</a>。</p>
 <h2 id="目标">目标</h2>
 <p>提供一个文件数据集，输出一组词云，展示最能够区分每个文件类别的词。这里的数据集可以是标注的或是未标注的，对未标注的数据集作者先进行了聚类。</p>
-<p><img src="/media/image-20201119154330899.png" alt="image-20201119154330899"  /></p>
+<p><figure 
+	>
+	<a href="/media/image-20201119154330899.png" >
+		<img src="/media/image-20201119154330899.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201119154330899">
+	</a>
+	
+	<figcaption>image-20201119154330899</figcaption>
+	
+</figure></p>
 <p>上图是作者论文中的图片，五个词云分别表示最能代表论文五个部分（Abstract, Introduction, Methods, Results, Discussion，即文件类别）的词。</p>
 <h2 id="方法">方法</h2>
 <h3 id="数据预处理和特征提取">数据预处理和特征提取</h3>
@@ -204,12 +176,38 @@ $$</p>
 <p>在优化分类器时，作者选择了SVM，并提出，也可以用其他的线性分类器比如逻辑回归，甚至DNN。作者强调，只有在分类器精确度相当高的时候，这个方法找出来的相关词汇才有意义，所以分类器的精确度比简便更加重要。</p>
 <h5 id="layerwise-relevance-propagationlrp">Layerwise relevance propagation（LRP）</h5>
 <p>是一个计算相关性，并将相关性逐层向后传播的过程。首先将网络模型看成一个拓扑图结构，在计算一个节点 a 和输入的节点之间的相关性时，将 a 点的数值作为相关性，并且计算与 a 点相连的上一层节点在生成 a 点时所占的权重，将 a 的相关性逐层向后传播，直到输入层。作者用下图的例子告诉了我们：</p>
-<p><img src="/media/image-20201119212624565.png" alt="image-20201119212624565"  /></p>
+<p><figure 
+	>
+	<a href="/media/image-20201119212624565.png" >
+		<img src="/media/image-20201119212624565.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201119212624565">
+	</a>
+	
+	<figcaption>image-20201119212624565</figcaption>
+	
+</figure></p>
 <p>如果要计算 \(v_1\) 和 \(u_1\) 之间的相关性，首先计算 \(v_1\)和 \(z_1\), \(z_2\) 之间的相关性，再将 \(v_1\) 和\(z_1\), \(z_2\) 的相关性传递到 \(u_1\), 从而求得 \(v_1\) 和 \(u_1\) 之间的相关性。</p>
 <h5 id="support-vector-machine-svm支持向量机">Support vector machine （SVM，支持向量机）</h5>
 <p>是一种二分类模型，它的基本模型是定义在特征空间上的<strong>间隔最大</strong>的<strong>线性分类器</strong>，间隔最大使它有别于感知机；SVM还包括<strong>核技巧</strong>，这使它成为实质上的非线性分类器。SVM的的学习策略就是间隔最大化，可形式化为一个求解凸二次规划的问题，也等价于正则化的合页损失函数的最小化问题。SVM的的学习算法就是求解凸二次规划的最优化算法。</p>
 <p>SVM学习的基本想法是求解能够正确划分训练数据集并且几何间隔最大的分离超平面。如下图所示，\(\mathbf w \mathbf x + b = 0\)即为分离超平面，对于线性可分的数据集来说，这样的超平面有无穷多个（即感知机），但是几何间隔最大的分离超平面却是唯一的。</p>
-<p><img src="/media/image-20201119213025858.png" alt="image-20201119213025858"  /></p>
+<p><figure 
+	>
+	<a href="/media/image-20201119213025858.png" >
+		<img src="/media/image-20201119213025858.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201119213025858">
+	</a>
+	
+	<figcaption>image-20201119213025858</figcaption>
+	
+</figure></p>
 <p>SVM有一个重要性质：<strong>训练完成后，大部分的训练样本都不需要保留，最终模型仅与支持向量有关。</strong></p>
 <p>算法如下：</p>
 <p><strong>输入</strong>：训练数据集 \(T=\{(\mathbf x_1,y_1),(\mathbf x_2,y_2),\dots,(\mathbf x_n,y_n)\}\)其中，\(\mathbf x_i \in \mathbf R^n, y_i \in \{1,-1\},i = 1,2,\dots,n\)；</p>
@@ -253,7 +251,20 @@ $$</p>
 r_c\_dist(t_i) = 0.5(r_c\_diff(t_i)+r_c\_quot(t_i))
 $$</p>
 <p>rc-TPR-FPR关系图：</p>
-<p><img src="/media/image-20201119232608223.png" alt="image-20201119232608223"  /></p>
+<p><figure 
+	>
+	<a href="/media/image-20201119232608223.png" >
+		<img src="/media/image-20201119232608223.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201119232608223">
+	</a>
+	
+	<figcaption>image-20201119232608223</figcaption>
+	
+</figure></p>
 <h2 id="结论">结论</h2>
 <p>作者用scientific publications（标记的，主题、格式分类）和New York Times article（未标记的，寻找热度主题）两个数据集验证了算法的可行性。该方法快速且可靠，更重要的是，即使许多cluster仅包含很少的样本，也有可能可以识别出relevant words，而用分类算法很难达到这个效果。</p>
 <h2 id="参考">参考</h2>
@@ -289,26 +300,41 @@ $$</p>
 
 
 
-        <span>Licensed under CC BY-NC-ND 4.0</span>
+        <span>Licensed under CC BY-NC-SA 4.0</span>
     </section>
     </footer>
 
+
     
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
-    integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
-    integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
-    crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
-    integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
-    onload="renderMathInElement(document.querySelector(`.article-content`));"></script>
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8"crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"integrity="sha384-vZTG03m&#43;2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl"crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
     
 </article>
 
     <aside class="related-contents--wrapper">
     
     
-        <h2 class="section-title">相关文章</h2>
+        <h2 class="section-title">Related contents</h2>
         <div class="related-contents">
             <div class="flex article-list--tile">
                 
@@ -377,16 +403,16 @@ $$</p>
     
 </aside>
 
-
-    
+     
+     
         
     <script src="https://utteranc.es/client.js" 
         repo="xiong-ping/xiong-ping.github.io"
         issue-term="pathname"
-        theme="preferred-color-scheme" 
         
-        crossorigin="anonymous" 
-        async>
+        crossorigin="anonymous"
+        async
+        >
 </script>
 
 <style>
@@ -395,17 +421,51 @@ $$</p>
     }
 </style>
 
+<script>
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
     
 
     <footer class="site-footer">
-    <section class="copyright">&copy; 2021 XP&#39;s Blog</section>
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2021 XP&#39;s Blog
+    </section>
+    
     <section class="powerby">
         Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
-        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="1.1.0">Stack</a></b> designed by
-        <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.2.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
     </section>
 </footer>
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true" style="display:none">
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
 
     
     <div class="pswp__bg"></div>
@@ -466,11 +526,76 @@ $$</p>
 
     </div>
 
-</div>
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
             </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">Table of contents</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ol>
+    <li><a href="#目标">目标</a></li>
+    <li><a href="#方法">方法</a>
+      <ol>
+        <li><a href="#数据预处理和特征提取">数据预处理和特征提取</a>
+          <ol>
+            <li><a href="#tf-idf">TF-IDF</a></li>
+          </ol>
+        </li>
+        <li><a href="#未标注数据集聚类">未标注数据集聚类</a></li>
+        <li><a href="#计算相关单词relevant-word">计算相关单词（relevant word）</a>
+          <ol>
+            <li><a href="#突出tfidf特征法salient-tf-idf-features">突出tfidf特征法（Salient tf-idf features）</a></li>
+            <li><a href="#svmlrpdecomposed-classifier-scores">SVM+LRP（Decomposed classifier scores）</a></li>
+            <li><a href="#词-文件数量法distinctive-words">词-文件数量法（Distinctive words）</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#结论">结论</a></li>
+    <li><a href="#参考">参考</a></li>
+  </ol>
+</nav>
+                </div>
+            </section>
+        </aside>
+    
+
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"
-    integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin="anonymous"></script><script type="text/javascript" src="/ts/main.js" defer></script>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');
@@ -482,8 +607,6 @@ $$</p>
         document.head.appendChild(customFont);
     }());
 </script>
-<link rel="stylesheet" href="/css/highlight/light.min.css" media="(prefers-color-scheme: light)">
-<link rel="stylesheet" href="/css/highlight/dark.min.css" media="(prefers-color-scheme: dark)">
 
     </body>
 </html>

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>博客 on XP&#39;s Blog</title>
-    <link>https://xpgreat.com/tags/%E5%8D%9A%E5%AE%A2/</link>
+    <link>http://xpgreat.com/tags/%E5%8D%9A%E5%AE%A2/</link>
     <description>Recent content in 博客 on XP&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <lastBuildDate>Thu, 17 Jan 2019 17:28:35 +0100</lastBuildDate><atom:link href="https://xpgreat.com/tags/%E5%8D%9A%E5%AE%A2/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <lastBuildDate>Thu, 17 Jan 2019 17:28:35 +0100</lastBuildDate><atom:link href="http://xpgreat.com/tags/%E5%8D%9A%E5%AE%A2/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>使用MathJax时的注意事项</title>
-      <link>https://xpgreat.com/p/mathjax_tips/</link>
+      <link>http://xpgreat.com/p/mathjax_tips/</link>
       <pubDate>Thu, 17 Jan 2019 17:28:35 +0100</pubDate>
       
-      <guid>https://xpgreat.com/p/mathjax_tips/</guid>
+      <guid>http://xpgreat.com/p/mathjax_tips/</guid>
       <description>记录一些在使用MathJax写公式时踩过的坑，持续更新。本来放在另一篇里的，内容越来越多，单独成篇。
 用$ $无法输入行内公式 MathJax默认禁用了这种方式，你可以使用\\( 你的公式 \\)的方法，也可以参考它的default.js自行配置（在295行）。行间公式默认可以用\\[ 你的公式 \\]或者传统的TeX写法$$ 你的公式 $$。
 输入下标出错 x_{abc}这样使用的时候会莫名其妙的报错，试了一下把_转义：x\_{abc}，就能用了。
@@ -23,28 +23,28 @@
     
     <item>
       <title>在Hugo博客中加入代码高亮</title>
-      <link>https://xpgreat.com/p/hugo_add_highlight/</link>
+      <link>http://xpgreat.com/p/hugo_add_highlight/</link>
       <pubDate>Wed, 05 Dec 2018 19:31:24 +0100</pubDate>
       
-      <guid>https://xpgreat.com/p/hugo_add_highlight/</guid>
+      <guid>http://xpgreat.com/p/hugo_add_highlight/</guid>
       <description>&lt;p&gt;相信自己搭建博客的人中有一大半都是玩代码的，所以代码高亮可以说是博客的必备功能。本文提供一个在基于Hugo的博客上使用&lt;code&gt;highlight.js&lt;/code&gt;的代码高亮方案。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Markdown里图片并列显示</title>
-      <link>https://xpgreat.com/p/md_display_img_parallel/</link>
+      <link>http://xpgreat.com/p/md_display_img_parallel/</link>
       <pubDate>Wed, 05 Dec 2018 17:42:53 +0100</pubDate>
       
-      <guid>https://xpgreat.com/p/md_display_img_parallel/</guid>
+      <guid>http://xpgreat.com/p/md_display_img_parallel/</guid>
       <description>&lt;p&gt;在编辑博文的时候，有时会想把两张图片并列在一起显示，参考了网上内容，分享一下。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Hugo和WordPress比较</title>
-      <link>https://xpgreat.com/p/hugo_wp/</link>
+      <link>http://xpgreat.com/p/hugo_wp/</link>
       <pubDate>Wed, 05 Dec 2018 17:38:52 +0100</pubDate>
       
-      <guid>https://xpgreat.com/p/hugo_wp/</guid>
+      <guid>http://xpgreat.com/p/hugo_wp/</guid>
       <description>对比以前搭建WordPress博客的经历，Hugo有这样的一些不同：
   Hugo生成的是静态页面，所以没有内置的评论、搜索、登陆等等一系列的需要后台的功能。
   没有WordPress上那么多五花八门的插件。
@@ -57,19 +57,19 @@
     
     <item>
       <title>使用Hugo的一些注意事项</title>
-      <link>https://xpgreat.com/p/tips_hugo/</link>
+      <link>http://xpgreat.com/p/tips_hugo/</link>
       <pubDate>Wed, 05 Dec 2018 16:32:54 +0100</pubDate>
       
-      <guid>https://xpgreat.com/p/tips_hugo/</guid>
+      <guid>http://xpgreat.com/p/tips_hugo/</guid>
       <description>&lt;p&gt;一些在使用Hugo时发现的小技巧或问题及解决方法，会持续更新。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>博客第一步</title>
-      <link>https://xpgreat.com/p/blog_building/</link>
+      <link>http://xpgreat.com/p/blog_building/</link>
       <pubDate>Mon, 03 Dec 2018 19:58:50 +0100</pubDate>
       
-      <guid>https://xpgreat.com/p/blog_building/</guid>
+      <guid>http://xpgreat.com/p/blog_building/</guid>
       <description>&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://gohugo.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Hugo&lt;/a&gt;是一个用Go编写的静态站点生成器，由于具有丰富的主题资源和惊人的生成速度而备受青睐。博文采用&lt;code&gt;Markdown&lt;/code&gt;这一轻量的标记语言编写，速度快，美观。本博客即是基于Hugo搭建，下面讲述一下我的建站历程。&lt;/p&gt;</description>
     </item>

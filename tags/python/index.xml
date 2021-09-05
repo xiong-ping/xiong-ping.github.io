@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Python on XP&#39;s Blog</title>
-    <link>https://xpgreat.com/tags/python/</link>
+    <link>http://xpgreat.com/tags/python/</link>
     <description>Recent content in Python on XP&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <lastBuildDate>Thu, 10 Jun 2021 11:00:00 +0200</lastBuildDate><atom:link href="https://xpgreat.com/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <lastBuildDate>Thu, 10 Jun 2021 11:00:00 +0200</lastBuildDate><atom:link href="http://xpgreat.com/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Python调用作为参数的函数的方法</title>
-      <link>https://xpgreat.com/p/function_parameter_dict/</link>
+      <link>http://xpgreat.com/p/function_parameter_dict/</link>
       <pubDate>Thu, 10 Jun 2021 11:00:00 +0200</pubDate>
       
-      <guid>https://xpgreat.com/p/function_parameter_dict/</guid>
+      <guid>http://xpgreat.com/p/function_parameter_dict/</guid>
       <description>&lt;p&gt;今天在做project的时候遇到一个需求，简单来说是给定一个未知的函数&lt;code&gt;func&lt;/code&gt;和他的参数范围，需要用这些参数重复调用该函数，记录返回值。此时遇到的问题是不知道&lt;code&gt;func&lt;/code&gt;有多少参数和传入参数的顺序，查阅文档后发现可以用参数字典给函数传参，现记录于此。&lt;/p&gt;</description>
     </item>
     

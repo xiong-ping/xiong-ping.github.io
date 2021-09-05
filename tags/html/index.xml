@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>HTML on XP&#39;s Blog</title>
-    <link>https://xpgreat.com/tags/html/</link>
+    <link>http://xpgreat.com/tags/html/</link>
     <description>Recent content in HTML on XP&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <lastBuildDate>Wed, 05 Dec 2018 17:42:53 +0100</lastBuildDate><atom:link href="https://xpgreat.com/tags/html/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <lastBuildDate>Wed, 05 Dec 2018 17:42:53 +0100</lastBuildDate><atom:link href="http://xpgreat.com/tags/html/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Markdown里图片并列显示</title>
-      <link>https://xpgreat.com/p/md_display_img_parallel/</link>
+      <link>http://xpgreat.com/p/md_display_img_parallel/</link>
       <pubDate>Wed, 05 Dec 2018 17:42:53 +0100</pubDate>
       
-      <guid>https://xpgreat.com/p/md_display_img_parallel/</guid>
+      <guid>http://xpgreat.com/p/md_display_img_parallel/</guid>
       <description>&lt;p&gt;在编辑博文的时候，有时会想把两张图片并列在一起显示，参考了网上内容，分享一下。&lt;/p&gt;</description>
     </item>
     

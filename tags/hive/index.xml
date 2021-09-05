@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hive on XP&#39;s Blog</title>
-    <link>https://xpgreat.com/tags/hive/</link>
+    <link>http://xpgreat.com/tags/hive/</link>
     <description>Recent content in Hive on XP&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <lastBuildDate>Thu, 29 Oct 2020 11:01:26 +0800</lastBuildDate><atom:link href="https://xpgreat.com/tags/hive/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <lastBuildDate>Thu, 29 Oct 2020 11:01:26 +0800</lastBuildDate><atom:link href="http://xpgreat.com/tags/hive/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hive窗口函数总结</title>
-      <link>https://xpgreat.com/p/hive_windowfunc/</link>
+      <link>http://xpgreat.com/p/hive_windowfunc/</link>
       <pubDate>Thu, 29 Oct 2020 11:01:26 +0800</pubDate>
       
-      <guid>https://xpgreat.com/p/hive_windowfunc/</guid>
+      <guid>http://xpgreat.com/p/hive_windowfunc/</guid>
       <description>&lt;p&gt;窗口函数是对Hive的一项增强，用来更方便地分析离线数据。窗口函数的使用场景非常之多，包括去重、排名、分组求和等等。本文希望尽可能全面的归纳窗口函数的用法，以便日后的查阅。&lt;/p&gt;</description>
     </item>
     
