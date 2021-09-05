@@ -2,36 +2,36 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>算法 on XP&#39;s Blog</title>
-    <link>http://xpgreat.com/tags/%E7%AE%97%E6%B3%95/</link>
+    <link>https://xpgreat.com/tags/%E7%AE%97%E6%B3%95/</link>
     <description>Recent content in 算法 on XP&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 17 Aug 2021 20:34:54 +0200</lastBuildDate><atom:link href="http://xpgreat.com/tags/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 17 Aug 2021 20:34:54 +0200</lastBuildDate><atom:link href="https://xpgreat.com/tags/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hamiltonian Monte Carlo算法</title>
-      <link>http://xpgreat.com/p/hmc/</link>
+      <link>https://xpgreat.com/p/hmc/</link>
       <pubDate>Tue, 17 Aug 2021 20:34:54 +0200</pubDate>
       
-      <guid>http://xpgreat.com/p/hmc/</guid>
+      <guid>https://xpgreat.com/p/hmc/</guid>
       <description>&lt;p&gt;MCMC（Markov-Chain Monte-Carlo）算法用于生成给定分布的样本。在很多时候，我们想计算一个复杂分布的函数期望值，但用解析的，求解积分的方法，是极其困难的，对于有些分布甚至是不可能的。所以我们使用一些采样方法，例如Gibbs sampling，Metropolis-Hasting算法。本文介绍Hamiltonian Monte-Carlo算法。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>利用sklearn构建tfidf向量</title>
-      <link>http://xpgreat.com/p/tfidf_python/</link>
+      <link>https://xpgreat.com/p/tfidf_python/</link>
       <pubDate>Tue, 24 Nov 2020 11:22:02 +0800</pubDate>
       
-      <guid>http://xpgreat.com/p/tfidf_python/</guid>
+      <guid>https://xpgreat.com/p/tfidf_python/</guid>
       <description>在自然语言处理中，第一步需要面对的就是词向量特征的提取。语言的特征提取在sklearn模块中有相当完善的方法和模块，本文先利用CountVectorizer提取词汇，再用TfidfTransformer计算TFIDF向量。之所以选择CountVectorizer而不自行写一个代码，是因为在使用时维度很容易超过10w，产生的bag-of-words向量特别稀疏，需要耗费极大的内存，而sklearn实现了一个稀疏矩阵的存储形式，可以极大的加速和降低消耗。
 构建Bag-of-words词汇矩阵 from sklearn.feature_extraction.text import CountVectorizer #测试用字符串list s_l = [&amp;#39;Relevant words for each class or cluster are identified by computing a relevancy score rc for every word ti based on the documents in the class&amp;#39;, &amp;#39;or cluster and then selecting the highest scoring&amp;#39;, &amp;#39;words. These scores can be computed either by-89&amp;#39;, &amp;#39;aggregating the raw tf-idf features of all documents&amp;#39;, &amp;#39;in the group (Section 2.3.1), by aggregating these&amp;#39;, &amp;#39;features weighted by some classifier’s parameters&amp;#39;, &amp;#39;(Section 2.</description>
     </item>
     
     <item>
       <title>论文解读：Exploring text datasets by visualizing relevant words</title>
-      <link>http://xpgreat.com/p/explore_text_dataset/</link>
+      <link>https://xpgreat.com/p/explore_text_dataset/</link>
       <pubDate>Thu, 19 Nov 2020 15:14:26 +0800</pubDate>
       
-      <guid>http://xpgreat.com/p/explore_text_dataset/</guid>
+      <guid>https://xpgreat.com/p/explore_text_dataset/</guid>
       <description>&lt;p&gt;在做机器学习使用新数据集时，我们首先要知道它的特点，一个可以快速可靠地深入了解所选文档的内容，并区分它们类别的工具十分重要。 在这篇论文，作者从文本集合中提取“相关词”，以概括属于某个类别（或在unlabeled数据集下为聚类的组）的文档的内容，并在词云中可视化它们。 作者比较了三种提取相关单词的方法，并使用两个数据集验证了模型的可用性。&lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/pdf/1707.05261.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;论文链接&lt;/a&gt;，&lt;a class=&#34;link&#34; href=&#34;https://github.com/cod3licious/textcatvis&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;论文代码&lt;/a&gt;。&lt;/p&gt;</description>
@@ -39,19 +39,19 @@
     
     <item>
       <title>递归神经网络</title>
-      <link>http://xpgreat.com/p/rnn_lstm_gru/</link>
+      <link>https://xpgreat.com/p/rnn_lstm_gru/</link>
       <pubDate>Tue, 14 May 2019 10:48:15 +0200</pubDate>
       
-      <guid>http://xpgreat.com/p/rnn_lstm_gru/</guid>
+      <guid>https://xpgreat.com/p/rnn_lstm_gru/</guid>
       <description>&lt;p&gt;递归神经网络是神经网络的一种，与其他神经网络不同点在于，它可以很好地处理序列数据，即前面的数据的输入与后面的输出是有关系的，比如一句话的语义理解。本文介绍了递归神经网络及其两个变种——LSTM和GRU，目的是梳理一下自己所理解的RRN，也希望能够给初次接触RRN的同学一点帮助。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>认知算法小结</title>
-      <link>http://xpgreat.com/p/ca_short_summary/</link>
+      <link>https://xpgreat.com/p/ca_short_summary/</link>
       <pubDate>Fri, 28 Dec 2018 20:57:51 +0100</pubDate>
       
-      <guid>http://xpgreat.com/p/ca_short_summary/</guid>
+      <guid>https://xpgreat.com/p/ca_short_summary/</guid>
       <description>&lt;p&gt;在认知算法课里学习了一些算法，比如NCC，感知算法，LDA等等，小结一下。&lt;/p&gt;</description>
     </item>
     

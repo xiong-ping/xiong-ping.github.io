@@ -2,62 +2,62 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>技巧 on XP&#39;s Blog</title>
-    <link>http://xpgreat.com/tags/%E6%8A%80%E5%B7%A7/</link>
+    <link>https://xpgreat.com/tags/%E6%8A%80%E5%B7%A7/</link>
     <description>Recent content in 技巧 on XP&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 10 Apr 2021 11:19:05 +0200</lastBuildDate><atom:link href="http://xpgreat.com/tags/%E6%8A%80%E5%B7%A7/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 10 Apr 2021 11:19:05 +0200</lastBuildDate><atom:link href="https://xpgreat.com/tags/%E6%8A%80%E5%B7%A7/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AMPlibraryagent异常访问Onedrive下载</title>
-      <link>http://xpgreat.com/p/amp_onedrive/</link>
+      <link>https://xpgreat.com/p/amp_onedrive/</link>
       <pubDate>Sat, 10 Apr 2021 11:19:05 +0200</pubDate>
       
-      <guid>http://xpgreat.com/p/amp_onedrive/</guid>
+      <guid>https://xpgreat.com/p/amp_onedrive/</guid>
       <description>&lt;p&gt;先放方法：用任务监视器定位到AMPlibraryagent的路径，然后使用OneDrive的“应用管理”，停止响应AMPlibraryagent的请求。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>机器学习的工作流程</title>
-      <link>http://xpgreat.com/p/workflow_ml/</link>
+      <link>https://xpgreat.com/p/workflow_ml/</link>
       <pubDate>Sun, 15 Mar 2020 16:25:12 +0800</pubDate>
       
-      <guid>http://xpgreat.com/p/workflow_ml/</guid>
+      <guid>https://xpgreat.com/p/workflow_ml/</guid>
       <description>&lt;p&gt;最近在阅读François Chollet写的Deep Learning with Python. 书中有很多经验性的技巧和归纳，其中4.5写的Machine Learning的工作流程归纳的很好，看完深有启发，摘录于此。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>安装TensorFlow时踩的一个小坑</title>
-      <link>http://xpgreat.com/p/tip_inst_tf/</link>
+      <link>https://xpgreat.com/p/tip_inst_tf/</link>
       <pubDate>Sun, 15 Mar 2020 15:22:49 +0800</pubDate>
       
-      <guid>http://xpgreat.com/p/tip_inst_tf/</guid>
+      <guid>https://xpgreat.com/p/tip_inst_tf/</guid>
       <description>&lt;p&gt;不记得之前安装的是什么版本，这次（2020/3）让&lt;code&gt;pip&lt;/code&gt;自动安装选择的是&lt;code&gt;2.1.0&lt;/code&gt;，但这个版本安装后使用&lt;code&gt;import tensorflow&lt;/code&gt;会报错，如下：&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>在Jupyer Notebook里安装包</title>
-      <link>http://xpgreat.com/p/jupyter_install_package/</link>
+      <link>https://xpgreat.com/p/jupyter_install_package/</link>
       <pubDate>Mon, 09 Dec 2019 22:01:11 +0100</pubDate>
       
-      <guid>http://xpgreat.com/p/jupyter_install_package/</guid>
+      <guid>https://xpgreat.com/p/jupyter_install_package/</guid>
       <description>&lt;p&gt;一个方便的小技巧，可以很快的安装缺失的包。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>让程序在后台稳定运行的方法</title>
-      <link>http://xpgreat.com/p/keep_running_after-disconnect/</link>
+      <link>https://xpgreat.com/p/keep_running_after-disconnect/</link>
       <pubDate>Tue, 16 Jul 2019 16:21:51 +0200</pubDate>
       
-      <guid>http://xpgreat.com/p/keep_running_after-disconnect/</guid>
+      <guid>https://xpgreat.com/p/keep_running_after-disconnect/</guid>
       <description>&lt;p&gt;在使用SSH链接远程虚拟机的时候经常会出现网络连接不稳定而导致前台运行的代码终止运行的情况，怎样能让程序稳定地在后台运行，不受断线的影响？IBM Developer上的这篇文章很有帮助，转载方便以后查阅。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>使用MathJax时的注意事项</title>
-      <link>http://xpgreat.com/p/mathjax_tips/</link>
+      <link>https://xpgreat.com/p/mathjax_tips/</link>
       <pubDate>Thu, 17 Jan 2019 17:28:35 +0100</pubDate>
       
-      <guid>http://xpgreat.com/p/mathjax_tips/</guid>
+      <guid>https://xpgreat.com/p/mathjax_tips/</guid>
       <description>记录一些在使用MathJax写公式时踩过的坑，持续更新。本来放在另一篇里的，内容越来越多，单独成篇。
 用$ $无法输入行内公式 MathJax默认禁用了这种方式，你可以使用\\( 你的公式 \\)的方法，也可以参考它的default.js自行配置（在295行）。行间公式默认可以用\\[ 你的公式 \\]或者传统的TeX写法$$ 你的公式 $$。
 输入下标出错 x_{abc}这样使用的时候会莫名其妙的报错，试了一下把_转义：x\_{abc}，就能用了。
@@ -68,10 +68,10 @@
     
     <item>
       <title>Linux下压缩命令</title>
-      <link>http://xpgreat.com/p/linux_compress/</link>
+      <link>https://xpgreat.com/p/linux_compress/</link>
       <pubDate>Sun, 16 Dec 2018 13:30:23 +0100</pubDate>
       
-      <guid>http://xpgreat.com/p/linux_compress/</guid>
+      <guid>https://xpgreat.com/p/linux_compress/</guid>
       <description>Linux下压缩解压缩命令的归纳。
 .tar 解包：tar xvf FileName.tar
 打包：tar cvf FileName.tar DirName
@@ -99,28 +99,28 @@
     
     <item>
       <title>在Hugo博客中加入代码高亮</title>
-      <link>http://xpgreat.com/p/hugo_add_highlight/</link>
+      <link>https://xpgreat.com/p/hugo_add_highlight/</link>
       <pubDate>Wed, 05 Dec 2018 19:31:24 +0100</pubDate>
       
-      <guid>http://xpgreat.com/p/hugo_add_highlight/</guid>
+      <guid>https://xpgreat.com/p/hugo_add_highlight/</guid>
       <description>&lt;p&gt;相信自己搭建博客的人中有一大半都是玩代码的，所以代码高亮可以说是博客的必备功能。本文提供一个在基于Hugo的博客上使用&lt;code&gt;highlight.js&lt;/code&gt;的代码高亮方案。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Markdown里图片并列显示</title>
-      <link>http://xpgreat.com/p/md_display_img_parallel/</link>
+      <link>https://xpgreat.com/p/md_display_img_parallel/</link>
       <pubDate>Wed, 05 Dec 2018 17:42:53 +0100</pubDate>
       
-      <guid>http://xpgreat.com/p/md_display_img_parallel/</guid>
+      <guid>https://xpgreat.com/p/md_display_img_parallel/</guid>
       <description>&lt;p&gt;在编辑博文的时候，有时会想把两张图片并列在一起显示，参考了网上内容，分享一下。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>使用Hugo的一些注意事项</title>
-      <link>http://xpgreat.com/p/tips_hugo/</link>
+      <link>https://xpgreat.com/p/tips_hugo/</link>
       <pubDate>Wed, 05 Dec 2018 16:32:54 +0100</pubDate>
       
-      <guid>http://xpgreat.com/p/tips_hugo/</guid>
+      <guid>https://xpgreat.com/p/tips_hugo/</guid>
       <description>&lt;p&gt;一些在使用Hugo时发现的小技巧或问题及解决方法，会持续更新。&lt;/p&gt;</description>
     </item>
     

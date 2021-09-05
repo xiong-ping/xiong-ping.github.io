@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>XP&#39;s Blog</title>
-        <link>http://xpgreat.com/</link>
+        <link>https://xpgreat.com/</link>
         <description>Recent content on XP&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-CN</language>
-        <lastBuildDate>Sun, 29 Aug 2021 10:56:18 +0200</lastBuildDate><atom:link href="http://xpgreat.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 29 Aug 2021 10:56:18 +0200</lastBuildDate><atom:link href="https://xpgreat.com/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>LRP简介</title>
-        <link>http://xpgreat.com/p/lrp/</link>
+        <link>https://xpgreat.com/p/lrp/</link>
         <pubDate>Sun, 29 Aug 2021 10:56:18 +0200</pubDate>
         
-        <guid>http://xpgreat.com/p/lrp/</guid>
+        <guid>https://xpgreat.com/p/lrp/</guid>
         <description>&lt;p&gt;机器学习的可解释性一直以来都是一个大问题，模型中的海量权重和连接关系让机器学习一直被视为黑盒模型。为了解决这个问题，Explainable AI （XAI）是一个前沿的研究方向。关于可解释性的研究，推荐这篇&lt;a class=&#34;link&#34; href=&#34;https://ieeexplore.ieee.org/document/9369420&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;综述&lt;/a&gt;。本文简要介绍解释深度神经网络（DNN）的算法LRP（Layerwise Relevance Propagation）。&lt;/p&gt;
 &lt;h1 id=&#34;深度泰勒分解deep-taylor-decomposition&#34;&gt;深度泰勒分解（Deep Taylor Decomposition）&lt;/h1&gt;
@@ -25,11 +25,11 @@ $$&lt;/p&gt;
 f(x) \approx \sum_1^D \frac{\partial f}{\partial x_{(d)}}(x_0)(x_{(d)}-x_{0(d)})
 $$&lt;/p&gt;
 &lt;p&gt;其中\(d\)是向量\(x\)的对应维度的值。上面的式子可以看做梯度乘以与零点的差，可以用它来构造可解释性heatmap。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://xpgreat.com/media/dtd_img.jpeg&#34; alt=&#34;&#34;  /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://xpgreat.com/media/dtd_img.jpeg&#34; alt=&#34;&#34;  /&gt;&lt;/p&gt;
 &lt;p&gt;所以想要解释模型的预测结果，需要结合模型的属性和输入的数据，在DTD中是将模型梯度和输入数据相乘，而在LRP中是通过模型的权重（也就是各层的梯度）和模型中间结果来计算加权平均，从最后一层传导到输入层，得到模型的解释。&lt;/p&gt;
 &lt;h1 id=&#34;lrp&#34;&gt;LRP&lt;/h1&gt;
 &lt;p&gt;LRP包括两步，第一步是传统的使用神经网络向后传播计算预测值，在这个过程中保存下所有的中间值；第二步是把神经网络反过来，从后向前依层计算各层的Relevance score，最终传导到最初的输入层，而输入层对应的Relevance score则可以被用来解释模型的预测结果，可以用来绘制heat map、高亮文本等等。LRP的算法过程可以表示如下：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://xpgreat.com/media/lrp.png&#34; alt=&#34;&#34;  /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://xpgreat.com/media/lrp.png&#34; alt=&#34;&#34;  /&gt;&lt;/p&gt;
 &lt;p&gt;其中&lt;code&gt;relprop&lt;/code&gt;使用\(l-1\)层的中间值\(a^{(l-1)}\)、后一层的relevance score \(R^(l)\)和\(l\)层的权重（记为\(f_l\)）。一般有三种方式进行传播：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;LRP-0: 最简单的方式&lt;/li&gt;
@@ -50,16 +50,16 @@ $$&lt;/p&gt;
 R_j = \sum_k \frac{a_j (w_{jk}+\gamma w_{jk}^+)}{\sum_{0,i} a_i (w_{ik}+\gamma w_{ik}^+)} R_k
 $$&lt;/p&gt;
 &lt;p&gt;注意这里面sum的下标\(0,i\)的意思是前一层所有的neuron\(i\)加上\(w_{0k}\)的bias项，\(a_0 = 1\)。LRP的过程可以表示如下图：
-&lt;img src=&#34;http://xpgreat.com/media/lrp_illu.png&#34; alt=&#34;&#34;  /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://xpgreat.com/media/lrp_illu.png&#34; alt=&#34;&#34;  /&gt;&lt;/p&gt;
 &lt;p&gt;LRP的理论证明可以参考这篇&lt;a class=&#34;link&#34; href=&#34;https://ieeexplore.ieee.org/document/9369420&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;综述&lt;/a&gt;的第五章，LRP的本质上等价于特殊情况下的DTD。值得注意的是，上面的三种表达中，LRP-\(\gamma\)和LRP-\(\epsilon\)基于深度整流网络（deep rectifier network），而对于其他类型的激活函数，LRP的表达则更为复杂。&lt;/p&gt;</description>
         </item>
         <item>
         <title>GNN 图神经网络简介</title>
-        <link>http://xpgreat.com/p/gnn/</link>
+        <link>https://xpgreat.com/p/gnn/</link>
         <pubDate>Fri, 27 Aug 2021 23:40:00 +0200</pubDate>
         
-        <guid>http://xpgreat.com/p/gnn/</guid>
+        <guid>https://xpgreat.com/p/gnn/</guid>
         <description>&lt;p&gt;图神经网络是是一种基于图结构的广义神经网络。其实传统的神经网络也是可以处理图数据，只需要进行前期合理的embedding即可，那么为什么还需要GNN呢？GNN其实属于一种embedding算法，它通过在整张图上&lt;strong&gt;传递、转换、聚合&lt;/strong&gt;节点的特征信息，从而生成单节点的embedding。本文简要介绍GNN，力求通俗易懂，需要更详细的研究GNN的话，推荐一篇2019年的综述&lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/1901.00596&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;A Comprehensive Survey on Graph Neural Networks&lt;/a&gt;。&lt;/p&gt;
 &lt;h1 id=&#34;基本概念&#34;&gt;基本概念&lt;/h1&gt;
@@ -92,20 +92,20 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>Hamiltonian Monte Carlo算法</title>
-        <link>http://xpgreat.com/p/hmc/</link>
+        <link>https://xpgreat.com/p/hmc/</link>
         <pubDate>Tue, 17 Aug 2021 20:34:54 +0200</pubDate>
         
-        <guid>http://xpgreat.com/p/hmc/</guid>
+        <guid>https://xpgreat.com/p/hmc/</guid>
         <description>&lt;p&gt;MCMC（Markov-Chain Monte-Carlo）算法用于生成给定分布的样本。在很多时候，我们想计算一个复杂分布的函数期望值，但用解析的，求解积分的方法，是极其困难的，对于有些分布甚至是不可能的。所以我们使用一些采样方法，例如Gibbs sampling，Metropolis-Hasting算法。本文介绍Hamiltonian Monte-Carlo算法。&lt;/p&gt;
 &lt;h1 id=&#34;目标和问题&#34;&gt;目标和问题&lt;/h1&gt;
 &lt;p&gt;给定一个分布\(\pi(x)\)，计算期望：\(\mathbb E_\pi[f]=\int f(q)\pi(q)dq\)，而直接计算积分是不可行的。因此我们计算期望的一个近似：\(\mathbb E_\pi[f] \approx \frac{1}{N}\sum_i f(x_i)\)&lt;/p&gt;</description>
         </item>
         <item>
         <title>Python调用作为参数的函数的方法</title>
-        <link>http://xpgreat.com/p/function_parameter_dict/</link>
+        <link>https://xpgreat.com/p/function_parameter_dict/</link>
         <pubDate>Thu, 10 Jun 2021 11:00:00 +0200</pubDate>
         
-        <guid>http://xpgreat.com/p/function_parameter_dict/</guid>
+        <guid>https://xpgreat.com/p/function_parameter_dict/</guid>
         <description>&lt;p&gt;今天在做project的时候遇到一个需求，简单来说是给定一个未知的函数&lt;code&gt;func&lt;/code&gt;和他的参数范围，需要用这些参数重复调用该函数，记录返回值。此时遇到的问题是不知道&lt;code&gt;func&lt;/code&gt;有多少参数和传入参数的顺序，查阅文档后发现可以用参数字典给函数传参，现记录于此。&lt;/p&gt;
 &lt;h1 id=&#34;问题&#34;&gt;问题&lt;/h1&gt;
 &lt;p&gt;给定一个函数&lt;code&gt;func&lt;/code&gt;，参数名列表&lt;code&gt;param_names&lt;/code&gt;，参数列表&lt;code&gt;params&lt;/code&gt;，多次调用该函数并记录返回值。&lt;/p&gt;
@@ -134,10 +134,10 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>[论文解读]买方/卖方分析师对基金经理决策的影响</title>
-        <link>http://xpgreat.com/p/ssa_bsa/</link>
+        <link>https://xpgreat.com/p/ssa_bsa/</link>
         <pubDate>Mon, 12 Apr 2021 17:48:40 +0200</pubDate>
         
-        <guid>http://xpgreat.com/p/ssa_bsa/</guid>
+        <guid>https://xpgreat.com/p/ssa_bsa/</guid>
         <description>&lt;p&gt;在基金经理决策时，他所依赖的信息源主要是分析师，分析师分为三种：卖方分析师（Sell-side Analyst, SSA）、买方分析师（Buy-side Analyst, BSA）和独立第三方分析师（Independent Third-party Analyst, ITA）。基金经理如何权衡这三个来源的信息，决策时使用的权重有什么影响，分析师本身的一些特征（例如经验、偏差、准确度）会对决策结果带来什么影响？Yingmei Cheng et al. 在2006年发表的名为“
 Buy-Side Analysts, Sell-Side Analysts, and Investment Decisions of Money Manager”的论文对此作了详细的理论和实证分析。&lt;/p&gt;
 &lt;h1 id=&#34;三种分析师&#34;&gt;三种分析师&lt;/h1&gt;
@@ -190,7 +190,7 @@ $$&lt;/p&gt;
 &lt;p&gt;最后，基金经理和客户间的代理人问题也会产生影响。为了减轻代理人问题，可以给基金经理performance的激励，他们的\(\alpha\)会增大，会提高BSA的占比以追求更准确的预测。所以作者提出第六个假设：BSA的权重随着代理人问题（agency problem）的严重程度减少而增加。&lt;/p&gt;
 &lt;h1 id=&#34;实证研究&#34;&gt;实证研究&lt;/h1&gt;
 &lt;p&gt;为了验证上述的六个假设，作者使用了Thomson Financial/Nelson Information&amp;rsquo;s Directory of Fund Managers作为数据源，提取出了2000—2002年三年的数据，在每年中都有超过1800个来自全球的组织的数据，他们一共管理超过2万亿美元的资产。该数据集每年发布一版，主要聚焦于复杂的机构投资者（而不是小投资者），所以他们提供误导性数据以短期获利的动机比较低。作者选择的样本是seperate account，即brokerage和financial advisor为高净值、pension和其他机构投资者提供分离的账户，每个投资人都在自己的账户中独立拥有相同的股票set，而不是像一般的open-end的共同基金一样所有投资者拥有一个池子里的一部分。该数据集主要包括基金portfolio的特点、投资风格、benchmark、return。另外，它还提供了关于基金经理和基金BSA的特点信息，包括他们的经验和费用结构。数据集的统计特征如图所示：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://xpgreat.com/img/ssa_bsa_1.png&#34; alt=&#34;统计特征表&#34;  /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://xpgreat.com/img/ssa_bsa_1.png&#34; alt=&#34;统计特征表&#34;  /&gt;&lt;/p&gt;
 &lt;p&gt;其中对于股票的资本规模、风险、PE，作者用S&amp;amp;P500为参照。Equity Turnover（股票周转率）表示了基金成分股票交易的频率，即该基金的管理的积极性。Sector Emphasis（行业重点）表示基金是否更改其行业重点。在后面的研究中，作者将Value和Growth &amp;amp; Value合并成一类Value-typed。&lt;/p&gt;
 &lt;p&gt;这个数据集最大的特点就是，它提供了基金经理决策的来源信息（后四行），In-house对应BSA，Street Analyst对应SSA，Other对应ITA。从数据中可以归纳出至少三种BSA有利于基金经理的渠道：1. 在很少SSA cover到某个股票时（例如小盘股），BSA可以提供分析报告，此时BSA填补了SSA的空白（fill the void）；2. 基金经理不信任SSA，转而使用BSA的报告，此时BSA替换了（replace/substitute）SSA；3. BSA可能使用SSA的报告作为参考来发表自己的报告，此时BSA报告辅助了（complement）SSA的报告。值得注意的是，BSA的平均和中位占比远高于SSA，证明了BSA对基金经理的重要性。&lt;/p&gt;
 &lt;p&gt;最后一行描述了基金公司整体的决策过程，分为三类：1. 集中制（centralized），基金公司可以集中公司内所有的BSA，他们生产的研报所有基金经理都可以使用，以增加整个公司的研究资源的使用效率；2. 多委员会制（multi commitee），基金公司内由多个不同的委员会分别负责投资的各个方面（例如研究、投资组合审查），但是数据表明，单个公司的多个基金仍然依赖一个委员会进行投资决策，因此这些基金使用BSA的方法也是一样的；3. 相对独立（relative autonomous），同公司内的不同基金经理的使用BSA和SSA的方式不同，使用这种决策过程的公司占比仅10%～12%，除去其中仅管理一个基金的公司后占比不到8%。&lt;/p&gt;
@@ -198,10 +198,10 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>AMPlibraryagent异常访问Onedrive下载</title>
-        <link>http://xpgreat.com/p/amp_onedrive/</link>
+        <link>https://xpgreat.com/p/amp_onedrive/</link>
         <pubDate>Sat, 10 Apr 2021 11:19:05 +0200</pubDate>
         
-        <guid>http://xpgreat.com/p/amp_onedrive/</guid>
+        <guid>https://xpgreat.com/p/amp_onedrive/</guid>
         <description>&lt;p&gt;先放方法：用任务监视器定位到AMPlibraryagent的路径，然后使用OneDrive的“应用管理”，停止响应AMPlibraryagent的请求。&lt;/p&gt;
 &lt;p&gt;今天在正常使用MacBook时，偶然发现OneDrive经常会异常同步，反复释放空间无果。查看OneDrive的日志发现，是一个名叫AMPlibraryagent的应用请求的。查询得知，AMPLibraryAgent（The media library agent for Music.app and TV.app）是Apple Music和Apple TV的相关进程，属于系统进程，从它下手的可能性不大。&lt;/p&gt;
 &lt;p&gt;尝试很多方法后，终于发现可以通过onedrive设置里面的“管理应用”来停止响应特定应用的请求&lt;a class=&#34;link&#34; href=&#34;https://www.reddit.com/r/mac/comments/kcsayt/disable_amplibraryagent/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -215,10 +215,10 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>搭建真分布式Hadoop集群指南</title>
-        <link>http://xpgreat.com/p/hadoop_aws/</link>
+        <link>https://xpgreat.com/p/hadoop_aws/</link>
         <pubDate>Mon, 29 Mar 2021 10:39:10 +0200</pubDate>
         
-        <guid>http://xpgreat.com/p/hadoop_aws/</guid>
+        <guid>https://xpgreat.com/p/hadoop_aws/</guid>
         <description>&lt;p&gt;搭建一个Hadoop环境是学习大数据技术的第一步，这个环境可以是单机的，也可以是伪集群的，但最贴近实际生产环境的还是真集群的版本。本文提供一个基于AWS搭建Hadoop的简要指南，基于AWS EC2 Ubuntu 20。如果你也用的是AWS的免费套餐，几个注意的地方：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;小心流量使用情况，免费的仅包括了15G，请设置使用提醒。&lt;/li&gt;
@@ -416,10 +416,10 @@ sudo chmod -R a+w /usr/local/hadoop/&lt;/p&gt;
         </item>
         <item>
         <title>利用sklearn构建tfidf向量</title>
-        <link>http://xpgreat.com/p/tfidf_python/</link>
+        <link>https://xpgreat.com/p/tfidf_python/</link>
         <pubDate>Tue, 24 Nov 2020 11:22:02 +0800</pubDate>
         
-        <guid>http://xpgreat.com/p/tfidf_python/</guid>
+        <guid>https://xpgreat.com/p/tfidf_python/</guid>
         <description>&lt;p&gt;在自然语言处理中，第一步需要面对的就是词向量特征的提取。语言的特征提取在sklearn模块中有相当完善的方法和模块，本文先利用CountVectorizer提取词汇，再用TfidfTransformer计算TFIDF向量。之所以选择CountVectorizer而不自行写一个代码，是因为在使用时维度很容易超过10w，产生的bag-of-words向量特别稀疏，需要耗费极大的内存，而sklearn实现了一个稀疏矩阵的存储形式，可以极大的加速和降低消耗。&lt;/p&gt;
 &lt;h2 id=&#34;构建bag-of-words词汇矩阵&#34;&gt;构建Bag-of-words词汇矩阵&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;kn&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;sklearn.feature_extraction.text&lt;/span&gt; &lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;CountVectorizer&lt;/span&gt;
@@ -535,16 +535,16 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>论文解读：Exploring text datasets by visualizing relevant words</title>
-        <link>http://xpgreat.com/p/explore_text_dataset/</link>
+        <link>https://xpgreat.com/p/explore_text_dataset/</link>
         <pubDate>Thu, 19 Nov 2020 15:14:26 +0800</pubDate>
         
-        <guid>http://xpgreat.com/p/explore_text_dataset/</guid>
+        <guid>https://xpgreat.com/p/explore_text_dataset/</guid>
         <description>&lt;p&gt;在做机器学习使用新数据集时，我们首先要知道它的特点，一个可以快速可靠地深入了解所选文档的内容，并区分它们类别的工具十分重要。 在这篇论文，作者从文本集合中提取“相关词”，以概括属于某个类别（或在unlabeled数据集下为聚类的组）的文档的内容，并在词云中可视化它们。 作者比较了三种提取相关单词的方法，并使用两个数据集验证了模型的可用性。&lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/pdf/1707.05261.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;论文链接&lt;/a&gt;，&lt;a class=&#34;link&#34; href=&#34;https://github.com/cod3licious/textcatvis&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;论文代码&lt;/a&gt;。&lt;/p&gt;
 &lt;h2 id=&#34;目标&#34;&gt;目标&lt;/h2&gt;
 &lt;p&gt;提供一个文件数据集，输出一组词云，展示最能够区分每个文件类别的词。这里的数据集可以是标注的或是未标注的，对未标注的数据集作者先进行了聚类。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://xpgreat.com/media/image-20201119154330899.png&#34; alt=&#34;image-20201119154330899&#34;  /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://xpgreat.com/media/image-20201119154330899.png&#34; alt=&#34;image-20201119154330899&#34;  /&gt;&lt;/p&gt;
 &lt;p&gt;上图是作者论文中的图片，五个词云分别表示最能代表论文五个部分（Abstract, Introduction, Methods, Results, Discussion，即文件类别）的词。&lt;/p&gt;
 &lt;h2 id=&#34;方法&#34;&gt;方法&lt;/h2&gt;
 &lt;h3 id=&#34;数据预处理和特征提取&#34;&gt;数据预处理和特征提取&lt;/h3&gt;
@@ -583,12 +583,12 @@ $$&lt;/p&gt;
 &lt;p&gt;在优化分类器时，作者选择了SVM，并提出，也可以用其他的线性分类器比如逻辑回归，甚至DNN。作者强调，只有在分类器精确度相当高的时候，这个方法找出来的相关词汇才有意义，所以分类器的精确度比简便更加重要。&lt;/p&gt;
 &lt;h5 id=&#34;layerwise-relevance-propagationlrp&#34;&gt;Layerwise relevance propagation（LRP）&lt;/h5&gt;
 &lt;p&gt;是一个计算相关性，并将相关性逐层向后传播的过程。首先将网络模型看成一个拓扑图结构，在计算一个节点 a 和输入的节点之间的相关性时，将 a 点的数值作为相关性，并且计算与 a 点相连的上一层节点在生成 a 点时所占的权重，将 a 的相关性逐层向后传播，直到输入层。作者用下图的例子告诉了我们：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://xpgreat.com/media/image-20201119212624565.png&#34; alt=&#34;image-20201119212624565&#34;  /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://xpgreat.com/media/image-20201119212624565.png&#34; alt=&#34;image-20201119212624565&#34;  /&gt;&lt;/p&gt;
 &lt;p&gt;如果要计算 \(v_1\) 和 \(u_1\) 之间的相关性，首先计算 \(v_1\)和 \(z_1\), \(z_2\) 之间的相关性，再将 \(v_1\) 和\(z_1\), \(z_2\) 的相关性传递到 \(u_1\), 从而求得 \(v_1\) 和 \(u_1\) 之间的相关性。&lt;/p&gt;
 &lt;h5 id=&#34;support-vector-machine-svm支持向量机&#34;&gt;Support vector machine （SVM，支持向量机）&lt;/h5&gt;
 &lt;p&gt;是一种二分类模型，它的基本模型是定义在特征空间上的&lt;strong&gt;间隔最大&lt;/strong&gt;的&lt;strong&gt;线性分类器&lt;/strong&gt;，间隔最大使它有别于感知机；SVM还包括&lt;strong&gt;核技巧&lt;/strong&gt;，这使它成为实质上的非线性分类器。SVM的的学习策略就是间隔最大化，可形式化为一个求解凸二次规划的问题，也等价于正则化的合页损失函数的最小化问题。SVM的的学习算法就是求解凸二次规划的最优化算法。&lt;/p&gt;
 &lt;p&gt;SVM学习的基本想法是求解能够正确划分训练数据集并且几何间隔最大的分离超平面。如下图所示，\(\mathbf w \mathbf x + b = 0\)即为分离超平面，对于线性可分的数据集来说，这样的超平面有无穷多个（即感知机），但是几何间隔最大的分离超平面却是唯一的。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://xpgreat.com/media/image-20201119213025858.png&#34; alt=&#34;image-20201119213025858&#34;  /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://xpgreat.com/media/image-20201119213025858.png&#34; alt=&#34;image-20201119213025858&#34;  /&gt;&lt;/p&gt;
 &lt;p&gt;SVM有一个重要性质：&lt;strong&gt;训练完成后，大部分的训练样本都不需要保留，最终模型仅与支持向量有关。&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;算法如下：&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;输入&lt;/strong&gt;：训练数据集 \(T=\{(\mathbf x_1,y_1),(\mathbf x_2,y_2),\dots,(\mathbf x_n,y_n)\}\)其中，\(\mathbf x_i \in \mathbf R^n, y_i \in \{1,-1\},i = 1,2,\dots,n\)；&lt;/p&gt;
@@ -632,7 +632,7 @@ $$&lt;/p&gt;
 r_c\_dist(t_i) = 0.5(r_c\_diff(t_i)+r_c\_quot(t_i))
 $$&lt;/p&gt;
 &lt;p&gt;rc-TPR-FPR关系图：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://xpgreat.com/media/image-20201119232608223.png&#34; alt=&#34;image-20201119232608223&#34;  /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://xpgreat.com/media/image-20201119232608223.png&#34; alt=&#34;image-20201119232608223&#34;  /&gt;&lt;/p&gt;
 &lt;h2 id=&#34;结论&#34;&gt;结论&lt;/h2&gt;
 &lt;p&gt;作者用scientific publications（标记的，主题、格式分类）和New York Times article（未标记的，寻找热度主题）两个数据集验证了算法的可行性。该方法快速且可靠，更重要的是，即使许多cluster仅包含很少的样本，也有可能可以识别出relevant words，而用分类算法很难达到这个效果。&lt;/p&gt;
 &lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
@@ -643,15 +643,15 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>Hive窗口函数总结</title>
-        <link>http://xpgreat.com/p/hive_windowfunc/</link>
+        <link>https://xpgreat.com/p/hive_windowfunc/</link>
         <pubDate>Thu, 29 Oct 2020 11:01:26 +0800</pubDate>
         
-        <guid>http://xpgreat.com/p/hive_windowfunc/</guid>
+        <guid>https://xpgreat.com/p/hive_windowfunc/</guid>
         <description>&lt;p&gt;窗口函数是对Hive的一项增强，用来更方便地分析离线数据。窗口函数的使用场景非常之多，包括去重、排名、分组求和等等。本文希望尽可能全面的归纳窗口函数的用法，以便日后的查阅。&lt;/p&gt;
 &lt;h2 id=&#34;窗口函数&#34;&gt;窗口函数&lt;/h2&gt;
 &lt;h3 id=&#34;基本用法模式&#34;&gt;基本用法模式&lt;/h3&gt;
 &lt;p&gt;&lt;code&gt;&amp;lt;FUNCTION&amp;gt;(&amp;lt;params&amp;gt;) OVER (&amp;lt;window&amp;gt;)&lt;/code&gt;, 表示对window内的元素进行function操作，这里的window可以理解为分组，例如&lt;code&gt;partition by col1 order by col2 desc &lt;/code&gt;，即”相同的col1分为一组，按照每一行对应的col2的值倒序排序“。function即对每一组采取的操作，比如取平均值，这样可以得到对每一个不同的&lt;code&gt;col1&lt;/code&gt;的&lt;code&gt;col2&lt;/code&gt;的平均值的表，即：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://xpgreat.com/media/image-20201029113941871.png&#34; alt=&#34;image-20201029113941871&#34;  /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://xpgreat.com/media/image-20201029113941871.png&#34; alt=&#34;image-20201029113941871&#34;  /&gt;&lt;/p&gt;
 &lt;p&gt;该操作的hive语句：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;k&#34;&gt;SELECT&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;col1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; 
 &lt;/span&gt;&lt;span class=&#34;w&#34;&gt;       &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;col2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
@@ -725,10 +725,10 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>机器学习的工作流程</title>
-        <link>http://xpgreat.com/p/workflow_ml/</link>
+        <link>https://xpgreat.com/p/workflow_ml/</link>
         <pubDate>Sun, 15 Mar 2020 16:25:12 +0800</pubDate>
         
-        <guid>http://xpgreat.com/p/workflow_ml/</guid>
+        <guid>https://xpgreat.com/p/workflow_ml/</guid>
         <description>&lt;p&gt;最近在阅读François Chollet写的Deep Learning with Python. 书中有很多经验性的技巧和归纳，其中4.5写的Machine Learning的工作流程归纳的很好，看完深有启发，摘录于此。&lt;/p&gt;
 &lt;p&gt;机器学习的标准流程可以分为六个步骤：&lt;/p&gt;
 &lt;ol&gt;
@@ -826,10 +826,10 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>安装TensorFlow时踩的一个小坑</title>
-        <link>http://xpgreat.com/p/tip_inst_tf/</link>
+        <link>https://xpgreat.com/p/tip_inst_tf/</link>
         <pubDate>Sun, 15 Mar 2020 15:22:49 +0800</pubDate>
         
-        <guid>http://xpgreat.com/p/tip_inst_tf/</guid>
+        <guid>https://xpgreat.com/p/tip_inst_tf/</guid>
         <description>&lt;p&gt;不记得之前安装的是什么版本，这次（2020/3）让&lt;code&gt;pip&lt;/code&gt;自动安装选择的是&lt;code&gt;2.1.0&lt;/code&gt;，但这个版本安装后使用&lt;code&gt;import tensorflow&lt;/code&gt;会报错，如下：&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Traceback (most recent call last):
   File &amp;quot;[...]\lib\site-packages\tensorflow_core\python\pywrap_tensorflow.py&amp;quot;, line 58, in &amp;lt;module&amp;gt;
@@ -888,10 +888,10 @@ ImportError: DLL load failed: 找不到指定的模块。
         </item>
         <item>
         <title>在Jupyer Notebook里安装包</title>
-        <link>http://xpgreat.com/p/jupyter_install_package/</link>
+        <link>https://xpgreat.com/p/jupyter_install_package/</link>
         <pubDate>Mon, 09 Dec 2019 22:01:11 +0100</pubDate>
         
-        <guid>http://xpgreat.com/p/jupyter_install_package/</guid>
+        <guid>https://xpgreat.com/p/jupyter_install_package/</guid>
         <description>&lt;p&gt;一个方便的小技巧，可以很快的安装缺失的包。&lt;/p&gt;
 &lt;p&gt;可以使用pip或conda来安装包，注意如果环境不同包是不能通用的，在Windows下启动Anaconda Prompt的时候要注意标题后面括号内的环境是不是所需要的。&lt;/p&gt;
 &lt;p&gt;以numpy为例，使用pip：&lt;/p&gt;
@@ -904,10 +904,10 @@ ImportError: DLL load failed: 找不到指定的模块。
         </item>
         <item>
         <title>让程序在后台稳定运行的方法</title>
-        <link>http://xpgreat.com/p/keep_running_after-disconnect/</link>
+        <link>https://xpgreat.com/p/keep_running_after-disconnect/</link>
         <pubDate>Tue, 16 Jul 2019 16:21:51 +0200</pubDate>
         
-        <guid>http://xpgreat.com/p/keep_running_after-disconnect/</guid>
+        <guid>https://xpgreat.com/p/keep_running_after-disconnect/</guid>
         <description>&lt;p&gt;在使用SSH链接远程虚拟机的时候经常会出现网络连接不稳定而导致前台运行的代码终止运行的情况，怎样能让程序稳定地在后台运行，不受断线的影响？IBM Developer上的这篇文章很有帮助，转载方便以后查阅。&lt;/p&gt;
 &lt;p&gt;(转自&lt;a class=&#34;link&#34; href=&#34;https://www.ibm.com/developerworks/cn/linux/l-cn-nohup/index.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Linux 技巧：让进程在后台运行更可靠的几种方法 - 申毅&lt;/a&gt;)&lt;/p&gt;
@@ -1097,10 +1097,10 @@ init─┬─Xvnc
         </item>
         <item>
         <title>投资对象的资本结构无关性</title>
-        <link>http://xpgreat.com/p/irrelevance_invest/</link>
+        <link>https://xpgreat.com/p/irrelevance_invest/</link>
         <pubDate>Sat, 08 Jun 2019 11:23:53 +0200</pubDate>
         
-        <guid>http://xpgreat.com/p/irrelevance_invest/</guid>
+        <guid>https://xpgreat.com/p/irrelevance_invest/</guid>
         <description>&lt;p&gt;本文介绍了公司的杠杆效应（Leverage Effect）和Modigliani-Miller定理，以阐述投资对象的资本结构与价值的无关性。&lt;/p&gt;
 &lt;h2 id=&#34;杠杆效应&#34;&gt;杠杆效应&lt;/h2&gt;
 &lt;p&gt;一个公司的资本结构是总资产（Total capital, T) = 股权（Equity, E）+ 债务（Debt, D）。定义：\(r_T\)是总资产回报率，毛利 = \(r_T * (E+D)\)；净利 = 毛利 - 债务利息 = \(r_T * (E+D) - r_D * D := r_E * E\)。则：&lt;/p&gt;
@@ -1136,10 +1136,10 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>中短期电价预测模型简介</title>
-        <link>http://xpgreat.com/p/epf_models/</link>
+        <link>https://xpgreat.com/p/epf_models/</link>
         <pubDate>Sat, 25 May 2019 17:35:01 +0200</pubDate>
         
-        <guid>http://xpgreat.com/p/epf_models/</guid>
+        <guid>https://xpgreat.com/p/epf_models/</guid>
         <description>&lt;p&gt;从1981年的智利电力体制改革之后，英美等国先后进行了电力工业重组，这些努力导致了电力工业的市场化，促成了电力市场的形成，实现了资源的合理分配和社会效益的最大化。准确的电力价格对发电商、用户、监管者具有重要的意义。本文将常用的电价预测（EPF, Electricity Price Forecasting）模型进行了分类，并加以简介。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;本文主要参考了&lt;a class=&#34;link&#34; href=&#34;https://www.sciencedirect.com/science/article/pii/S0169207014001083&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;’Rafał Weron, Electricity price forecasting: A review of the state-of-the-art with a look into the future, International Journal of Forecasting, Volume 30, Issue 4, 2014, Pages 1030-1081, ISSN 0169-2070‘&lt;/a&gt;&lt;/strong&gt; 写成博文以整理思路。&lt;/p&gt;
@@ -1148,7 +1148,7 @@ $$&lt;/p&gt;
 &lt;h2 id=&#34;电价预测的分类&#34;&gt;电价预测的分类&lt;/h2&gt;
 &lt;p&gt;可以分为长期、中期、短期预测。但它们之间尚没有明确的界限。长期一般研究几个月、一个季度到几年的范围，一般用于决定投资、长期协议和其他战略行动。中期一般研究几个星期到一个月的范围，主要用于资源分配、报表分析、风险管理、金融计算等。短期一般研究几分钟到几个星期的范围，用于降低生产成本、提高发电厂利润等。中短期预测使用的方法基本类似，与长期预测的不同。本文只介绍中短期的模型，长期预测日后再写。&lt;/p&gt;
 &lt;h2 id=&#34;中短期电价预测的六个类型&#34;&gt;中短期电价预测的六个类型&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;http://xpgreat.com/media/EPFmodelsclass.png&#34; alt=&#34;&#34;  /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://xpgreat.com/media/EPFmodelsclass.png&#34; alt=&#34;&#34;  /&gt;&lt;/p&gt;
 &lt;p&gt;中短期电价预测模型众多，大体可以分为六个类型：Multi-agent, Fundamental, Reduced-form, Statistical, Computational intelligence 以及它们的组合。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Multi-agent模型运用经济学、博弈论等学科知识，模拟电力市场的各方行为，匹配供给和需求预测价格。&lt;/li&gt;
@@ -1192,12 +1192,12 @@ Average）模型，它将数据（n阶）差分化，即把\(X_t\)变化成\(X_t
 &lt;h3 id=&#34;ci模型的分类&#34;&gt;CI模型的分类&lt;/h3&gt;
 &lt;p&gt;每一个的CI模型都可以根据它的架构和学习算法分类，架构表示神经元的连接方式，学习算法表示模型怎样根据训练数据调整优化它的各项权重。在EPF的背景下，它也可以依据输出向量的维度分类，输出一维或多维。一维的一般用于预测下一小时电价 (e.g. Gonzalez, San Roque, &amp;amp; Garcia-Gonzalez, 2005; Mandal, Senjyu, &amp;amp; Funabashi, 2006)，h小时后电价 (e.g. Amjady, 2006; Hu et al., 2008; Rodriguez &amp;amp; Anders, 2004)等等。多维的一般用于一次性预测接下来几个小时的电价，不如前者常见(e.g. Yamin, Shahidehpour, &amp;amp; Li, 2004)。根据神经元的拓扑结构可以分为两类，前馈网络（feed-forward networks）和递归网络（recurrent networks），前者不含循环而后者有。前馈网络更多的被用于预测价格而递归网络往往被用于分类(Jain, Mao, &amp;amp; Mohiuddin, 1996; Rutkowski, 2008)。&lt;/p&gt;
 &lt;p&gt;此外CI模型还可以被用于区间预测（interval forecasting，与置信区间confidence interval有区别），在这里不展开说了。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://xpgreat.com/media/ANN20190526214838.png&#34; alt=&#34;&#34;  /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://xpgreat.com/media/ANN20190526214838.png&#34; alt=&#34;&#34;  /&gt;&lt;/p&gt;
 &lt;h3 id=&#34;前馈神经网络&#34;&gt;前馈神经网络&lt;/h3&gt;
 &lt;p&gt;最简单的前馈神经网络只包含一个输入层，一个输出层，中间由一个感知神经元连接，它等价于一个线性回归的模型。通过增加中间神经元（隐藏层）的层数和个数，可以做到拟合非线性的关系（MLP, Multi Layer Perceptron）。每个神经元里都有一个激活函数，可以将输入进行一些处理，常用的有ReLU，tanh，softmax等等。在激活函数中可以使用径向基函数（Raidal Basis Function），构成一类特殊的模型。径向基通常使用高斯核函数（Gaussian Kernel）。&lt;/p&gt;
 &lt;p&gt;简单的MLP和RBF模型通常被当作测试对比模型，真正应用的模型大多是他们与其他模型的混合模型，比如Shafie-Khah et al. (2011) 提出了一个 wavelet-ARIMA-RBF模型，结合了小波变换、ARIMA和RBF的优缺点。研究指出，RBF更适合研究局部数据的特点，MLP适合描述整体的数据趋势。&lt;/p&gt;
 &lt;h3 id=&#34;递归神经网络&#34;&gt;递归神经网络&lt;/h3&gt;
-&lt;p&gt;详见另一篇博文：&lt;a class=&#34;link&#34; href=&#34;http://xpgreat.com/post/rnn_lstm_gru/&#34; &gt;递归神经网络&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;详见另一篇博文：&lt;a class=&#34;link&#34; href=&#34;https://xpgreat.com/post/rnn_lstm_gru/&#34; &gt;递归神经网络&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;前馈神经网络存在一个问题，它不能描述相邻两个数据之间的关系，RRN则可以很好的解决这一点，前面cell的输出是后面cell的输入，或者有一个贯穿整个模型的状态记忆量。&lt;/p&gt;
 &lt;h3 id=&#34;模糊神经网络&#34;&gt;模糊神经网络&lt;/h3&gt;
 &lt;p&gt;模糊逻辑是通常的布尔逻辑的推广，因为它的输入值可以不止为0或1，还可以是某些定性范围。例如，温度可以是低，中或高。模糊逻辑允许从模糊或噪声的输入推导出输出，重要的是，不需要指定输入到输出的精确映射。模糊神经网络则是应用了模糊逻辑推广的神经网络，一般还要使用一个去模糊化函数以获取精确结果。&lt;/p&gt;
@@ -1212,19 +1212,19 @@ Average）模型，它将数据（n阶）差分化，即把\(X_t\)变化成\(X_t
         </item>
         <item>
         <title>递归神经网络</title>
-        <link>http://xpgreat.com/p/rnn_lstm_gru/</link>
+        <link>https://xpgreat.com/p/rnn_lstm_gru/</link>
         <pubDate>Tue, 14 May 2019 10:48:15 +0200</pubDate>
         
-        <guid>http://xpgreat.com/p/rnn_lstm_gru/</guid>
+        <guid>https://xpgreat.com/p/rnn_lstm_gru/</guid>
         <description>&lt;p&gt;递归神经网络是神经网络的一种，与其他神经网络不同点在于，它可以很好地处理序列数据，即前面的数据的输入与后面的输出是有关系的，比如一句话的语义理解。本文介绍了递归神经网络及其两个变种——LSTM和GRU，目的是梳理一下自己所理解的RRN，也希望能够给初次接触RRN的同学一点帮助。&lt;/p&gt;
 &lt;h2 id=&#34;其他神经网络的不足为什么需要rrn&#34;&gt;其他神经网络的不足——为什么需要RRN？&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;http://xpgreat.com/media/1_SL8FESMwzSy6QTrcIzcRYw.png&#34; alt=&#34;&#34;  /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://xpgreat.com/media/1_SL8FESMwzSy6QTrcIzcRYw.png&#34; alt=&#34;&#34;  /&gt;&lt;/p&gt;
 &lt;p&gt;传统神经网络的结构大多为输入-隐藏层（多个）-输出，即给定一组输入数据，输出结果，隐藏层像一个黑盒子，通过各种运算把输入的数据算成需要的结果。输入不同的数据运行两次，它们的结果是完全无关的。而有的时候我们需要处理一个序列，比如一个句子，它是单词的序列，要理解这句话中各个单词的意思，必须要结合语境，也就是要结合其他的单词的意思，一般情况下要结合这个单词前面的单词。例如前面两个词是我、吃，那么后面的一个词很大概率是一个表示食物的名词。&lt;/p&gt;
 &lt;p&gt;为了解决一些这样类似的问题，能够更好的处理序列的信息，RNN就诞生了。&lt;/p&gt;
 &lt;h2 id=&#34;rnn的结构&#34;&gt;RNN的结构&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;http://xpgreat.com/media/v2-b0175ebd3419f9a11a3d0d8b00e28675_r.jpg&#34; alt=&#34;&#34;  /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://xpgreat.com/media/v2-b0175ebd3419f9a11a3d0d8b00e28675_r.jpg&#34; alt=&#34;&#34;  /&gt;&lt;/p&gt;
 &lt;p&gt;循环神经网络也由输入层、隐藏层和输出层构成，这是神经网络的基本结构，不同的是它的隐藏层（也叫cell）可以连续的接收输入\(x\)，输出\(o\)，而贯穿其中的\(s\)可以存储这个网络的状态，也就是“记忆”到的前面发生的事情，利用它可以更加精准的预测后面的输出。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://xpgreat.com/media/RNN20190514210119.png&#34; alt=&#34;&#34;  /&gt;
+&lt;p&gt;&lt;img src=&#34;https://xpgreat.com/media/RNN20190514210119.png&#34; alt=&#34;&#34;  /&gt;
 一个最简单的RNN结构如图所示，每一个cell输入一个\(x\)和一个\(s\)，输出两个同样的\(h\)，通过下列算法算出：&lt;/p&gt;
 &lt;p&gt;$$
 \begin{aligned}
@@ -1232,25 +1232,25 @@ Average）模型，它将数据（n阶）差分化，即把\(X_t\)变化成\(X_t
 \\&amp;amp;h_t = Vs_t
 \end{aligned}
 $$&lt;/p&gt;
-&lt;p&gt;这种简单的结构虽然可以达到记忆的效果，然而存在着一个致命的问题：&lt;strong&gt;梯度爆炸&lt;/strong&gt;和&lt;strong&gt;梯度消失&lt;/strong&gt;。即在多次循环后，利用梯度下降法调整，在求导的时候会出现\(\frac{\partial Loss}{\partial w_i} = \frac{\partial Loss}{\partial f_t}\frac{\partial f_t}{\partial f_{t-1}}&amp;hellip;\frac{\partial f_i}{\partial w_i} \)，如果\(\frac{\partial f_t}{\partial f_{t-1}}\)部分大于或小于1，会出现类似1.01的99次方（或0.99的99次方）的问题，使得权重过大或过小，无法使用梯度下降。这一问题的根源就在于\(W\)和\(s\)之间的乘法运算。为了解决这一问题，&lt;a class=&#34;link&#34; href=&#34;http://xpgreat.com/file/lstm.pdf&#34; &gt;Hochreiter, Schmidhuber（1997)&lt;/a&gt;提出了LSTM。&lt;/p&gt;
+&lt;p&gt;这种简单的结构虽然可以达到记忆的效果，然而存在着一个致命的问题：&lt;strong&gt;梯度爆炸&lt;/strong&gt;和&lt;strong&gt;梯度消失&lt;/strong&gt;。即在多次循环后，利用梯度下降法调整，在求导的时候会出现\(\frac{\partial Loss}{\partial w_i} = \frac{\partial Loss}{\partial f_t}\frac{\partial f_t}{\partial f_{t-1}}&amp;hellip;\frac{\partial f_i}{\partial w_i} \)，如果\(\frac{\partial f_t}{\partial f_{t-1}}\)部分大于或小于1，会出现类似1.01的99次方（或0.99的99次方）的问题，使得权重过大或过小，无法使用梯度下降。这一问题的根源就在于\(W\)和\(s\)之间的乘法运算。为了解决这一问题，&lt;a class=&#34;link&#34; href=&#34;https://xpgreat.com/file/lstm.pdf&#34; &gt;Hochreiter, Schmidhuber（1997)&lt;/a&gt;提出了LSTM。&lt;/p&gt;
 &lt;h2 id=&#34;lstm&#34;&gt;LSTM&lt;/h2&gt;
 &lt;p&gt;LSTM全称Long Short Time Memory RRN，长短期记忆循环神经网络，它本质上也是一个循环神经网络，只是cell不一样而已，如下图：
-&lt;img src=&#34;http://xpgreat.com/media/LSTM20190514210208.png&#34; alt=&#34;&#34;  /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://xpgreat.com/media/LSTM20190514210208.png&#34; alt=&#34;&#34;  /&gt;&lt;/p&gt;
 &lt;p&gt;LSTM的关键之处在于cell的状态，也就是图中贯穿顶部的那条水平线。Cell的状态像是一条传送带，它贯穿整条链，其中只发生一些小的线性作用。信息流过这条线而不改变是非常容易的。但是，LSTM也有能力移除或增加信息到cell状态中，由被称为门的结构精细控制。门是一种让信息可选地通过的方法。它们由一个sigmoid(\( S(t)={\frac {1}{1+e^{-t}}}\))神经网络层和一个点乘操作组成。这里的sigmoid函数取0-1的值，充当了开关的作用，控制影响的程度。&lt;/p&gt;
 &lt;h3 id=&#34;运行过程&#34;&gt;运行过程&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;http://xpgreat.com/media/v2-d7a679e66345c250ebcf9d53ba5be867_r.jpg&#34; alt=&#34;&#34;  /&gt;
+&lt;p&gt;&lt;img src=&#34;https://xpgreat.com/media/v2-d7a679e66345c250ebcf9d53ba5be867_r.jpg&#34; alt=&#34;&#34;  /&gt;
 从左往右看这幅图，首先第一步是决定我们需要从cell状态中扔掉什么样的信息。这个决策由一个称为“遗忘门（forget gate）”的sigmoid层决定。输入 \(h_{t-1}\) 和 \(x_t\) ，输出一个0和1之间的数。1代表“完全保留这个值”，而0代表“完全扔掉这个值”。比如对于一个基于上文预测最后一个词的语言模型。cell的状态可能包含当前主题的信息，来预测下一个准确的词。而当我们得到一个新的语言主题的时候，我们会想要遗忘旧的主题的记忆，应用新的语言主题的信息来预测准确的词。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://xpgreat.com/media/v2-535a2df5db8ac715ee373209d7cbd346_r.jpg&#34; alt=&#34;&#34;  /&gt;
+&lt;p&gt;&lt;img src=&#34;https://xpgreat.com/media/v2-535a2df5db8ac715ee373209d7cbd346_r.jpg&#34; alt=&#34;&#34;  /&gt;
 第二步是决定我们需要在cell state里存储什么样的信息。这个问题有两个部分。第一，一个sigmoid层调用“输入门（input gate）”以决定哪些数据是需要更新的。然后，一个\(tanh\)层为新的候选值创建一个向量 \(\tilde{C}_t\) ，这些值能够加入state中。下一步，我们要将这两个部分合并以创建对state的更新。&lt;/p&gt;
 &lt;p&gt;比如还是语言模型，可以表示为想要把新的语言主题的信息加入到cell state中，以替代我们要遗忘的旧的记忆信息。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://xpgreat.com/media/v2-f2dccb5533133c5ff61a58a0e1a752ab_r.jpg&#34; alt=&#34;&#34;  /&gt;
+&lt;p&gt;&lt;img src=&#34;https://xpgreat.com/media/v2-f2dccb5533133c5ff61a58a0e1a752ab_r.jpg&#34; alt=&#34;&#34;  /&gt;
 在决定需要遗忘和需要加入的记忆之后，就可以更新旧的cell state \(C_{t-1}\) 到新的cell state \(C_t\) 了。在这一步，我们把旧的state  \(C_{t-1}\) 与 \(f_t\) 相乘，遗忘我们先前决定遗忘的东西，然后我们加上 \(i_t * \tilde{C}_t\) ，这可以理解为新的记忆信息，当然，这里体现了对状态值的更新度是有限制的，我们可以把 \(i_t\)  当成一个权重。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://xpgreat.com/media/v2-9b77a873ce830ea4a3bdb0385fe275ef_r.jpg&#34; alt=&#34;&#34;  /&gt;
+&lt;p&gt;&lt;img src=&#34;https://xpgreat.com/media/v2-9b77a873ce830ea4a3bdb0385fe275ef_r.jpg&#34; alt=&#34;&#34;  /&gt;
 最后，我们需要决定要输出的东西。这个输出基于我们的cell state，但会是一个过滤后的值。首先，我们运行一个sigmoid层，这个也就是输出门（output gate），以决定cell state中的那个部分是我们将要输出的。然后我们把cell state放进\(tanh\)（将数值压到-1和1之间），最后将它与sigmoid门的输出相乘，这样我们就只输出了我们想要的部分了。&lt;/p&gt;
 &lt;p&gt;在LSTM中，状态\(S\)通过累加的方式来计算，\(S_t = \sum_{\tau=1}^t \Delta S_{\tau}\)，这样就不会是一直复合函数的形式了，它的导数也不是乘积的形式，这样就不会发生梯度消失的情况了。（具体论文：An Empirical Exploration of Recurrent Network Architectures 和 Empirical Evaluation of Gated Recurrent Neural Networks on Sequence Modeling）&lt;/p&gt;
 &lt;h2 id=&#34;gru&#34;&gt;GRU&lt;/h2&gt;
-&lt;p&gt;GRU全称Gated Recurrent Unit，循环门单元。和LSTM一样，他也只是个cell的种类，本质上是RNN，由 &lt;a class=&#34;link&#34; href=&#34;http://xpgreat.com/file/gru.pdf&#34; &gt;Cho, et al. (2014)&lt;/a&gt;提出。它将LSTM的遗忘门和输入门组合成了一个新的更新门，合并了cell state和hidden state，比LSTM更加简单（尽管稍微难理解一些）。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://xpgreat.com/media/v2-f2716bc289734d8b545926b38a224692_r.jpg&#34; alt=&#34;&#34;  /&gt;&lt;/p&gt;
+&lt;p&gt;GRU全称Gated Recurrent Unit，循环门单元。和LSTM一样，他也只是个cell的种类，本质上是RNN，由 &lt;a class=&#34;link&#34; href=&#34;https://xpgreat.com/file/gru.pdf&#34; &gt;Cho, et al. (2014)&lt;/a&gt;提出。它将LSTM的遗忘门和输入门组合成了一个新的更新门，合并了cell state和hidden state，比LSTM更加简单（尽管稍微难理解一些）。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://xpgreat.com/media/v2-f2716bc289734d8b545926b38a224692_r.jpg&#34; alt=&#34;&#34;  /&gt;&lt;/p&gt;
 &lt;p&gt;从左往右看，前两个门是reset gate和update gate，计算方法：&lt;/p&gt;
 &lt;p&gt;$$
 \begin{aligned}
@@ -1274,10 +1274,10 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>英文论文写作句型</title>
-        <link>http://xpgreat.com/p/eng_thesis_voc/</link>
+        <link>https://xpgreat.com/p/eng_thesis_voc/</link>
         <pubDate>Wed, 08 May 2019 22:13:27 +0200</pubDate>
         
-        <guid>http://xpgreat.com/p/eng_thesis_voc/</guid>
+        <guid>https://xpgreat.com/p/eng_thesis_voc/</guid>
         <description>&lt;p&gt;最近终于开始写毕业论文了，要求用英语，从网上搜集了一下英语论文的句型，整理后发布到博客，方便查阅。&lt;/p&gt;
 &lt;h2 id=&#34;链接&#34;&gt;链接&lt;/h2&gt;
 &lt;ol&gt;
@@ -1289,7 +1289,7 @@ $$&lt;/p&gt;
     &gt;如何开始写英文论文？ - 李忆非的回答 - 知乎&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.zhihu.com/question/23684933/answer/617397421&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;如何开始写英文论文？ - 肉山大猫王的回答 - 知乎&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;http://xpgreat.com/file/report_template_eng.pdf&#34; &gt;English Report Template&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://xpgreat.com/file/report_template_eng.pdf&#34; &gt;English Report Template&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;beginning&#34;&gt;Beginning&lt;/h2&gt;
 &lt;ol&gt;
@@ -1491,10 +1491,10 @@ Problem / Issue / Question&lt;/li&gt;
         </item>
         <item>
         <title>机器学习中的矩阵求导</title>
-        <link>http://xpgreat.com/p/linalg_in_ml/</link>
+        <link>https://xpgreat.com/p/linalg_in_ml/</link>
         <pubDate>Thu, 17 Jan 2019 21:47:14 +0100</pubDate>
         
-        <guid>http://xpgreat.com/p/linalg_in_ml/</guid>
+        <guid>https://xpgreat.com/p/linalg_in_ml/</guid>
         <description>&lt;p&gt;在学习机器学习的算法时，推导过程中往往会涉及矩阵或向量求导以及一些其他的线性代数的知识。比如在推导LDA算法的时候，就是把Fisher&amp;rsquo;s Criterion求导后置零得到的结果。另外在优化的时候经常会使用到梯度下降法，这与矩阵向量求导也是分不开的。&lt;/p&gt;
 &lt;h2 id=&#34;记号&#34;&gt;记号&lt;/h2&gt;
 &lt;p&gt;在这篇文章中，向量统一为列向量，用\(\mathbf x\)表示，矩阵用\(X\)大写字母表示，标量用\(x\)表示。求导使用\(\frac{\partial f(\mathbf x)}{\partial \mathbf x}\)表示。&lt;/p&gt;
@@ -1637,15 +1637,15 @@ $$&lt;/p&gt;
     &gt;Matrix Cookbook&lt;/a&gt;，很好的一本公式集，适合查阅。&lt;/li&gt;
 &lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://gwthomas.github.io/docs/math4ml.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Mathematics for Machine Learning&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;http://xpgreat.com/file/matrixvectorderivativesformachinelearning.pdf&#34; &gt;机器学习中的矩阵、向量求导&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://xpgreat.com/file/matrixvectorderivativesformachinelearning.pdf&#34; &gt;机器学习中的矩阵、向量求导&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description>
         </item>
         <item>
         <title>使用MathJax时的注意事项</title>
-        <link>http://xpgreat.com/p/mathjax_tips/</link>
+        <link>https://xpgreat.com/p/mathjax_tips/</link>
         <pubDate>Thu, 17 Jan 2019 17:28:35 +0100</pubDate>
         
-        <guid>http://xpgreat.com/p/mathjax_tips/</guid>
+        <guid>https://xpgreat.com/p/mathjax_tips/</guid>
         <description>&lt;p&gt;记录一些在使用MathJax写公式时踩过的坑，持续更新。本来放在另一篇里的，内容越来越多，单独成篇。&lt;/p&gt;
 &lt;h2 id=&#34;用-无法输入行内公式&#34;&gt;用$ $无法输入行内公式&lt;/h2&gt;
 &lt;p&gt;MathJax默认禁用了这种方式，你可以使用&lt;code&gt;\\( 你的公式 \\)&lt;/code&gt;的方法，也可以参考它的&lt;a class=&#34;link&#34; href=&#34;https://github.com/mathjax/MathJax/blob/master/config/default.js&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -1677,10 +1677,10 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>认知算法小结</title>
-        <link>http://xpgreat.com/p/ca_short_summary/</link>
+        <link>https://xpgreat.com/p/ca_short_summary/</link>
         <pubDate>Fri, 28 Dec 2018 20:57:51 +0100</pubDate>
         
-        <guid>http://xpgreat.com/p/ca_short_summary/</guid>
+        <guid>https://xpgreat.com/p/ca_short_summary/</guid>
         <description>&lt;p&gt;在认知算法课里学习了一些算法，比如NCC，感知算法，LDA等等，小结一下。&lt;/p&gt;
 &lt;h2 id=&#34;nearest-centroid-classifier&#34;&gt;Nearest Centroid Classifier&lt;/h2&gt;
 &lt;p&gt;NCC. 最简单的一个归类算法。输入多个\((\mathbf x, y)\)，其中\(\mathbf x\)表示特征，\(y\)表示所属类别，比如\( y \in \{ -1,1 \} \)。将每一类的\(\mathbf x\)取平均，得到一个向量，称为原型（Prototype）。预测一个新的\(\mathbf x\)是属于哪一类的时候，计算并比较它与每一类的原型的相似度（距离），归为最相似的那一类中。比如\(y = -1： (0, 1); y = 1: (1, 0)\)，输入\(\mathbf x = (0, 2)\)，计算它与\((0, 1)\)和\((1, 0)\)的距离并比较，容易得出离前者更近，所以归入\(y = -1\)组。&lt;/p&gt;
@@ -1758,10 +1758,10 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>利率期权</title>
-        <link>http://xpgreat.com/p/intrest_option/</link>
+        <link>https://xpgreat.com/p/intrest_option/</link>
         <pubDate>Tue, 25 Dec 2018 11:02:13 +0100</pubDate>
         
-        <guid>http://xpgreat.com/p/intrest_option/</guid>
+        <guid>https://xpgreat.com/p/intrest_option/</guid>
         <description>&lt;p&gt;利率期权(interest-rate option)是一项关于利率变化的权利。买方支付一定金额的期权费后，就可以获得这项权利：在到期日按预先约定的利率，按一定的期限借入或贷出一定金额的货币。这样当市场利率向不利方向变化时，买方可固定其利率水平；当市场利率向有利方向变化时，买方可获得利率变化的好处。利率期权的卖方向买方收取期权费，同时承担相应的责任。&lt;/p&gt;
 &lt;h2 id=&#34;put--call&#34;&gt;put &amp;amp; call&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;put&lt;/strong&gt;：约定在到期日买方有按预定利率贷出一定金额的货币的权利，如果到期日利率下跌，买方可以获得到期日利率和预定利率之间的差值作为获利；如果到期日利率上涨，高于预定利率，这时行权则不值得，不会行权。&lt;/p&gt;
@@ -1779,12 +1779,12 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>期权的风险指标</title>
-        <link>http://xpgreat.com/p/finance_greeks/</link>
+        <link>https://xpgreat.com/p/finance_greeks/</link>
         <pubDate>Mon, 24 Dec 2018 17:06:00 +0100</pubDate>
         
-        <guid>http://xpgreat.com/p/finance_greeks/</guid>
+        <guid>https://xpgreat.com/p/finance_greeks/</guid>
         <description>&lt;p&gt;期权的风险指标通常用希腊字母来表示，包括：Delta值(\(\Delta\))、Gamma值(\(\Gamma\))、Omega值(\(\Omega\))、Theta值(\(\theta\))、Vega值、Rho(\(\rho\))值等。&lt;/p&gt;
-&lt;p&gt;结合&lt;a class=&#34;link&#34; href=&#34;http://xpgreat.com/post/bs_model/&#34; &gt;布莱克-舒尔斯期权定价模型&lt;/a&gt;的公式来看：&lt;/p&gt;
+&lt;p&gt;结合&lt;a class=&#34;link&#34; href=&#34;https://xpgreat.com/post/bs_model/&#34; &gt;布莱克-舒尔斯期权定价模型&lt;/a&gt;的公式来看：&lt;/p&gt;
 &lt;p&gt;$$
 c=SN(d_1)-Xe^{-r(T-t)}N(d_2)
 $$&lt;/p&gt;
@@ -1883,10 +1883,10 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>Linux下压缩命令</title>
-        <link>http://xpgreat.com/p/linux_compress/</link>
+        <link>https://xpgreat.com/p/linux_compress/</link>
         <pubDate>Sun, 16 Dec 2018 13:30:23 +0100</pubDate>
         
-        <guid>http://xpgreat.com/p/linux_compress/</guid>
+        <guid>https://xpgreat.com/p/linux_compress/</guid>
         <description>&lt;p&gt;Linux下压缩解压缩命令的归纳。&lt;/p&gt;
 &lt;h4 id=&#34;tar&#34;&gt;.tar&lt;/h4&gt;
 &lt;p&gt;解包：&lt;code&gt;tar xvf FileName.tar&lt;/code&gt;&lt;/p&gt;
@@ -1939,10 +1939,10 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>布莱克-舒尔斯期权定价模型</title>
-        <link>http://xpgreat.com/p/bs_model/</link>
+        <link>https://xpgreat.com/p/bs_model/</link>
         <pubDate>Tue, 11 Dec 2018 22:05:54 +0100</pubDate>
         
-        <guid>http://xpgreat.com/p/bs_model/</guid>
+        <guid>https://xpgreat.com/p/bs_model/</guid>
         <description>&lt;p&gt;在Risikomanagement课上讲到了布莱克-舒尔斯期权定价模型（Black-Scholes Option Pricing Model），但只是给出了公式，没有推导。在网上查找之后终于大致弄懂，把推导过程尽可能的详细的写一写。&lt;/p&gt;
 &lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;
 &lt;p&gt;布莱克-舒尔斯模型（英语：Black-Scholes Model），简称BS模型，又称布莱克-舒尔斯-墨顿模型（Black–Scholes–Merton model），是一种为期权或权证等金融衍生工具定价的数学模型，由美国经济学家迈伦·舒尔斯与费雪·布莱克首先提出，并由罗伯特·C·墨顿修改模型于有派发股利时亦可使用而更完善。由此模型可以推导出布莱克-舒尔斯公式，并由此公式估算出欧式期权的理论价格。此公式问世后带来了期权市场的繁荣。该公式被广泛使用，虽然在很多情况下被使用者进行一定的改动和修正。很多经验测试表明这个公式足够贴近市场价格，然而也有会出现差异的时候，如著名的“波动率的微笑”。&lt;/p&gt;
@@ -2117,7 +2117,7 @@ d_2 = \frac{\ln \frac{S}{X} + (r-\frac{\sigma^2}{2})(T-t)}{\sigma \sqrt{T-t}}
 $$&lt;/p&gt;
 &lt;p&gt;\(N(x)\)是标准正态分布变量的累计概率分布函数。&lt;/p&gt;
 &lt;p&gt;这就是无收益资产欧式看涨期权的定价公式。&lt;/p&gt;
-&lt;p&gt;由&lt;a class=&#34;link&#34; href=&#34;http://xpgreat.com/post/put_call_parity/&#34; &gt;售出-购进平价理论&lt;/a&gt;可以进一步导出欧式看跌期权的定价公式：&lt;/p&gt;
+&lt;p&gt;由&lt;a class=&#34;link&#34; href=&#34;https://xpgreat.com/post/put_call_parity/&#34; &gt;售出-购进平价理论&lt;/a&gt;可以进一步导出欧式看跌期权的定价公式：&lt;/p&gt;
 &lt;p&gt;$$
 p=-SN(-d_1)+Xe^{-r(T-t)}N(-d_2)
 $$&lt;/p&gt;
@@ -2129,10 +2129,10 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>售出-购进平价理论</title>
-        <link>http://xpgreat.com/p/put_call_parity/</link>
+        <link>https://xpgreat.com/p/put_call_parity/</link>
         <pubDate>Fri, 07 Dec 2018 21:48:39 +0100</pubDate>
         
-        <guid>http://xpgreat.com/p/put_call_parity/</guid>
+        <guid>https://xpgreat.com/p/put_call_parity/</guid>
         <description>&lt;p&gt;售出-购进平价理论（Put-Call Parity）指在无套利原则下（Non-Arbitrage），欧式看涨期权（Call Option）和欧式看跌期权（Put Option）定价之间存在的基本关系。&lt;/p&gt;
 &lt;h2 id=&#34;看涨看跌期权&#34;&gt;看涨/看跌期权&lt;/h2&gt;
 &lt;p&gt;看涨期权，Call Option，也被称为买进期权，买方期权，买权，延买期权或“敲进”（Knock In），是指期权的购买者拥有在期权合约规定有效期内按照&lt;strong&gt;执行价格&lt;/strong&gt;&lt;em&gt;购买&lt;/em&gt; 一定数量的&lt;strong&gt;标的物&lt;/strong&gt;的权利。&lt;/p&gt;
@@ -2181,10 +2181,10 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>在Hugo博客中加入代码高亮</title>
-        <link>http://xpgreat.com/p/hugo_add_highlight/</link>
+        <link>https://xpgreat.com/p/hugo_add_highlight/</link>
         <pubDate>Wed, 05 Dec 2018 19:31:24 +0100</pubDate>
         
-        <guid>http://xpgreat.com/p/hugo_add_highlight/</guid>
+        <guid>https://xpgreat.com/p/hugo_add_highlight/</guid>
         <description>&lt;p&gt;相信自己搭建博客的人中有一大半都是玩代码的，所以代码高亮可以说是博客的必备功能。本文提供一个在基于Hugo的博客上使用&lt;code&gt;highlight.js&lt;/code&gt;的代码高亮方案。&lt;/p&gt;
 &lt;h2 id=&#34;实施步骤&#34;&gt;实施步骤&lt;/h2&gt;
 &lt;ol&gt;
@@ -2234,10 +2234,10 @@ int hash(char * str, int length) { // hash function
         </item>
         <item>
         <title>Markdown里图片并列显示</title>
-        <link>http://xpgreat.com/p/md_display_img_parallel/</link>
+        <link>https://xpgreat.com/p/md_display_img_parallel/</link>
         <pubDate>Wed, 05 Dec 2018 17:42:53 +0100</pubDate>
         
-        <guid>http://xpgreat.com/p/md_display_img_parallel/</guid>
+        <guid>https://xpgreat.com/p/md_display_img_parallel/</guid>
         <description>&lt;p&gt;在编辑博文的时候，有时会想把两张图片并列在一起显示，参考了网上内容，分享一下。&lt;/p&gt;
 &lt;p&gt;首先记住一点，在markdown里是可以直接写html代码的。这个前提下很自然的有下面的方法：&lt;/p&gt;
 &lt;h2 id=&#34;调整图片宽度高度&#34;&gt;调整图片宽度/高度：&lt;/h2&gt;
@@ -2266,10 +2266,10 @@ int hash(char * str, int length) { // hash function
         </item>
         <item>
         <title>Hugo和WordPress比较</title>
-        <link>http://xpgreat.com/p/hugo_wp/</link>
+        <link>https://xpgreat.com/p/hugo_wp/</link>
         <pubDate>Wed, 05 Dec 2018 17:38:52 +0100</pubDate>
         
-        <guid>http://xpgreat.com/p/hugo_wp/</guid>
+        <guid>https://xpgreat.com/p/hugo_wp/</guid>
         <description>&lt;p&gt;对比以前搭建WordPress博客的经历，Hugo有这样的一些不同：&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;ul&gt;
@@ -2297,10 +2297,10 @@ int hash(char * str, int length) { // hash function
         </item>
         <item>
         <title>使用Hugo的一些注意事项</title>
-        <link>http://xpgreat.com/p/tips_hugo/</link>
+        <link>https://xpgreat.com/p/tips_hugo/</link>
         <pubDate>Wed, 05 Dec 2018 16:32:54 +0100</pubDate>
         
-        <guid>http://xpgreat.com/p/tips_hugo/</guid>
+        <guid>https://xpgreat.com/p/tips_hugo/</guid>
         <description>&lt;p&gt;一些在使用Hugo时发现的小技巧或问题及解决方法，会持续更新。&lt;/p&gt;
 &lt;h2 id=&#34;如何插入本地图片&#34;&gt;如何插入本地图片？&lt;/h2&gt;
 &lt;p&gt;一直不知道怎样插入本地图片，查找后得知，在&lt;code&gt;site&lt;/code&gt;目录下的&lt;code&gt;static&lt;/code&gt;目录就是存放静态文件的地方，可以在下面创建一个&lt;code&gt;media&lt;/code&gt;目录，用于保存图片等媒体文件，引用的话，使用&lt;code&gt;/media/123.png&lt;/code&gt;即可。&lt;/p&gt;
@@ -2336,10 +2336,10 @@ int hash(char * str, int length) { // hash function
         </item>
         <item>
         <title>博客第一步</title>
-        <link>http://xpgreat.com/p/blog_building/</link>
+        <link>https://xpgreat.com/p/blog_building/</link>
         <pubDate>Mon, 03 Dec 2018 19:58:50 +0100</pubDate>
         
-        <guid>http://xpgreat.com/p/blog_building/</guid>
+        <guid>https://xpgreat.com/p/blog_building/</guid>
         <description>&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://gohugo.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Hugo&lt;/a&gt;是一个用Go编写的静态站点生成器，由于具有丰富的主题资源和惊人的生成速度而备受青睐。博文采用&lt;code&gt;Markdown&lt;/code&gt;这一轻量的标记语言编写，速度快，美观。本博客即是基于Hugo搭建，下面讲述一下我的建站历程。&lt;/p&gt;
 &lt;h2 id=&#34;安装hugo&#34;&gt;安装Hugo&lt;/h2&gt;

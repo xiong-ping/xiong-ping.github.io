@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>数据库 on XP&#39;s Blog</title>
-    <link>http://xpgreat.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
+    <link>https://xpgreat.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
     <description>Recent content in 数据库 on XP&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 29 Mar 2021 10:39:10 +0200</lastBuildDate><atom:link href="http://xpgreat.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 29 Mar 2021 10:39:10 +0200</lastBuildDate><atom:link href="https://xpgreat.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>搭建真分布式Hadoop集群指南</title>
-      <link>http://xpgreat.com/p/hadoop_aws/</link>
+      <link>https://xpgreat.com/p/hadoop_aws/</link>
       <pubDate>Mon, 29 Mar 2021 10:39:10 +0200</pubDate>
       
-      <guid>http://xpgreat.com/p/hadoop_aws/</guid>
+      <guid>https://xpgreat.com/p/hadoop_aws/</guid>
       <description>&lt;p&gt;搭建一个Hadoop环境是学习大数据技术的第一步，这个环境可以是单机的，也可以是伪集群的，但最贴近实际生产环境的还是真集群的版本。本文提供一个基于AWS搭建Hadoop的简要指南，基于AWS EC2 Ubuntu 20。如果你也用的是AWS的免费套餐，几个注意的地方：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;小心流量使用情况，免费的仅包括了15G，请设置使用提醒。&lt;/li&gt;
@@ -24,10 +24,10 @@
     
     <item>
       <title>Hive窗口函数总结</title>
-      <link>http://xpgreat.com/p/hive_windowfunc/</link>
+      <link>https://xpgreat.com/p/hive_windowfunc/</link>
       <pubDate>Thu, 29 Oct 2020 11:01:26 +0800</pubDate>
       
-      <guid>http://xpgreat.com/p/hive_windowfunc/</guid>
+      <guid>https://xpgreat.com/p/hive_windowfunc/</guid>
       <description>&lt;p&gt;窗口函数是对Hive的一项增强，用来更方便地分析离线数据。窗口函数的使用场景非常之多，包括去重、排名、分组求和等等。本文希望尽可能全面的归纳窗口函数的用法，以便日后的查阅。&lt;/p&gt;</description>
     </item>
     
