@@ -19,7 +19,7 @@
 
     </head>
     <body class="
-    article-page 
+    article-page has-toc
 ">
     <script>
         (function() {
@@ -45,160 +45,22 @@
 </script>
 <div class="container main-container flex 
     
-        on-phone--column extended
+        extended
     
 ">
     
-        <aside class="sidebar left-sidebar sticky">
-    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
-        <span class="hamburger-box">
-            <span class="hamburger-inner"></span>
-        </span>
-    </button>
-
-    <header class="site-info">
-        
-            
-            <figure class="site-avatar">
-                
-                    
-                    
-                    
-                        
-                        <img src="/img/head_hu7a5a8ce21e62abecbc7926aff8bd098a_4354_300x0_resize_q75_box.jpg" width="300"
-                            height="300" class="site-logo" loading="lazy" alt="Avatar">
-                    
-                
-
-                
-            </figure>
-            
-        
-        <h1 class="site-name"><a href="https://blog.xpgreat.com">XP&#39;s Blog</a></h1>
-        <h2 class="site-description">积跬步 以至千里</h2>
-    </header>
-
-    <ol class="menu" id="main-menu">
-        
-        
-        
-
-        <li >
-            <a href='/' >
-                
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <div id="article-toolbar">
+            <a href="https://blog.xpgreat.com" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
-  <polyline points="5 12 3 12 12 3 21 12 19 12" />
-  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
-  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+  <polyline points="15 6 9 12 15 18" />
 </svg>
 
 
 
-                
-                <span>Home</span>
+                <span>Back</span>
             </a>
-        </li>
-        
-        
-
-        <li >
-            <a href='/about' >
-                
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="12" cy="7" r="4" />
-  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-</svg>
-
-
-
-                
-                <span>About</span>
-            </a>
-        </li>
-        
-        
-
-        <li >
-            <a href='/search' >
-                
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="10" cy="10" r="7" />
-  <line x1="21" y1="21" x2="15" y2="15" />
-</svg>
-
-
-
-                
-                <span>Search</span>
-            </a>
-        </li>
-        
-        
-
-        <li >
-            <a href='/archives' >
-                
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <rect x="3" y="4" width="18" height="4" rx="2" />
-  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
-  <line x1="10" y1="12" x2="14" y2="12" />
-</svg>
-
-
-
-                
-                <span>Archives</span>
-            </a>
-        </li>
-        
-        
-
-        <li >
-            <a href='https://util.xpgreat.com' >
-                
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-click" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-  <line x1="3" y1="12" x2="6" y2="12" />
-  <line x1="12" y1="3" x2="12" y2="6" />
-  <line x1="7.8" y1="7.8" x2="5.6" y2="5.6" />
-  <line x1="16.2" y1="7.8" x2="18.4" y2="5.6" />
-  <line x1="7.8" y1="16.2" x2="5.6" y2="18.4" />
-  <path d="M12 12l9 3l-4 2l-2 4l-3 -9" />
-</svg>
-                
-                <span>Utils</span>
-            </a>
-        </li>
-        
-
-        
-            <li id="dark-mode-toggle">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="8" cy="12" r="2" />
-  <rect x="2" y="6" width="20" height="12" rx="6" />
-</svg>
-
-
-
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="16" cy="12" r="2" />
-  <rect x="2" y="6" width="20" height="12" rx="6" />
-</svg>
-
-
-
-                <span>Dark Mode</span>
-            </li>
-        
-    </ol>
-</aside>
-
+        </div>
     
 <main class="main full-width">
     <article class="main-article">
@@ -261,7 +123,7 @@
     <section class="article-content">
     <p>机器学习的可解释性一直以来都是一个大问题，模型中的海量权重和连接关系让机器学习一直被视为黑盒模型。为了解决这个问题，Explainable AI （XAI）是一个前沿的研究方向。关于可解释性的研究，推荐这篇<a class="link" href="https://ieeexplore.ieee.org/document/9369420"  target="_blank" rel="noopener"
     >综述</a>。本文简要介绍解释深度神经网络（DNN）的算法LRP（Layerwise Relevance Propagation）。</p>
-<h1 id="深度泰勒分解deep-taylor-decomposition">深度泰勒分解（Deep Taylor Decomposition）</h1>
+<h2 id="深度泰勒分解deep-taylor-decomposition">深度泰勒分解（Deep Taylor Decomposition）</h2>
 <p>在介绍LRP之前，首先需要简单了解一下<a class="link" href="https://www.sciencedirect.com/science/article/pii/S0031320316303582"  target="_blank" rel="noopener"
     >深度泰勒分解</a>的思想方法。只要学过高数的都知道一种近似计算函数值的方法，即泰勒公式：</p>
 <p>$$
@@ -285,7 +147,7 @@ $$</p>
 	
 </figure></p>
 <p>所以想要解释模型的预测结果，需要结合模型的属性和输入的数据，在DTD中是将模型梯度和输入数据相乘，而在LRP中是通过模型的权重（也就是各层的梯度）和模型中间结果来计算加权平均，从最后一层传导到输入层，得到模型的解释。</p>
-<h1 id="lrp">LRP</h1>
+<h2 id="lrp">LRP</h2>
 <p>LRP包括两步，第一步是传统的使用神经网络向后传播计算预测值，在这个过程中保存下所有的中间值；第二步是把神经网络反过来，从后向前依层计算各层的Relevance score，最终传导到最初的输入层，而输入层对应的Relevance score则可以被用来解释模型的预测结果，可以用来绘制heat map、高亮文本等等。LRP的算法过程可以表示如下：</p>
 <p><figure 
 	>
@@ -600,6 +462,33 @@ $$</p>
             >
 
             </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">Table of contents</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ol>
+    <li><a href="#深度泰勒分解deep-taylor-decomposition">深度泰勒分解（Deep Taylor Decomposition）</a></li>
+    <li><a href="#lrp">LRP</a></li>
+  </ol>
+</nav>
+                </div>
+            </section>
+        </aside>
     
 
         </div>
