@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>云计算 on XP&#39;s Blog</title>
-    <link>https://xpgreat.com/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/</link>
+    <link>https://www.xpgreat.com/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/</link>
     <description>Recent content in 云计算 on XP&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 29 Mar 2021 10:39:10 +0200</lastBuildDate><atom:link href="https://xpgreat.com/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 29 Mar 2021 10:39:10 +0200</lastBuildDate><atom:link href="https://www.xpgreat.com/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>搭建真分布式Hadoop集群指南</title>
-      <link>https://xpgreat.com/p/hadoop_aws/</link>
+      <link>https://www.xpgreat.com/p/hadoop_aws/</link>
       <pubDate>Mon, 29 Mar 2021 10:39:10 +0200</pubDate>
       
-      <guid>https://xpgreat.com/p/hadoop_aws/</guid>
+      <guid>https://www.xpgreat.com/p/hadoop_aws/</guid>
       <description>&lt;p&gt;搭建一个Hadoop环境是学习大数据技术的第一步，这个环境可以是单机的，也可以是伪集群的，但最贴近实际生产环境的还是真集群的版本。本文提供一个基于AWS搭建Hadoop的简要指南，基于AWS EC2 Ubuntu 20。如果你也用的是AWS的免费套餐，几个注意的地方：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;小心流量使用情况，免费的仅包括了15G，请设置使用提醒。&lt;/li&gt;

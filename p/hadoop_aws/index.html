@@ -4,12 +4,12 @@
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='搭建一个Hadoop环境是学习大数据技术的第一步，这个环境可以是单机的，也可以是伪集群的，但最贴近实际生产环境的还是真集群的版本。本文提供一个基于AWS搭建Hadoop的简要指南，基于AWS EC2 Ubuntu 20。如果你也用的是AWS的免费套餐，几个注意的地方：
  小心流量使用情况，免费的仅包括了15G，请设置使用提醒。 选择机器配置的时候注意选择免费套餐内的，否则也会扣费。 免费套餐包括EC2每个月750h/台的使用时间，开多台实例的话注意不要超时，可以随用随开，不用就关。 关闭后再启动公有IP会变，注意配置问题。 '><title>搭建真分布式Hadoop集群指南</title>
 
-<link rel='canonical' href='https://xpgreat.com/p/hadoop_aws/'>
+<link rel='canonical' href='https://www.xpgreat.com/p/hadoop_aws/'>
 
 <link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='搭建真分布式Hadoop集群指南'>
 <meta property='og:description' content='搭建一个Hadoop环境是学习大数据技术的第一步，这个环境可以是单机的，也可以是伪集群的，但最贴近实际生产环境的还是真集群的版本。本文提供一个基于AWS搭建Hadoop的简要指南，基于AWS EC2 Ubuntu 20。如果你也用的是AWS的免费套餐，几个注意的地方：
  小心流量使用情况，免费的仅包括了15G，请设置使用提醒。 选择机器配置的时候注意选择免费套餐内的，否则也会扣费。 免费套餐包括EC2每个月750h/台的使用时间，开多台实例的话注意不要超时，可以随用随开，不用就关。 关闭后再启动公有IP会变，注意配置问题。 '>
-<meta property='og:url' content='https://xpgreat.com/p/hadoop_aws/'>
+<meta property='og:url' content='https://www.xpgreat.com/p/hadoop_aws/'>
 <meta property='og:site_name' content='XP&#39;s Blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Hadoop' /><meta property='article:tag' content='AWS' /><meta property='article:tag' content='大数据' /><meta property='article:tag' content='云计算' /><meta property='article:tag' content='数据库' /><meta property='article:published_time' content='2021-03-29T10:39:10&#43;02:00'/><meta property='article:modified_time' content='2021-03-29T10:39:10&#43;02:00'/>
 <meta name="twitter:title" content="搭建真分布式Hadoop集群指南">
@@ -50,7 +50,7 @@
 ">
     
         <div id="article-toolbar">
-            <a href="https://xpgreat.com" class="back-home">
+            <a href="https://www.xpgreat.com" class="back-home">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <polyline points="15 6 9 12 15 18" />

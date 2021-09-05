@@ -2,27 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>投资 on XP&#39;s Blog</title>
-    <link>https://xpgreat.com/tags/%E6%8A%95%E8%B5%84/</link>
+    <link>https://www.xpgreat.com/tags/%E6%8A%95%E8%B5%84/</link>
     <description>Recent content in 投资 on XP&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 12 Apr 2021 17:48:40 +0200</lastBuildDate><atom:link href="https://xpgreat.com/tags/%E6%8A%95%E8%B5%84/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 12 Apr 2021 17:48:40 +0200</lastBuildDate><atom:link href="https://www.xpgreat.com/tags/%E6%8A%95%E8%B5%84/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[论文解读]买方/卖方分析师对基金经理决策的影响</title>
-      <link>https://xpgreat.com/p/ssa_bsa/</link>
+      <link>https://www.xpgreat.com/p/ssa_bsa/</link>
       <pubDate>Mon, 12 Apr 2021 17:48:40 +0200</pubDate>
       
-      <guid>https://xpgreat.com/p/ssa_bsa/</guid>
+      <guid>https://www.xpgreat.com/p/ssa_bsa/</guid>
       <description>&lt;p&gt;在基金经理决策时，他所依赖的信息源主要是分析师，分析师分为三种：卖方分析师（Sell-side Analyst, SSA）、买方分析师（Buy-side Analyst, BSA）和独立第三方分析师（Independent Third-party Analyst, ITA）。基金经理如何权衡这三个来源的信息，决策时使用的权重有什么影响，分析师本身的一些特征（例如经验、偏差、准确度）会对决策结果带来什么影响？Yingmei Cheng et al. 在2006年发表的名为“
 Buy-Side Analysts, Sell-Side Analysts, and Investment Decisions of Money Manager”的论文对此作了详细的理论和实证分析。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>投资对象的资本结构无关性</title>
-      <link>https://xpgreat.com/p/irrelevance_invest/</link>
+      <link>https://www.xpgreat.com/p/irrelevance_invest/</link>
       <pubDate>Sat, 08 Jun 2019 11:23:53 +0200</pubDate>
       
-      <guid>https://xpgreat.com/p/irrelevance_invest/</guid>
+      <guid>https://www.xpgreat.com/p/irrelevance_invest/</guid>
       <description>&lt;p&gt;本文介绍了公司的杠杆效应（Leverage Effect）和Modigliani-Miller定理，以阐述投资对象的资本结构与价值的无关性。&lt;/p&gt;</description>
     </item>
     
