@@ -115,7 +115,7 @@
 
 
                 <time class="article-time--reading">
-                    1 minute read
+                    3 minute read
                 </time>
             </div>
         
@@ -127,7 +127,124 @@
     <section class="article-content">
     <p>MCMC（Markov-Chain Monte-Carlo）算法用于生成给定分布的样本。在很多时候，我们想计算一个复杂分布的函数期望值，但用解析的，求解积分的方法，是极其困难的，对于有些分布甚至是不可能的。所以我们使用一些采样方法，例如Gibbs sampling，Metropolis-Hasting算法。本文介绍Hamiltonian Monte-Carlo算法。</p>
 <h2 id="目标和问题">目标和问题</h2>
-<p>给定一个分布\(\pi(x)\)，计算期望：\(\mathbb E_\pi[f]=\int f(q)\pi(q)dq\)，而直接计算积分是不可行的。因此我们计算期望的一个近似：\(\mathbb E_\pi[f] \approx \frac{1}{N}\sum_i f(x_i)\)</p>
+<p>给定一个分布\(\pi(x)\)，计算期望：\(\mathbb E_\pi[f]=\int f(q)\pi(q)dq\)，而直接计算积分是不可行的。因此我们计算期望的一个近似：\(\mathbb E_\pi[f] \approx \frac{1}{N}\sum_i f(x_i)\)，使得\(P(x_i) = \pi(x_i)\)。</p>
+<h2 id="问题">问题</h2>
+<p>从上面的式子可以看出，\(f(q)\)对应的\(\pi(q)dq\)越大，它对最终结果的贡献也越大。所以，如果我们可以从高\(\pi(q)dq\)区域采样，效率会更高。这个区域也被称为<strong>typical set</strong>。</p>
+<p><figure 
+	>
+	<a href="/media/hmc_1.png" >
+		<img src="/media/hmc_1.png"
+			
+			
+			
+			loading="lazy"
+			alt="As q moves farer to mode, the dq rises rapidly, probability decreases. ">
+	</a>
+	
+	<figcaption>As q moves farer to mode, the dq rises rapidly, probability decreases.</figcaption>
+	
+</figure></p>
+<p>\(q\)运动到距离mode越远的地方，\(dq\)急剧上升，同时概率下降。</p>
+<p>但是，当\(q\)是高维数据，\(dq\)的体积（volume）变得相对越来越小，我们采样也不容易落到这个typical set里。在绝大多数的时候，我们随机采样的\(q\)落到\(\pi(q)dq\)非常小的地方，这让我们计算期望十分低效。</p>
+<p><figure 
+	>
+	<a href="/media/hmc_2.png" >
+		<img src="/media/hmc_2.png"
+			
+			
+			
+			loading="lazy"
+			alt="HMC%20feb2b437ff5644c898eb089ffd8f36cc/Untitled%201.png">
+	</a>
+	
+	<figcaption>HMC%20feb2b437ff5644c898eb089ffd8f36cc/Untitled%201.png</figcaption>
+	
+</figure></p>
+<h2 id="metropolis-hasting">Metropolis-Hasting</h2>
+<p>我们可以利用Markov-chain-Monte-Carlo模型来采样。假设我们有一个转移矩阵\(\mathbb T(q'|q)\)，它定义了从\(q\)转移到\(q'\)的概率密度。所有的MCMC转移必须满足**细致平衡（detailed balanced）**条件，即从\(q\)转移到\(q'\)必须是可逆的：$\pi(q)\mathbb T(q'|q) = \pi(q')\mathbb T(q|q')$。然而直接找到一个合适的\(\mathbb T\)十分困难，所以我们利用一个acceptance coefficient \(a(q'|q)=\min{1, \frac{\pi(q')\mathbb Q(q|q')}{\pi(q)\mathbb Q(q'|q)}}\)，\(\mathbb T=a\mathbb Q\)，这样细致平衡条件就达到了：</p>
+<p>$$
+\pi(q)\mathbb Q(q'|q) a(q'|q) = \min{\pi(q)\mathbb Q(q'|q), \pi(q')\mathbb Q(q|q')}=\pi(q')\mathbb Q(q|q') a(q|q')
+$$</p>
+<p>如果 \(\mathbb Q(q'|q) = \mathcal N(q'|q,\mathbf \Sigma)\)，这个算法被称为 <strong>Random-Walk Metropolis</strong>。实践中如果我们可以采样 \(x\sim \mathcal N(0,1)\)并用 \(q' = \mathbf \Sigma ^{0.5} x + q\) 来转化。因为 \(\mathbb Q(q'|q)=\mathbb Q(q|q')\)，acceptance coefficient 变成了 \(a(q'|q)=\min{1, \frac{\pi(q')}{\pi(q)}}\)。代码如下</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">qprime</span> <span class="o">=</span> <span class="n">q</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sigma</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">q</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">()</span> <span class="o">&lt;</span> <span class="nb">min</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">dist</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">qprime</span><span class="p">)</span><span class="o">/</span><span class="n">dist</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">q</span><span class="p">)):</span>
+	<span class="n">q</span> <span class="o">=</span> <span class="n">qprime</span>
+</code></pre></div><p>上面的方法还是没有解决高维稀疏的问题。高维\(q\) 会导致acceptance coefficient太低（\(\pi(q')\) is too small）以至于上面的proposal几乎不会被接受。为了解决这个问题，可以考虑使用概率的梯度来更加靠近高\(\pi\)的区域，即typical set。</p>
+<h2 id="mala-metropolis-adjusted-langevin-algorithm">MALA (Metropolis-adjusted Langevin Algorithm)</h2>
+<p>MALA 用到了概率方程的梯度和一个随机噪音来更快地逼近typical set。考虑over-damped Langevin Itō diffusion:</p>
+<p>$$
+\frac{\partial X}{\partial t} = \nabla \log \pi(X) + \sqrt{2} \frac{\partial W}{\partial t}
+$$</p>
+<p>\(W\)是一个标准布朗运动。为了近似Langevin diffusion采样路径，我们可以使用Euler-Maruyama方法，固定时间步\(\tau\)，我们可以更新\(X\)：</p>
+<p>$$
+X_{k+1}:= X_k + \tau \nabla \log\pi(X_k) +\sqrt{2\tau} \xi_k
+$$</p>
+<p>\(\xi_k\sim \mathcal N(0,I)\)。 这个方法可以被用做proposal方法，acceptance coefficient为:</p>
+<p>$$
+a = \min {1, \frac{\pi(X_{k+1})q(X_k|X_{k+1})}{\pi(X_{k})q(X_{k+1}|X_k)}}
+$$</p>
+<p>\(q(x'|x)\propto \exp(-\frac{1}{4\tau}||x'-x - \tau\nabla \log\pi(x)||^2_2)\), \(x'|x \sim \mathcal N(x+\tau\nabla\log\pi(x),2\tau)\), 可以从更新等式推导得到.</p>
+<h2 id="hamiltonian-mc">Hamiltonian MC</h2>
+<p>更进一步的，我们可以将 Hamiltonian Dynamic 用到 MC 算法上。 Hamiltonian等式：</p>
+<p>$$
+\frac {\partial q}{\partial t} = \frac {\partial H}{\partial p}\<br>
+\frac {\partial p}{\partial t} = -\frac {\partial H}{\partial q}\<br>
+$$</p>
+<p>\(H=-\log\pi(q,p)=-\log\pi(p|q)-\log\pi(q) =: K(p,q)+V(q)\)被称为能量，\(p\) 是一个辅助动量，\(K,V\)分别是动能和势能。Hamiltonian equation给出一个向量场，类似于地球的引力场。运动一段时间后，\(q\)到达\(q'\)，其轨迹是\(\phi_t(q,p)\)。在这个轨迹上，总能量不变，类似卫星绕地飞行。</p>
+<p><figure 
+	>
+	<a href="/media/hmc_3.png" >
+		<img src="/media/hmc_3.png"
+			
+			
+			
+			loading="lazy"
+			alt="HMC%20feb2b437ff5644c898eb089ffd8f36cc/Untitled%202.png">
+	</a>
+	
+	<figcaption>HMC%20feb2b437ff5644c898eb089ffd8f36cc/Untitled%202.png</figcaption>
+	
+</figure></p>
+<p>现在我们需要设计\(p\) 和 \(\pi(p|q)\)。一个最简单的方法是令 \(p|q\sim\mathcal N(0,1)\)。另外，有两个主流的设计\(p\)的方法：Euclidean-Gaussian Kinetic Energies, \(p|q\sim\mathcal N(0,M)\) and \(M\) is defined as Euclidean metric, or mass in physic, thus \(K(p,q) = 0.5p^TMp+\log(|M|) + const.\)；Riemannian-Gaussian Kinetic Energies, where \(p|q\sim\mathcal N(0,\Sigma(q))\), thus \(K(p,q) = 0.5p^T\Sigma^{-1}(q)p+\log(|\Sigma(q)|) + const.\)。此外还有non-Gaussian kinetic energies，它们的长尾特性可能可以提高模型效果，但是实践上效果往往很差。</p>
+<p>另一个重要的变量是\(t\)。Basically for distribution family of target densities \(\pi_\beta(q)\propto\exp(-|q|^\beta)\), the optimal time is \(T_{optimal}(q,p)\propto (H(q,p))^\frac{2-\beta}{\beta}\), but it should be tuned dynamically in practice.</p>
+<p>我们可以先用\(p\sim\pi(p|q)\)采样，然后对Hamilton&rsquo;s equations积分一段时间来得到轨迹\((q,p)\rightarrow\phi_t(q,p)\)，然后投影消除掉\(p\)得到\(q'\)。但是直接对微分方程积分很困难，实践上，我们可以用symplectic integrator来近似，比如 leapfrog algorithm：</p>
+<ol>
+<li>Initialize \(q_0, p_0\).</li>
+<li>for \(0\le n&lt;  T/\epsilon\):
+<ol>
+<li>\(p_{n+\frac{1}{2}} = p_n + \frac{\epsilon}{2}\frac{\partial p}{\partial t}\)</li>
+<li>\(q_{n+q} = q_n + \epsilon\frac{\partial q}{\partial t}\)</li>
+<li>\(p_{n+1} = p_n + \frac{\epsilon}{2}\frac{\partial p_{n+\frac{1}{2}}}{\partial t}\)</li>
+</ol>
+</li>
+</ol>
+<p>注意\(\frac{\partial p}{\partial t}\) and \(\frac{\partial q}{\partial t}\) 需要替换为 Hamiltonian equations。我们还可以对Integrator调参来得到更好的结果。</p>
+<p>积分后，我们得到一个新的\(q\) 作为proposal，acceptance coefficient为:</p>
+<p>$$
+a(q',p'|q,p) = \min{1,\frac{\pi(q',p')\mathbb Q(q,p|q',p')}{\pi(q,p)\mathbb Q(q',p'|q,p)}}
+$$</p>
+<p>\(\mathbb Q(q,p|q_0,p_0)=\delta(q-q_L)\delta(p-p_L)\), \(q_L\) and \(p_L\) are the end point of the trajectory \((q_0,p_0)\rightarrow(q_L,p_L)\). 给定初始状态\((q_0,p_0)\)，这个变换总是可以沿着Hamiltonian equations积分给出轨迹的终点。In the notation above we write \((p',q')\) instead of \((p_L,q_L)\) and \((p,q)\) instead of \((p_0,q_0)\), so it&rsquo;s obvious that \(\mathbb Q(q',p'|q,p) = \delta(q'-q')\delta(p'-p') = 1\). However, if we inverse it, starting with \((q_L,p_L)\), it won&rsquo;t go back to \((q_0,p_0)\) (definition of momentum), but go to \((q_{2L},p_{2L})\). So \(\mathbb Q(q,p|q',p') = \delta(q-q_{2L})\delta(p-p_{2L}) = 0\) and \(a = 0\), i.e. always reject the proposal. To fix this, we can flip the sign of momentum after we finish integrating: \((q_0,p_0)\rightarrow(q_L,-p_L)\), then inverse: \((q_L,-p_L)\rightarrow(q_0,-(-p_0))\). We also change the definition of \(\mathbb Q\):</p>
+<p>$$
+\mathbb Q(q,p|q_0,p_0)=\delta(q-q_L)\delta(p+p_L)
+$$</p>
+<p>then we have (note the changes of notation)</p>
+<p>$$
+\mathbb Q(q',-p'|q,p) = \delta(q'-q')\delta(-p'+p') = 1 \
+\mathbb Q(q,p|q',-p') = \delta(q-q)\delta(p+(-p)) = 1
+$$</p>
+<p>So we can simplify the acceptance coefficient:</p>
+<p>$$
+a(q',-p'|q,p) = \min{1,\frac{\pi(q',-p')\mathbb Q(q,p|q',-p')}{\pi(q,p)\mathbb Q(q',-p'|q,p)}} = \min{1,\frac{\pi(q',-p')}{\pi(q,p)}}
+$$</p>
+<p>Consider \(\pi(q,p) = \exp(-H(q,p))\),</p>
+<p>$$
+a(q',-p'|q,p)=\min{1, \exp(-H(q',-p')+H(q,p)}
+$$</p>
+<p>To sum up, first we design a momentum distribution (or kinetic energy), then we sample a momentum, integrate the Hamiltonian equation to get a proposal, compute the acceptance ratio, sample a uniform value and decide if keep the proposal or not. Repeating these steps we will get a sample set efficiently (acceptance ratio is high).</p>
+<h3 id="no-u-turn-sampler-nuts">No-U-Turn Sampler (NUTS)</h3>
+<p>NUTS helps to control the integration time \(T\). Intuitively, if we follow the momentum too long, it will run too far away, like an U-Turn, and may stop at a point not far from the start point (the field is a closed loop).</p>
+<p><a class="link" href="https://www.notion.so/presentation-3699e0cbcf9046bd9c5bfa209d9f642b"  target="_blank" rel="noopener"
+    >presentation</a></p>
 </section>
 
 
@@ -306,7 +423,7 @@
         
             2020 - 
         
-        2021 XP&#39;s Blog
+        2022 XP&#39;s Blog
     </section>
     
     <section class="powerby">
@@ -416,6 +533,14 @@
                     <nav id="TableOfContents">
   <ol>
     <li><a href="#目标和问题">目标和问题</a></li>
+    <li><a href="#问题">问题</a></li>
+    <li><a href="#metropolis-hasting">Metropolis-Hasting</a></li>
+    <li><a href="#mala-metropolis-adjusted-langevin-algorithm">MALA (Metropolis-adjusted Langevin Algorithm)</a></li>
+    <li><a href="#hamiltonian-mc">Hamiltonian MC</a>
+      <ol>
+        <li><a href="#no-u-turn-sampler-nuts">No-U-Turn Sampler (NUTS)</a></li>
+      </ol>
+    </li>
   </ol>
 </nav>
                 </div>

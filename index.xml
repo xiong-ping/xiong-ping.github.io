@@ -131,7 +131,124 @@ $$&lt;/p&gt;
         <guid>https://blog.xpgreat.com/p/hmc/</guid>
         <description>&lt;p&gt;MCMC（Markov-Chain Monte-Carlo）算法用于生成给定分布的样本。在很多时候，我们想计算一个复杂分布的函数期望值，但用解析的，求解积分的方法，是极其困难的，对于有些分布甚至是不可能的。所以我们使用一些采样方法，例如Gibbs sampling，Metropolis-Hasting算法。本文介绍Hamiltonian Monte-Carlo算法。&lt;/p&gt;
 &lt;h2 id=&#34;目标和问题&#34;&gt;目标和问题&lt;/h2&gt;
-&lt;p&gt;给定一个分布\(\pi(x)\)，计算期望：\(\mathbb E_\pi[f]=\int f(q)\pi(q)dq\)，而直接计算积分是不可行的。因此我们计算期望的一个近似：\(\mathbb E_\pi[f] \approx \frac{1}{N}\sum_i f(x_i)\)&lt;/p&gt;</description>
+&lt;p&gt;给定一个分布\(\pi(x)\)，计算期望：\(\mathbb E_\pi[f]=\int f(q)\pi(q)dq\)，而直接计算积分是不可行的。因此我们计算期望的一个近似：\(\mathbb E_\pi[f] \approx \frac{1}{N}\sum_i f(x_i)\)，使得\(P(x_i) = \pi(x_i)\)。&lt;/p&gt;
+&lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
+&lt;p&gt;从上面的式子可以看出，\(f(q)\)对应的\(\pi(q)dq\)越大，它对最终结果的贡献也越大。所以，如果我们可以从高\(\pi(q)dq\)区域采样，效率会更高。这个区域也被称为&lt;strong&gt;typical set&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://blog.xpgreat.com/media/hmc_1.png&#34; &gt;
+		&lt;img src=&#34;https://blog.xpgreat.com/media/hmc_1.png&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;As q moves farer to mode, the dq rises rapidly, probability decreases. &#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;As q moves farer to mode, the dq rises rapidly, probability decreases.&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;\(q\)运动到距离mode越远的地方，\(dq\)急剧上升，同时概率下降。&lt;/p&gt;
+&lt;p&gt;但是，当\(q\)是高维数据，\(dq\)的体积（volume）变得相对越来越小，我们采样也不容易落到这个typical set里。在绝大多数的时候，我们随机采样的\(q\)落到\(\pi(q)dq\)非常小的地方，这让我们计算期望十分低效。&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://blog.xpgreat.com/media/hmc_2.png&#34; &gt;
+		&lt;img src=&#34;https://blog.xpgreat.com/media/hmc_2.png&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;HMC%20feb2b437ff5644c898eb089ffd8f36cc/Untitled%201.png&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;HMC%20feb2b437ff5644c898eb089ffd8f36cc/Untitled%201.png&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id=&#34;metropolis-hasting&#34;&gt;Metropolis-Hasting&lt;/h2&gt;
+&lt;p&gt;我们可以利用Markov-chain-Monte-Carlo模型来采样。假设我们有一个转移矩阵\(\mathbb T(q&#39;|q)\)，它定义了从\(q\)转移到\(q&#39;\)的概率密度。所有的MCMC转移必须满足**细致平衡（detailed balanced）**条件，即从\(q\)转移到\(q&#39;\)必须是可逆的：$\pi(q)\mathbb T(q&#39;|q) = \pi(q&#39;)\mathbb T(q|q&#39;)$。然而直接找到一个合适的\(\mathbb T\)十分困难，所以我们利用一个acceptance coefficient \(a(q&#39;|q)=\min{1, \frac{\pi(q&#39;)\mathbb Q(q|q&#39;)}{\pi(q)\mathbb Q(q&#39;|q)}}\)，\(\mathbb T=a\mathbb Q\)，这样细致平衡条件就达到了：&lt;/p&gt;
+&lt;p&gt;$$
+\pi(q)\mathbb Q(q&#39;|q) a(q&#39;|q) = \min{\pi(q)\mathbb Q(q&#39;|q), \pi(q&#39;)\mathbb Q(q|q&#39;)}=\pi(q&#39;)\mathbb Q(q|q&#39;) a(q|q&#39;)
+$$&lt;/p&gt;
+&lt;p&gt;如果 \(\mathbb Q(q&#39;|q) = \mathcal N(q&#39;|q,\mathbf \Sigma)\)，这个算法被称为 &lt;strong&gt;Random-Walk Metropolis&lt;/strong&gt;。实践中如果我们可以采样 \(x\sim \mathcal N(0,1)\)并用 \(q&#39; = \mathbf \Sigma ^{0.5} x + q\) 来转化。因为 \(\mathbb Q(q&#39;|q)=\mathbb Q(q|q&#39;)\)，acceptance coefficient 变成了 \(a(q&#39;|q)=\min{1, \frac{\pi(q&#39;)}{\pi(q)}}\)。代码如下&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;n&#34;&gt;qprime&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;q&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sqrt&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sigma&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;random&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;normal&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;size&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;q&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;shape&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;random&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;uniform&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;min&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dist&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pdf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;qprime&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dist&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pdf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;q&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)):&lt;/span&gt;
+	&lt;span class=&#34;n&#34;&gt;q&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;qprime&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;上面的方法还是没有解决高维稀疏的问题。高维\(q\) 会导致acceptance coefficient太低（\(\pi(q&#39;)\) is too small）以至于上面的proposal几乎不会被接受。为了解决这个问题，可以考虑使用概率的梯度来更加靠近高\(\pi\)的区域，即typical set。&lt;/p&gt;
+&lt;h2 id=&#34;mala-metropolis-adjusted-langevin-algorithm&#34;&gt;MALA (Metropolis-adjusted Langevin Algorithm)&lt;/h2&gt;
+&lt;p&gt;MALA 用到了概率方程的梯度和一个随机噪音来更快地逼近typical set。考虑over-damped Langevin Itō diffusion:&lt;/p&gt;
+&lt;p&gt;$$
+\frac{\partial X}{\partial t} = \nabla \log \pi(X) + \sqrt{2} \frac{\partial W}{\partial t}
+$$&lt;/p&gt;
+&lt;p&gt;\(W\)是一个标准布朗运动。为了近似Langevin diffusion采样路径，我们可以使用Euler-Maruyama方法，固定时间步\(\tau\)，我们可以更新\(X\)：&lt;/p&gt;
+&lt;p&gt;$$
+X_{k+1}:= X_k + \tau \nabla \log\pi(X_k) +\sqrt{2\tau} \xi_k
+$$&lt;/p&gt;
+&lt;p&gt;\(\xi_k\sim \mathcal N(0,I)\)。 这个方法可以被用做proposal方法，acceptance coefficient为:&lt;/p&gt;
+&lt;p&gt;$$
+a = \min {1, \frac{\pi(X_{k+1})q(X_k|X_{k+1})}{\pi(X_{k})q(X_{k+1}|X_k)}}
+$$&lt;/p&gt;
+&lt;p&gt;\(q(x&#39;|x)\propto \exp(-\frac{1}{4\tau}||x&#39;-x - \tau\nabla \log\pi(x)||^2_2)\), \(x&#39;|x \sim \mathcal N(x+\tau\nabla\log\pi(x),2\tau)\), 可以从更新等式推导得到.&lt;/p&gt;
+&lt;h2 id=&#34;hamiltonian-mc&#34;&gt;Hamiltonian MC&lt;/h2&gt;
+&lt;p&gt;更进一步的，我们可以将 Hamiltonian Dynamic 用到 MC 算法上。 Hamiltonian等式：&lt;/p&gt;
+&lt;p&gt;$$
+\frac {\partial q}{\partial t} = \frac {\partial H}{\partial p}\&lt;br&gt;
+\frac {\partial p}{\partial t} = -\frac {\partial H}{\partial q}\&lt;br&gt;
+$$&lt;/p&gt;
+&lt;p&gt;\(H=-\log\pi(q,p)=-\log\pi(p|q)-\log\pi(q) =: K(p,q)+V(q)\)被称为能量，\(p\) 是一个辅助动量，\(K,V\)分别是动能和势能。Hamiltonian equation给出一个向量场，类似于地球的引力场。运动一段时间后，\(q\)到达\(q&#39;\)，其轨迹是\(\phi_t(q,p)\)。在这个轨迹上，总能量不变，类似卫星绕地飞行。&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://blog.xpgreat.com/media/hmc_3.png&#34; &gt;
+		&lt;img src=&#34;https://blog.xpgreat.com/media/hmc_3.png&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;HMC%20feb2b437ff5644c898eb089ffd8f36cc/Untitled%202.png&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;HMC%20feb2b437ff5644c898eb089ffd8f36cc/Untitled%202.png&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;现在我们需要设计\(p\) 和 \(\pi(p|q)\)。一个最简单的方法是令 \(p|q\sim\mathcal N(0,1)\)。另外，有两个主流的设计\(p\)的方法：Euclidean-Gaussian Kinetic Energies, \(p|q\sim\mathcal N(0,M)\) and \(M\) is defined as Euclidean metric, or mass in physic, thus \(K(p,q) = 0.5p^TMp+\log(|M|) + const.\)；Riemannian-Gaussian Kinetic Energies, where \(p|q\sim\mathcal N(0,\Sigma(q))\), thus \(K(p,q) = 0.5p^T\Sigma^{-1}(q)p+\log(|\Sigma(q)|) + const.\)。此外还有non-Gaussian kinetic energies，它们的长尾特性可能可以提高模型效果，但是实践上效果往往很差。&lt;/p&gt;
+&lt;p&gt;另一个重要的变量是\(t\)。Basically for distribution family of target densities \(\pi_\beta(q)\propto\exp(-|q|^\beta)\), the optimal time is \(T_{optimal}(q,p)\propto (H(q,p))^\frac{2-\beta}{\beta}\), but it should be tuned dynamically in practice.&lt;/p&gt;
+&lt;p&gt;我们可以先用\(p\sim\pi(p|q)\)采样，然后对Hamilton&amp;rsquo;s equations积分一段时间来得到轨迹\((q,p)\rightarrow\phi_t(q,p)\)，然后投影消除掉\(p\)得到\(q&#39;\)。但是直接对微分方程积分很困难，实践上，我们可以用symplectic integrator来近似，比如 leapfrog algorithm：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Initialize \(q_0, p_0\).&lt;/li&gt;
+&lt;li&gt;for \(0\le n&amp;lt;  T/\epsilon\):
+&lt;ol&gt;
+&lt;li&gt;\(p_{n+\frac{1}{2}} = p_n + \frac{\epsilon}{2}\frac{\partial p}{\partial t}\)&lt;/li&gt;
+&lt;li&gt;\(q_{n+q} = q_n + \epsilon\frac{\partial q}{\partial t}\)&lt;/li&gt;
+&lt;li&gt;\(p_{n+1} = p_n + \frac{\epsilon}{2}\frac{\partial p_{n+\frac{1}{2}}}{\partial t}\)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;注意\(\frac{\partial p}{\partial t}\) and \(\frac{\partial q}{\partial t}\) 需要替换为 Hamiltonian equations。我们还可以对Integrator调参来得到更好的结果。&lt;/p&gt;
+&lt;p&gt;积分后，我们得到一个新的\(q\) 作为proposal，acceptance coefficient为:&lt;/p&gt;
+&lt;p&gt;$$
+a(q&#39;,p&#39;|q,p) = \min{1,\frac{\pi(q&#39;,p&#39;)\mathbb Q(q,p|q&#39;,p&#39;)}{\pi(q,p)\mathbb Q(q&#39;,p&#39;|q,p)}}
+$$&lt;/p&gt;
+&lt;p&gt;\(\mathbb Q(q,p|q_0,p_0)=\delta(q-q_L)\delta(p-p_L)\), \(q_L\) and \(p_L\) are the end point of the trajectory \((q_0,p_0)\rightarrow(q_L,p_L)\). 给定初始状态\((q_0,p_0)\)，这个变换总是可以沿着Hamiltonian equations积分给出轨迹的终点。In the notation above we write \((p&#39;,q&#39;)\) instead of \((p_L,q_L)\) and \((p,q)\) instead of \((p_0,q_0)\), so it&amp;rsquo;s obvious that \(\mathbb Q(q&#39;,p&#39;|q,p) = \delta(q&#39;-q&#39;)\delta(p&#39;-p&#39;) = 1\). However, if we inverse it, starting with \((q_L,p_L)\), it won&amp;rsquo;t go back to \((q_0,p_0)\) (definition of momentum), but go to \((q_{2L},p_{2L})\). So \(\mathbb Q(q,p|q&#39;,p&#39;) = \delta(q-q_{2L})\delta(p-p_{2L}) = 0\) and \(a = 0\), i.e. always reject the proposal. To fix this, we can flip the sign of momentum after we finish integrating: \((q_0,p_0)\rightarrow(q_L,-p_L)\), then inverse: \((q_L,-p_L)\rightarrow(q_0,-(-p_0))\). We also change the definition of \(\mathbb Q\):&lt;/p&gt;
+&lt;p&gt;$$
+\mathbb Q(q,p|q_0,p_0)=\delta(q-q_L)\delta(p+p_L)
+$$&lt;/p&gt;
+&lt;p&gt;then we have (note the changes of notation)&lt;/p&gt;
+&lt;p&gt;$$
+\mathbb Q(q&#39;,-p&#39;|q,p) = \delta(q&#39;-q&#39;)\delta(-p&#39;+p&#39;) = 1 \
+\mathbb Q(q,p|q&#39;,-p&#39;) = \delta(q-q)\delta(p+(-p)) = 1
+$$&lt;/p&gt;
+&lt;p&gt;So we can simplify the acceptance coefficient:&lt;/p&gt;
+&lt;p&gt;$$
+a(q&#39;,-p&#39;|q,p) = \min{1,\frac{\pi(q&#39;,-p&#39;)\mathbb Q(q,p|q&#39;,-p&#39;)}{\pi(q,p)\mathbb Q(q&#39;,-p&#39;|q,p)}} = \min{1,\frac{\pi(q&#39;,-p&#39;)}{\pi(q,p)}}
+$$&lt;/p&gt;
+&lt;p&gt;Consider \(\pi(q,p) = \exp(-H(q,p))\),&lt;/p&gt;
+&lt;p&gt;$$
+a(q&#39;,-p&#39;|q,p)=\min{1, \exp(-H(q&#39;,-p&#39;)+H(q,p)}
+$$&lt;/p&gt;
+&lt;p&gt;To sum up, first we design a momentum distribution (or kinetic energy), then we sample a momentum, integrate the Hamiltonian equation to get a proposal, compute the acceptance ratio, sample a uniform value and decide if keep the proposal or not. Repeating these steps we will get a sample set efficiently (acceptance ratio is high).&lt;/p&gt;
+&lt;h3 id=&#34;no-u-turn-sampler-nuts&#34;&gt;No-U-Turn Sampler (NUTS)&lt;/h3&gt;
+&lt;p&gt;NUTS helps to control the integration time \(T\). Intuitively, if we follow the momentum too long, it will run too far away, like an U-Turn, and may stop at a point not far from the start point (the field is a closed loop).&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.notion.so/presentation-3699e0cbcf9046bd9c5bfa209d9f642b&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;presentation&lt;/a&gt;&lt;/p&gt;</description>
         </item>
         <item>
         <title>Python调用作为参数的函数的方法</title>
