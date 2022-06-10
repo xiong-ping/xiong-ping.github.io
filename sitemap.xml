@@ -2,25 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://blog.xpgreat.com/p/torch_six_issue/</loc>
+    <lastmod>2022-06-10T12:27:12+02:00</lastmod>
+  </url><url>
     <loc>https://blog.xpgreat.com/categories/</loc>
-    <lastmod>2021-08-29T10:56:18+02:00</lastmod>
+    <lastmod>2022-06-10T12:27:12+02:00</lastmod>
+  </url><url>
+    <loc>https://blog.xpgreat.com/post/</loc>
+    <lastmod>2022-06-10T12:27:12+02:00</lastmod>
+  </url><url>
+    <loc>https://blog.xpgreat.com/tags/python/</loc>
+    <lastmod>2022-06-10T12:27:12+02:00</lastmod>
+  </url><url>
+    <loc>https://blog.xpgreat.com/categories/python/</loc>
+    <lastmod>2022-06-10T12:27:12+02:00</lastmod>
+  </url><url>
+    <loc>https://blog.xpgreat.com/tags/</loc>
+    <lastmod>2022-06-10T12:27:12+02:00</lastmod>
+  </url><url>
+    <loc>https://blog.xpgreat.com/</loc>
+    <lastmod>2022-06-10T12:27:12+02:00</lastmod>
+  </url><url>
+    <loc>https://blog.xpgreat.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2022-06-10T12:27:12+02:00</lastmod>
   </url><url>
     <loc>https://blog.xpgreat.com/p/lrp/</loc>
     <lastmod>2021-08-29T10:56:18+02:00</lastmod>
   </url><url>
-    <loc>https://blog.xpgreat.com/post/</loc>
-    <lastmod>2021-08-29T10:56:18+02:00</lastmod>
-  </url><url>
-    <loc>https://blog.xpgreat.com/tags/</loc>
-    <lastmod>2021-08-29T10:56:18+02:00</lastmod>
-  </url><url>
     <loc>https://blog.xpgreat.com/tags/xai/</loc>
-    <lastmod>2021-08-29T10:56:18+02:00</lastmod>
-  </url><url>
-    <loc>https://blog.xpgreat.com/</loc>
-    <lastmod>2021-08-29T10:56:18+02:00</lastmod>
-  </url><url>
-    <loc>https://blog.xpgreat.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2021-08-29T10:56:18+02:00</lastmod>
   </url><url>
     <loc>https://blog.xpgreat.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/</loc>
@@ -43,9 +52,6 @@
   </url><url>
     <loc>https://blog.xpgreat.com/tags/%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2021-08-17T20:34:54+02:00</lastmod>
-  </url><url>
-    <loc>https://blog.xpgreat.com/tags/python/</loc>
-    <lastmod>2021-06-10T11:00:00+02:00</lastmod>
   </url><url>
     <loc>https://blog.xpgreat.com/p/function_parameter_dict/</loc>
     <lastmod>2021-06-10T11:00:00+02:00</lastmod>

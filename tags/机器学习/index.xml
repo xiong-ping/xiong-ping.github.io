@@ -6,7 +6,19 @@
     <description>Recent content in 机器学习 on XP&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 29 Aug 2021 10:56:18 +0200</lastBuildDate><atom:link href="https://blog.xpgreat.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 10 Jun 2022 12:27:12 +0200</lastBuildDate><atom:link href="https://blog.xpgreat.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>cannot import name ‘container_abcs‘ from ‘torch._six‘错误的解决方法</title>
+      <link>https://blog.xpgreat.com/p/torch_six_issue/</link>
+      <pubDate>Fri, 10 Jun 2022 12:27:12 +0200</pubDate>
+      
+      <guid>https://blog.xpgreat.com/p/torch_six_issue/</guid>
+      <description>在升级PyTorch 1.9以后用一些老版本的开源代码的时候会出现这种问题。与此类似的还有：
+cannot import name ‘container_abcs‘ from ‘torch._six‘ cannot import name ‘int_classes‘ from ‘torch._six‘ 解决方法是定位到相应的import的位置，然后把原来的import改成：
+# from torch._six import container_abcs as container_abcs # from torch._six import int_classes as int_classes TORCH_MAJOR = int(torch.__version__.split(&amp;#39;.&amp;#39;)[0]) TORCH_MINOR = int(torch.__version__.split(&amp;#39;.&amp;#39;)[1]) if TORCH_MAJOR == 1 and TORCH_MINOR &amp;lt; 8: from torch._six import container_abcs from torch._six import int_classes as int_classes else: import collections.abc as container_abcs int_classes = int DIG包，报错环境信息：
+torch 1.11.0 torchvision 0.12.0 torch-sparse 0.6.13 torch-scatter 2.0.9 torch-geometric 1.</description>
+    </item>
+    
     <item>
       <title>LRP简介</title>
       <link>https://blog.xpgreat.com/p/lrp/</link>
